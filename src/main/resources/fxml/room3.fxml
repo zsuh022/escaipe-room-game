@@ -13,5 +13,10 @@
          </font>
       </Label>
       <Button layoutX="55.0" layoutY="209.0" mnemonicParsing="false" onAction="#buttonClicked" text="room1" />
+      <Label fx:id="timeLabel" layoutX="470.0" layoutY="75.0" prefHeight="38.0" prefWidth="91.0">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
