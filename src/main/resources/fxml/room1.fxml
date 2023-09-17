@@ -2,17 +2,55 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <Pane fx:id="room" focusTraversable="true" onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleased" prefHeight="470.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room1Controller">
    <children>
-      <Label layoutX="243.0" layoutY="128.0" prefHeight="41.0" prefWidth="114.0" text="room1">
-         <font>
-            <Font name="Arial" size="35.0" />
-         </font>
-      </Label>
-      <Button layoutX="71.0" layoutY="235.0" mnemonicParsing="false" onAction="#room2ButtonClicked" text="room2" />
-      <Button layoutX="489.0" layoutY="235.0" mnemonicParsing="false" onAction="#room3ButtonClicked" text="room3" />
+      <ImageView fitHeight="470.0" fitWidth="607.0">
+         <image>
+            <Image url="@../images/room1imageview.jpeg" />
+         </image>
+      </ImageView>
+      <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" onAction="#room2ButtonClicked" text="room2" />
+      <Button layoutX="521.0" layoutY="235.0" mnemonicParsing="false" onAction="#room3ButtonClicked" text="room3" />
+      <Pane fx:id="keyInserter" layoutX="204.0" layoutY="148.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="207.0" layoutX="-2.0">
+               <image>
+                  <Image url="@../images/IMG_0052.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="keyLabel" layoutX="21.0" layoutY="14.0" prefHeight="52.0" prefWidth="164.0" textFill="#cd2727">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="1" />
+            <Button layoutX="67.0" layoutY="74.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="2" />
+            <Button layoutX="120.0" layoutY="74.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="3" />
+            <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="23.0" text="4" />
+            <Button layoutX="67.0" layoutY="100.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="5" />
+            <Button layoutX="120.0" layoutY="100.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="6" />
+            <Button layoutX="14.0" layoutY="126.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="7" />
+            <Button layoutX="67.0" layoutY="126.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="8" />
+            <Button layoutX="120.0" layoutY="126.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="9" />
+            <Button layoutX="14.0" layoutY="152.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="0" />
+            <Button blendMode="MULTIPLY" layoutX="67.0" layoutY="152.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="x" />
+            <Button blendMode="MULTIPLY" layoutX="120.0" layoutY="152.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="Enter" />
+            <Button layoutX="188.0" layoutY="6.0" mnemonicParsing="false" onAction="#closeKeyInserter" text="x" textFill="RED">
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fx:id="smallKeyInserter" fitHeight="42.0" fitWidth="53.0" layoutX="367.0" layoutY="240.0" onMouseClicked="#openKeyInserter" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/keyinserter.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
