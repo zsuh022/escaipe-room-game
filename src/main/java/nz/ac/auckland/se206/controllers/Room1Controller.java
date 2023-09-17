@@ -9,8 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.roomType;
-import nz.ac.auckland.se206.TimeManager;
 
 /** Controller class for the room view. */
 public class Room1Controller {
@@ -101,6 +101,6 @@ public class Room1Controller {
   @FXML private Label timeLabel;
 
   private void initializeTimer() {
-    timeLabel.textProperty().bind(TimeManager.getSecond().asString());
+    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 }

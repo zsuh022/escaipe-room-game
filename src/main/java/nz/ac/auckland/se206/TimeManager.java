@@ -9,11 +9,14 @@ import nz.ac.auckland.se206.speech.TextToSpeech;
 
 public class TimeManager {
 
-  private static Timeline timeLine;
-  private static IntegerProperty seconds = new SimpleIntegerProperty(60);
+  private Timeline timeLine;
+  private IntegerProperty seconds;
 
-  public static void setTimer() {
+  public void setTime(int seconds) {
+    this.seconds = new SimpleIntegerProperty(seconds);
+  }
 
+  public void setTimer() {
     timeLine =
         new Timeline(
             new KeyFrame(
@@ -37,7 +40,7 @@ public class TimeManager {
                         new Thread(
                             () -> {
                               TextToSpeech textToSpeech = new TextToSpeech();
-                              textToSpeech.speak(String.valueOf(seconds));
+                              textToSpeech.speak(String.valueOf(seconds.get()));
                             });
                     thread2.start();
                   }
@@ -56,7 +59,7 @@ public class TimeManager {
     //     });
   }
 
-  public static IntegerProperty getSecond() {
+  public IntegerProperty getSecond() {
     return seconds;
   }
 }
