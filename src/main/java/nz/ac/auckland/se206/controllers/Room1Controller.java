@@ -10,6 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.TimeManager;
 
 /** Controller class for the room view. */
 public class Room1Controller {
@@ -36,7 +37,7 @@ public class Room1Controller {
 
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
-    // Initialization code goes here
+    initializeTimer();
   }
 
   @FXML
@@ -95,5 +96,11 @@ public class Room1Controller {
   public void closeKeyInserter() {
     keyInserter.setVisible(false);
     smallKeyInserter.setVisible(true);
+  }
+
+  @FXML private Label timeLabel;
+
+  private void initializeTimer() {
+    timeLabel.textProperty().bind(TimeManager.getSecond().asString());
   }
 }
