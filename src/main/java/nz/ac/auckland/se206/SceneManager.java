@@ -7,9 +7,11 @@ public class SceneManager {
 
   public enum roomType {
     MENU,
+    CHAT,
     ROOM1,
     ROOM2,
     ROOM3,
+    ROOM4,
     ENDING
   }
 
