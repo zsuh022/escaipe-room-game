@@ -30,6 +30,7 @@ public class MenuController {
     SceneManager.addUi(roomType.ROOM1, App.loadFxml("room1"));
     SceneManager.addUi(roomType.ROOM2, App.loadFxml("room2"));
     SceneManager.addUi(roomType.ROOM3, App.loadFxml("room3"));
+    SceneManager.addUi(roomType.ROOM4, App.loadFxml("room4"));
     App.setUi(roomType.ROOM1);
     GameState.timeManager.setTimer();
   }
