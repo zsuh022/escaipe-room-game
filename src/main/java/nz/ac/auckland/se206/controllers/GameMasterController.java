@@ -33,9 +33,17 @@ public class GameMasterController {
   public void initialize() throws ApiProxyException {
     chatCompletionRequest =
         new ChatCompletionRequest().setN(1).setTemperature(0.2).setTopP(0.5).setMaxTokens(100);
-    runGpt(
-        new ChatMessage("user", GptPromptEngineering.getRiddleWithGivenWord(GameState.riddleWord)));
+
+    if (GameState.difficulty == 1) {
+      runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterEasy()));
+    } else if (GameState.difficulty == 2) {
+      runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterMid()));
+    } else {
+      runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterHard()));
+    }
   }
+
+  public void updateGPT() {}
 
   /**
    * Appends a chat message to the chat text area.
