@@ -26,5 +26,10 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="42.0" layoutX="425.0" layoutY="504.0" onMouseClicked="#computerClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="42.0" layoutX="274.0" layoutY="538.0" onMouseClicked="#computerClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="32.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="42.0" layoutX="738.0" layoutY="545.0" onMouseClicked="#computerClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+      <ImageView fitHeight="170.0" fitWidth="189.0" layoutX="44.0" layoutY="20.0" onMouseClicked="#gameMasterClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/gameMaster.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-import java.util.Random;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -32,15 +31,6 @@ public class GameMasterController {
    */
   @FXML
   public void initialize() throws ApiProxyException {
-
-    String[] celestialBodies = {
-      "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"
-    };
-    Random random = new Random();
-    int randomIndex = random.nextInt(celestialBodies.length);
-    System.out.println(celestialBodies[randomIndex]);
-
-    GameState.riddleWord = celestialBodies[randomIndex];
     chatCompletionRequest =
         new ChatCompletionRequest().setN(1).setTemperature(0.2).setTopP(0.5).setMaxTokens(100);
     runGpt(
