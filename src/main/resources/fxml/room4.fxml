@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" focusTraversable="true" prefHeight="470.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room4Controller">
+<Pane fx:id="room" focusTraversable="true" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room4Controller">
    <children>
-      <ImageView fitHeight="470.0" fitWidth="607.0">
+      <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
             <Image url="@../images/room4imageview.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" onAction="#room2ButtonClicked" text="room2" />
-      <Button layoutX="521.0" layoutY="235.0" mnemonicParsing="false" onAction="#room3ButtonClicked" text="room3" />
-      <Pane fx:id="keyInserter" layoutX="204.0" layoutY="148.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <Button layoutX="46.0" layoutY="371.0" mnemonicParsing="false" onAction="#room2ButtonClicked" text="room2" />
+      <Button layoutX="920.0" layoutY="370.0" mnemonicParsing="false" onAction="#room3ButtonClicked" text="room3" />
+      <Pane fx:id="keyInserter" layoutX="430.0" layoutY="350.0" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <ImageView fitHeight="200.0" fitWidth="207.0" layoutX="-2.0">
                <image>
@@ -47,16 +47,16 @@
             </Button>
          </children>
       </Pane>
-      <ImageView fx:id="smallKeyInserter" fitHeight="42.0" fitWidth="53.0" layoutX="367.0" layoutY="240.0" onMouseClicked="#openKeyInserter" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="smallKeyInserter" fitHeight="42.0" fitWidth="53.0" layoutX="642.0" layoutY="401.0" onMouseClicked="#openKeyInserter" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/keyinserter.png" />
          </image>
       </ImageView>
-      <Label fx:id="timeLabel" layoutX="410.0" layoutY="71.0" prefHeight="42.0" prefWidth="137.0">
+      <Label fx:id="timeLabel" layoutX="810.0" layoutY="42.0" prefHeight="42.0" prefWidth="137.0">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Button layoutX="278.0" layoutY="45.0" mnemonicParsing="false" onAction="#room1ButtonClicked" text="room1" />
+      <Button layoutX="493.0" layoutY="51.0" mnemonicParsing="false" onAction="#room1ButtonClicked" text="room1" />
    </children>
 </Pane>

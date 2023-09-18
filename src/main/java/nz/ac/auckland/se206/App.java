@@ -51,7 +51,7 @@ public class App extends Application {
   public void start(final Stage stage) throws IOException {
     SceneManager.addUi(roomType.CHAT, App.loadFxml("chat"));
     Parent root = loadFxml("menu");
-    scene = new Scene(root, 600, 470);
+    scene = new Scene(root, 1024, 768);
     stage.setScene(scene);
     stage.show();
     root.requestFocus();

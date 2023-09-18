@@ -6,31 +6,31 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
    <children>
-      <Label layoutX="207.0" layoutY="49.0" prefHeight="92.0" prefWidth="172.0" text="Menu">
+      <Label layoutX="428.0" layoutY="141.0" prefHeight="92.0" prefWidth="172.0" text="Menu">
          <font>
             <Font size="70.0" />
          </font>
       </Label>
-      <Button layoutX="271.0" layoutY="316.0" mnemonicParsing="false" onAction="#buttonClicked" text="start" />
-      <Slider fx:id="difficultySlider" layoutX="194.0" layoutY="184.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="15.0" prefWidth="253.0" showTickMarks="true" snapToTicks="true" value="2.0" />
-      <Label layoutX="116.0" layoutY="179.0" prefHeight="33.0" prefWidth="72.0" text="Difficulty">
+      <Button layoutX="488.0" layoutY="457.0" mnemonicParsing="false" onAction="#buttonClicked" text="start" />
+      <Slider fx:id="difficultySlider" layoutX="411.0" layoutY="325.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="15.0" prefWidth="253.0" showTickMarks="true" snapToTicks="true" value="2.0" />
+      <Slider fx:id="timeSlider" layoutX="411.0" layoutY="393.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="15.0" prefWidth="253.0" showTickMarks="true" snapToTicks="true" value="2.0" />
+      <Label layoutX="333.0" layoutY="320.0" prefHeight="33.0" prefWidth="72.0" text="Difficulty">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="116.0" layoutY="245.0" prefHeight="33.0" prefWidth="65.0" text="Time">
+      <Label layoutX="333.0" layoutY="386.0" prefHeight="33.0" prefWidth="65.0" text="Time">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Slider fx:id="timeSlider" layoutX="194.0" layoutY="252.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="15.0" prefWidth="253.0" showTickMarks="true" snapToTicks="true" value="2.0" />
-      <Label layoutX="312.0" layoutY="209.0" prefHeight="25.0" prefWidth="52.0" text="Mid" />
-      <Label layoutX="188.0" layoutY="209.0" prefHeight="25.0" prefWidth="52.0" text="Easy" />
-      <Label layoutX="421.0" layoutY="209.0" prefHeight="25.0" prefWidth="52.0" text="Hard" />
-      <Label layoutX="195.0" layoutY="266.0" prefHeight="25.0" prefWidth="25.0" text="2" />
-      <Label layoutX="313.0" layoutY="266.0" prefHeight="25.0" prefWidth="15.0" text="4" />
-      <Label layoutX="432.0" layoutY="266.0" prefHeight="25.0" prefWidth="15.0" text="6" />
+      <Label layoutX="405.0" layoutY="350.0" prefHeight="25.0" prefWidth="52.0" text="Easy" />
+      <Label layoutX="529.0" layoutY="350.0" prefHeight="25.0" prefWidth="52.0" text="Mid" />
+      <Label layoutX="638.0" layoutY="350.0" prefHeight="25.0" prefWidth="52.0" text="Hard" />
+      <Label layoutX="412.0" layoutY="407.0" prefHeight="25.0" prefWidth="25.0" text="2" />
+      <Label layoutX="530.0" layoutY="407.0" prefHeight="25.0" prefWidth="15.0" text="4" />
+      <Label layoutX="649.0" layoutY="407.0" prefHeight="25.0" prefWidth="15.0" text="6" />
    </children>
 </Pane>
