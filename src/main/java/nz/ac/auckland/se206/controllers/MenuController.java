@@ -16,7 +16,22 @@ public class MenuController {
 
   @FXML
   private void buttonClicked() throws IOException {
+    setDifficulty();
+    setGameTime();
+    setKey();
+    SceneManager.addUi(roomType.ROOM1, App.loadFxml("room1"));
+    SceneManager.addUi(roomType.ROOM2, App.loadFxml("room2"));
+    SceneManager.addUi(roomType.ROOM3, App.loadFxml("room3"));
+    SceneManager.addUi(roomType.ROOM4, App.loadFxml("room4"));
+    App.setUi(roomType.ROOM1);
+    GameState.timeManager.setTimer();
+  }
+
+  private void setDifficulty() {
     GameState.difficulty = (int) difficultySlider.getValue();
+  }
+
+  private void setGameTime() {
     switch ((int) timeSlider.getValue()) {
       case 1:
         GameState.timeManager.setTime(120);
@@ -28,6 +43,9 @@ public class MenuController {
         GameState.timeManager.setTime(360);
         break;
     }
+  }
+
+  private void setKey() {
     Random random = new Random();
     int number = random.nextInt(3) + 1;
     switch (number) {
@@ -42,11 +60,5 @@ public class MenuController {
         break;
     }
     System.out.println(number + GameState.key);
-    SceneManager.addUi(roomType.ROOM1, App.loadFxml("room1"));
-    SceneManager.addUi(roomType.ROOM2, App.loadFxml("room2"));
-    SceneManager.addUi(roomType.ROOM3, App.loadFxml("room3"));
-    SceneManager.addUi(roomType.ROOM4, App.loadFxml("room4"));
-    App.setUi(roomType.ROOM1);
-    GameState.timeManager.setTimer();
   }
 }
