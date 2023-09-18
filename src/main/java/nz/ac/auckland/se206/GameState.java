@@ -16,4 +16,6 @@ public class GameState {
   public static int difficulty; // 1 - easy, 2 - mid, 3 - hard
 
   public static TimeManager timeManager = new TimeManager();
+
+  public static String riddleWord;
 }

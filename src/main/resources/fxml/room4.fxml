@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="470.0" fitWidth="607.0">
          <image>
-            <Image url="@../images/room1imageview.jpeg" />
+            <Image url="@../images/room4imageview.jpeg" />
          </image>
       </ImageView>
       <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" onAction="#room2ButtonClicked" text="room2" />

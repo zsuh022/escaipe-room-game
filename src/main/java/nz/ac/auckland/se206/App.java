@@ -49,6 +49,7 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
+    SceneManager.addUi(roomType.CHAT, App.loadFxml("chat"));
     Parent root = loadFxml("menu");
     scene = new Scene(root, 600, 470);
     stage.setScene(scene);

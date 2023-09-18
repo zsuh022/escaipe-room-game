@@ -31,6 +31,12 @@ public class Room1Controller {
     App.setUi(roomType.ROOM4);
   }
 
+  @FXML
+  private void computerClicked() {
+    System.out.println("Computer clicked");
+    App.setUi(roomType.CHAT);
+  }
+
   @FXML private Label timeLabel;
 
   private void initializeTimer() {
