@@ -43,14 +43,12 @@ public class GameMasterController {
     }
   }
 
-  public void updateGPT() {}
-
   /**
    * Appends a chat message to the chat text area.
    *
    * @param msg the chat message to append
    */
-  private void appendChatMessage(ChatMessage msg) {
+  public void appendChatMessage(ChatMessage msg) {
     chatTextArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n");
   }
 
@@ -85,6 +83,7 @@ public class GameMasterController {
    */
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
+    updateGPT();
     String message = inputText.getText();
     if (message.trim().isEmpty()) {
       return;
@@ -92,9 +91,13 @@ public class GameMasterController {
     inputText.clear();
     ChatMessage msg = new ChatMessage("user", message);
     appendChatMessage(msg);
-    ChatMessage lastMsg = runGpt(msg);
-    if (lastMsg.getRole().equals("assistant") && lastMsg.getContent().startsWith("Correct")) {
-      GameState.isRiddleResolved = true;
+    runGpt(msg);
+  }
+
+  public void updateGPT() throws ApiProxyException {
+    if (GameState.isPuzzleRoom3Solved) {
+      ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
+      runGpt(msg);
     }
   }
 

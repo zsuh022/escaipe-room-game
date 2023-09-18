@@ -27,15 +27,13 @@ public class GptPromptEngineering {
   }
 
   public static String getHintTwo() {
-    return "Hint 2.the user should enter the date into the key inserter.";
+    return "The user has finished solving the riddle and puzzels, congrates he/she. Here is hint"
+        + " 2.the user should enter the date into the key inserter, the key is splitted"
+        + " into 3 pieces and combine them.";
   }
 
   public static String getHintThree() {
-    return "Hint 3.the key is splitted into 3 pieces and combine them.";
-  }
-
-  public static String getHintFour() {
-    return "Hint 4.the key combined is a date in the format of MM/DD/YYYY.";
+    return "Hint 3.the key combined is a date in the format of MM/DD/YYYY.";
   }
 
   public static String getGameMasterEasy() {

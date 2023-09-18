@@ -12,11 +12,19 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <Button layoutX="55.0" layoutY="209.0" mnemonicParsing="false" onAction="#buttonClicked" text="room1" />
+      <Button layoutX="55.0" layoutY="209.0" mnemonicParsing="false" onAction="#buttonClicked" text="room1">
+         <font>
+            <Font size="29.0" />
+         </font></Button>
       <Label fx:id="timeLabel" layoutX="470.0" layoutY="75.0" prefHeight="38.0" prefWidth="91.0">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
+      <Button layoutX="493.0" layoutY="428.0" mnemonicParsing="false" onAction="#solveButtonClicked" text="Puzzel solve">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
