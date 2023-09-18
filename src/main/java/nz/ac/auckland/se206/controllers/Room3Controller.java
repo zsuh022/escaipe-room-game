@@ -13,6 +13,14 @@ public class Room3Controller {
     initializeTimer();
   }
 
+  // **************************************************
+  // PLEASE CALL THIS METHOD WHEN THE PUZZLE IS SOLVED
+  // **************************************************
+  private void puzzleSolved() {
+    System.out.println("Puzzle solved");
+    GameState.isPuzzleRoom3Solved = true;
+  }
+
   @FXML
   private void buttonClicked() {
     System.out.println("Button clicked");
