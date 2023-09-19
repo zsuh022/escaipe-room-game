@@ -1,9 +1,13 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Random;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager;
@@ -13,6 +17,19 @@ public class MenuController {
 
   @FXML private Slider difficultySlider;
   @FXML private Slider timeSlider;
+  @FXML private MediaView earthMpfour;
+
+  /**
+   * Initializes the room view, it is called when the room loads.
+   *
+   * @throws URISyntaxException
+   */
+  public void initialize() throws URISyntaxException {
+    Media media = new Media(App.class.getResource("/sounds/earth.mp4").toURI().toString());
+    MediaPlayer player = new MediaPlayer(media);
+    earthMpfour.setMediaPlayer(player);
+    player.play();
+  }
 
   @FXML
   private void buttonClicked() throws IOException {
