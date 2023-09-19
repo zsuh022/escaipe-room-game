@@ -2,6 +2,8 @@ package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.SceneManager.roomType;
 
 public class Room3PuzzleController {
 
@@ -14,9 +16,16 @@ public class Room3PuzzleController {
   @FXML private Button btn7;
   @FXML private Button btn8;
   @FXML private Button btn9;
+  @FXML private Button btnExitPuzzle;
 
   @FXML
   private void tileClicked() {
     System.out.println("Tile clicked");
+  }
+
+  @FXML
+  private void backButtonClicked() {
+    System.out.println("Back button clicked");
+    App.setUi(roomType.ROOM3);
   }
 }

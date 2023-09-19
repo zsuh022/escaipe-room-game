@@ -31,5 +31,6 @@
             <Button fx:id="btn9" mnemonicParsing="false" onAction="#tileClicked" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
+      <Button fx:id="btnExitPuzzle" layoutX="102.0" layoutY="678.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back" />
    </children>
 </Pane>
