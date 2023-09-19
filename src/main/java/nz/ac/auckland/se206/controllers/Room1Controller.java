@@ -42,7 +42,7 @@ public class Room1Controller {
     System.out.println("Game master clicked");
     App.setUi(roomType.GAMEMASTER);
   }
-  
+
   @FXML private Label timeLabel;
 
   private void initializeTimer() {

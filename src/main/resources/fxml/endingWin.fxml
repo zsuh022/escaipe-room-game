@@ -1,23 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.media.Media?>
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EndingWinController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768" prefWidth="1024" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EndingWinController">
    <children>
-      <Label layoutX="161.0" layoutY="49.0" prefHeight="92.0" prefWidth="320.0" text="Congrats">
+      <ImageView fitHeight="779.0" fitWidth="1049.0" layoutX="-12.0" layoutY="-1.0" onMouseEntered="#baseTouched">
+         <image>
+            <Image url="@../images/stars.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="359.0" layoutY="45.0" prefHeight="92.0" prefWidth="320.0" text="Congrates" textFill="#e9ff00">
          <font>
             <Font size="70.0" />
          </font>
       </Label>
-      <Button layoutX="393.0" layoutY="266.0" mnemonicParsing="false" onAction="#exitButtonClicked" text="Exit" />
-      <Label fx:id="timeLabel" layoutX="470.0" layoutY="75.0" prefHeight="38.0" prefWidth="91.0">
+      <Label fx:id="keyLabel" layoutX="23.0" layoutY="179.0" onMouseEntered="#keyLabelEntered" prefHeight="92.0" prefWidth="320.0" text="xxxxxx" textFill="#e9ff00">
          <font>
-            <Font size="32.0" />
+            <Font size="60.0" />
          </font>
       </Label>
-      <Button layoutX="172.0" layoutY="266.0" mnemonicParsing="false" onAction="#restartButtonClicked" text="Restart" />
+      <Label fx:id="riddleLabel" layoutX="19.0" layoutY="396.0" onMouseEntered="#riddleLabelEntered" prefHeight="92.0" prefWidth="323.0" text="xxxxxx" textFill="#e4ff00">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Label>
+      <Button layoutX="718.0" layoutY="598.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="62.0" prefWidth="126.0" text="Exit">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button layoutX="159.0" layoutY="595.0" mnemonicParsing="false" onAction="#restartButtonClicked" prefHeight="62.0" prefWidth="127.0" text="Restart">
+         <font>
+            <Font size="28.0" />
+         </font></Button>
+      <Pane layoutX="314.0" layoutY="203.0" prefHeight="177.0" prefWidth="648.0">
+         <children>
+            <TextArea fx:id="keyTextArea" layoutX="-6.0" layoutY="-7.0" onMouseEntered="#keyTextAreaEntered" opacity="0.6" prefHeight="193.0" prefWidth="658.0" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS" size="25.0" />
+               </font>
+            </TextArea>
+         </children>
+      </Pane>
+      <Pane layoutX="307.0" layoutY="404.0" prefHeight="178.0" prefWidth="660.0">
+         <children>
+            <TextArea fx:id="riddleTextArea" layoutY="-2.0" onMouseEntered="#riddleTextAreaEntered" opacity="0.6" prefHeight="181.0" prefWidth="662.0" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS" size="25.0" />
+               </font>
+            </TextArea>
+         </children>
+      </Pane>
+      <MediaView fx:id="depart" fitHeight="0.0" fitWidth="0.0" layoutX="-251.0" layoutY="53.0">
+         <mediaPlayer>
+            <MediaPlayer>
+               <media>
+                  <Media>
+                     <source>
+                        <URL value="@../sounds/Depart.mp4" />
+                     </source>
+                  </Media>
+               </media>
+            </MediaPlayer>
+         </mediaPlayer>
+      </MediaView>
+      <Label fx:id="skipLabel" layoutX="420.0" layoutY="565.0" prefHeight="73.0" prefWidth="217.0" text="Click to skip" textFill="WHITE">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
