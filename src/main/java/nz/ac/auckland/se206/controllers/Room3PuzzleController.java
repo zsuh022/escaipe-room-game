@@ -13,4 +13,10 @@ public class Room3PuzzleController {
   @FXML private Button btn6;
   @FXML private Button btn7;
   @FXML private Button btn8;
+  @FXML private Button btn9;
+
+  @FXML
+  private void tileClicked() {
+    System.out.println("Tile clicked");
+  }
 }
