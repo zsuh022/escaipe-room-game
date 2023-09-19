@@ -36,7 +36,7 @@ public class Room3PuzzleController {
     buttons = Arrays.asList(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btnEmpty);
 
     // shuffle the buttons
-    Collections.shuffle(buttons);
+    shuffleButtons();
 
     for (int i = 0; i < buttons.size(); i++) {
       Button button = buttons.get(i);
@@ -118,8 +118,35 @@ public class Room3PuzzleController {
     return true;
   }
 
+  private boolean isSolvable(List<Button> buttons) {
+    int inversions = 0;
+
+    for (int i = 0; i < buttons.size() - 1; i++) {
+      for (int j = i + 1; j < buttons.size(); j++) {
+        // exclude the empty button for the inversion calculation
+        if (buttons.get(i).getText().isEmpty() || buttons.get(j).getText().isEmpty()) {
+          continue;
+        }
+
+        if (Integer.parseInt(buttons.get(i).getText())
+            > Integer.parseInt(buttons.get(j).getText())) {
+          inversions++;
+        }
+      }
+    }
+
+    // if grid width is odd, return true if inversion count is even
+    return inversions % 2 == 0;
+  }
+
   private void puzzleSolved() throws ApiProxyException {
     System.out.println("Puzzle solved");
     GameState.isPuzzleRoom3Solved = true;
+  }
+
+  private void shuffleButtons() {
+    do {
+      Collections.shuffle(buttons);
+    } while (!isSolvable(buttons));
   }
 }
