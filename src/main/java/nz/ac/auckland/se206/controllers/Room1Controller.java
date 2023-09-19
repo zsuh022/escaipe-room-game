@@ -2,8 +2,10 @@ package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.roomType;
 
 public class Room1Controller {
@@ -47,5 +49,24 @@ public class Room1Controller {
 
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
+  }
+
+  @FXML private ImageView crossImage;
+  @FXML private ImageView waveImage;
+
+  @FXML
+  private void muteBarClick() {
+    System.out.println("Mute bar clicked");
+    if (GameState.isMuted) {
+      GameState.isMuted = false;
+      crossImage.setVisible(false);
+      waveImage.setVisible(true);
+      MusicManager.unmute();
+    } else {
+      GameState.isMuted = true;
+      crossImage.setVisible(true);
+      waveImage.setVisible(false);
+      MusicManager.mute();
+    }
   }
 }

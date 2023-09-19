@@ -1,9 +1,10 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.net.URISyntaxException;
+import javafx.fxml.FXML;
+import nz.ac.auckland.se206.MusicManager;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.media.Media;
@@ -107,6 +108,10 @@ public class EndingWinController {
   }
 
   @FXML
+  private void initialize() throws URISyntaxException {
+    System.out.println("EndingWinController initialized");
+    MusicManager.playHappySong();
+
   private void baseTouched() {
     keyTextArea.setVisible(false);
     riddleTextArea.setVisible(false);

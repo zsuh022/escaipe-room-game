@@ -7,13 +7,17 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import java.net.URISyntaxException;
+import nz.ac.auckland.se206.MusicManager;
 
 public class EndingLoseController {
 
   @FXML private ImageView gameMasterLose;
 
   @FXML
-  private void initialize() {
+  private void initialize() throws URISyntaxException {
+    System.out.println("EndingWinController initialized");
+    MusicManager.playBadSong();
     gameMasterTransition();
   }
 

@@ -11,6 +11,7 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.roomType;
 
@@ -35,7 +36,7 @@ public class MenuController {
   }
 
   @FXML
-  private void buttonClicked() throws IOException {
+  private void buttonClicked() throws IOException, URISyntaxException {
     setDifficulty();
     setGameTime();
     setKey();
@@ -48,6 +49,8 @@ public class MenuController {
     App.setUi(roomType.ROOM1);
     GameState.timeManager.setTimer();
     player.stop();
+    MusicManager.playGameSong();
+    GameState.timeManager.setTimer();
   }
 
   private void setDifficulty() {
