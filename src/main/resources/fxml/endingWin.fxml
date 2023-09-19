@@ -14,7 +14,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768" prefWidth="1024" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EndingWinController">
    <children>
-      <ImageView fitHeight="779.0" fitWidth="1049.0" layoutX="-12.0" layoutY="-1.0">
+      <ImageView fitHeight="779.0" fitWidth="1049.0" layoutX="-12.0" layoutY="-1.0" onMouseEntered="#baseTouched">
          <image>
             <Image url="@../images/stars.jpg" />
          </image>
@@ -24,12 +24,12 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <Label fx:id="keyLabel" layoutX="23.0" layoutY="179.0" onMouseEntered="#keyLabelEntered" onMouseExited="#keyLabelExited" prefHeight="92.0" prefWidth="320.0" text="xxxxxx" textFill="#e9ff00">
+      <Label fx:id="keyLabel" layoutX="23.0" layoutY="179.0" onMouseEntered="#keyLabelEntered" prefHeight="92.0" prefWidth="320.0" text="xxxxxx" textFill="#e9ff00">
          <font>
             <Font size="60.0" />
          </font>
       </Label>
-      <Label fx:id="riddleLabel" layoutX="21.0" layoutY="367.0" onMouseEntered="#riddleLabelEntered" onMouseExited="#riddleLabelExited" prefHeight="92.0" prefWidth="320.0" text="xxxxxx" textFill="#e4ff00">
+      <Label fx:id="riddleLabel" layoutX="19.0" layoutY="396.0" onMouseEntered="#riddleLabelEntered" prefHeight="92.0" prefWidth="323.0" text="xxxxxx" textFill="#e4ff00">
          <font>
             <Font size="60.0" />
          </font>
@@ -44,7 +44,7 @@
          </font></Button>
       <Pane layoutX="314.0" layoutY="203.0" prefHeight="177.0" prefWidth="648.0">
          <children>
-            <TextArea fx:id="keyTextArea" layoutX="-6.0" layoutY="-7.0" opacity="0.6" prefHeight="193.0" prefWidth="658.0" wrapText="true">
+            <TextArea fx:id="keyTextArea" layoutX="-6.0" layoutY="-7.0" onMouseEntered="#keyTextAreaEntered" opacity="0.6" prefHeight="193.0" prefWidth="658.0" wrapText="true">
                <font>
                   <Font name="Comic Sans MS" size="25.0" />
                </font>
@@ -66,7 +66,7 @@
       </MediaView>
       <Pane layoutX="307.0" layoutY="404.0" prefHeight="178.0" prefWidth="660.0">
          <children>
-            <TextArea fx:id="riddleTextArea" layoutY="-2.0" opacity="0.6" prefHeight="181.0" prefWidth="662.0" wrapText="true">
+            <TextArea fx:id="riddleTextArea" layoutY="-2.0" onMouseEntered="#riddleTextAreaEntered" opacity="0.6" prefHeight="181.0" prefWidth="662.0" wrapText="true">
                <font>
                   <Font name="Comic Sans MS" size="25.0" />
                </font>

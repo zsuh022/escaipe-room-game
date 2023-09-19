@@ -18,28 +18,42 @@ public class EndingWinController {
   @FXML private Label keyLabel;
   @FXML private TextArea keyTextArea;
 
+  @FXML private Label riddleLabel;
+  @FXML private TextArea riddleTextArea;
+  private Boolean isKeyOutputed = false;
+  private Boolean isRiddleOutputed = false;
+
   @FXML
   private void keyLabelEntered() {
     keyTextArea.setVisible(true);
-    keyTextArea.appendText(outputKeyBackground());
+    if (!isKeyOutputed) {
+      keyTextArea.appendText(outputKeyBackground() + "\n\n");
+      isKeyOutputed = true;
+    }
   }
-
-  @FXML
-  private void keyLabelExited() {
-    keyTextArea.setVisible(false);
-  }
-
-  @FXML private Label riddleLabel;
-  @FXML private TextArea riddleTextArea;
 
   @FXML
   private void riddleLabelEntered() {
     riddleTextArea.setVisible(true);
-    riddleTextArea.appendText(outputRiddleBackground() + "\n\n");
+    if (!isRiddleOutputed) {
+      riddleTextArea.appendText(outputRiddleBackground() + "\n\n");
+      isRiddleOutputed = true;
+    }
   }
 
   @FXML
-  private void riddleLabelExited() {
+  private void keyTextAreaEntered() {
+    keyTextArea.setVisible(true);
+  }
+
+  @FXML
+  void riddleTextAreaEntered() {
+    riddleTextArea.setVisible(true);
+  }
+
+  @FXML
+  private void baseTouched() {
+    keyTextArea.setVisible(false);
     riddleTextArea.setVisible(false);
   }
 
