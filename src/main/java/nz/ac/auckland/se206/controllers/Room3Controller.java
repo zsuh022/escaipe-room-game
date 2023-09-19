@@ -28,8 +28,8 @@ public class Room3Controller {
   }
 
   @FXML
-  private void buttonClicked() {
-    System.out.println("Button clicked");
+  private void room1ButtonClicked() {
+    System.out.println("Room 1 button clicked");
     App.setUi(roomType.ROOM1);
   }
 
