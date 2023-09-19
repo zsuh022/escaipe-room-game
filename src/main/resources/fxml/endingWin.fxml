@@ -44,9 +44,9 @@
          </font></Button>
       <Pane layoutX="314.0" layoutY="203.0" prefHeight="177.0" prefWidth="648.0">
          <children>
-            <TextArea fx:id="keyTextArea" layoutX="-6.0" layoutY="-7.0" opacity="0.6" prefHeight="193.0" prefWidth="658.0">
+            <TextArea fx:id="keyTextArea" layoutX="-6.0" layoutY="-7.0" opacity="0.6" prefHeight="193.0" prefWidth="658.0" wrapText="true">
                <font>
-                  <Font name="Comic Sans MS" size="17.0" />
+                  <Font name="Comic Sans MS" size="25.0" />
                </font>
             </TextArea>
          </children>
@@ -66,9 +66,9 @@
       </MediaView>
       <Pane layoutX="307.0" layoutY="404.0" prefHeight="178.0" prefWidth="660.0">
          <children>
-            <TextArea fx:id="riddleTextArea" layoutY="-2.0" opacity="0.6" prefHeight="181.0" prefWidth="662.0">
+            <TextArea fx:id="riddleTextArea" layoutY="-2.0" opacity="0.6" prefHeight="181.0" prefWidth="662.0" wrapText="true">
                <font>
-                  <Font name="Comic Sans MS" size="17.0" />
+                  <Font name="Comic Sans MS" size="25.0" />
                </font>
             </TextArea>
          </children>
