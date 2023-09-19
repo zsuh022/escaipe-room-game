@@ -44,7 +44,7 @@ public class MenuController {
     SceneManager.addUi(roomType.ROOM3, App.loadFxml("room3"));
     SceneManager.addUi(roomType.ROOM4, App.loadFxml("room4"));
     SceneManager.addUi(roomType.ROOM3PUZZLE, App.loadFxml("room3puzzle"));
-    // SceneManager.addUi(roomType.GAMEMASTER, App.loadFxml("gamemaster"));
+    SceneManager.addUi(roomType.GAMEMASTER, App.loadFxml("gamemaster"));
     App.setUi(roomType.ROOM1);
     GameState.timeManager.setTimer();
     player.stop();
