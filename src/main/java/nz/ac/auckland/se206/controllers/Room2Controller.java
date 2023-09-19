@@ -46,5 +46,7 @@ public class Room2Controller {
   @FXML
   public void room2LockClicked(MouseEvent event) throws IOException {
     System.out.println("lock clicked");
+    App.setUi(roomType.ROOM2GAME1);
+    puzzleSolved();
   }
 }
