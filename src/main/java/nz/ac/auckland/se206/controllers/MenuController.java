@@ -8,6 +8,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager;
@@ -18,6 +19,7 @@ public class MenuController {
   @FXML private Slider difficultySlider;
   @FXML private Slider timeSlider;
   @FXML private MediaView earthMpfour;
+  MediaPlayer player;
 
   /**
    * Initializes the room view, it is called when the room loads.
@@ -26,8 +28,9 @@ public class MenuController {
    */
   public void initialize() throws URISyntaxException {
     Media media = new Media(App.class.getResource("/sounds/earth.mp4").toURI().toString());
-    MediaPlayer player = new MediaPlayer(media);
+    player = new MediaPlayer(media);
     earthMpfour.setMediaPlayer(player);
+    player.seek(Duration.millis(0));
     player.play();
   }
 
@@ -43,6 +46,7 @@ public class MenuController {
     SceneManager.addUi(roomType.GAMEMASTER, App.loadFxml("gamemaster"));
     App.setUi(roomType.ROOM1);
     GameState.timeManager.setTimer();
+    player.stop();
   }
 
   private void setDifficulty() {
