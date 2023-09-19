@@ -12,7 +12,10 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <Button layoutX="480.0" layoutY="221.0" mnemonicParsing="false" onAction="#buttonClicked" text="room1" />
+      <Button layoutX="954.0" layoutY="359.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom" stylesheets="@../css/Rooms.css">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
       <Label fx:id="timeLabel" layoutX="460.0" layoutY="65.0" prefHeight="38.0" prefWidth="91.0">
          <font>
             <Font size="32.0" />
