@@ -17,7 +17,7 @@ public class MusicManager {
    */
   public static void playGameSong() throws URISyntaxException {
     // play the game song
-    Media song = new Media(App.class.getResource("/sounds/RoomMusic.mp3").toURI().toString());
+    Media song = new Media(App.class.getResource("/sounds/gamingMusic.mp3").toURI().toString());
     if (player != null) {
       player.stop();
     }

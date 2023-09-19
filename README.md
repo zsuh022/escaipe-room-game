@@ -37,8 +37,14 @@
 
 ## Reference
 
-earth animation
+Earth animation
 https://www.facebook.com/watch/?v=10155379945966772
 
-video editor:
+Video editor:
 https://www.veed.io/edit/6732df0c-a77f-481a-b16c-b10d0ea310e1/video
+
+Music:
+chill. by sakura Hz https://soundcloud.com/sakurahertz
+Creative Commons — Attribution 3.0 Unported  — CC BY 3.0 
+Free Download / Stream: http://bit.ly/chill-sakuraHz
+Music promoted by Audio Library • Chill – sakura Hz (No Copyright Music)  

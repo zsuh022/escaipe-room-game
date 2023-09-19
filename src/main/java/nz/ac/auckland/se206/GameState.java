@@ -21,4 +21,6 @@ public class GameState {
   public static boolean isPuzzleRoom3Solved = false;
 
   public static int key;
+
+  public static boolean isMuted = false;
 }
