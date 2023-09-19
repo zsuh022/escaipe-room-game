@@ -58,6 +58,10 @@ public class Room3PuzzleController {
 
   @FXML
   public void onTileClicked() throws ApiProxyException {
+    if (GameState.isPuzzleRoom3Solved) {
+      return;
+    }
+
     Button clickedButton = (Button) gridPane.getScene().getFocusOwner();
 
     // prevent user from clicking empty tile
