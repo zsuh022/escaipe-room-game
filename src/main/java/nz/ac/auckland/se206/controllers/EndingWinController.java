@@ -1,12 +1,15 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.net.URISyntaxException;
 import javafx.fxml.FXML;
+import nz.ac.auckland.se206.MusicManager;
 
 public class EndingWinController {
 
   @FXML
-  private void initialize() {
+  private void initialize() throws URISyntaxException {
     System.out.println("EndingWinController initialized");
+    MusicManager.playHappySong();
   }
 
   @FXML
