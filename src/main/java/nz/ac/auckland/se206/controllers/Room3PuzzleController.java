@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import nz.ac.auckland.se206.App;
@@ -70,6 +71,48 @@ public class Room3PuzzleController {
       GridPane.setRowIndex(clickedButton, emptyY);
       GridPane.setColumnIndex(btnEmpty, x);
       GridPane.setRowIndex(btnEmpty, y);
+
+      // check if puzzle is completed
+      if (isPuzzleCompleted()) {
+        System.out.println("Puzzle completed");
+      } else {
+        System.out.println("Puzzle not completed");
+      }
     }
+  }
+
+  private boolean isPuzzleCompleted() {
+    int correctValue = 1;
+
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+        Button button = getButtonAt(i, j);
+
+        if (i == 2 && j == 2) {
+          if (!button.getText().isEmpty()) {
+            // row 2 column 2 should be an empty button
+            return false;
+          }
+        } else if (button.getText().isEmpty()
+            || Integer.parseInt(button.getText()) != correctValue) {
+          // empty button is elsewhere or buttons are not in the correct position
+          return false;
+        }
+
+        correctValue++;
+      }
+    }
+
+    return true;
+  }
+
+  private Button getButtonAt(int row, int col) {
+    for (Node child : gridPane.getChildren()) {
+      if (GridPane.getRowIndex(child) == row && GridPane.getColumnIndex(child) == col) {
+        return (Button) child;
+      }
+    }
+
+    return null;
   }
 }
