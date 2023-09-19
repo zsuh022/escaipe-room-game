@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +37,9 @@ public class Room3PuzzleController {
   @FXML
   public void initialize() {
     buttons = Arrays.asList(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btnEmpty);
+
+    // shuffle the buttons
+    Collections.shuffle(buttons);
 
     for (int i = 0; i < buttons.size(); i++) {
       Button button = buttons.get(i);
