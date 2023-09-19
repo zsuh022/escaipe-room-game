@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2Controller">
@@ -14,11 +15,13 @@
             <Image url="@../images/room2image.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="942.0" layoutY="359.0" mnemonicParsing="false" onAction="#buttonClicked" text="room1" />
       <Label fx:id="timeLabel" layoutX="460.0" layoutY="65.0" prefHeight="38.0" prefWidth="91.0">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
+      <Rectangle fx:id="room2Lock" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="223.0" layoutX="194.0" layoutY="284.0" onMouseClicked="#room2LockClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="647.0" />
+      <Rectangle fx:id="room2Box" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="27.0" layoutY="480.0" onMouseClicked="#room2BoxClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="424.0" />
+      <Button layoutX="942.0" layoutY="359.0" mnemonicParsing="false" onAction="#buttonClicked" text="room1" />
    </children>
 </Pane>
