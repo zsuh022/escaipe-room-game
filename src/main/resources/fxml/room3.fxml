@@ -2,29 +2,25 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
+<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
    <children>
-      <Label layoutX="207.0" layoutY="49.0" prefHeight="92.0" prefWidth="227.0" text="Room3">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Button layoutX="55.0" layoutY="209.0" mnemonicParsing="false" onAction="#buttonClicked" text="room1">
-         <font>
-            <Font size="29.0" />
-         </font></Button>
-      <Label fx:id="timeLabel" layoutX="470.0" layoutY="75.0" prefHeight="38.0" prefWidth="91.0">
+      <ImageView fitHeight="768.0" fitWidth="1024.0">
+         <image>
+            <Image url="@../images/room3.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="19.0" layoutY="373.0" mnemonicParsing="false" onAction="#room1ButtonClicked" text="room1" />
+      <Label fx:id="timeLabel" layoutX="907.0" layoutY="22.0" prefHeight="38.0" prefWidth="91.0">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
-      <Button layoutX="493.0" layoutY="428.0" mnemonicParsing="false" onAction="#solveButtonClicked" text="Puzzel solve">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Button>
+      <Polygon fx:id="polygonRoom3Puzzle" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.5" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </Pane>
