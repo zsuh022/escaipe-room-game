@@ -34,3 +34,11 @@
 ## To run codestyle
 
 `./mvnw clean compile exec:java@style`
+
+## Reference
+
+earth animation
+https://www.facebook.com/watch/?v=10155379945966772
+
+video editor:
+https://www.veed.io/edit/6732df0c-a77f-481a-b16c-b10d0ea310e1/video

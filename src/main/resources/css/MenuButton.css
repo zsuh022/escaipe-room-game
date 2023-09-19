@@ -1,0 +1,19 @@
+.button {
+  -fx-background-color: #0e47f3;
+  -fx-background-radius: 60 60 0 0;
+}
+
+.button:hover {
+  -fx-background-color: #07f7f7;
+  -fx-background-radius: 60 60 0 0;
+}
+
+.button:-moz-suppressed {
+  -fx-background-color: #07f7f7;
+  -fx-background-radius: 60 60 0 0;
+}
+
+.button:pressed {
+  -fx-background-color: #f70707;
+  -fx-background-radius: 60 60 0 0;
+}
