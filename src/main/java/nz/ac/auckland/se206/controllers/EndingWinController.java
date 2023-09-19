@@ -11,27 +11,39 @@ public class EndingWinController {
   private void initialize() {
     keyLabel.setText(String.valueOf(GameState.key));
     riddleLabel.setText(String.valueOf(GameState.riddleWord));
+    keyTextArea.setVisible(false);
+    riddleTextArea.setVisible(false);
   }
 
   @FXML private Label keyLabel;
   @FXML private TextArea keyTextArea;
 
   @FXML
-  private void keyLabelEntered() {}
+  private void keyLabelEntered() {
+    keyTextArea.setVisible(true);
+    keyTextArea.setText(outputKeyBackground());
+  }
 
   @FXML
-  private void keyLabelExited() {}
+  private void keyLabelExited() {
+    keyTextArea.setVisible(false);
+  }
 
   @FXML private Label riddleLabel;
   @FXML private TextArea riddleTextArea;
 
   @FXML
-  private void riddleLabelEntered() {}
+  private void riddleLabelEntered() {
+    riddleTextArea.setVisible(true);
+    riddleTextArea.setText(outputRiddleBackground());
+  }
 
   @FXML
-  private void riddleLabelExited() {}
+  private void riddleLabelExited() {
+    riddleTextArea.setVisible(false);
+  }
 
-  private String outputBackground() {
+  private String outputRiddleBackground() {
     switch (GameState.riddleWord) {
       case "Mercury":
         return "Mercury is the first planet from the Sun and the smallest in the Solar System. It"
@@ -76,6 +88,11 @@ public class EndingWinController {
             + " 17 times the mass of Earth, and slightly more massive than its near-twin"
             + " Uranus. - Wikipedia";
     }
+
+    return "";
+  }
+
+  private String outputKeyBackground() {
 
     switch (GameState.key) {
       case 12041961:
