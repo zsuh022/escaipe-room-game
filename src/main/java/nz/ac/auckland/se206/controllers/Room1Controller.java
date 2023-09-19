@@ -37,6 +37,12 @@ public class Room1Controller {
     App.setUi(roomType.CHAT);
   }
 
+  @FXML
+  private void gameMasterClicked() {
+    System.out.println("Game master clicked");
+    App.setUi(roomType.GAMEMASTER);
+  }
+  
   @FXML private Label timeLabel;
 
   private void initializeTimer() {

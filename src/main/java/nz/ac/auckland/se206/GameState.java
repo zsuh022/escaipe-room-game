@@ -19,4 +19,6 @@ public class GameState {
   public static boolean isPuzzleRoom2Solved = false;
 
   public static boolean isPuzzleRoom3Solved = false;
+
+  public static int key;
 }

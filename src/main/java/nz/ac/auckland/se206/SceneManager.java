@@ -12,7 +12,9 @@ public class SceneManager {
     ROOM2,
     ROOM3,
     ROOM4,
-    ENDING
+    GAMEMASTER,
+    ENDINGLOSE,
+    ENDINGWIN
   }
 
   private static HashMap<roomType, Parent> sceneMap = new HashMap<roomType, Parent>();
