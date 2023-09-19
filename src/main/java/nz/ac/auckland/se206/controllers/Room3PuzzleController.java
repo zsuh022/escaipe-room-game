@@ -10,7 +10,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
 
 public class Room3PuzzleController {
 
@@ -28,12 +30,6 @@ public class Room3PuzzleController {
 
   private List<Button> buttons;
   private Map<Button, int[]> initialButtonPositions = new HashMap<>();
-
-  @FXML
-  private void onBackButtonClicked() {
-    System.out.println("Back button clicked");
-    App.setUi(roomType.ROOM3);
-  }
 
   @FXML
   public void initialize() {
@@ -55,7 +51,13 @@ public class Room3PuzzleController {
   }
 
   @FXML
-  public void onTileClicked() {
+  private void onBackButtonClicked() {
+    System.out.println("Back button clicked");
+    App.setUi(roomType.ROOM3);
+  }
+
+  @FXML
+  public void onTileClicked() throws ApiProxyException {
     Button clickedButton = (Button) gridPane.getScene().getFocusOwner();
 
     // prevent user from clicking empty tile
@@ -74,11 +76,21 @@ public class Room3PuzzleController {
 
       // check if puzzle is completed
       if (isPuzzleCompleted()) {
-        System.out.println("Puzzle completed");
+        puzzleSolved();
       } else {
         System.out.println("Puzzle not completed");
       }
     }
+  }
+
+  private Button getButtonAt(int row, int col) {
+    for (Node child : gridPane.getChildren()) {
+      if (GridPane.getRowIndex(child) == row && GridPane.getColumnIndex(child) == col) {
+        return (Button) child;
+      }
+    }
+
+    return null;
   }
 
   private boolean isPuzzleCompleted() {
@@ -106,13 +118,8 @@ public class Room3PuzzleController {
     return true;
   }
 
-  private Button getButtonAt(int row, int col) {
-    for (Node child : gridPane.getChildren()) {
-      if (GridPane.getRowIndex(child) == row && GridPane.getColumnIndex(child) == col) {
-        return (Button) child;
-      }
-    }
-
-    return null;
+  private void puzzleSolved() throws ApiProxyException {
+    System.out.println("Puzzle solved");
+    GameState.isPuzzleRoom3Solved = true;
   }
 }

@@ -7,7 +7,6 @@ import javafx.scene.shape.Polygon;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.roomType;
-import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
 
 public class Room3Controller {
 
@@ -30,16 +29,6 @@ public class Room3Controller {
   private void room3PuzzleClicked(MouseEvent event) {
     System.out.println("Room 3 puzzle clicked");
     App.setUi(roomType.ROOM3PUZZLE);
-  }
-
-  @FXML
-  public void solveButtonClicked() throws ApiProxyException {
-    puzzleSolved();
-  }
-
-  private void puzzleSolved() throws ApiProxyException {
-    System.out.println("Puzzle solved");
-    GameState.isPuzzleRoom3Solved = true;
   }
 
   private void initializeTimer() {
