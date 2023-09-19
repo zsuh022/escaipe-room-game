@@ -19,12 +19,12 @@ public class Room3PuzzleController {
   @FXML private Button btnExitPuzzle;
 
   @FXML
-  private void tileClicked() {
+  private void onTileClicked() {
     System.out.println("Tile clicked");
   }
 
   @FXML
-  private void backButtonClicked() {
+  private void onBackButtonClicked() {
     System.out.println("Back button clicked");
     App.setUi(roomType.ROOM3);
   }
