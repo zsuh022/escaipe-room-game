@@ -20,11 +20,11 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <Button layoutX="20.0" layoutY="374.0" mnemonicParsing="false" onAction="#room2ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
+      <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room2ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
          <font>
             <Font size="10.0" />
          </font></Button>
-      <Button layoutX="954.0" layoutY="361.0" mnemonicParsing="false" onAction="#room3ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom" stylesheets="@../css/Rooms.css">
+      <Button layoutX="954.0" layoutY="359.0" mnemonicParsing="false" onAction="#room3ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom" stylesheets="@../css/Rooms.css">
          <font>
             <Font size="10.0" />
          </font></Button>

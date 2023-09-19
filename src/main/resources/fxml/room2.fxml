@@ -12,7 +12,7 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <Button layoutX="954.0" layoutY="374.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom" stylesheets="@../css/Rooms.css">
+      <Button layoutX="954.0" layoutY="359.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom" stylesheets="@../css/Rooms.css">
          <font>
             <Font size="10.0" />
          </font></Button>

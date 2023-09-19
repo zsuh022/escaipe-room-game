@@ -14,8 +14,14 @@
             <Image url="@../images/room4imageview.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="46.0" layoutY="371.0" mnemonicParsing="false" onAction="#room2ButtonClicked" text="room2" />
-      <Button layoutX="920.0" layoutY="370.0" mnemonicParsing="false" onAction="#room3ButtonClicked" text="room3" />
+      <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room2ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
+      <Button layoutX="954.0" layoutY="359.0" mnemonicParsing="false" onAction="#room3ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom" stylesheets="@../css/Rooms.css">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
       <Pane fx:id="keyInserter" layoutX="430.0" layoutY="350.0" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <ImageView fitHeight="200.0" fitWidth="207.0" layoutX="-2.0">
@@ -57,6 +63,9 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <Button layoutX="493.0" layoutY="51.0" mnemonicParsing="false" onAction="#room1ButtonClicked" text="room1" />
+      <Button layoutX="487.0" layoutY="20.0" mnemonicParsing="false" onAction="#room1ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnUpRoom" stylesheets="@../css/Rooms.css">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
    </children>
 </Pane>
