@@ -50,6 +50,8 @@ public class App extends Application {
   @Override
   public void start(final Stage stage) throws IOException {
     // SceneManager.addUi(roomType.CHAT, App.loadFxml("chat"));
+    GameState.key = 12041961;
+    GameState.riddleWord = "Neptune";
     Parent root = loadFxml("endingWin");
     scene = new Scene(root, 1024, 768);
     stage.setScene(scene);
