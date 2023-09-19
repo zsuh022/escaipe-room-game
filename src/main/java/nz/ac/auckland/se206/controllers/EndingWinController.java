@@ -1,18 +1,73 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.net.URISyntaxException;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.util.Duration;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 
 public class EndingWinController {
 
+  MediaPlayer player;
+  @FXML private MediaView depart;
+
   @FXML
-  private void initialize() {
+  private void initialize() throws URISyntaxException {
     keyLabel.setText(String.valueOf(GameState.key));
     riddleLabel.setText(String.valueOf(GameState.riddleWord));
     keyTextArea.setVisible(false);
     riddleTextArea.setVisible(false);
+    depart.setVisible(true);
+    skipLabel.setVisible(true);
+    playVideo();
+  }
+
+  @FXML private Label skipLabel;
+
+  private void playVideo() throws URISyntaxException {
+    Media media = new Media(App.class.getResource("/sounds/depart.mp4").toURI().toString());
+    player = new MediaPlayer(media);
+    depart.setMediaPlayer(player);
+
+    FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), depart);
+    fadeOut.setFromValue(1.0);
+    fadeOut.setToValue(0.1);
+    fadeOut.setOnFinished(
+        e -> {
+          player.stop();
+          depart.setVisible(false);
+          skipLabel.setVisible(false);
+        });
+
+    player.setOnPlaying(
+        () -> {
+          PauseTransition delayFade = new PauseTransition(Duration.seconds(7));
+          delayFade.setOnFinished(e -> fadeOut.play());
+          delayFade.play();
+        });
+
+    depart.setOnMouseClicked(
+        e -> {
+          player.stop();
+          depart.setVisible(false);
+          skipLabel.setVisible(false);
+        });
+
+    skipLabel.setOnMouseClicked(
+        e -> {
+          player.stop();
+          depart.setVisible(false);
+          skipLabel.setVisible(false);
+        });
+
+    player.play();
   }
 
   @FXML private Label keyLabel;

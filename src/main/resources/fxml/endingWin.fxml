@@ -51,7 +51,16 @@
             </TextArea>
          </children>
       </Pane>
-      <MediaView fitHeight="0.0" fitWidth="0.0" layoutX="-251.0" layoutY="53.0" visible="false">
+      <Pane layoutX="307.0" layoutY="404.0" prefHeight="178.0" prefWidth="660.0">
+         <children>
+            <TextArea fx:id="riddleTextArea" layoutY="-2.0" onMouseEntered="#riddleTextAreaEntered" opacity="0.6" prefHeight="181.0" prefWidth="662.0" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS" size="25.0" />
+               </font>
+            </TextArea>
+         </children>
+      </Pane>
+      <MediaView fx:id="depart" fitHeight="0.0" fitWidth="0.0" layoutX="-251.0" layoutY="53.0">
          <mediaPlayer>
             <MediaPlayer>
                <media>
@@ -64,14 +73,10 @@
             </MediaPlayer>
          </mediaPlayer>
       </MediaView>
-      <Pane layoutX="307.0" layoutY="404.0" prefHeight="178.0" prefWidth="660.0">
-         <children>
-            <TextArea fx:id="riddleTextArea" layoutY="-2.0" onMouseEntered="#riddleTextAreaEntered" opacity="0.6" prefHeight="181.0" prefWidth="662.0" wrapText="true">
-               <font>
-                  <Font name="Comic Sans MS" size="25.0" />
-               </font>
-            </TextArea>
-         </children>
-      </Pane>
+      <Label fx:id="skipLabel" layoutX="420.0" layoutY="565.0" prefHeight="73.0" prefWidth="217.0" text="Click to skip" textFill="WHITE">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
