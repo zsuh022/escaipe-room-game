@@ -1,22 +1,21 @@
 package nz.ac.auckland.se206.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-public class EndingLoseController implements Initializable {
+public class EndingLoseController {
 
   @FXML private ImageView gameMasterLose;
 
   @FXML
-  private void initialize() {}
+  private void initialize() {
+    gameMasterTransition();
+  }
 
   @FXML
   private void exitButtonClicked() {
@@ -26,11 +25,6 @@ public class EndingLoseController implements Initializable {
   @FXML
   private void restartButtonClicked() {
     System.out.println("Play again button clicked");
-  }
-
-  @Override
-  public void initialize(URL location, ResourceBundle resources) {
-    gameMasterTransition();
   }
 
   private void gameMasterTransition() {
