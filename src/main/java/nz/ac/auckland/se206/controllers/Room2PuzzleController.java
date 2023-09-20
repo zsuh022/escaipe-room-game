@@ -1,7 +1,11 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 public class Room2PuzzleController {
   @FXML private Rectangle one;
@@ -15,47 +19,79 @@ public class Room2PuzzleController {
   @FXML private Rectangle nine;
 
   @FXML
+  private void initialize() {
+    one.setFill(Color.WHITE);
+    two.setFill(Color.WHITE);
+    three.setFill(Color.WHITE);
+    four.setFill(Color.WHITE);
+    five.setFill(Color.WHITE);
+    six.setFill(Color.WHITE);
+    seven.setFill(Color.WHITE);
+    eight.setFill(Color.WHITE);
+    nine.setFill(Color.WHITE);
+  }
+
+  @FXML
+  private void flashGreen(Rectangle rectangle) {
+    // Flash the rectangle green for one second
+    rectangle.setFill(Color.GREEN);
+
+    // Create a timeline for the animation
+    Timeline timeline =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(1),
+                event -> {
+                  // After one second, revert the color back to the original color
+                  rectangle.setFill(Color.WHITE);
+                }));
+
+    // Play the timeline animation
+    timeline.play();
+  }
+
+  @FXML
   private void clickOne() {
-    System.out.println("one clicked");
+    flashGreen(one);
   }
 
   @FXML
   private void clickTwo() {
-    System.out.println("two clicked");
+    flashGreen(two);
   }
 
   @FXML
   private void clickThree() {
-    System.out.println("three clicked");
+    flashGreen(three);
   }
 
   @FXML
   private void clickFour() {
-    System.out.println("four clicked");
+    flashGreen(four);
   }
 
   @FXML
   private void clickFive() {
-    System.out.println("five clicked");
+    flashGreen(five);
   }
 
   @FXML
   private void clickSix() {
-    System.out.println("six clicked");
+    flashGreen(six);
   }
 
   @FXML
   private void clickSeven() {
-    System.out.println("seven clicked");
+    flashGreen(seven);
   }
 
   @FXML
   private void clickEight() {
-    System.out.println("eight clicked");
+    flashGreen(eight);
   }
 
   @FXML
   private void clickNine() {
-    System.out.println("nine clicked");
+    flashGreen(nine);
   }
 }
