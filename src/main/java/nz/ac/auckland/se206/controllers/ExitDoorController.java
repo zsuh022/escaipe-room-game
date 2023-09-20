@@ -16,7 +16,7 @@ import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
 /** Controller class for the room view. */
-public class Room4Controller {
+public class ExitDoorController {
 
   @FXML private ImageView smallKeyInserter;
   @FXML private Label keyLabel;
@@ -33,18 +33,6 @@ public class Room4Controller {
   private void room1ButtonClicked() {
     System.out.println("Room 1 button clicked");
     App.setUi(RoomType.ROOM1);
-  }
-
-  @FXML
-  private void room2ButtonClicked() {
-    System.out.println("Room 2 button clicked");
-    App.setUi(RoomType.ROOM2);
-  }
-
-  @FXML
-  private void room3ButtonClicked() {
-    System.out.println("Room 3 button clicked");
-    App.setUi(RoomType.ROOM3);
   }
 
   @FXML

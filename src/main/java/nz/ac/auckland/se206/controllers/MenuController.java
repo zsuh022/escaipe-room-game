@@ -119,7 +119,7 @@ public class MenuController {
     SceneManager.addUi(RoomType.ROOM2, App.loadFxml("room2"));
     SceneManager.addUi(RoomType.ROOM3, App.loadFxml("room3"));
     SceneManager.addUi(RoomType.ROOM3PUZZLE, App.loadFxml("room3puzzle"));
-    SceneManager.addUi(RoomType.ROOM4, App.loadFxml("room4"));
+    SceneManager.addUi(RoomType.EXITDOOR, App.loadFxml("exitdoor"));
     SceneManager.addUi(RoomType.GAMEMASTER, App.loadFxml("gamemaster"));
     App.setUi(RoomType.ROOM1);
     player.stop();

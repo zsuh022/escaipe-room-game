@@ -7,21 +7,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" focusTraversable="true" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room4Controller">
+<Pane fx:id="room" focusTraversable="true" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.ExitDoorController">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0" onMouseClicked="#minimizeKeyInserter">
          <image>
-            <Image url="@../images/room4imageview.jpeg" />
+            <Image url="@../images/exitDoorBackground.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room2ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
-         <font>
-            <Font size="10.0" />
-         </font></Button>
-      <Button layoutX="954.0" layoutY="359.0" mnemonicParsing="false" onAction="#room3ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom" stylesheets="@../css/Rooms.css">
-         <font>
-            <Font size="10.0" />
-         </font></Button>
       <ImageView fx:id="smallKeyInserter" fitHeight="42.0" fitWidth="53.0" layoutX="642.0" layoutY="401.0" onMouseClicked="#openKeyInserter" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/keyinserter.png" />
