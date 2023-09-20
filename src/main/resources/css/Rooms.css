@@ -48,10 +48,13 @@
 
 .shape {
     -fx-opacity: 0;
+    -fx-stroke: #EB6440;
+    -fx-stroke-width: 3px;
 }
 
 .shape:hover {
-    -fx-opacity: 0.8;
+    -fx-fill: #CBFFA9;
+    -fx-opacity: 0.3;
 }
 
 #btnClear,
