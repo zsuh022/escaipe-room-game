@@ -84,6 +84,6 @@ public class Room1Controller {
   public void showRoom1Key() {
     System.out.println("Room 1 key shown");
     keyShowingPane.setVisible(true);
-    room1KeyLabel.setText(GameState.room1key);
+    room1KeyLabel.setText(GameState.room1Key);
   }
 }

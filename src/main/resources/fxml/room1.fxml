@@ -16,7 +16,7 @@
             <Image url="@../images/room1Image.jpeg" />
          </image>
       </ImageView>
-      <Label fx:id="timeLabel" layoutX="823.0" layoutY="51.0" prefHeight="42.0" prefWidth="137.0" textFill="#00e9f5">
+      <Label fx:id="timeLabel" layoutX="889.0" prefHeight="50.0" prefWidth="150.0" textFill="#00e9f5">
          <font>
             <Font size="31.0" />
          </font>

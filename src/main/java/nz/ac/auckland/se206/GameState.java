@@ -18,7 +18,7 @@ public class GameState {
 
   public static String riddleWord;
 
-  public static boolean isPuzzleRoom2Solved = false;
+  public static BooleanProperty isPuzzleRoom2Solved = new SimpleBooleanProperty(false);
 
   public static boolean isPuzzleRoom3Solved = false;
 
@@ -26,9 +26,9 @@ public class GameState {
 
   public static boolean isMuted = false;
 
-  public static String room1key;
+  public static String room1Key;
 
-  public static String room2key;
+  public static String room2Key;
 
-  public static String room3key;
+  public static String room3Key;
 }
