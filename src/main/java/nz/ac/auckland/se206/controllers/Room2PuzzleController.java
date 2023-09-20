@@ -11,6 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.roomType;
 
 public class Room2PuzzleController {
@@ -27,6 +28,7 @@ public class Room2PuzzleController {
   @FXML private Rectangle startPuzzle2;
   @FXML private Label startLabel;
   @FXML private Label backLabel;
+  @FXML private Label puzzle2Label;
 
   private int[] buttonOrder = new int[6];
   private int currentIndex = 0;
@@ -42,6 +44,11 @@ public class Room2PuzzleController {
     seven.setFill(Color.WHITE);
     eight.setFill(Color.WHITE);
     nine.setFill(Color.WHITE);
+  }
+
+  private void puzzleSolved() {
+    System.out.println("Puzzle solved");
+    GameState.isPuzzleRoom2Solved = true;
   }
 
   @FXML
@@ -65,6 +72,7 @@ public class Room2PuzzleController {
 
   @FXML
   public void startPuzzle2Clicked(MouseEvent event) throws IOException {
+    puzzle2Label.setText("");
     buttonOrder[0] = (int) (1 + (Math.random() * (9)));
     buttonOrder[1] = (int) (1 + (Math.random() * (9)));
     buttonOrder[2] = (int) (1 + (Math.random() * (9)));
@@ -176,12 +184,14 @@ public class Room2PuzzleController {
       flashColour(integerToRectangle(buttonNumber), Color.GREEN);
       if (currentIndex == buttonOrder.length) {
         // Puzzle solved
-        System.out.println("Puzzle solved");
+        puzzleSolved();
+        puzzle2Label.setText("Puzzle Solved! Press back to exit.");
       }
     } else {
       // Incorrect button pressed
       currentIndex = 0;
       flashColour(integerToRectangle(buttonNumber), Color.RED);
+      puzzle2Label.setText("Incorrect! Start again.");
     }
   }
 }
