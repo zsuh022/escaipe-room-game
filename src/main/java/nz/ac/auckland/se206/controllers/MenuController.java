@@ -3,11 +3,19 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Random;
+import javafx.animation.FadeTransition;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
@@ -20,7 +28,13 @@ public class MenuController {
   @FXML private Slider difficultySlider;
   @FXML private Slider timeSlider;
   @FXML private MediaView earthMpfour;
+  @FXML private ImageView nextImageView;
+  @FXML private Button startButton;
   MediaPlayer player;
+  @FXML private Label difficultyLabel;
+  private final StringProperty difficultyLabelColor = new SimpleStringProperty("#ffffff");
+  @FXML private Label timeLabel;
+  private final StringProperty timeLabelColor = new SimpleStringProperty("#ffffff");
 
   /**
    * Initializes the room view, it is called when the room loads.
@@ -28,6 +42,10 @@ public class MenuController {
    * @throws URISyntaxException
    */
   public void initialize() throws URISyntaxException {
+
+    nextImageView.setVisible(false);
+    startButton.setVisible(true);
+    initializeLabelColour();
     Media media = new Media(App.class.getResource("/sounds/earth.mp4").toURI().toString());
     player = new MediaPlayer(media);
     earthMpfour.setMediaPlayer(player);
@@ -35,11 +53,68 @@ public class MenuController {
     player.play();
   }
 
+  private void initializeLabelColour() {
+    difficultyLabelColor.bind(
+        Bindings.when(difficultySlider.valueProperty().isEqualTo(1))
+            .then("aqua")
+            .otherwise(
+                Bindings.when(difficultySlider.valueProperty().isEqualTo(2))
+                    .then("#bf00ff")
+                    .otherwise(
+                        Bindings.when(difficultySlider.valueProperty().isEqualTo(3))
+                            .then("magenta")
+                            .otherwise("white"))));
+    difficultyLabel
+        .textFillProperty()
+        .bind(
+            Bindings.createObjectBinding(
+                () -> Paint.valueOf(difficultyLabelColor.get()), difficultyLabelColor));
+
+    timeLabelColor.bind(
+        Bindings.when(timeSlider.valueProperty().isEqualTo(1))
+            .then("aqua")
+            .otherwise(
+                Bindings.when(timeSlider.valueProperty().isEqualTo(2))
+                    .then("#bf00ff")
+                    .otherwise(
+                        Bindings.when(timeSlider.valueProperty().isEqualTo(3))
+                            .then("magenta")
+                            .otherwise("white"))));
+    timeLabel
+        .textFillProperty()
+        .bind(
+            Bindings.createObjectBinding(
+                () -> Paint.valueOf(timeLabelColor.get()), timeLabelColor));
+  }
+
   @FXML
   private void buttonClicked() throws IOException, URISyntaxException {
     setDifficulty();
     setGameTime();
     setKey();
+    fadeInNextImageView();
+  }
+
+  private void fadeInNextImageView() {
+    startButton.setVisible(false);
+    nextImageView.setVisible(true);
+    FadeTransition fade = new FadeTransition(Duration.millis(1000), nextImageView);
+    fade.setFromValue(0.0);
+    fade.setToValue(1.0);
+
+    fade.setOnFinished(
+        e -> {
+          try {
+            setUiAfterFade();
+          } catch (IOException | URISyntaxException ex) {
+            ex.printStackTrace();
+          }
+        });
+
+    fade.play();
+  }
+
+  private void setUiAfterFade() throws IOException, URISyntaxException {
     SceneManager.addUi(roomType.ROOM1, App.loadFxml("room1"));
     SceneManager.addUi(roomType.ROOM2, App.loadFxml("room2"));
     SceneManager.addUi(roomType.ROOM3, App.loadFxml("room3"));
