@@ -8,28 +8,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameMasterController">
-  <children>
-    <TextArea fx:id="chatTextArea" layoutX="185.0" layoutY="197.0" prefHeight="407.0" prefWidth="674.0" wrapText="true">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/GameMaster.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameMasterController">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="1024.0">
+         <image>
+            <Image url="@../images/chatGameMaster.jpg" />
+         </image></ImageView>
+      <TextField fx:id="inputTextArea" layoutX="212.0" layoutY="600.0" prefHeight="40.0" prefWidth="500.0">
          <font>
-            <Font size="20.0" />
-         </font></TextArea>
-    <TextField fx:id="inputText" layoutX="103.0" layoutY="615.0" prefHeight="92.0" prefWidth="621.0">
-         <font>
-            <Font size="20.0" />
-         </font></TextField>
-    <Button fx:id="sendButton" layoutX="817.0" layoutY="609.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="41.0" prefWidth="94.0" text="Send">
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="chatTextArea" layoutX="212.0" layoutY="104.0" prefHeight="450.0" prefWidth="600.0" wrapText="true">
          <font>
             <Font size="18.0" />
-         </font></Button>
-    <Button layoutX="826.0" layoutY="665.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="42.0" prefWidth="95.0" text="Go Back">
+         </font>
+      </TextArea>
+      <Button fx:id="btnSend" layoutX="726.0" layoutY="600.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send">
          <font>
-            <Font size="19.0" />
-         </font></Button>
-      <ImageView fitHeight="229.0" fitWidth="416.0" layoutX="-5.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnGoBack" layoutX="884.0" layoutY="702.0" mnemonicParsing="false" onAction="#onGoBack" text="Go Back">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameMaster.png" />
          </image>
       </ImageView>
-  </children>
+   </children>
 </AnchorPane>
