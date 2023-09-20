@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room2Puzzle2Controller {
@@ -49,9 +50,16 @@ public class Room2Puzzle2Controller {
   @FXML private Rectangle chance4;
   @FXML private Rectangle chance5;
   @FXML private Rectangle chance6;
+  @FXML private Label room2Puzzle2State;
 
   ArrayList<String> word = new ArrayList<String>();
   int chanceCount; // 0 to 6
+  int correctCount; // 0 to 5
+
+  private void puzzleSolved() {
+    System.out.println("Puzzle solved");
+    GameState.isPuzzleRoom2Solved = true;
+  }
 
   @FXML
   private void initialize() {
@@ -93,7 +101,9 @@ public class Room2Puzzle2Controller {
     chance5.setFill(Color.WHITE);
     chance6.setFill(Color.WHITE);
     chanceCount = 0;
-    newWord();
+    correctCount = 0;
+    room2Puzzle2State.setText("");
+    newWord((int) (1 + (Math.random() * (8))));
   }
 
   private void initializeButton(Button button) {
@@ -101,8 +111,7 @@ public class Room2Puzzle2Controller {
     button.setOpacity(1);
   }
 
-  private void newWord() {
-    int randomInt = (int) (1 + (Math.random() * (8)));
+  private void newWord(Integer randomInt) {
     switch (randomInt) {
       case 1:
         addCharacters("COMET");
@@ -148,6 +157,7 @@ public class Room2Puzzle2Controller {
     if (word.contains(character.toString())) {
       for (int i = 0; i < 5; i++) {
         if (word.get(i).equals(character.toString())) {
+          correctCount++;
           switch (i) {
             case 0:
               letter1.setText(character.toString());
@@ -169,6 +179,18 @@ public class Room2Puzzle2Controller {
           }
         }
       }
+
+      if (correctCount == 5) {
+        puzzleSolved();
+        room2Puzzle2State.setText("Puzzle Solved! Press back to exit.");
+        chance1.setFill(Color.GREEN);
+        chance2.setFill(Color.GREEN);
+        chance3.setFill(Color.GREEN);
+        chance4.setFill(Color.GREEN);
+        chance5.setFill(Color.GREEN);
+        chance6.setFill(Color.GREEN);
+      }
+
     } else {
       if (chanceCount < 6) {
         chanceCount++;
@@ -194,6 +216,7 @@ public class Room2Puzzle2Controller {
       } else {
         chanceCount++;
         chance6.setFill(Color.RED);
+        room2Puzzle2State.setText("Puzzle Failed! Press reset to try again.");
       }
     }
   }

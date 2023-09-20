@@ -190,5 +190,10 @@
       <Rectangle fx:id="chance4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="598.0" layoutY="374.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
       <Rectangle fx:id="chance5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="662.0" layoutY="373.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
       <Rectangle fx:id="chance6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="724.0" layoutY="373.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Label fx:id="room2Puzzle2State" layoutX="188.0" layoutY="39.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
