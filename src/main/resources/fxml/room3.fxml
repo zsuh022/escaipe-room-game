@@ -24,7 +24,7 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Polygon fx:id="polygonRoom3Puzzle" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.5" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fx:id="polygonRoom3Puzzle" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.0" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" />
       <Pane fx:id="keyShowingPane" layoutX="680.0" layoutY="550.0" prefHeight="200.0" prefWidth="220.0">
          <children>
             <ImageView fitHeight="200.0" fitWidth="300.0" preserveRatio="true">

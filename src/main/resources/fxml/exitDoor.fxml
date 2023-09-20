@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.ExitDoorController">
@@ -32,6 +33,7 @@
             <Image url="@../images/keyPadSmall.png" />
          </image>
       </ImageView>
+      <Circle fill="DODGERBLUE" layoutX="658.0" layoutY="428.0" opacity="0.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
       <Pane fx:id="keyPad" layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0" visible="false">
          <children>
             <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
