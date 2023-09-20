@@ -36,38 +36,38 @@
          <font>
             <Font size="62.0" />
          </font></Button>
-      <Slider fx:id="difficultySlider" layoutX="379.0" layoutY="281.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="72.0" prefWidth="388.0" showTickMarks="true" snapToTicks="true" value="2.0" />
-      <Slider fx:id="timeSlider" layoutX="378.0" layoutY="382.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="34.0" prefWidth="390.0" showTickMarks="true" snapToTicks="true" value="2.0" />
-      <Label layoutX="205.0" layoutY="267.0" prefHeight="79.0" prefWidth="144.0" text="Difficulty" textFill="RED">
+      <Slider fx:id="difficultySlider" layoutX="379.0" layoutY="281.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="72.0" prefWidth="388.0" showTickMarks="true" snapToTicks="true" stylesheets="@../css/MenuSlider.css" value="2.0" />
+      <Slider fx:id="timeSlider" layoutX="378.0" layoutY="382.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="34.0" prefWidth="390.0" showTickMarks="true" snapToTicks="true" stylesheets="@../css/MenuSlider.css" value="2.0" />
+      <Label layoutX="205.0" layoutY="267.0" prefHeight="79.0" prefWidth="144.0" text="Difficulty">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
-      <Label layoutX="363.0" layoutY="331.0" prefHeight="25.0" prefWidth="52.0" text="Easy" textFill="RED">
+      <Label layoutX="363.0" layoutY="331.0" prefHeight="25.0" prefWidth="52.0" text="Easy" textFill="AQUA">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
          </font></Label>
-      <Label layoutX="549.0" layoutY="329.0" prefHeight="25.0" prefWidth="52.0" text="Mid" textFill="RED">
+      <Label layoutX="563.0" layoutY="331.0" prefHeight="25.0" prefWidth="52.0" text="Mid" textFill="#bf00ff">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
          </font></Label>
-      <Label layoutX="744.0" layoutY="330.0" prefHeight="25.0" prefWidth="52.0" text="Hard" textFill="#f20000">
+      <Label layoutX="752.0" layoutY="331.0" prefHeight="25.0" prefWidth="52.0" text="Hard" textFill="MAGENTA">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
          </font></Label>
-      <Label layoutX="374.0" layoutY="407.0" prefHeight="25.0" prefWidth="25.0" text="2" textFill="#f20606">
+      <Label layoutX="377.0" layoutY="404.0" prefHeight="25.0" prefWidth="25.0" text="2" textFill="AQUA">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
          </font></Label>
-      <Label layoutX="574.0" layoutY="407.0" prefHeight="25.0" prefWidth="15.0" text="4" textFill="#f80808">
+      <Label layoutX="571.0" layoutY="407.0" prefHeight="25.0" prefWidth="25.0" text="4" textFill="#bf00ff">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
          </font></Label>
-      <Label layoutX="758.0" layoutY="406.0" prefHeight="25.0" prefWidth="15.0" text="6" textFill="#f80606">
+      <Label layoutX="766.0" layoutY="407.0" prefHeight="25.0" prefWidth="25.0" text="6" textFill="MAGENTA">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
          </font></Label>
-      <Label layoutX="202.0" layoutY="354.0" prefHeight="80.0" prefWidth="155.0" text="Time" textFill="RED">
+      <Label layoutX="202.0" layoutY="354.0" prefHeight="80.0" prefWidth="155.0" text="Time">
          <font>
             <Font size="32.0" />
          </font>
