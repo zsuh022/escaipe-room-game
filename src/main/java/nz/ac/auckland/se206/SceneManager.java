@@ -17,6 +17,7 @@ public class SceneManager {
     ROOM3,
     ROOM4,
     ROOM2PUZZLE,
+    ROOM2PUZZLE2,
     ROOM3PUZZLE
   }
 

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle2Controller">
+   <children>
+      <Button fx:id="buttonA" layoutX="231.0" layoutY="510.0" mnemonicParsing="false" onAction="#buttonAClicked" text="A">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="293.0" layoutY="510.0" mnemonicParsing="false" text="B">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="353.0" layoutY="510.0" mnemonicParsing="false" text="C">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="412.0" layoutY="510.0" mnemonicParsing="false" text="D">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="474.0" layoutY="510.0" mnemonicParsing="false" text="E">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="529.0" layoutY="510.0" mnemonicParsing="false" text="F">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="585.0" layoutY="510.0" mnemonicParsing="false" text="G">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="646.0" layoutY="510.0" mnemonicParsing="false" text="H">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="708.0" layoutY="510.0" mnemonicParsing="false" text="I">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="271.0" layoutY="579.0" mnemonicParsing="false" text="J">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="323.0" layoutY="579.0" mnemonicParsing="false" text="K">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="382.0" layoutY="579.0" mnemonicParsing="false" text="L">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="437.0" layoutY="579.0" mnemonicParsing="false" text="M">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="502.0" layoutY="579.0" mnemonicParsing="false" text="N">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="563.0" layoutY="579.0" mnemonicParsing="false" text="O">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="626.0" layoutY="579.0" mnemonicParsing="false" text="P">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="683.0" layoutY="579.0" mnemonicParsing="false" text="Q">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="236.0" layoutY="648.0" mnemonicParsing="false" text="R">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="297.0" layoutY="648.0" mnemonicParsing="false" text="S">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="357.0" layoutY="648.0" mnemonicParsing="false" text="T">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="415.0" layoutY="648.0" mnemonicParsing="false" text="U">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="476.0" layoutY="648.0" mnemonicParsing="false" text="V">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="537.0" layoutY="648.0" mnemonicParsing="false" text="W">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="606.0" layoutY="648.0" mnemonicParsing="false" text="X">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="664.0" layoutY="648.0" mnemonicParsing="false" text="Y">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="721.0" layoutY="648.0" mnemonicParsing="false" text="Z">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
