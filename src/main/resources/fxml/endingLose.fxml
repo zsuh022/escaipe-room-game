@@ -19,11 +19,11 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <Button layoutX="921.0" layoutY="689.0" mnemonicParsing="false" onAction="#exitButtonClicked" styleClass="btnExit" text="Exit">
+      <Button layoutX="915.0" layoutY="689.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="45.0" prefWidth="75.0" styleClass="btnExit" text="Exit">
          <font>
             <Font size="24.0" />
          </font></Button>
-      <Button layoutX="460.0" layoutY="580.0" mnemonicParsing="false" onAction="#restartButtonClicked" styleClass="btnRestart" text="Restart">
+      <Button layoutX="460.0" layoutY="580.0" mnemonicParsing="false" onAction="#restartButtonClicked" prefHeight="45.0" prefWidth="100.0" styleClass="btnRestart" text="Restart">
          <font>
             <Font size="24.0" />
          </font></Button>

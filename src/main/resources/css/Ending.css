@@ -12,10 +12,12 @@ Label {
 }
 
 .btnRestart:hover {
+    -fx-font-size: 24px;
     -fx-background-color: #03C988;
 }
 
 .btnExit:hover {
+    -fx-font-size: 24px;
     -fx-background-color: #EB6440;
 }
 
