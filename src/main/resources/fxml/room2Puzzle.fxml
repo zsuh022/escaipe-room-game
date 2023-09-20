@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="C:\Users\liamb\OneDrive\Desktop\SOFTENG206\escaipe-room-beta-and-final-team-09\src\main\resources\images\room2image.jpg" />
+            <Image url="@../images/room2Image.jpeg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="665.0" layoutX="63.0" layoutY="52.0" stroke="BLACK" strokeType="INSIDE" width="898.0" />
