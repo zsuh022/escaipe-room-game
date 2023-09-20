@@ -22,42 +22,45 @@
          <font>
             <Font size="10.0" />
          </font></Button>
-      <Pane fx:id="keyInserter" layoutX="430.0" layoutY="350.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <ImageView fx:id="smallKeyInserter" fitHeight="42.0" fitWidth="53.0" layoutX="642.0" layoutY="401.0" onMouseClicked="#openKeyInserter" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/keyinserter.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="keyInserter" layoutX="343.0" layoutY="258.0" prefHeight="329.0" prefWidth="388.0">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="207.0" layoutX="-2.0">
+            <ImageView fitHeight="336.0" fitWidth="397.0" layoutX="-2.0">
                <image>
                   <Image url="@../images/IMG_0052.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="keyLabel" layoutX="21.0" layoutY="14.0" prefHeight="52.0" prefWidth="164.0" textFill="#cd2727">
+            <Label fx:id="keyLabel" layoutX="34.0" layoutY="14.0" prefHeight="94.0" prefWidth="346.0" textFill="#cd2727">
                <font>
-                  <Font size="42.0" />
+                  <Font size="56.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="1" />
-            <Button layoutX="67.0" layoutY="74.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="2" />
-            <Button layoutX="120.0" layoutY="74.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="3" />
-            <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="23.0" text="4" />
-            <Button layoutX="67.0" layoutY="100.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="5" />
-            <Button layoutX="120.0" layoutY="100.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="6" />
-            <Button layoutX="14.0" layoutY="126.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="7" />
-            <Button layoutX="67.0" layoutY="126.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="8" />
-            <Button layoutX="120.0" layoutY="126.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="9" />
-            <Button layoutX="14.0" layoutY="152.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="0" />
-            <Button blendMode="MULTIPLY" layoutX="67.0" layoutY="152.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="x" />
-            <Button blendMode="MULTIPLY" layoutX="120.0" layoutY="152.0" mnemonicParsing="false" onAction="#passwordButtonClicked" text="Enter" />
-            <Button layoutX="188.0" layoutY="6.0" mnemonicParsing="false" onAction="#closeKeyInserter" text="x" textFill="RED">
+            <Button layoutX="56.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="1" />
+            <Button layoutX="237.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="3" />
+            <Button layoutX="147.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="2" />
+            <Button layoutX="55.0" layoutY="165.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="4" />
+            <Button layoutX="147.0" layoutY="165.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="5" />
+            <Button layoutX="237.0" layoutY="168.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="6" />
+            <Button layoutX="55.0" layoutY="211.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="7" />
+            <Button layoutX="147.0" layoutY="211.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="8" />
+            <Button layoutX="237.0" layoutY="211.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="9" />
+            <Button layoutX="147.0" layoutY="259.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="0" />
+            <Button blendMode="MULTIPLY" layoutX="317.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="94.0" prefWidth="50.0" text="x" textFill="#f70000">
+               <font>
+                  <Font size="26.0" />
+               </font></Button>
+            <Button blendMode="MULTIPLY" layoutX="317.0" layoutY="225.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="94.0" prefWidth="50.0" text="Enter" textFill="RED" />
+            <Button layoutX="375.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeKeyInserter" text="x" textFill="RED">
                <font>
                   <Font size="6.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <ImageView fx:id="smallKeyInserter" fitHeight="42.0" fitWidth="53.0" layoutX="642.0" layoutY="401.0" onMouseClicked="#openKeyInserter" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/keyinserter.png" />
-         </image>
-      </ImageView>
       <Label fx:id="timeLabel" layoutX="810.0" layoutY="42.0" prefHeight="42.0" prefWidth="137.0">
          <font>
             <Font size="31.0" />
