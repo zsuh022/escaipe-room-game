@@ -21,7 +21,7 @@ import nz.ac.auckland.se206.gpt.openai.ChatCompletionResult.Choice;
 /** Controller class for the chat view. */
 public class RiddleChatController {
   @FXML private TextArea chatTextArea;
-  @FXML private TextField inputText;
+  @FXML private TextField inputTextArea;
   @FXML private Button sendButton;
 
   private ChatCompletionRequest chatCompletionRequest;
@@ -105,11 +105,11 @@ public class RiddleChatController {
    */
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
-    String message = inputText.getText();
+    String message = inputTextArea.getText();
     if (message.trim().isEmpty()) {
       return;
     }
-    inputText.clear();
+    inputTextArea.clear();
 
     Thread thread =
         new Thread(
