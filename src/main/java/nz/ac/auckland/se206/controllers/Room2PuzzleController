@@ -32,9 +32,9 @@ public class Room2PuzzleController {
   }
 
   @FXML
-  private void flashGreen(Rectangle rectangle) {
+  private void flashColour(Rectangle rectangle, Color colorFlash) {
     // Flash the rectangle green for one second
-    rectangle.setFill(Color.GREEN);
+    rectangle.setFill(colorFlash);
 
     // Create a timeline for the animation
     Timeline timeline =
@@ -52,46 +52,46 @@ public class Room2PuzzleController {
 
   @FXML
   private void clickOne() {
-    flashGreen(one);
+    flashColour(one, Color.GREEN);
   }
 
   @FXML
   private void clickTwo() {
-    flashGreen(two);
+    flashColour(two, Color.GREEN);
   }
 
   @FXML
   private void clickThree() {
-    flashGreen(three);
+    flashColour(three, Color.GREEN);
   }
 
   @FXML
   private void clickFour() {
-    flashGreen(four);
+    flashColour(four, Color.GREEN);
   }
 
   @FXML
   private void clickFive() {
-    flashGreen(five);
+    flashColour(five, Color.GREEN);
   }
 
   @FXML
   private void clickSix() {
-    flashGreen(six);
+    flashColour(six, Color.GREEN);
   }
 
   @FXML
   private void clickSeven() {
-    flashGreen(seven);
+    flashColour(seven, Color.GREEN);
   }
 
   @FXML
   private void clickEight() {
-    flashGreen(eight);
+    flashColour(eight, Color.GREEN);
   }
 
   @FXML
   private void clickNine() {
-    flashGreen(nine);
+    flashColour(nine, Color.GREEN);
   }
 }
