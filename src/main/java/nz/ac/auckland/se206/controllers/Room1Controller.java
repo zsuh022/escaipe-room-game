@@ -30,7 +30,7 @@ public class Room1Controller {
   @FXML
   private void room4ButtonClicked() {
     System.out.println("Room 4 button clicked");
-    App.setUi(RoomType.ROOM4);
+    App.setUi(RoomType.EXITDOOR);
   }
 
   @FXML

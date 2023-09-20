@@ -6,16 +6,16 @@ import javafx.scene.Parent;
 public class SceneManager {
 
   public enum RoomType {
-    MENU,
     CHAT,
+    ENDINGLOSE,
+    ENDINGWIN,
+    EXITDOOR,
+    GAMEMASTER,
+    MENU,
     ROOM1,
     ROOM2,
     ROOM3,
-    ROOM3PUZZLE,
-    ROOM4,
-    GAMEMASTER,
-    ENDINGLOSE,
-    ENDINGWIN
+    ROOM3PUZZLE
   }
 
   private static HashMap<RoomType, Parent> sceneMap = new HashMap<RoomType, Parent>();
