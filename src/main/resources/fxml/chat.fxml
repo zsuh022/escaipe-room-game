@@ -23,7 +23,7 @@
          <font>
             <Font size="18.0" />
          </font></TextArea>
-    <Button fx:id="sendButton" layoutX="726.0" layoutY="600.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send">
+    <Button fx:id="btnSend" layoutX="726.0" layoutY="600.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send">
          <font>
             <Font size="24.0" />
          </font></Button>

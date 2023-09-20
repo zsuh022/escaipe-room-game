@@ -20,9 +20,10 @@ import nz.ac.auckland.se206.gpt.openai.ChatCompletionResult.Choice;
 
 /** Controller class for the chat view. */
 public class RiddleChatController {
+
+  @FXML private Button btnSend;
   @FXML private TextArea chatTextArea;
   @FXML private TextField inputTextArea;
-  @FXML private Button sendButton;
 
   private ChatCompletionRequest chatCompletionRequest;
 
