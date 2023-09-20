@@ -28,12 +28,12 @@ public class TimeManager {
                     int newSeconds = seconds.get() - 1;
                     seconds.set(newSeconds);
                   }
-                  if (seconds.get() == 11) {
+                  if (seconds.get() == 12) {
                     Thread thread =
                         new Thread(
                             () -> {
                               TextToSpeech textToSpeech = new TextToSpeech();
-                              textToSpeech.speak("Harry up, you've only got 10 seconds left!");
+                              textToSpeech.speak("Hurry up, you've only got 10 seconds left!");
                             });
                     thread.start();
                   }

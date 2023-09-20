@@ -1,0 +1,12 @@
+Button {
+    -fx-background-color: #F1F6F9;
+    -fx-text-fill: #212A3E;
+}
+
+Label {
+    -fx-text-fill: #F1F6F9;
+}
+
+.btnExit:hover {
+    -fx-background-color: #FF3232;
+}
