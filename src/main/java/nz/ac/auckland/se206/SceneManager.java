@@ -13,6 +13,7 @@ public class SceneManager {
     ROOM3,
     ROOM4,
     ROOM2GAME1,
+    ROOM2PUZZLE,
     GAMEMASTER,
     ENDINGLOSE,
     ENDINGWIN
