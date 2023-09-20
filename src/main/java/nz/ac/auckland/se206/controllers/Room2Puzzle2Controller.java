@@ -223,6 +223,7 @@ public class Room2Puzzle2Controller {
 
   @FXML
   private void resetRoom2Puzzle2Clicked() {
+    word.clear(); // Clear the current word.
     initialize();
   }
 
