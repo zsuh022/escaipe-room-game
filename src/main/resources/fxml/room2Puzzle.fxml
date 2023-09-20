@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2PuzzleController">
    <children>
@@ -22,5 +24,17 @@
       <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="334.0" layoutY="468.0" onMouseClicked="#clickSeven" stroke="BLACK" strokeType="INSIDE" width="115.0" />
       <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="465.0" layoutY="468.0" onMouseClicked="#clickEight" stroke="BLACK" strokeType="INSIDE" width="115.0" />
       <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="604.0" layoutY="468.0" onMouseClicked="#clickNine" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="backPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" layoutX="91.0" layoutY="625.0" onMouseClicked="#backPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" width="134.0" />
+      <Rectangle fx:id="startPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="#00c922" height="58.0" layoutX="91.0" layoutY="95.0" onMouseClicked="#startPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" width="134.0" />
+      <Label fx:id="startLabel" layoutX="124.0" layoutY="100.0" onMouseClicked="#startPuzzle2Clicked" text="Start">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="backLabel" layoutX="124.0" layoutY="630.0" onMouseClicked="#backPuzzle2Clicked" text="Back">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

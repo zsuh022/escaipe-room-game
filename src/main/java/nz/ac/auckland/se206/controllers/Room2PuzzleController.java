@@ -1,11 +1,16 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.SceneManager.roomType;
 
 public class Room2PuzzleController {
   @FXML private Rectangle one;
@@ -17,6 +22,13 @@ public class Room2PuzzleController {
   @FXML private Rectangle seven;
   @FXML private Rectangle eight;
   @FXML private Rectangle nine;
+  @FXML private Rectangle backPuzzle2;
+  @FXML private Rectangle startPuzzle2;
+  @FXML private Label startLabel;
+  @FXML private Label backLabel;
+
+  private int[] buttonOrder = new int[6];
+  private int currentIndex = 0;
 
   @FXML
   private void initialize() {
@@ -40,7 +52,7 @@ public class Room2PuzzleController {
     Timeline timeline =
         new Timeline(
             new KeyFrame(
-                Duration.seconds(1),
+                Duration.seconds(0.4),
                 event -> {
                   // After one second, revert the color back to the original color
                   rectangle.setFill(Color.WHITE);
@@ -51,47 +63,124 @@ public class Room2PuzzleController {
   }
 
   @FXML
+  public void startPuzzle2Clicked(MouseEvent event) throws IOException {
+    // generate a random number between 1 and 9 with Math.random
+    buttonOrder[0] = (int) (1 + (Math.random() * (9)));
+    buttonOrder[1] = (int) (1 + (Math.random() * (9)));
+    buttonOrder[2] = (int) (1 + (Math.random() * (9)));
+    buttonOrder[3] = (int) (1 + (Math.random() * (9)));
+    buttonOrder[4] = (int) (1 + (Math.random() * (9)));
+    buttonOrder[5] = (int) (1 + (Math.random() * (9)));
+
+    currentIndex = 0;
+
+    for (int i = 0; i < buttonOrder.length; i++) {
+      int buttonNumber = buttonOrder[i];
+      Rectangle button = integerToRectangle(buttonNumber);
+      flashButtonWithDelay(button, Color.GREEN, i * 0.5);
+    }
+  }
+
+  private void flashButtonWithDelay(Rectangle button, Color colorFlash, double delaySeconds) {
+    Timeline timeline =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(delaySeconds),
+                event -> {
+                  // Flash the button
+                  flashColour(button, colorFlash);
+                }));
+    // Play the timeline animation
+    timeline.play();
+  }
+
+  public Rectangle integerToRectangle(int integer) {
+    if (integer == 1) {
+      return one;
+    } else if (integer == 2) {
+      return two;
+    } else if (integer == 3) {
+      return three;
+    } else if (integer == 4) {
+      return four;
+    } else if (integer == 5) {
+      return five;
+    } else if (integer == 6) {
+      return six;
+    } else if (integer == 7) {
+      return seven;
+    } else if (integer == 8) {
+      return eight;
+    } else if (integer == 9) {
+      return nine;
+    } else {
+      return null;
+    }
+  }
+
+  @FXML
+  public void backPuzzle2Clicked(MouseEvent event) throws IOException {
+    App.setUi(roomType.ROOM2);
+  }
+
+  @FXML
   private void clickOne() {
-    flashColour(one, Color.GREEN);
+    handleButtonClick(1);
   }
 
   @FXML
   private void clickTwo() {
-    flashColour(two, Color.GREEN);
+    handleButtonClick(2);
   }
 
   @FXML
   private void clickThree() {
-    flashColour(three, Color.GREEN);
+    handleButtonClick(3);
   }
 
   @FXML
   private void clickFour() {
-    flashColour(four, Color.GREEN);
+    handleButtonClick(4);
   }
 
   @FXML
   private void clickFive() {
-    flashColour(five, Color.GREEN);
+    handleButtonClick(5);
   }
 
   @FXML
   private void clickSix() {
-    flashColour(six, Color.GREEN);
+    handleButtonClick(6);
   }
 
   @FXML
   private void clickSeven() {
-    flashColour(seven, Color.GREEN);
+    handleButtonClick(7);
   }
 
   @FXML
   private void clickEight() {
-    flashColour(eight, Color.GREEN);
+    handleButtonClick(8);
   }
 
   @FXML
   private void clickNine() {
-    flashColour(nine, Color.GREEN);
+    handleButtonClick(9);
+  }
+
+  private void handleButtonClick(int buttonNumber) {
+    if (buttonNumber == buttonOrder[currentIndex]) {
+      // Correct button pressed
+      currentIndex++;
+      flashColour(integerToRectangle(buttonNumber), Color.GREEN);
+      if (currentIndex == buttonOrder.length) {
+        // Puzzle solved
+        System.out.println("Puzzle solved");
+      }
+    } else {
+      // Incorrect button pressed
+      currentIndex = 0;
+      flashColour(integerToRectangle(buttonNumber), Color.RED);
+    }
   }
 }
