@@ -132,9 +132,16 @@ public class Room4Controller {
   }
 
   @FXML
+  private void minimizeKeyInserter() {
+    keyInserter.setVisible(false);
+    smallKeyInserter.setVisible(true);
+  }
+
+  @FXML
   public void closeKeyInserter() {
     keyInserter.setVisible(false);
     smallKeyInserter.setVisible(true);
+    keyLabel.setText("");
   }
 
   @FXML private Label timeLabel;
