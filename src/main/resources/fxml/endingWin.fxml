@@ -29,7 +29,7 @@
             <Font size="55.0" />
          </font>
       </Label>
-      <Label fx:id="riddleLabel" layoutX="20.0" layoutY="390.0" onMouseEntered="#riddleLabelEntered" prefHeight="90.0" prefWidth="350.0" text="xxxxxx">
+      <Label fx:id="riddleLabel" layoutX="20.0" layoutY="420.0" onMouseEntered="#riddleLabelEntered" prefHeight="90.0" prefWidth="350.0" text="xxxxxx">
          <font>
             <Font size="55.0" />
          </font>
@@ -44,14 +44,14 @@
          </font></Button>
       <Pane layoutX="330.0" layoutY="200.0" prefHeight="167.0" prefWidth="630.0">
          <children>
-            <TextArea fx:id="keyTextArea" onMouseEntered="#keyTextAreaEntered" opacity="0.7" prefHeight="166.0" prefWidth="630.0" wrapText="true">
+            <TextArea fx:id="keyTextArea" onMouseEntered="#keyTextAreaEntered" opacity="0.7" prefHeight="167.0" prefWidth="630.0" wrapText="true">
                <font>
                   <Font size="27.0" />
                </font>
             </TextArea>
          </children>
       </Pane>
-      <Pane layoutX="330.0" layoutY="403.0" prefHeight="167.0" prefWidth="630.0">
+      <Pane layoutX="330.0" layoutY="400.0" prefHeight="167.0" prefWidth="630.0">
          <children>
             <TextArea fx:id="riddleTextArea" onMouseEntered="#riddleTextAreaEntered" opacity="0.7" prefHeight="167.0" prefWidth="630.0" wrapText="true">
                <font>
