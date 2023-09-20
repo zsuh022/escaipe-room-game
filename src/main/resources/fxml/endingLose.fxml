@@ -14,22 +14,17 @@
             <Image url="@../images/endingLose.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="938.0" layoutY="699.0" mnemonicParsing="false" onAction="#exitButtonClicked" styleClass="btnExit" text="Exit">
+      <Button layoutX="921.0" layoutY="689.0" mnemonicParsing="false" onAction="#exitButtonClicked" styleClass="btnExit" text="Exit">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font></Button>
-      <Button layoutX="477.0" layoutY="600.0" mnemonicParsing="false" onAction="#restartButtonClicked" text="Restart">
+      <Button layoutX="460.0" layoutY="580.0" mnemonicParsing="false" onAction="#restartButtonClicked" styleClass="btnRestart" text="Restart">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font></Button>
       <Label alignment="CENTER" layoutY="50.0" prefHeight="92.0" prefWidth="1024.0" text="You Lose!">
          <font>
             <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="timeLabel" layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="91.0">
-         <font>
-            <Font size="32.0" />
          </font>
       </Label>
       <ImageView fx:id="gameMasterLose" fitHeight="100.0" fitWidth="100.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">

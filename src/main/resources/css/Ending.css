@@ -7,6 +7,10 @@ Label {
     -fx-text-fill: #F1F6F9;
 }
 
+.btnRestart:hover {
+    -fx-background-color: #03C988;
+}
+
 .btnExit:hover {
-    -fx-background-color: #FF3232;
+    -fx-background-color: #EB6440;
 }
