@@ -29,14 +29,14 @@
       </Label>
       <ImageView fx:id="smallKeyInserter" fitHeight="75.0" fitWidth="75.0" layoutX="620.0" layoutY="390.0" onMouseClicked="#onOpenKeyPad" preserveRatio="true">
          <image>
-            <Image url="@../images/keypadBackground.png" />
+            <Image url="@../images/keyPadSmall.png" />
          </image>
       </ImageView>
       <Pane fx:id="keyPad" layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0" visible="false">
          <children>
             <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
                <image>
-                  <Image url="@../images/keypadBackground.png" />
+                  <Image url="@../images/keyPadBackground.png" />
                </image>
             </ImageView>
             <Button layoutX="549.0" layoutY="284.0" mnemonicParsing="false" onAction="#onExitKeyPadClicked" styleClass="btnKeyPadExit" text="X">
