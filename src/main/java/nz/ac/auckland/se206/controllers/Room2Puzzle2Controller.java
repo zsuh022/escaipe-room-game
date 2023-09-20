@@ -58,7 +58,9 @@ public class Room2Puzzle2Controller {
 
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
-    GameState.isPuzzleRoom2Solved.setValue(true);
+
+    GameState.isPuzzleRoom2Solved.set(true);
+
   }
 
   @FXML

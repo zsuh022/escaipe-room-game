@@ -1,0 +1,32 @@
+* {
+    -fx-font-family: "Times New Roman", serif;
+}
+
+TextArea {
+    -fx-background-color: #F1F6F9;
+    -fx-text-fill: #212A3E;
+}
+
+#chatTextArea {
+    -fx-border-color: #FFC107;
+    -fx-border-width: 3px;
+    -fx-font-size: 18px;
+}
+
+#inputTextArea {
+    -fx-border-color: #FFC107;
+    -fx-border-width: 3px;
+    -fx-font-size: 24px;
+}
+
+Button {
+    -fx-background-color: #F1F6F9;
+    -fx-font-size: 24px;
+    -fx-text-fill: #212A3E;
+}
+
+#btnSend:hover,
+#btnGoBack:hover {
+    -fx-background-color: #9BA4B5;
+    -fx-font-size: 24px;
+}
