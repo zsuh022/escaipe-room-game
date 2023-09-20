@@ -38,7 +38,7 @@
          </font></Button>
       <Slider fx:id="difficultySlider" layoutX="379.0" layoutY="281.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="72.0" prefWidth="388.0" showTickMarks="true" snapToTicks="true" stylesheets="@../css/MenuSlider.css" value="2.0" />
       <Slider fx:id="timeSlider" layoutX="378.0" layoutY="382.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="34.0" prefWidth="390.0" showTickMarks="true" snapToTicks="true" stylesheets="@../css/MenuSlider.css" value="2.0" />
-      <Label layoutX="205.0" layoutY="267.0" prefHeight="79.0" prefWidth="144.0" text="Difficulty">
+      <Label fx:id="difficultyLabel" layoutX="205.0" layoutY="267.0" prefHeight="79.0" prefWidth="144.0" text="Difficulty">
          <font>
             <Font size="32.0" />
          </font>
@@ -67,7 +67,7 @@
          <font>
             <Font size="22.0" />
          </font></Label>
-      <Label layoutX="202.0" layoutY="354.0" prefHeight="80.0" prefWidth="155.0" text="Time">
+      <Label fx:id="timeLabel" layoutX="202.0" layoutY="354.0" prefHeight="80.0" prefWidth="155.0" text="Time">
          <font>
             <Font size="32.0" />
          </font>
