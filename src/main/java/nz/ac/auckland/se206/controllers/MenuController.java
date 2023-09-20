@@ -25,15 +25,15 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class MenuController {
 
+  @FXML private Button startButton;
+  @FXML private ImageView nextImageView;
+  @FXML private Label difficultyLabel;
+  @FXML private Label timeLabel;
+  @FXML private MediaView earthMpfour;
   @FXML private Slider difficultySlider;
   @FXML private Slider timeSlider;
-  @FXML private MediaView earthMpfour;
-  @FXML private ImageView nextImageView;
-  @FXML private Button startButton;
-  MediaPlayer player;
-  @FXML private Label difficultyLabel;
+  private MediaPlayer player;
   private final StringProperty difficultyLabelColor = new SimpleStringProperty("#ffffff");
-  @FXML private Label timeLabel;
   private final StringProperty timeLabelColor = new SimpleStringProperty("#ffffff");
 
   /**

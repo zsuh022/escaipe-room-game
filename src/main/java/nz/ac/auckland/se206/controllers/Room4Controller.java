@@ -18,6 +18,11 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 /** Controller class for the room view. */
 public class Room4Controller {
 
+  @FXML private ImageView smallKeyInserter;
+  @FXML private Label keyLabel;
+  @FXML private Label timeLabel;
+  @FXML private Pane keyInserter;
+
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
     initializeTimer();
@@ -48,8 +53,6 @@ public class Room4Controller {
     Button button = (Button) target;
     updateKeyLabel(button.getText());
   }
-
-  @FXML private Label keyLabel;
 
   @FXML
   public void updateKeyLabel(String key) throws IOException {
@@ -121,10 +124,6 @@ public class Room4Controller {
     alert.showAndWait();
   }
 
-  @FXML Pane keyInserter;
-
-  @FXML ImageView smallKeyInserter;
-
   @FXML
   public void openKeyInserter() {
     keyInserter.setVisible(true);
@@ -143,8 +142,6 @@ public class Room4Controller {
     smallKeyInserter.setVisible(true);
     keyLabel.setText("");
   }
-
-  @FXML private Label timeLabel;
 
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
