@@ -1,38 +1,49 @@
 package nz.ac.auckland.se206;
 
-import javafx.scene.Node;
+import java.util.List;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 
 public class DraggableManager {
-  private double mouseX;
-  private double mouseY;
-  private final double threholdConstant = 0.25;
 
-  public void makeDraggable(Node node, Circle targetCircle) {
-    node.setOnMouseClicked(
+  private final double threholdConstant = 0.5;
+  private double deltaX = 0;
+  private double deltaY = 0;
+
+  public void makeDraggable(ImageView planet, List<Circle> targetCircles) {
+    planet.setOnMousePressed(
         mouseEvent -> {
-          mouseX = mouseEvent.getX();
-          mouseY = mouseEvent.getY();
+          // Calculate the difference between the mouse's X, Y and the ImageView's top-left X, Y
+          deltaX = mouseEvent.getSceneX() - planet.getLayoutX();
+          deltaY = mouseEvent.getSceneY() - planet.getLayoutY();
         });
 
-    node.setOnMouseDragged(
+    planet.setOnMouseDragged(
         mouseEvent -> {
-          node.setLayoutX(mouseEvent.getSceneX() - mouseX);
-          node.setLayoutY(mouseEvent.getSceneY() - mouseY);
-          checkAndSnapToTarget(node, targetCircle);
+          // Use the calculated deltas to adjust the ImageView's position
+          planet.setLayoutX(mouseEvent.getSceneX() - deltaX);
+          planet.setLayoutY(mouseEvent.getSceneY() - deltaY);
+          for (Circle targetCircle : targetCircles) {
+            checkAndSnapToTarget(planet, targetCircle);
+          }
         });
   }
 
-  private void checkAndSnapToTarget(Node node, Circle targetCircle) {
+  private void checkAndSnapToTarget(ImageView planet, Circle targetCircle) {
     double distance =
         Math.sqrt(
-            Math.pow(node.getLayoutX() - targetCircle.getLayoutX(), 2)
-                + Math.pow(node.getLayoutY() - targetCircle.getLayoutY(), 2));
-    double threshold = threholdConstant * (targetCircle.getRadius() + ((Circle) node).getRadius());
+            Math.pow(
+                    (planet.getLayoutX() + planet.getFitWidth() / 2.0) - targetCircle.getLayoutX(),
+                    2)
+                + Math.pow(
+                    (planet.getLayoutY() + planet.getFitHeight() / 2.0) - targetCircle.getLayoutY(),
+                    2));
+    double threshold = threholdConstant * targetCircle.getRadius();
 
     if (distance < threshold) {
-      node.setLayoutX(targetCircle.getLayoutX());
-      node.setLayoutY(targetCircle.getLayoutY());
+      planet.setLayoutX(targetCircle.getLayoutX() - planet.getFitWidth() / 2.0);
+      planet.setLayoutY(targetCircle.getLayoutY() - planet.getFitHeight() / 2.0);
+      return;
     }
   }
 }
