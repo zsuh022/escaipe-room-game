@@ -11,6 +11,11 @@ Label {
     -fx-text-fill: #F1F6F9;
 }
 
+TextArea {
+    -fx-background-color: #F1F6F9;
+    -fx-text-fill: #212A3E;
+}
+
 .btnRestart:hover {
     -fx-font-size: 24px;
     -fx-background-color: #03C988;
