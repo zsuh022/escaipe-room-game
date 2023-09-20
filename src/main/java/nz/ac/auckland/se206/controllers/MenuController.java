@@ -84,6 +84,6 @@ public class MenuController {
         GameState.key = 16071969;
         break;
     }
-    System.out.println(number + GameState.key);
+    System.out.println("key = " + GameState.key);
   }
 }
