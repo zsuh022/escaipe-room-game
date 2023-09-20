@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.util.Random;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,7 +10,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 import nz.ac.auckland.se206.gpt.ChatMessage;
 import nz.ac.auckland.se206.gpt.GptPromptEngineering;
 import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
@@ -41,10 +42,26 @@ public class RiddleChatController {
     System.out.println(celestialBodies[randomIndex]);
 
     GameState.riddleWord = celestialBodies[randomIndex];
-    chatCompletionRequest =
-        new ChatCompletionRequest().setN(1).setTemperature(0.2).setTopP(0.5).setMaxTokens(100);
-    runGpt(
-        new ChatMessage("user", GptPromptEngineering.getRiddleWithGivenWord(GameState.riddleWord)));
+
+    Thread thread =
+        new Thread(
+            () -> {
+              chatCompletionRequest =
+                  new ChatCompletionRequest()
+                      .setN(1)
+                      .setTemperature(0.2)
+                      .setTopP(0.5)
+                      .setMaxTokens(100);
+              try {
+                runGpt(
+                    new ChatMessage(
+                        "user", GptPromptEngineering.getRiddleWithGivenWord(GameState.riddleWord)));
+              } catch (ApiProxyException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+            });
+    thread.start();
   }
 
   /**
@@ -53,7 +70,8 @@ public class RiddleChatController {
    * @param msg the chat message to append
    */
   private void appendChatMessage(ChatMessage msg) {
-    chatTextArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n");
+    Platform.runLater(
+        () -> chatTextArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n"));
   }
 
   /**
@@ -92,12 +110,25 @@ public class RiddleChatController {
       return;
     }
     inputText.clear();
-    ChatMessage msg = new ChatMessage("user", message);
-    appendChatMessage(msg);
-    ChatMessage lastMsg = runGpt(msg);
-    if (lastMsg.getRole().equals("assistant") && lastMsg.getContent().startsWith("Correct")) {
-      GameState.isRiddleResolved = true;
-    }
+
+    Thread thread =
+        new Thread(
+            () -> {
+              ChatMessage msg = new ChatMessage("user", message);
+              appendChatMessage(msg);
+              ChatMessage lastMsg;
+              try {
+                lastMsg = runGpt(msg);
+                if (lastMsg.getRole().equals("assistant")
+                    && lastMsg.getContent().startsWith("Correct")) {
+                  GameState.isRiddleResolved = true;
+                }
+              } catch (ApiProxyException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+            });
+    thread.start();
   }
 
   /**
@@ -109,6 +140,6 @@ public class RiddleChatController {
    */
   @FXML
   private void onGoBack(ActionEvent event) throws ApiProxyException, IOException {
-    App.setUi(roomType.ROOM1);
+    App.setUi(RoomType.ROOM1);
   }
 }

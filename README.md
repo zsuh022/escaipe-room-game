@@ -37,8 +37,23 @@
 
 ## Reference
 
-earth animation
+Earth animation
 https://www.facebook.com/watch/?v=10155379945966772
 
 video editor:
 https://www.veed.io/edit/6732df0c-a77f-481a-b16c-b10d0ea310e1/video
+
+Depart space station:
+https://www.youtube.com/watch?v=DbB2-CCrzO0
+
+Planet Information:
+https://en.wikipedia.org/wiki/Main_Page
+
+Dates Information:
+https://www.un.org/en/observances/human-spaceflight-day#:~:text=12%20April%201961%20was%20the,the%20benefit%20of%20all%20humanity.
+
+Music:
+chill. by sakura Hz https://soundcloud.com/sakurahertz
+Creative Commons — Attribution 3.0 Unported  — CC BY 3.0 
+Free Download / Stream: http://bit.ly/chill-sakuraHz
+Music promoted by Audio Library • Chill – sakura Hz (No Copyright Music)

@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,7 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 import nz.ac.auckland.se206.gpt.ChatMessage;
 import nz.ac.auckland.se206.gpt.GptPromptEngineering;
 import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
@@ -34,13 +35,33 @@ public class GameMasterController {
     chatCompletionRequest =
         new ChatCompletionRequest().setN(1).setTemperature(0.2).setTopP(0.5).setMaxTokens(100);
 
-    if (GameState.difficulty == 1) {
-      runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterEasy()));
-    } else if (GameState.difficulty == 2) {
-      runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterMid()));
-    } else {
-      runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterHard()));
-    }
+    Thread thread =
+        new Thread(
+            () -> {
+              if (GameState.difficulty == 1) {
+                try {
+                  runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterEasy()));
+                } catch (ApiProxyException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                }
+              } else if (GameState.difficulty == 2) {
+                try {
+                  runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterMid()));
+                } catch (ApiProxyException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                }
+              } else {
+                try {
+                  runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterHard()));
+                } catch (ApiProxyException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                }
+              }
+            });
+    thread.start();
   }
 
   /**
@@ -49,7 +70,8 @@ public class GameMasterController {
    * @param msg the chat message to append
    */
   public void appendChatMessage(ChatMessage msg) {
-    chatTextArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n");
+    Platform.runLater(
+        () -> chatTextArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n"));
   }
 
   /**
@@ -83,18 +105,48 @@ public class GameMasterController {
    */
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
-    updateGPT();
+    Thread thread1 =
+        new Thread(
+            () -> {
+              try {
+                updateGpt();
+              } catch (ApiProxyException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+            });
     String message = inputText.getText();
     if (message.trim().isEmpty()) {
       return;
     }
     inputText.clear();
-    ChatMessage msg = new ChatMessage("user", message);
-    appendChatMessage(msg);
-    runGpt(msg);
+    Thread thread2 =
+        new Thread(
+            () -> {
+              ChatMessage msg = new ChatMessage("user", message);
+              appendChatMessage(msg);
+              try {
+                runGpt(msg);
+              } catch (ApiProxyException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+            });
+    Thread thread3 =
+        new Thread(
+            () -> {
+              thread1.start();
+              try {
+                thread1.join();
+              } catch (InterruptedException e) {
+                e.printStackTrace();
+              }
+              thread2.start();
+            });
+    thread3.start();
   }
 
-  public void updateGPT() throws ApiProxyException {
+  public void updateGpt() throws ApiProxyException {
     if (GameState.isPuzzleRoom3Solved) {
       ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
       runGpt(msg);
@@ -110,6 +162,6 @@ public class GameMasterController {
    */
   @FXML
   private void onGoBack(ActionEvent event) throws ApiProxyException, IOException {
-    App.setUi(roomType.ROOM1);
+    App.setUi(RoomType.ROOM1);
   }
 }

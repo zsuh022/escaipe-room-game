@@ -9,9 +9,17 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.GridPane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
+
 import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
 
 public class Room3PuzzleController {
@@ -34,6 +42,27 @@ public class Room3PuzzleController {
   @FXML
   public void initialize() {
     buttons = Arrays.asList(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btnEmpty);
+
+    // set the images for the buttons
+    for (int i = 1; i < buttons.size(); i++) {
+      String imagePath =
+          "/images/"
+              + GameState.riddleWord.toLowerCase()
+              + "/"
+              + GameState.riddleWord.toLowerCase()
+              + String.valueOf(i)
+              + ".jpg";
+      Image image = new Image(App.class.getResource(imagePath).toExternalForm());
+      BackgroundImage backgroundImage =
+          new BackgroundImage(
+              image,
+              BackgroundRepeat.NO_REPEAT,
+              BackgroundRepeat.NO_REPEAT,
+              BackgroundPosition.CENTER,
+              new BackgroundSize(150, 150, false, false, false, false));
+      buttons.get(i - 1).setBackground(new Background(backgroundImage));
+    }
+
 
     // shuffle the buttons
     shuffleButtons();
@@ -65,7 +94,9 @@ public class Room3PuzzleController {
     Button clickedButton = (Button) gridPane.getScene().getFocusOwner();
 
     // prevent user from clicking empty tile
-    if (clickedButton == btnEmpty) return;
+    if (clickedButton == btnEmpty) {
+      return;
+    }
 
     int x = GridPane.getColumnIndex(clickedButton);
     int y = GridPane.getRowIndex(clickedButton);
