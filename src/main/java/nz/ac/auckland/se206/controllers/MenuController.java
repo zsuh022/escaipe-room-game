@@ -152,12 +152,21 @@ public class MenuController {
     switch (number) {
       case 1:
         GameState.key = 12041961;
+        GameState.room2key = "12";
+        GameState.room1key = "04";
+        GameState.room3key = "1916";
         break;
       case 2:
         GameState.key = 19041971;
+        GameState.room2key = "19";
+        GameState.room1key = "04";
+        GameState.room3key = "1971";
         break;
       case 3:
         GameState.key = 16071969;
+        GameState.room2key = "16";
+        GameState.room1key = "07";
+        GameState.room3key = "1969";
         break;
     }
     System.out.println("key = " + GameState.key);

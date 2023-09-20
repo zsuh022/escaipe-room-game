@@ -3,6 +3,7 @@ package nz.ac.auckland.se206.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.MusicManager;
@@ -13,6 +14,13 @@ public class Room1Controller {
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
     initializeTimer();
+    keyShowingPane.setVisible(false);
+    GameState.isRiddleResolved.addListener(
+        (observable, oldValue, newValue) -> {
+          if (newValue) {
+            showRoom1Key();
+          }
+        });
   }
 
   @FXML
@@ -68,5 +76,14 @@ public class Room1Controller {
       waveImage.setVisible(false);
       MusicManager.mute();
     }
+  }
+
+  @FXML private Label room1KeyLabel;
+  @FXML private Pane keyShowingPane;
+
+  public void showRoom1Key() {
+    System.out.println("Room 1 key shown");
+    keyShowingPane.setVisible(true);
+    room1KeyLabel.setText(GameState.room1key);
   }
 }
