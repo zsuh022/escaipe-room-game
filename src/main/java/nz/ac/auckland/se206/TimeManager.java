@@ -6,7 +6,7 @@ import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.util.Duration;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
 public class TimeManager {
@@ -53,8 +53,8 @@ public class TimeManager {
     timeLine.setOnFinished(
         e -> {
           try {
-            SceneManager.addUi(roomType.ENDINGLOSE, App.loadFxml("endinglose"));
-            App.setUi(roomType.ENDINGLOSE);
+            SceneManager.addUi(RoomType.ENDINGLOSE, App.loadFxml("endinglose"));
+            App.setUi(RoomType.ENDINGLOSE);
           } catch (IOException e1) {
             e1.printStackTrace();
           }

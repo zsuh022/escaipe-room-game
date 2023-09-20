@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room2Controller {
 
@@ -24,7 +24,7 @@ public class Room2Controller {
   @FXML
   private void buttonClicked() {
     System.out.println("Button clicked");
-    App.setUi(roomType.ROOM1);
+    App.setUi(RoomType.ROOM1);
   }
 
   @FXML private Label timeLabel;

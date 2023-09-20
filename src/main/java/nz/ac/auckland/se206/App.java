@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 /**
  * This is the entry point of the JavaFX application, while you can change this class, it should
@@ -24,7 +24,7 @@ public class App extends Application {
     scene.setRoot(loadFxml(fxml));
   }
 
-  public static void setUi(roomType type) {
+  public static void setUi(RoomType type) {
     // set the scene to the new ui
     scene.setRoot(SceneManager.getUi(type));
   }
@@ -49,7 +49,7 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
-    SceneManager.addUi(roomType.CHAT, App.loadFxml("chat"));
+    SceneManager.addUi(RoomType.CHAT, App.loadFxml("chat"));
     Parent root = loadFxml("menu");
     scene = new Scene(root, 1024, 768);
     stage.setScene(scene);

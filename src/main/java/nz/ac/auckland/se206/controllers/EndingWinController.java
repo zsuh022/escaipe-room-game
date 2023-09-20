@@ -16,7 +16,7 @@ import nz.ac.auckland.se206.MusicManager;
 
 public class EndingWinController {
 
-  MediaPlayer player;
+  private MediaPlayer player;
   @FXML private MediaView depart;
 
   @FXML

@@ -17,12 +17,20 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
 
 public class Room3PuzzleController {
 
-  @FXML private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btnEmpty;
+  @FXML private Button btn1;
+  @FXML private Button btn2;
+  @FXML private Button btn3;
+  @FXML private Button btn4;
+  @FXML private Button btn5;
+  @FXML private Button btn6;
+  @FXML private Button btn7;
+  @FXML private Button btn8;
+  @FXML private Button btnEmpty;
   @FXML private Button btnExitPuzzle;
   @FXML private GridPane gridPane;
 
@@ -71,7 +79,7 @@ public class Room3PuzzleController {
   @FXML
   private void onBackButtonClicked() {
     System.out.println("Back button clicked");
-    App.setUi(roomType.ROOM3);
+    App.setUi(RoomType.ROOM3);
   }
 
   @FXML
@@ -83,7 +91,9 @@ public class Room3PuzzleController {
     Button clickedButton = (Button) gridPane.getScene().getFocusOwner();
 
     // prevent user from clicking empty tile
-    if (clickedButton == btnEmpty) return;
+    if (clickedButton == btnEmpty) {
+      return;
+    }
 
     int x = GridPane.getColumnIndex(clickedButton);
     int y = GridPane.getRowIndex(clickedButton);

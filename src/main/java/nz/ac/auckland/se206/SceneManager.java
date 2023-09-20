@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 
 public class SceneManager {
 
-  public enum roomType {
+  public enum RoomType {
     MENU,
     CHAT,
     ROOM1,
@@ -18,13 +18,13 @@ public class SceneManager {
     ENDINGWIN
   }
 
-  private static HashMap<roomType, Parent> sceneMap = new HashMap<roomType, Parent>();
+  private static HashMap<RoomType, Parent> sceneMap = new HashMap<RoomType, Parent>();
 
-  public static void addUi(roomType room, Parent parent) {
+  public static void addUi(RoomType room, Parent parent) {
     sceneMap.put(room, parent);
   }
 
-  public static Parent getUi(roomType room) {
+  public static Parent getUi(RoomType room) {
     return sceneMap.get(room);
   }
 }

@@ -21,19 +21,19 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class MenuController {
 
+  @FXML private Button startButton;
+  @FXML private ImageView nextImageView;
+  @FXML private Label difficultyLabel;
+  @FXML private Label timeLabel;
+  @FXML private MediaView earthMpfour;
   @FXML private Slider difficultySlider;
   @FXML private Slider timeSlider;
-  @FXML private MediaView earthMpfour;
-  @FXML private ImageView nextImageView;
-  @FXML private Button startButton;
-  MediaPlayer player;
-  @FXML private Label difficultyLabel;
+  private MediaPlayer player;
   private final StringProperty difficultyLabelColor = new SimpleStringProperty("#ffffff");
-  @FXML private Label timeLabel;
   private final StringProperty timeLabelColor = new SimpleStringProperty("#ffffff");
 
   /**
@@ -115,13 +115,13 @@ public class MenuController {
   }
 
   private void setUiAfterFade() throws IOException, URISyntaxException {
-    SceneManager.addUi(roomType.ROOM1, App.loadFxml("room1"));
-    SceneManager.addUi(roomType.ROOM2, App.loadFxml("room2"));
-    SceneManager.addUi(roomType.ROOM3, App.loadFxml("room3"));
-    SceneManager.addUi(roomType.ROOM3PUZZLE, App.loadFxml("room3puzzle"));
-    SceneManager.addUi(roomType.ROOM4, App.loadFxml("room4"));
-    SceneManager.addUi(roomType.GAMEMASTER, App.loadFxml("gamemaster"));
-    App.setUi(roomType.ROOM1);
+    SceneManager.addUi(RoomType.ROOM1, App.loadFxml("room1"));
+    SceneManager.addUi(RoomType.ROOM2, App.loadFxml("room2"));
+    SceneManager.addUi(RoomType.ROOM3, App.loadFxml("room3"));
+    SceneManager.addUi(RoomType.ROOM3PUZZLE, App.loadFxml("room3puzzle"));
+    SceneManager.addUi(RoomType.ROOM4, App.loadFxml("room4"));
+    SceneManager.addUi(RoomType.GAMEMASTER, App.loadFxml("gamemaster"));
+    App.setUi(RoomType.ROOM1);
     player.stop();
     MusicManager.playGameSong();
     GameState.timeManager.setTimer();
