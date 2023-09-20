@@ -8,6 +8,7 @@ import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -18,6 +19,7 @@ import javafx.scene.layout.GridPane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
+
 import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
 
 public class Room3PuzzleController {
@@ -61,6 +63,7 @@ public class Room3PuzzleController {
       buttons.get(i - 1).setBackground(new Background(backgroundImage));
     }
 
+
     // shuffle the buttons
     shuffleButtons();
 
@@ -79,7 +82,7 @@ public class Room3PuzzleController {
   @FXML
   private void onBackButtonClicked() {
     System.out.println("Back button clicked");
-    App.setUi(RoomType.ROOM3);
+    App.setUi(roomType.ROOM3);
   }
 
   @FXML
