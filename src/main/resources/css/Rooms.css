@@ -19,6 +19,7 @@
 }
 
 .btnKeyPad {
+    -fx-font-size: 24px;
     -fx-background-color: #F1F6F9;
     -fx-text-fill: #212A3E;
 }
@@ -29,6 +30,7 @@
 }
 
 .btnKeyPadDisplay {
+    -fx-font-size: 48px;
     -fx-background-color: #F1F6F9;
     -fx-text-fill: #212A3E;
 }
