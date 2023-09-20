@@ -33,6 +33,7 @@ public class Room2Controller {
   @FXML
   public void room2BoxClicked(MouseEvent event) throws IOException {
     System.out.println("box clicked");
+    App.setUi(RoomType.ROOM2PUZZLE2);
   }
 
   @FXML
