@@ -33,6 +33,12 @@
     -fx-text-fill: #F1F6F9;
 }
 
+.btnKeyPadExit:hover {
+    -fx-font-size: 18px;
+    -fx-background-color: #FF5677;
+    -fx-text-fill: #9BA4B5;
+}
+
 #btnClear,
 #btnEnter {
     -fx-text-fill: #EB6440;
