@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Puzzle2Controller" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Puzzle2Controller">
+   <children>
+      <Circle fx:id="blueCircle" fill="DODGERBLUE" layoutX="498.0" layoutY="573.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="redCircle" fill="#ff1f1f" layoutX="512.0" layoutY="208.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</Pane>
