@@ -19,7 +19,7 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 public class ExitDoorController {
 
   @FXML private ImageView smallKeyPad;
-  @FXML private Label keyLabel;
+  @FXML private Button btnKeyPadDisplay;
   @FXML private Label timeLabel;
   @FXML private Pane keyPad;
 
@@ -45,10 +45,11 @@ public class ExitDoorController {
   @FXML
   public void updateKeyLabel(String key) throws IOException {
     if (key.equals("Clear")) {
-      keyLabel.setText("");
+      btnKeyPadDisplay.setText("");
       return;
     }
-    if (keyLabel.getText().length() > 8) {
+
+    if (btnKeyPadDisplay.getText().length() > 8) {
       return;
     }
 
@@ -58,17 +59,17 @@ public class ExitDoorController {
       return;
     }
 
-    String prev = keyLabel.getText();
-    keyLabel.setText(prev + key);
+    String prev = btnKeyPadDisplay.getText();
+    btnKeyPadDisplay.setText(prev + key);
   }
 
   private void checkKey() throws IOException {
     System.out.println("2");
-    if (keyLabel.getText().equals("")) {
+    if (btnKeyPadDisplay.getText().equals("")) {
       showDialog("Info", null, "Please enter the key.");
       return;
     }
-    int n = Integer.parseInt(keyLabel.getText());
+    int n = Integer.parseInt(btnKeyPadDisplay.getText());
     System.out.println("entered key: " + n);
     System.out.println("correct key: " + GameState.key);
     if (n == GameState.key) {
@@ -77,7 +78,7 @@ public class ExitDoorController {
       App.setUi(RoomType.ENDINGWIN);
     } else {
       showDialog("Warning", null, "The answer is wrong, please try again.");
-      keyLabel.setText("");
+      btnKeyPadDisplay.setText("");
     }
   }
 
@@ -113,7 +114,7 @@ public class ExitDoorController {
   }
 
   @FXML
-  public void openKeyInserter() {
+  private void onOpenKeyPad() {
     keyPad.setVisible(true);
     smallKeyPad.setVisible(false);
   }
@@ -125,10 +126,10 @@ public class ExitDoorController {
   }
 
   @FXML
-  public void onExitKeyPadClicked() {
+  private void onExitKeyPadClicked() {
     keyPad.setVisible(false);
     smallKeyPad.setVisible(true);
-    keyLabel.setText("");
+    btnKeyPadDisplay.setText("");
   }
 
   private void initializeTimer() {

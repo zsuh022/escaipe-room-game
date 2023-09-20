@@ -27,12 +27,12 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <ImageView fx:id="smallKeyInserter" fitHeight="150.0" fitWidth="140.0" onMouseClicked="#openKeyInserter" preserveRatio="true">
+      <ImageView fx:id="smallKeyInserter" fitHeight="75.0" fitWidth="75.0" layoutX="620.0" layoutY="390.0" onMouseClicked="#onOpenKeyPad" preserveRatio="true">
          <image>
             <Image url="@../images/keypadBackground.png" />
          </image>
       </ImageView>
-      <Pane layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0">
+      <Pane fx:id="keyPad" layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0" visible="false">
          <children>
             <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
                <image>
@@ -44,7 +44,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" layoutX="150.0" layoutY="50.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="310.0" styleClass="btnKeyPad">
+            <Button fx:id="btnKeyPadDisplay" alignment="CENTER" layoutX="150.0" layoutY="50.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="310.0" styleClass="btnKeyPad">
                <font>
                   <Font size="48.0" />
                </font>
