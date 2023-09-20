@@ -7,25 +7,26 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EndingLoseController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Ending.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EndingLoseController">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
             <Image url="@../images/endingLose.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="671.0" layoutY="597.0" mnemonicParsing="false" onAction="#exitButtonClicked" text="Exit" />
-      <Button layoutX="264.0" layoutY="597.0" mnemonicParsing="false" onAction="#restartButtonClicked" text="Restart" />
-      <Label alignment="CENTER" layoutY="50.0" prefHeight="92.0" prefWidth="1024.0" text="You Lose!">
+      <Label fx:id="loseLabel" alignment="CENTER" layoutY="50.0" prefHeight="100.0" prefWidth="1024.0" text="You Lose!">
          <font>
             <Font size="70.0" />
          </font>
       </Label>
-      <Label fx:id="timeLabel" layoutX="470.0" layoutY="75.0" prefHeight="38.0" prefWidth="91.0">
+      <Button layoutX="915.0" layoutY="689.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="45.0" prefWidth="75.0" styleClass="btnExit" text="Exit">
          <font>
-            <Font size="32.0" />
-         </font>
-      </Label>
+            <Font size="24.0" />
+         </font></Button>
+      <Button layoutX="460.0" layoutY="580.0" mnemonicParsing="false" onAction="#restartButtonClicked" prefHeight="45.0" prefWidth="100.0" styleClass="btnRestart" text="Restart">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
       <ImageView fx:id="gameMasterLose" fitHeight="100.0" fitWidth="100.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameMaster.png" />

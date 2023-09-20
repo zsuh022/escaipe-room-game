@@ -1,0 +1,32 @@
+* {
+    -fx-font-family: "Times New Roman", serif;
+}
+
+Button {
+    -fx-background-color: #F1F6F9;
+    -fx-text-fill: #212A3E;
+}
+
+Label {
+    -fx-text-fill: #F1F6F9;
+}
+
+TextArea {
+    -fx-background-color: #F1F6F9;
+    -fx-text-fill: #212A3E;
+}
+
+.btnRestart:hover {
+    -fx-font-size: 24px;
+    -fx-background-color: #03C988;
+}
+
+.btnExit:hover {
+    -fx-font-size: 24px;
+    -fx-background-color: #EB6440;
+}
+
+#winLabel,
+#loseLabel {
+    -fx-font-weight: bold;
+}
