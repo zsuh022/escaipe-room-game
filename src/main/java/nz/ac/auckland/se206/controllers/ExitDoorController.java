@@ -120,12 +120,6 @@ public class ExitDoorController {
   }
 
   @FXML
-  private void minimizeKeyInserter() {
-    keyPad.setVisible(false);
-    smallKeyPad.setVisible(true);
-  }
-
-  @FXML
   private void onExitKeyPadClicked() {
     keyPad.setVisible(false);
     smallKeyPad.setVisible(true);
