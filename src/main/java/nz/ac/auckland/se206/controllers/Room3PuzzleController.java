@@ -17,7 +17,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
 
 public class Room3PuzzleController {
@@ -79,7 +79,7 @@ public class Room3PuzzleController {
   @FXML
   private void onBackButtonClicked() {
     System.out.println("Back button clicked");
-    App.setUi(roomType.ROOM3);
+    App.setUi(RoomType.ROOM3);
   }
 
   @FXML

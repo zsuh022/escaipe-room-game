@@ -13,7 +13,7 @@ import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 /** Controller class for the room view. */
 public class Room4Controller {
@@ -27,19 +27,19 @@ public class Room4Controller {
   @FXML
   private void room1ButtonClicked() {
     System.out.println("Room 1 button clicked");
-    App.setUi(roomType.ROOM1);
+    App.setUi(RoomType.ROOM1);
   }
 
   @FXML
   private void room2ButtonClicked() {
     System.out.println("Room 2 button clicked");
-    App.setUi(roomType.ROOM2);
+    App.setUi(RoomType.ROOM2);
   }
 
   @FXML
   private void room3ButtonClicked() {
     System.out.println("Room 3 button clicked");
-    App.setUi(roomType.ROOM3);
+    App.setUi(RoomType.ROOM3);
   }
 
   @FXML
@@ -82,8 +82,8 @@ public class Room4Controller {
     System.out.println("correct key: " + GameState.key);
     if (n == GameState.key) {
       System.out.println("Key is correct");
-      SceneManager.addUi(roomType.ENDINGWIN, App.loadFxml("endingWin"));
-      App.setUi(roomType.ENDINGWIN);
+      SceneManager.addUi(RoomType.ENDINGWIN, App.loadFxml("endingWin"));
+      App.setUi(RoomType.ENDINGWIN);
     } else {
       showDialog("Warning", null, "The answer is wrong, please try again.");
       keyLabel.setText("");

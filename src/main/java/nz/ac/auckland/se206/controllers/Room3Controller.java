@@ -6,7 +6,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Polygon;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room3Controller {
 
@@ -22,13 +22,13 @@ public class Room3Controller {
   @FXML
   private void room1ButtonClicked() {
     System.out.println("Room 1 button clicked");
-    App.setUi(roomType.ROOM1);
+    App.setUi(RoomType.ROOM1);
   }
 
   @FXML
   private void room3PuzzleClicked(MouseEvent event) {
     System.out.println("Room 3 puzzle clicked");
-    App.setUi(roomType.ROOM3PUZZLE);
+    App.setUi(RoomType.ROOM3PUZZLE);
   }
 
   private void initializeTimer() {
