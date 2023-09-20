@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0" onMouseEntered="#baseTouched">
          <image>
-            <Image url="@../images/endingLose.jpg" />
+            <Image url="@../images/ending.jpg" />
          </image>
       </ImageView>
       <Label fx:id="winLabel" alignment="CENTER" layoutY="50.0" prefHeight="100.0" prefWidth="1024.0" text="Congratulations, You Win!">

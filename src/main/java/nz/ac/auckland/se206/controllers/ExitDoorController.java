@@ -18,15 +18,15 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 /** Controller class for the room view. */
 public class ExitDoorController {
 
-  @FXML private ImageView smallKeyInserter;
-  @FXML private Label keyLabel;
+  @FXML private ImageView smallKeyPad;
+  @FXML private Button btnKeyPadDisplay;
   @FXML private Label timeLabel;
-  @FXML private Pane keyInserter;
+  @FXML private Pane keyPad;
 
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
     initializeTimer();
-    keyInserter.setVisible(false);
+    keyPad.setVisible(false);
   }
 
   @FXML
@@ -36,7 +36,7 @@ public class ExitDoorController {
   }
 
   @FXML
-  public void passwordButtonClicked(Event event) throws IOException {
+  private void onKeyPadClicked(Event event) throws IOException {
     EventTarget target = event.getTarget();
     Button button = (Button) target;
     updateKeyLabel(button.getText());
@@ -44,11 +44,12 @@ public class ExitDoorController {
 
   @FXML
   public void updateKeyLabel(String key) throws IOException {
-    if (key.equals("x")) {
-      keyLabel.setText("");
+    if (key.equals("Clear")) {
+      btnKeyPadDisplay.setText("");
       return;
     }
-    if (keyLabel.getText().length() > 8) {
+
+    if (btnKeyPadDisplay.getText().length() > 8) {
       return;
     }
 
@@ -58,17 +59,17 @@ public class ExitDoorController {
       return;
     }
 
-    String prev = keyLabel.getText();
-    keyLabel.setText(prev + key);
+    String prev = btnKeyPadDisplay.getText();
+    btnKeyPadDisplay.setText(prev + key);
   }
 
   private void checkKey() throws IOException {
     System.out.println("2");
-    if (keyLabel.getText().equals("")) {
+    if (btnKeyPadDisplay.getText().equals("")) {
       showDialog("Info", null, "Please enter the key.");
       return;
     }
-    int n = Integer.parseInt(keyLabel.getText());
+    int n = Integer.parseInt(btnKeyPadDisplay.getText());
     System.out.println("entered key: " + n);
     System.out.println("correct key: " + GameState.key);
     if (n == GameState.key) {
@@ -77,7 +78,7 @@ public class ExitDoorController {
       App.setUi(RoomType.ENDINGWIN);
     } else {
       showDialog("Warning", null, "The answer is wrong, please try again.");
-      keyLabel.setText("");
+      btnKeyPadDisplay.setText("");
     }
   }
 
@@ -113,22 +114,16 @@ public class ExitDoorController {
   }
 
   @FXML
-  public void openKeyInserter() {
-    keyInserter.setVisible(true);
-    smallKeyInserter.setVisible(false);
+  private void onOpenKeyPad() {
+    keyPad.setVisible(true);
+    smallKeyPad.setVisible(false);
   }
 
   @FXML
-  private void minimizeKeyInserter() {
-    keyInserter.setVisible(false);
-    smallKeyInserter.setVisible(true);
-  }
-
-  @FXML
-  public void closeKeyInserter() {
-    keyInserter.setVisible(false);
-    smallKeyInserter.setVisible(true);
-    keyLabel.setText("");
+  private void onExitKeyPadClicked() {
+    keyPad.setVisible(false);
+    smallKeyPad.setVisible(true);
+    btnKeyPadDisplay.setText("");
   }
 
   private void initializeTimer() {

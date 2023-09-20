@@ -4,63 +4,128 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" focusTraversable="true" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.ExitDoorController">
+<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.ExitDoorController">
    <children>
-      <ImageView fitHeight="768.0" fitWidth="1024.0" onMouseClicked="#minimizeKeyInserter">
+      <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
-            <Image url="@../images/exitDoorBackground.jpeg" />
+            <Image url="@../images/exitDoor.jpeg" />
          </image>
       </ImageView>
-      <ImageView fx:id="smallKeyInserter" fitHeight="42.0" fitWidth="53.0" layoutX="642.0" layoutY="401.0" onMouseClicked="#openKeyInserter" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/keyinserter.png" />
-         </image>
-      </ImageView>
-      <Pane fx:id="keyInserter" layoutX="343.0" layoutY="258.0" prefHeight="329.0" prefWidth="388.0" visible="false">
-         <children>
-            <ImageView fitHeight="336.0" fitWidth="397.0" layoutX="-2.0">
-               <image>
-                  <Image url="@../images/IMG_0052.jpg" />
-               </image>
-            </ImageView>
-            <Label fx:id="keyLabel" layoutX="34.0" layoutY="14.0" prefHeight="94.0" prefWidth="346.0" textFill="#cd2727">
-               <font>
-                  <Font size="56.0" />
-               </font>
-            </Label>
-            <Button layoutX="56.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="1" />
-            <Button layoutX="237.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="3" />
-            <Button layoutX="147.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="2" />
-            <Button layoutX="55.0" layoutY="165.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="4" />
-            <Button layoutX="147.0" layoutY="165.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="5" />
-            <Button layoutX="237.0" layoutY="168.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="6" />
-            <Button layoutX="55.0" layoutY="211.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="7" />
-            <Button layoutX="147.0" layoutY="211.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="8" />
-            <Button layoutX="237.0" layoutY="211.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="9" />
-            <Button layoutX="147.0" layoutY="259.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="0" />
-            <Button blendMode="MULTIPLY" layoutX="317.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="94.0" prefWidth="50.0" text="x" textFill="#f70000">
-               <font>
-                  <Font size="26.0" />
-               </font></Button>
-            <Button blendMode="MULTIPLY" layoutX="317.0" layoutY="225.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="94.0" prefWidth="50.0" text="Enter" textFill="RED" />
-            <Button layoutX="375.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeKeyInserter" text="x" textFill="RED">
-               <font>
-                  <Font size="6.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Label fx:id="timeLabel" layoutX="810.0" layoutY="42.0" prefHeight="42.0" prefWidth="137.0">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </Label>
-      <Button layoutX="487.0" layoutY="20.0" mnemonicParsing="false" onAction="#room1ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnUpRoom" stylesheets="@../css/Rooms.css">
+      <Button layoutX="487.0" layoutY="20.0" mnemonicParsing="false" onAction="#room1ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnUpRoom">
          <font>
             <Font size="10.0" />
-         </font></Button>
+         </font>
+      </Button>
+      <Label fx:id="timeLabel" layoutX="850.0" layoutY="20.0" prefHeight="58.0" prefWidth="130.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="smallKeyPad" fitHeight="75.0" fitWidth="75.0" layoutX="620.0" layoutY="390.0" onMouseClicked="#onOpenKeyPad" preserveRatio="true">
+         <image>
+            <Image url="@../images/keyPadSmall.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="keyPad" layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0" visible="false">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/keyPadBackground.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="549.0" layoutY="284.0" mnemonicParsing="false" onAction="#onExitKeyPadClicked" styleClass="btnKeyPadExit" text="X">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnKeyPadDisplay" alignment="CENTER" layoutX="150.0" layoutY="50.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="310.0" styleClass="btnKeyPadDisplay">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Button>
+            <GridPane alignment="CENTER" hgap="5.0" layoutX="150.0" layoutY="170.0" prefHeight="360.0" prefWidth="300.0" vgap="5.0">
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="1">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="2" GridPane.columnIndex="1">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="3" GridPane.columnIndex="2">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="4" GridPane.rowIndex="1">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="7" GridPane.rowIndex="2">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+
+               <Button fx:id="btnClear" alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="Clear" GridPane.rowIndex="3">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+               <Button fx:id="btnEnter" alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Button>
+               <columnConstraints>
+                  <ColumnConstraints maxWidth="100.0" minWidth="100.0" percentWidth="0.0" prefWidth="100.0" />
+                  <ColumnConstraints maxWidth="100.0" minWidth="100.0" percentWidth="0.0" prefWidth="100.0" />
+                  <ColumnConstraints maxWidth="100.0" minWidth="100.0" percentWidth="0.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="90.0" minHeight="90.0" percentHeight="0.0" prefHeight="90.0" />
+                  <RowConstraints maxHeight="90.0" minHeight="90.0" percentHeight="0.0" prefHeight="90.0" />
+                  <RowConstraints maxHeight="90.0" minHeight="90.0" percentHeight="0.0" prefHeight="90.0" />
+                  <RowConstraints maxHeight="90.0" minHeight="90.0" percentHeight="0.0" prefHeight="90.0" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </Pane>
    </children>
 </Pane>

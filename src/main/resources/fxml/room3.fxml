@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
-            <Image url="@../images/room3.png" />
+            <Image url="@../images/room3.jpeg" />
          </image>
       </ImageView>
       <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room1ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">

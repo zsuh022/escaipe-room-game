@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
-            <Image url="@../images/endingLose.jpg" />
+            <Image url="@../images/ending.jpg" />
          </image>
       </ImageView>
       <Label fx:id="loseLabel" alignment="CENTER" layoutY="50.0" prefHeight="100.0" prefWidth="1024.0" text="You Lose!">
