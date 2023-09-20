@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Puzzle2Controller">
+   <children>
+      <ImageView fitHeight="560.0" fitWidth="1027.0" layoutX="-1.0" layoutY="216.0">
+         <image>
+            <Image url="@../images/room3puzzle2Images/IMG_9621BF223E04-1.jpeg" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="menuArea" arcHeight="5.0" arcWidth="5.0" fill="#636d75" height="219.0" layoutX="-7.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="1032.0" />
+      <Circle fx:id="circleOne" fill="#404040" layoutX="179.0" layoutY="611.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circleTwo" fill="#404040" layoutX="320.0" layoutY="575.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circleThree" fill="#404040" layoutX="422.0" layoutY="511.0" radius="61.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circleFour" fill="#404040" layoutX="447.0" layoutY="337.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circleFive" fill="#404040" layoutX="657.0" layoutY="591.0" radius="90.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circleSix" fill="#404040" layoutX="796.0" layoutY="385.0" radius="70.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circleSeven" fill="#404040" layoutX="934.0" layoutY="295.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="421.0" fitWidth="353.0" layoutX="-222.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/room3puzzle2Images/sun.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="planetFive" fitHeight="185.0" fitWidth="178.0" layoutX="50.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/room3puzzle2Images/jupiter.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="planetSix" fitHeight="152.0" fitWidth="336.0" layoutX="481.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/room3puzzle2Images/saturn.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="planetFour" fitHeight="94.0" fitWidth="82.0" layoutX="355.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/room3puzzle2Images/mars.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="planetOne" fitHeight="66.0" fitWidth="59.0" layoutX="253.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/room3puzzle2Images/mercury.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="planetEight" fitHeight="108.0" fitWidth="108.0" layoutX="428.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/room3puzzle2Images/neptune.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="planetSeven" fitHeight="108.0" fitWidth="117.0" layoutX="766.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/room3puzzle2Images/uranus.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="planetTwo" fitHeight="82.0" fitWidth="82.0" layoutX="303.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/room3puzzle2Images/venus.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="planetThree" fitHeight="130.0" fitWidth="129.0" layoutX="873.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/room3puzzle2Images/earth.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
