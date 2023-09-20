@@ -19,9 +19,10 @@ import nz.ac.auckland.se206.gpt.openai.ChatCompletionResult.Choice;
 
 /** Controller class for the chat view. */
 public class GameMasterController {
+
+  @FXML private Button btnSend;
   @FXML private TextArea chatTextArea;
-  @FXML private TextField inputText;
-  @FXML private Button sendButton;
+  @FXML private TextField inputTextArea;
 
   private ChatCompletionRequest chatCompletionRequest;
 
@@ -115,11 +116,11 @@ public class GameMasterController {
                 e.printStackTrace();
               }
             });
-    String message = inputText.getText();
+    String message = inputTextArea.getText();
     if (message.trim().isEmpty()) {
       return;
     }
-    inputText.clear();
+    inputTextArea.clear();
     Thread thread2 =
         new Thread(
             () -> {
