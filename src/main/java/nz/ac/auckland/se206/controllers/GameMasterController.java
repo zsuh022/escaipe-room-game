@@ -109,7 +109,7 @@ public class GameMasterController {
         new Thread(
             () -> {
               try {
-                updateGPT();
+                updateGpt();
               } catch (ApiProxyException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -146,7 +146,7 @@ public class GameMasterController {
     thread3.start();
   }
 
-  public void updateGPT() throws ApiProxyException {
+  public void updateGpt() throws ApiProxyException {
     if (GameState.isPuzzleRoom3Solved) {
       ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
       runGpt(msg);
