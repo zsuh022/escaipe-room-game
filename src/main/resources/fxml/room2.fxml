@@ -31,6 +31,5 @@
       </Label>
       <Rectangle fx:id="room2Lock" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="223.0" layoutX="194.0" layoutY="284.0" onMouseClicked="#room2LockClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="647.0" />
       <Rectangle fx:id="room2Box" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="27.0" layoutY="480.0" onMouseClicked="#room2BoxClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="424.0" />
-      <Button layoutX="942.0" layoutY="359.0" mnemonicParsing="false" onAction="#buttonClicked" text="room1" />
    </children>
 </Pane>

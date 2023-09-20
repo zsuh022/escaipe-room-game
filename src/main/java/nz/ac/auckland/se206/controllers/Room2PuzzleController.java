@@ -12,7 +12,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
-import nz.ac.auckland.se206.SceneManager.roomType;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room2PuzzleController {
   @FXML private Rectangle one;
@@ -129,7 +129,7 @@ public class Room2PuzzleController {
 
   @FXML
   public void backPuzzle2Clicked(MouseEvent event) throws IOException {
-    App.setUi(roomType.ROOM2);
+    App.setUi(RoomType.ROOM2);
   }
 
   @FXML
