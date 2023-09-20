@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -11,13 +12,17 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3PuzzleController">
    <children>
-      <ImageView fitHeight="768.0" fitWidth="1024.0" />
-      <ImageView fitHeight="540.0" fitWidth="540.0" layoutX="242.0" layoutY="114.0">
+      <ImageView fitHeight="808.0" fitWidth="1024.0" layoutY="-20.0">
+         <image>
+            <Image url="@../images/room3PuzzleBackground.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="540.0" fitWidth="540.0" layoutX="62.0" layoutY="114.0">
          <image>
             <Image url="@../images/room3PuzzleCase.jpeg" />
          </image>
       </ImageView>
-      <GridPane fx:id="gridPane" hgap="1.0" layoutX="287.0" layoutY="159.0" prefHeight="450.0" prefWidth="450.0" vgap="1.0">
+      <GridPane fx:id="gridPane" hgap="1.0" layoutX="107.0" layoutY="159.0" prefHeight="450.0" prefWidth="450.0" vgap="1.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -64,6 +69,7 @@
             <Button fx:id="btnEmpty" alignment="CENTER" mnemonicParsing="false" onAction="#onTileClicked" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button fx:id="btnExitPuzzle" layoutX="64.0" layoutY="687.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back" />
+      <Button fx:id="btnExitPuzzle" layoutX="785.0" layoutY="564.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back" />
+      <Label layoutX="602.0" layoutY="170.0" prefHeight="160.0" prefWidth="240.0" text="Label" />
    </children>
 </Pane>
