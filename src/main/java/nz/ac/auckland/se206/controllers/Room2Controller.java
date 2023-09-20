@@ -47,6 +47,5 @@ public class Room2Controller {
   public void room2LockClicked(MouseEvent event) throws IOException {
     System.out.println("lock clicked");
     App.setUi(roomType.ROOM2PUZZLE);
-    puzzleSolved();
   }
 }
