@@ -121,7 +121,7 @@ public class RiddleChatController {
                 lastMsg = runGpt(msg);
                 if (lastMsg.getRole().equals("assistant")
                     && lastMsg.getContent().startsWith("Correct")) {
-                  GameState.isRiddleResolved = true;
+                  GameState.isRiddleResolved.set(true);
                 }
               } catch (ApiProxyException e) {
                 // TODO Auto-generated catch block

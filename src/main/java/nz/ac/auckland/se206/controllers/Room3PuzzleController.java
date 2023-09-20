@@ -84,7 +84,7 @@ public class Room3PuzzleController {
 
   @FXML
   public void onTileClicked() throws ApiProxyException {
-    if (GameState.isPuzzleRoom3Solved) {
+    if (GameState.isPuzzleRoom3Solved.getValue() == true) {
       return;
     }
 
@@ -173,7 +173,7 @@ public class Room3PuzzleController {
 
   private void puzzleSolved() throws ApiProxyException {
     System.out.println("Puzzle solved");
-    GameState.isPuzzleRoom3Solved = true;
+    GameState.isPuzzleRoom3Solved.setValue(true);
   }
 
   private void shuffleButtons() {

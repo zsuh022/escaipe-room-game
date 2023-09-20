@@ -48,7 +48,7 @@ public class Room2PuzzleController {
 
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
-    GameState.isPuzzleRoom2Solved = true;
+    GameState.isPuzzleRoom2Solved.set(true);
   }
 
   @FXML
@@ -180,7 +180,9 @@ public class Room2PuzzleController {
   private void handleButtonClick(int buttonNumber) {
     if (buttonNumber == buttonOrder[currentIndex]) {
       // Correct button pressed
-      currentIndex++;
+      if (currentIndex < 6) {
+        currentIndex++;
+      }
       flashColour(integerToRectangle(buttonNumber), Color.GREEN);
       if (currentIndex == buttonOrder.length) {
         // Puzzle solved
