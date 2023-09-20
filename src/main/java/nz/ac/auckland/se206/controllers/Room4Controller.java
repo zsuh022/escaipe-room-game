@@ -21,6 +21,7 @@ public class Room4Controller {
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
     initializeTimer();
+    keyInserter.setVisible(false);
   }
 
   @FXML
@@ -72,7 +73,13 @@ public class Room4Controller {
 
   private void checkKey() throws IOException {
     System.out.println("2");
+    if (keyLabel.getText().equals("")) {
+      showDialog("Info", null, "Please enter the key.");
+      return;
+    }
     int n = Integer.parseInt(keyLabel.getText());
+    System.out.println("entered key: " + n);
+    System.out.println("correct key: " + GameState.key);
     if (n == GameState.key) {
       System.out.println("Key is correct");
       SceneManager.addUi(roomType.ENDINGWIN, App.loadFxml("endingWin"));
