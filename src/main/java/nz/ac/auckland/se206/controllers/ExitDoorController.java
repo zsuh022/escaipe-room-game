@@ -18,15 +18,15 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 /** Controller class for the room view. */
 public class ExitDoorController {
 
-  @FXML private ImageView smallKeyInserter;
+  @FXML private ImageView smallKeyPad;
   @FXML private Label keyLabel;
   @FXML private Label timeLabel;
-  @FXML private Pane keyInserter;
+  @FXML private Pane keyPad;
 
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
     initializeTimer();
-    keyInserter.setVisible(false);
+    keyPad.setVisible(false);
   }
 
   @FXML
@@ -114,20 +114,20 @@ public class ExitDoorController {
 
   @FXML
   public void openKeyInserter() {
-    keyInserter.setVisible(true);
-    smallKeyInserter.setVisible(false);
+    keyPad.setVisible(true);
+    smallKeyPad.setVisible(false);
   }
 
   @FXML
   private void minimizeKeyInserter() {
-    keyInserter.setVisible(false);
-    smallKeyInserter.setVisible(true);
+    keyPad.setVisible(false);
+    smallKeyPad.setVisible(true);
   }
 
   @FXML
   public void closeKeyInserter() {
-    keyInserter.setVisible(false);
-    smallKeyInserter.setVisible(true);
+    keyPad.setVisible(false);
+    smallKeyPad.setVisible(true);
     keyLabel.setText("");
   }
 
