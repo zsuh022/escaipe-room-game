@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager;
@@ -18,8 +19,9 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 /** Controller class for the room view. */
 public class ExitDoorController {
 
-  @FXML private ImageView smallKeyPad;
   @FXML private Button btnKeyPadDisplay;
+  @FXML private Circle smallKeyPadCircle;
+  @FXML private ImageView smallKeyPad;
   @FXML private Label timeLabel;
   @FXML private Pane keyPad;
 
@@ -117,12 +119,14 @@ public class ExitDoorController {
   private void onOpenKeyPad() {
     keyPad.setVisible(true);
     smallKeyPad.setVisible(false);
+    smallKeyPadCircle.setVisible(false);
   }
 
   @FXML
   private void onExitKeyPadClicked() {
     keyPad.setVisible(false);
     smallKeyPad.setVisible(true);
+    smallKeyPadCircle.setVisible(true);
     btnKeyPadDisplay.setText("");
   }
 

@@ -5,14 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Polygon;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room2Controller {
-  @FXML private Rectangle room2Box;
-  @FXML private Rectangle room2Lock;
+  @FXML private Polygon room2Box;
+  @FXML private Polygon room2Lock;
   @FXML private Pane keyShowingPane;
   @FXML private Label room2KeyLabel;
 

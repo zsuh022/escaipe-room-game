@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" focusTraversable="true" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room1Controller">
+<Pane fx:id="room" focusTraversable="true" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room1Controller">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
@@ -21,22 +21,22 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room2ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
+      <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room2ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button layoutX="954.0" layoutY="359.0" mnemonicParsing="false" onAction="#room3ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom" stylesheets="@../css/Rooms.css">
+      <Button layoutX="954.0" layoutY="359.0" mnemonicParsing="false" onAction="#room3ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button layoutX="487.0" layoutY="698.0" mnemonicParsing="false" onAction="#room4ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnDownRoom" stylesheets="@../css/Rooms.css">
+      <Button layoutX="487.0" layoutY="698.0" mnemonicParsing="false" onAction="#room4ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnDownRoom">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Polygon fill="DODGERBLUE" layoutX="244.0" layoutY="563.0" onMouseClicked="#computerClicked" opacity="0.49" points="162.0, 7.0, 176.0, -25.0, 361.0, -25.0, 379.0, 7.0, 445.0, 7.0, 445.0, -89.0, 115.0, -89.0, 115.0, 7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="244.0" layoutY="563.0" onMouseClicked="#computerClicked" opacity="0.0" points="162.0, 7.0, 176.0, -25.0, 361.0, -25.0, 379.0, 7.0, 445.0, 7.0, 445.0, -89.0, 115.0, -89.0, 115.0, 7.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
       <ImageView fitHeight="170.0" fitWidth="189.0" layoutX="44.0" layoutY="20.0" onMouseClicked="#gameMasterClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameMaster.png" />
