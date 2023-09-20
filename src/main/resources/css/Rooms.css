@@ -28,6 +28,11 @@
     -fx-background-color: #9BA4B5;
 }
 
+.btnKeyPadDisplay {
+    -fx-background-color: #F1F6F9;
+    -fx-text-fill: #212A3E;
+}
+
 .btnKeyPadExit {
     -fx-background-color: #EB6440;
     -fx-text-fill: #F1F6F9;
