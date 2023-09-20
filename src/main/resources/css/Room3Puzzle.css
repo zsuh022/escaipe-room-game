@@ -1,3 +1,12 @@
+Label {
+    -fx-text-fill: #F1F6F9;
+}
+
 #gridPane Button {
-    -fx-text-fill: white;
+    -fx-text-fill: #F1F6F9;
+}
+
+#btnExitPuzzle {
+    -fx-background-color: #F1F6F9;
+    -fx-text-fill: #212A3E;
 }

@@ -69,7 +69,14 @@
             <Button fx:id="btnEmpty" alignment="CENTER" mnemonicParsing="false" onAction="#onTileClicked" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button fx:id="btnExitPuzzle" layoutX="785.0" layoutY="564.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back" />
-      <Label layoutX="602.0" layoutY="170.0" prefHeight="160.0" prefWidth="240.0" text="Label" />
+      <Button fx:id="btnExitPuzzle" layoutX="774.0" layoutY="554.0" mnemonicParsing="false" onAction="#onBackButtonClicked" stylesheets="@../css/Room3Puzzle.css" text="Back">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label layoutX="602.0" layoutY="170.0" stylesheets="@../css/Room3Puzzle.css" text="Click the tiles around&#10;the empty tile to move&#10;them and complete the&#10;puzzle." textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
