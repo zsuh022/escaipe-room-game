@@ -1,7 +1,13 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room2Puzzle2Controller {
   @FXML private Button buttonA;
@@ -32,134 +38,355 @@ public class Room2Puzzle2Controller {
   @FXML private Button buttonZ;
   @FXML private Button resetRoom2Puzzle2;
   @FXML private Button backRoom2Puzzle2;
+  @FXML private Label letter1;
+  @FXML private Label letter2;
+  @FXML private Label letter3;
+  @FXML private Label letter4;
+  @FXML private Label letter5;
+  @FXML private Rectangle chance1;
+  @FXML private Rectangle chance2;
+  @FXML private Rectangle chance3;
+  @FXML private Rectangle chance4;
+  @FXML private Rectangle chance5;
+  @FXML private Rectangle chance6;
+
+  ArrayList<String> word = new ArrayList<String>();
+  int chanceCount; // 0 to 6
+
+  @FXML
+  private void initialize() {
+    initializeButton(buttonA);
+    initializeButton(buttonB);
+    initializeButton(buttonC);
+    initializeButton(buttonD);
+    initializeButton(buttonE);
+    initializeButton(buttonF);
+    initializeButton(buttonG);
+    initializeButton(buttonH);
+    initializeButton(buttonI);
+    initializeButton(buttonJ);
+    initializeButton(buttonK);
+    initializeButton(buttonL);
+    initializeButton(buttonM);
+    initializeButton(buttonN);
+    initializeButton(buttonO);
+    initializeButton(buttonP);
+    initializeButton(buttonQ);
+    initializeButton(buttonR);
+    initializeButton(buttonS);
+    initializeButton(buttonT);
+    initializeButton(buttonU);
+    initializeButton(buttonV);
+    initializeButton(buttonW);
+    initializeButton(buttonX);
+    initializeButton(buttonY);
+    initializeButton(buttonZ);
+    letter1.setText("");
+    letter2.setText("");
+    letter3.setText("");
+    letter4.setText("");
+    letter5.setText("");
+    chance1.setFill(Color.WHITE);
+    chance2.setFill(Color.WHITE);
+    chance3.setFill(Color.WHITE);
+    chance4.setFill(Color.WHITE);
+    chance5.setFill(Color.WHITE);
+    chance6.setFill(Color.WHITE);
+    chanceCount = 0;
+    newWord();
+  }
+
+  private void initializeButton(Button button) {
+    button.setDisable(false);
+    button.setOpacity(1);
+  }
+
+  private void newWord() {
+    int randomInt = (int) (1 + (Math.random() * (8)));
+    switch (randomInt) {
+      case 1:
+        addCharacters("COMET");
+        break;
+      case 2:
+        addCharacters("SOLAR");
+        break;
+      case 3:
+        addCharacters("STARS");
+        break;
+      case 4:
+        addCharacters("EARTH");
+        break;
+      case 5:
+        addCharacters("VENUS");
+        break;
+      case 6:
+        addCharacters("PLUTO");
+        break;
+      case 7:
+        addCharacters("ORION");
+        break;
+      case 8:
+        addCharacters("MOONS");
+        break;
+      default:
+        addCharacters("PLUTO");
+        break;
+    }
+  }
+
+  private void addCharacters(String string) {
+    if (string.length() == 5) {
+      word.add(string.substring(0, 1));
+      word.add(string.substring(1, 2));
+      word.add(string.substring(2, 3));
+      word.add(string.substring(3, 4));
+      word.add(string.substring(4, 5));
+    }
+  }
+
+  private void handleKeyPressed(Character character) {
+    if (word.contains(character.toString())) {
+      for (int i = 0; i < 5; i++) {
+        if (word.get(i).equals(character.toString())) {
+          switch (i) {
+            case 0:
+              letter1.setText(character.toString());
+              break;
+            case 1:
+              letter2.setText(character.toString());
+              break;
+            case 2:
+              letter3.setText(character.toString());
+              break;
+            case 3:
+              letter4.setText(character.toString());
+              break;
+            case 4:
+              letter5.setText(character.toString());
+              break;
+            default:
+              break;
+          }
+        }
+      }
+    } else {
+      if (chanceCount < 6) {
+        chanceCount++;
+        switch (chanceCount) {
+          case 1:
+            chance1.setFill(Color.RED);
+            break;
+          case 2:
+            chance2.setFill(Color.RED);
+            break;
+          case 3:
+            chance3.setFill(Color.RED);
+            break;
+          case 4:
+            chance4.setFill(Color.RED);
+            break;
+          case 5:
+            chance5.setFill(Color.RED);
+            break;
+          default:
+            break;
+        }
+      } else {
+        chanceCount++;
+        chance6.setFill(Color.RED);
+      }
+    }
+  }
+
+  @FXML
+  private void resetRoom2Puzzle2Clicked() {
+    initialize();
+  }
+
+  @FXML
+  private void backRoom2Puzzle2Clicked() {
+    App.setUi(RoomType.ROOM2);
+  }
 
   @FXML
   private void buttonAClicked() {
-    System.out.println("A");
+    handleKeyPressed('A');
+    buttonA.setDisable(true);
+    buttonA.setOpacity(0);
   }
 
   @FXML
   private void buttonBClicked() {
-    System.out.println("B");
+    handleKeyPressed('B');
+    buttonB.setDisable(true);
+    buttonB.setOpacity(0);
   }
 
   @FXML
   private void buttonCClicked() {
-    System.out.println("C");
+    handleKeyPressed('C');
+    buttonC.setDisable(true);
+    buttonC.setOpacity(0);
   }
 
   @FXML
   private void buttonDClicked() {
-    System.out.println("D");
+    handleKeyPressed('D');
+    buttonD.setDisable(true);
+    buttonD.setOpacity(0);
   }
 
   @FXML
   private void buttonEClicked() {
-    System.out.println("E");
+    handleKeyPressed('E');
+    buttonE.setDisable(true);
+    buttonE.setOpacity(0);
   }
 
   @FXML
   private void buttonFClicked() {
-    System.out.println("F");
+    handleKeyPressed('F');
+    buttonF.setDisable(true);
+    buttonF.setOpacity(0);
   }
 
   @FXML
   private void buttonGClicked() {
-    System.out.println("G");
+    handleKeyPressed('G');
+    buttonG.setDisable(true);
+    buttonG.setOpacity(0);
   }
 
   @FXML
   private void buttonHClicked() {
-    System.out.println("H");
+    handleKeyPressed('H');
+    buttonH.setDisable(true);
+    buttonH.setOpacity(0);
   }
 
   @FXML
   private void buttonIClicked() {
-    System.out.println("I");
+    handleKeyPressed('I');
+    buttonI.setDisable(true);
+    buttonI.setOpacity(0);
   }
 
   @FXML
   private void buttonJClicked() {
-    System.out.println("J");
+    handleKeyPressed('J');
+    buttonJ.setDisable(true);
+    buttonJ.setOpacity(0);
   }
 
   @FXML
   private void buttonKClicked() {
-    System.out.println("K");
+    handleKeyPressed('K');
+    buttonK.setDisable(true);
+    buttonK.setOpacity(0);
   }
 
   @FXML
   private void buttonLClicked() {
-    System.out.println("L");
+    handleKeyPressed('L');
+    buttonL.setDisable(true);
+    buttonL.setOpacity(0);
   }
 
   @FXML
   private void buttonMClicked() {
-    System.out.println("M");
+    handleKeyPressed('M');
+    buttonM.setDisable(true);
+    buttonM.setOpacity(0);
   }
 
   @FXML
   private void buttonNClicked() {
-    System.out.println("N");
+    handleKeyPressed('N');
+    buttonN.setDisable(true);
+    buttonN.setOpacity(0);
   }
 
   @FXML
   private void buttonOClicked() {
-    System.out.println("O");
+    handleKeyPressed('O');
+    buttonO.setDisable(true);
+    buttonO.setOpacity(0);
   }
 
   @FXML
   private void buttonPClicked() {
-    System.out.println("P");
+    handleKeyPressed('P');
+    buttonP.setDisable(true);
+    buttonP.setOpacity(0);
   }
 
   @FXML
   private void buttonQClicked() {
-    System.out.println("Q");
+    handleKeyPressed('Q');
+    buttonQ.setDisable(true);
+    buttonQ.setOpacity(0);
   }
 
   @FXML
   private void buttonRClicked() {
-    System.out.println("R");
+    handleKeyPressed('R');
+    buttonR.setDisable(true);
+    buttonR.setOpacity(0);
   }
 
   @FXML
   private void buttonSClicked() {
-    System.out.println("S");
+    handleKeyPressed('S');
+    buttonS.setDisable(true);
+    buttonS.setOpacity(0);
   }
 
   @FXML
   private void buttonTClicked() {
-    System.out.println("T");
+    handleKeyPressed('T');
+    buttonT.setDisable(true);
+    buttonT.setOpacity(0);
   }
 
   @FXML
   private void buttonUClicked() {
-    System.out.println("U");
+    handleKeyPressed('U');
+    buttonU.setDisable(true);
+    buttonU.setOpacity(0);
   }
 
   @FXML
   private void buttonVClicked() {
-    System.out.println("V");
+    handleKeyPressed('V');
+    buttonV.setDisable(true);
+    buttonV.setOpacity(0);
   }
 
   @FXML
   private void buttonWClicked() {
-    System.out.println("W");
+    handleKeyPressed('W');
+    buttonW.setDisable(true);
+    buttonW.setOpacity(0);
   }
 
   @FXML
   private void buttonXClicked() {
-    System.out.println("X");
+    handleKeyPressed('X');
+    buttonX.setDisable(true);
+    buttonX.setOpacity(0);
   }
 
   @FXML
   private void buttonYClicked() {
-    System.out.println("Y");
+    handleKeyPressed('Y');
+    buttonY.setDisable(true);
+    buttonY.setOpacity(0);
   }
 
   @FXML
   private void buttonZClicked() {
-    System.out.println("Z");
+    handleKeyPressed('Z');
+    buttonZ.setDisable(true);
+    buttonZ.setOpacity(0);
   }
 }
