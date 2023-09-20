@@ -3,6 +3,7 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -64,7 +65,6 @@ public class Room2PuzzleController {
 
   @FXML
   public void startPuzzle2Clicked(MouseEvent event) throws IOException {
-    // generate a random number between 1 and 9 with Math.random
     buttonOrder[0] = (int) (1 + (Math.random() * (9)));
     buttonOrder[1] = (int) (1 + (Math.random() * (9)));
     buttonOrder[2] = (int) (1 + (Math.random() * (9)));
@@ -77,21 +77,22 @@ public class Room2PuzzleController {
     for (int i = 0; i < buttonOrder.length; i++) {
       int buttonNumber = buttonOrder[i];
       Rectangle button = integerToRectangle(buttonNumber);
-      flashButtonWithDelay(button, Color.GREEN, i * 0.5);
+      if (button != null) {
+        final int finalI = i;
+        // Delay using a separate thread
+        new Thread(
+                () -> {
+                  try {
+                    Thread.sleep(finalI * 500); // Delay in milliseconds
+                  } catch (InterruptedException e) {
+                    e.printStackTrace();
+                  }
+                  // Flash the button after the delay
+                  Platform.runLater(() -> flashColour(button, Color.GREEN));
+                })
+            .start();
+      }
     }
-  }
-
-  private void flashButtonWithDelay(Rectangle button, Color colorFlash, double delaySeconds) {
-    Timeline timeline =
-        new Timeline(
-            new KeyFrame(
-                Duration.seconds(delaySeconds),
-                event -> {
-                  // Flash the button
-                  flashColour(button, colorFlash);
-                }));
-    // Play the timeline animation
-    timeline.play();
   }
 
   public Rectangle integerToRectangle(int integer) {
