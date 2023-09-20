@@ -3,8 +3,11 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Random;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -20,6 +23,8 @@ public class MenuController {
   @FXML private Slider difficultySlider;
   @FXML private Slider timeSlider;
   @FXML private MediaView earthMpfour;
+  @FXML private ImageView nextImageView;
+  @FXML private Button startButton;
   MediaPlayer player;
 
   /**
@@ -28,6 +33,8 @@ public class MenuController {
    * @throws URISyntaxException
    */
   public void initialize() throws URISyntaxException {
+    nextImageView.setVisible(false);
+    startButton.setVisible(true);
     Media media = new Media(App.class.getResource("/sounds/earth.mp4").toURI().toString());
     player = new MediaPlayer(media);
     earthMpfour.setMediaPlayer(player);
@@ -40,6 +47,29 @@ public class MenuController {
     setDifficulty();
     setGameTime();
     setKey();
+    fadeInNextImageView();
+  }
+
+  private void fadeInNextImageView() {
+    startButton.setVisible(false);
+    nextImageView.setVisible(true);
+    FadeTransition fade = new FadeTransition(Duration.millis(1000), nextImageView);
+    fade.setFromValue(0.0);
+    fade.setToValue(1.0);
+
+    fade.setOnFinished(
+        e -> {
+          try {
+            setUiAfterFade();
+          } catch (IOException | URISyntaxException ex) {
+            ex.printStackTrace();
+          }
+        });
+
+    fade.play();
+  }
+
+  private void setUiAfterFade() throws IOException, URISyntaxException {
     SceneManager.addUi(roomType.ROOM1, App.loadFxml("room1"));
     SceneManager.addUi(roomType.ROOM2, App.loadFxml("room2"));
     SceneManager.addUi(roomType.ROOM3, App.loadFxml("room3"));
