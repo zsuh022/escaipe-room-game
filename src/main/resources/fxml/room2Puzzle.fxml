@@ -5,14 +5,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller= "nz.ac.auckland.se206.controllers.Room2PuzzleController" >
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2PuzzleController">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="C:\Users\liamb\OneDrive\Desktop\SOFTENG206\escaipe-room-beta-and-final-team-09\src\main\resources\images\room2image.jpg" />
          </image>
       </ImageView>
-      <Rectangle fx:id="blue" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="66.0" layoutY="60.0" onMouseClicked="#clickBlue" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="665.0" layoutX="63.0" layoutY="52.0" stroke="BLACK" strokeType="INSIDE" width="898.0" />
+      <Rectangle fx:id="one" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="334.0" layoutY="201.0" onMouseClicked="#clickOne" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="two" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="465.0" layoutY="201.0" onMouseClicked="#clickTwo" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="three" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="604.0" layoutY="201.0" onMouseClicked="#clickThree" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="four" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="334.0" layoutY="336.0" onMouseClicked="#clickFour" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="five" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="465.0" layoutY="336.0" onMouseClicked="#clickFive" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="six" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="604.0" layoutY="336.0" onMouseClicked="#clickSix" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="334.0" layoutY="468.0" onMouseClicked="#clickSeven" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="465.0" layoutY="468.0" onMouseClicked="#clickEight" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="604.0" layoutY="468.0" onMouseClicked="#clickNine" stroke="BLACK" strokeType="INSIDE" width="115.0" />
    </children>
 </Pane>
