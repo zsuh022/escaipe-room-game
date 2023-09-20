@@ -23,6 +23,17 @@
     -fx-text-fill: #212A3E;
 }
 
+#btnClear,
+#btnEnter {
+    -fx-text-fill: #EB6440;
+}
+
+
 .btnKeyPad:hover {
     -fx-background-color: #9BA4B5;
+}
+
+.btnKeyPadExit {
+    -fx-background-color: #EB6440;
+    -fx-text-fill: #F1F6F9;
 }

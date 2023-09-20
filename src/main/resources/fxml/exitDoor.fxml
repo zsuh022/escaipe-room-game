@@ -32,37 +32,6 @@
             <Image url="@../images/keypadBackground.png" />
          </image>
       </ImageView>
-      <Pane fx:id="keyInserter" layoutX="1024.0" prefHeight="329.0" prefWidth="388.0" visible="false">
-         <children>
-            <ImageView fitHeight="336.0" fitWidth="397.0" layoutX="-2.0" />
-            <Label fx:id="keyLabel" layoutX="34.0" layoutY="14.0" prefHeight="94.0" prefWidth="346.0" textFill="#cd2727">
-               <font>
-                  <Font size="56.0" />
-               </font>
-            </Label>
-            <Button layoutX="56.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="1" />
-            <Button layoutX="237.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="3" />
-            <Button layoutX="147.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="2" />
-            <Button layoutX="55.0" layoutY="165.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="4" />
-            <Button layoutX="147.0" layoutY="165.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="5" />
-            <Button layoutX="237.0" layoutY="168.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="6" />
-            <Button layoutX="55.0" layoutY="211.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="7" />
-            <Button layoutX="147.0" layoutY="211.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="8" />
-            <Button layoutX="237.0" layoutY="211.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="9" />
-            <Button layoutX="147.0" layoutY="259.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="26.0" prefWidth="60.0" text="0" />
-            <Button blendMode="MULTIPLY" layoutX="317.0" layoutY="120.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="94.0" prefWidth="50.0" text="x" textFill="#f70000">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Button>
-            <Button blendMode="MULTIPLY" layoutX="317.0" layoutY="225.0" mnemonicParsing="false" onAction="#passwordButtonClicked" prefHeight="94.0" prefWidth="50.0" text="Enter" textFill="RED" />
-            <Button layoutX="375.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeKeyInserter" text="x" textFill="RED">
-               <font>
-                  <Font size="6.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
       <Pane layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0">
          <children>
             <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
@@ -70,6 +39,11 @@
                   <Image url="@../images/keypadBackground.png" />
                </image>
             </ImageView>
+            <Button layoutX="549.0" layoutY="284.0" mnemonicParsing="false" onAction="#onExitKeyPadClicked" styleClass="btnKeyPadExit" text="X">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
             <Button alignment="CENTER" layoutX="150.0" layoutY="50.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="310.0" styleClass="btnKeyPad">
                <font>
                   <Font size="48.0" />
@@ -124,7 +98,7 @@
                   </font>
                </Button>
 
-               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="Clear" GridPane.rowIndex="3">
+               <Button fx:id="btnClear" alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="Clear" GridPane.rowIndex="3">
                   <font>
                      <Font size="24.0" />
                   </font>
@@ -134,7 +108,7 @@
                      <Font size="24.0" />
                   </font>
                </Button>
-               <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <Button fx:id="btnEnter" alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="3">
                   <font>
                      <Font size="24.0" />
                   </font>

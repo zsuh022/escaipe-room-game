@@ -36,7 +36,7 @@ public class ExitDoorController {
   }
 
   @FXML
-  public void passwordButtonClicked(Event event) throws IOException {
+  private void onKeyPadClicked(Event event) throws IOException {
     EventTarget target = event.getTarget();
     Button button = (Button) target;
     updateKeyLabel(button.getText());
@@ -44,7 +44,7 @@ public class ExitDoorController {
 
   @FXML
   public void updateKeyLabel(String key) throws IOException {
-    if (key.equals("x")) {
+    if (key.equals("Clear")) {
       keyLabel.setText("");
       return;
     }
@@ -125,7 +125,7 @@ public class ExitDoorController {
   }
 
   @FXML
-  public void closeKeyInserter() {
+  public void onExitKeyPadClicked() {
     keyPad.setVisible(false);
     smallKeyPad.setVisible(true);
     keyLabel.setText("");
