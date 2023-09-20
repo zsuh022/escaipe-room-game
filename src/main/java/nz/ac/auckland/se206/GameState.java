@@ -20,7 +20,7 @@ public class GameState {
 
   public static BooleanProperty isPuzzleRoom2Solved = new SimpleBooleanProperty(false);
 
-  public static boolean isPuzzleRoom3Solved = false;
+  public static BooleanProperty isPuzzleRoom3Solved = new SimpleBooleanProperty(false);
 
   public static int key;
 

@@ -25,5 +25,19 @@
          </font>
       </Label>
       <Polygon fx:id="polygonRoom3Puzzle" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.5" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" />
+      <Pane fx:id="keyShowingPane" layoutX="347.0" layoutY="125.0" prefHeight="182.0" prefWidth="351.0">
+         <children>
+            <ImageView fitHeight="253.0" fitWidth="351.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/showKeyBackgound.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="room3KeyLabel" layoutX="59.0" layoutY="30.0" prefHeight="118.0" prefWidth="303.0" text="9999" textFill="RED">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </Pane>

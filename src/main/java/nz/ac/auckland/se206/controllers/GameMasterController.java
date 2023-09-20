@@ -147,7 +147,9 @@ public class GameMasterController {
   }
 
   public void updateGpt() throws ApiProxyException {
-    if (GameState.isPuzzleRoom3Solved) {
+    if (GameState.isPuzzleRoom3Solved.getValue() == true
+        && GameState.isPuzzleRoom2Solved.getValue() == true
+        && GameState.isRiddleResolved.getValue() == true) {
       ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
       runGpt(msg);
     }
