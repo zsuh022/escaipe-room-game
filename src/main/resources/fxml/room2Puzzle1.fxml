@@ -25,14 +25,14 @@
       <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="472.0" layoutY="486.0" onMouseClicked="#clickSeven" stroke="BLACK" strokeType="INSIDE" width="115.0" />
       <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="587.0" layoutY="486.0" onMouseClicked="#clickEight" stroke="BLACK" strokeType="INSIDE" width="115.0" />
       <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="702.0" layoutY="486.0" onMouseClicked="#clickNine" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="backPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="#767676" height="49.0" layoutX="267.0" layoutY="462.0" onMouseClicked="#backPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="6.0" width="138.0" />
+      <Rectangle fx:id="backPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="#767676" height="49.0" layoutX="267.0" layoutY="462.0" onMouseClicked="#backPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="6.0" width="102.0" />
       <Rectangle fx:id="startPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="#737272" height="49.0" layoutX="267.0" layoutY="347.0" onMouseClicked="#startPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="181.0" />
       <Label fx:id="startLabel" layoutX="276.0" layoutY="354.0" onMouseClicked="#startPuzzle2Clicked" text="INITIALIZE">
          <font>
             <Font name="Bookshelf Symbol 7" size="33.0" />
          </font>
       </Label>
-      <Label fx:id="backLabel" layoutX="276.0" layoutY="461.0" onMouseClicked="#backPuzzle2Clicked" text="RETURN">
+      <Label fx:id="backLabel" layoutX="276.0" layoutY="461.0" onMouseClicked="#backPuzzle2Clicked" text="BACK">
          <font>
             <Font size="33.0" />
          </font>
@@ -43,5 +43,10 @@
             <Font size="31.0" />
          </font>
       </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/TimerBlackTxt.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

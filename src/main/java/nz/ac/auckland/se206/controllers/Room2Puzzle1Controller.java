@@ -188,7 +188,7 @@ public class Room2Puzzle1Controller {
       if (currentIndex == buttonOrder.length) {
         // Puzzle solved
         puzzleSolved();
-        puzzle2Label.setText("PUZZLE SOLVED! RETURN TO EXIT...");
+        puzzle2Label.setText("SOLVED! PRESS BACK TO EXIT...");
       }
     } else {
       // Incorrect button pressed
