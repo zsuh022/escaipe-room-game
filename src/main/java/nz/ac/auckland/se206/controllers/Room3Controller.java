@@ -1,6 +1,5 @@
 package nz.ac.auckland.se206.controllers;
 
-import javafx.beans.binding.BooleanExpression;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -28,7 +27,6 @@ public class Room3Controller {
   @FXML
   private void initialize() {
     initializeTimer();
-    initializeMuteButton();
     keyShowingPane.setVisible(false);
     GameState.isPuzzleRoom3Solved.addListener(
         (observable, oldValue, newValue) -> {
@@ -86,27 +84,18 @@ public class Room3Controller {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
-  private void initializeMuteButton() {
-    crossImage.visibleProperty().bind(GameState.isMuted);
-    waveImage.visibleProperty().bind(((BooleanExpression) GameState.isMuted).not());
-  }
-
   @FXML
   private void muteBarClick() {
-    System.out.println("Mute bar clicked");
-    GameState.toggleMuted();
-    updateMuteButton();
-  }
-
-  private void updateMuteButton() {
-    if (GameState.isMuted()) {
-      crossImage.setVisible(true);
-      waveImage.setVisible(false);
-      MusicManager.mute();
-    } else {
+    if (GameState.isMuted.get()) {
+      GameState.isMuted.set(false);
       crossImage.setVisible(false);
       waveImage.setVisible(true);
       MusicManager.unmute();
+    } else {
+      GameState.isMuted.set(true);
+      crossImage.setVisible(true);
+      waveImage.setVisible(false);
+      MusicManager.mute();
     }
   }
 }
