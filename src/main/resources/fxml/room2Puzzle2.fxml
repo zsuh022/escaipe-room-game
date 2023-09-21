@@ -155,7 +155,7 @@
             <Font size="23.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="300.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="59.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="300.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
       <Rectangle fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="65.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
       <Label layoutX="65.0" layoutY="307.0" text="Chances:" textFill="WHITE">
          <font>
@@ -172,31 +172,31 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="580.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="59.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="370.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="59.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="440.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="59.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="510.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="59.0" />
-      <Label fx:id="letter1" layoutX="311.0" layoutY="323.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="660.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="390.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="480.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="570.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Label fx:id="letter1" layoutX="309.0" layoutY="323.0" text="O">
          <font>
             <Font size="69.0" />
          </font>
       </Label>
-      <Label fx:id="letter2" layoutX="381.0" layoutY="323.0">
+      <Label fx:id="letter2" layoutX="399.0" layoutY="324.0" text="O">
          <font>
             <Font size="69.0" />
          </font>
       </Label>
-      <Label fx:id="letter3" layoutX="453.0" layoutY="324.0">
+      <Label fx:id="letter3" layoutX="489.0" layoutY="323.0" text="O">
          <font>
             <Font size="69.0" />
          </font>
       </Label>
-      <Label fx:id="letter4" layoutX="522.0" layoutY="324.0">
+      <Label fx:id="letter4" layoutX="579.0" layoutY="323.0" text="O">
          <font>
             <Font size="69.0" />
          </font>
       </Label>
-      <Label fx:id="letter5" layoutX="591.0" layoutY="323.0">
+      <Label fx:id="letter5" layoutX="669.0" layoutY="324.0" text="O">
          <font>
             <Font size="69.0" />
          </font>
