@@ -37,7 +37,7 @@
             <Font size="33.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#737272" height="57.0" layoutX="306.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="518.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="306.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="518.0" />
       <Label fx:id="puzzle2Label" layoutX="314.0" layoutY="183.0" text="L">
          <font>
             <Font size="31.0" />
@@ -48,5 +48,10 @@
             <Image url="@../images/TimerBlackTxt.png" />
          </image>
       </ImageView>
+      <Label fx:id="timeLabel" layoutX="824.0" layoutY="25.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

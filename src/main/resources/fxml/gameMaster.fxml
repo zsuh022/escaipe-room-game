@@ -58,5 +58,10 @@
             <Image url="@../images/TimerBlackTxt.png" />
          </image>
       </ImageView>
+      <Label fx:id="timeLabel" layoutX="820.0" layoutY="32.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

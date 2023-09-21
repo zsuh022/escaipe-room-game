@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -35,6 +36,7 @@ public class Room3Puzzle2Controller {
   @FXML private ImageView planetSeven;
   @FXML private ImageView planetEight;
   @FXML private Rectangle menuArea;
+  @FXML private Label timeLabel;
 
   private DraggableManager draggableManager = new DraggableManager();
 
@@ -42,10 +44,16 @@ public class Room3Puzzle2Controller {
 
   @FXML
   private void initialize() {
+    initializeTimer();
     // Assuming a method to setup the correct planet-circle relationship
     setupSolutionMap();
     setupDraggables();
     genertateRandomPositions();
+  }
+
+  @FXML
+  private void initializeTimer() {
+    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
   private void setupSolutionMap() {

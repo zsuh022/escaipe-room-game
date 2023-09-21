@@ -26,11 +26,6 @@
             <Font size="10.0" />
          </font>
       </Button>
-      <Label fx:id="timeLabel" layoutX="850.0" layoutY="20.0" prefHeight="58.0" prefWidth="130.0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
       <ImageView fx:id="smallKeyPad" fitHeight="75.0" fitWidth="75.0" layoutX="620.0" layoutY="390.0" preserveRatio="true">
          <image>
             <Image url="@../images/keyPadSmall.png" />
@@ -173,5 +168,10 @@
             <Image url="@../images/TimerBlackTxt.png" />
          </image>
       </ImageView>
+      <Label fx:id="timeLabel" layoutX="822.0" layoutY="22.0" prefHeight="58.0" prefWidth="130.0" text="240">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

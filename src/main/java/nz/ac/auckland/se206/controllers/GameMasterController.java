@@ -9,6 +9,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -29,6 +30,7 @@ public class GameMasterController {
   @FXML private Button btnSend;
   @FXML private TextArea chatTextArea;
   @FXML private TextField inputTextArea;
+  @FXML private Label timeLabel;
   private int updateCount = 0;
 
   private ChatCompletionRequest chatCompletionRequest;
@@ -40,6 +42,7 @@ public class GameMasterController {
    */
   @FXML
   public void initialize() throws ApiProxyException {
+    initializeTimer();
     updateCount = 0;
     GameState.currentRoom.addListener(
         (obs, oldRoom, newRoom) -> {
@@ -77,6 +80,10 @@ public class GameMasterController {
               }
             });
     thread.start();
+  }
+
+  private void initializeTimer() {
+    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
   private boolean thisIsCurrentRoom(Number roomNumber) {

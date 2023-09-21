@@ -29,6 +29,7 @@ public class Room2Puzzle1Controller {
   @FXML private Label startLabel;
   @FXML private Label backLabel;
   @FXML private Label puzzle2Label;
+  @FXML private Label timeLabel;
 
   private int[] buttonOrder = new int[6];
   private int currentIndex = 0;
@@ -45,6 +46,12 @@ public class Room2Puzzle1Controller {
     eight.setFill(Color.WHITE);
     nine.setFill(Color.WHITE);
     puzzle2Label.setText("INITIALIZE TO START PUZZLE...");
+    initializeTimer();
+  }
+
+  @FXML
+  private void initializeTimer() {
+    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
   private void puzzleSolved() {

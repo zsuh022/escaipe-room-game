@@ -24,9 +24,14 @@
             <Font size="10.0" />
          </font>
       </Button>
-      <Label fx:id="timeLabel" layoutX="907.0" layoutY="22.0" prefHeight="38.0" prefWidth="91.0">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/TimerBlackTxt.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="timeLabel" layoutX="827.0" layoutY="32.0" prefHeight="38.0" prefWidth="91.0">
          <font>
-            <Font size="32.0" />
+            <Font size="36.0" />
          </font>
       </Label>
       <Polygon fx:id="polygonRoom3Puzzle1" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.0" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
@@ -84,7 +89,8 @@
             <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#muteBarClick" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Circle>
+               </cursor>
+            </Circle>
          </children>
       </Pane>
       <Pane fx:id="indicationPane" layoutX="-2.0" layoutY="670.0" prefHeight="108.0" prefWidth="1036.0">
@@ -97,10 +103,5 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/TimerBlackTxt.png" />
-         </image>
-      </ImageView>
    </children>
 </Pane>

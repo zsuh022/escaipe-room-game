@@ -60,6 +60,7 @@ public class Room2Puzzle2Controller {
   @FXML private Rectangle space3;
   @FXML private Rectangle space4;
   @FXML private Rectangle space5;
+  @FXML private Label timeLabel;
 
   ArrayList<String> word = new ArrayList<String>();
   int chanceCount; // 0 to 6
@@ -69,6 +70,11 @@ public class Room2Puzzle2Controller {
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
     GameState.isPuzzleRoom2Solved.set(true);
+  }
+
+  @FXML
+  private void initializeTimer() {
+    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
   @FXML
@@ -92,6 +98,7 @@ public class Room2Puzzle2Controller {
 
   @FXML
   private void initialize() {
+    initializeTimer();
     gameState = false;
     initializeButton(buttonA);
     initializeButton(buttonB);
