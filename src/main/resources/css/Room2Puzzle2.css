@@ -1,3 +1,13 @@
 * {
     -fx-font-family: "Times New Roman", serif;
 }
+
+#btnExitPuzzle {
+    -fx-background-color: #F1F6F9;
+    -fx-text-fill: #212A3E;
+}
+
+#btnResetPuzzle {
+    -fx-background-color: #F1F6F9;
+    -fx-text-fill: #212A3E;
+}

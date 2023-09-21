@@ -80,7 +80,7 @@
             <Image url="@../images/room3puzzle2Images/earth.png" />
          </image>
       </ImageView>
-      <Button layoutX="926.0" layoutY="692.0" mnemonicParsing="false" onAction="#onBackButtonClicked" stylesheets="@../css/Room3Puzzle.css" text="Back">
+      <Button fx:id="btnExitPuzzle" layoutX="926.0" layoutY="692.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back">
          <font>
             <Font size="18.0" />
          </font>

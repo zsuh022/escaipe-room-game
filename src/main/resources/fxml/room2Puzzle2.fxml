@@ -146,12 +146,12 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="backRoom2Puzzle2" layoutX="69.0" layoutY="550.0" mnemonicParsing="false" onAction="#backRoom2Puzzle2Clicked" text="Back">
+      <Button fx:id="btnExitPuzzle" layoutX="69.0" layoutY="550.0" mnemonicParsing="false" onAction="#backRoom2Puzzle2Clicked" text="Back">
          <font>
             <Font size="23.0" />
          </font>
       </Button>
-      <Button fx:id="resetRoom2Puzzle2" layoutX="69.0" layoutY="619.0" mnemonicParsing="false" onAction="#resetRoom2Puzzle2Clicked" text="Reset">
+      <Button fx:id="btnResetPuzzle" layoutX="69.0" layoutY="619.0" mnemonicParsing="false" onAction="#resetRoom2Puzzle2Clicked" text="Reset">
          <font>
             <Font size="23.0" />
          </font>
