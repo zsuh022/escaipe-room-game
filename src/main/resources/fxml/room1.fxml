@@ -19,11 +19,6 @@
             <Image url="@../images/room1.jpeg" />
          </image>
       </ImageView>
-      <Label fx:id="timeLabel" layoutX="889.0" prefHeight="50.0" prefWidth="150.0" textFill="#00e9f5">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </Label>
       <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room2ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom">
          <font>
             <Font size="10.0" />
@@ -48,6 +43,16 @@
             <Image url="@../images/gameMaster.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/TimerBlackTxt.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="timeLabel" layoutX="821.0" layoutY="27.0" prefHeight="50.0" prefWidth="86.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
       <Pane fx:id="keyShowingPane" layoutX="800.0" layoutY="460.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">

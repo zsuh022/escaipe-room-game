@@ -8,6 +8,7 @@ import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -33,12 +34,14 @@ public class Room3Puzzle1Controller {
   @FXML private Button btnEmpty;
   @FXML private Button btnExitPuzzle;
   @FXML private GridPane gridPane;
+  @FXML private Label timeLabel;
 
   private List<Button> buttons;
   private Map<Button, int[]> initialButtonPositions = new HashMap<>();
 
   @FXML
   public void initialize() {
+    initializeTimer();
     buttons = Arrays.asList(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btnEmpty);
 
     // set the images for the buttons
@@ -74,6 +77,11 @@ public class Room3Puzzle1Controller {
 
     // hide the empty button
     btnEmpty.setVisible(false);
+  }
+
+  @FXML
+  private void initializeTimer() {
+    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
   @FXML

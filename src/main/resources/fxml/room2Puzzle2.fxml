@@ -168,8 +168,8 @@
       <Rectangle fx:id="chance4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="118.0" layoutY="401.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
       <Rectangle fx:id="chance5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="65.0" layoutY="454.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
       <Rectangle fx:id="chance6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="118.0" layoutY="454.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-      <Rectangle fx:id="rectangleGameState" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="341.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="323.0" />
-      <Label fx:id="room2Puzzle2State" layoutX="346.0" layoutY="300.0" text="PUZZLE FINISHED">
+      <Rectangle fx:id="rectangleGameState" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="341.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="337.0" />
+      <Label fx:id="room2Puzzle2State" layoutX="346.0" layoutY="302.0" text="PUZZLE FINISHED">
          <font>
             <Font size="40.0" />
          </font>
@@ -201,6 +201,16 @@
       <Label fx:id="letter5" layoutX="669.0" layoutY="354.0" text="O">
          <font>
             <Font size="69.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/TimerBlackTxt.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="timeLabel" layoutX="823.0" layoutY="26.0">
+         <font>
+            <Font size="36.0" />
          </font>
       </Label>
    </children>

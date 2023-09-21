@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import nz.ac.auckland.se206.App;
@@ -26,6 +27,7 @@ public class RiddleChatController {
   @FXML private Button btnSend;
   @FXML private TextArea chatTextArea;
   @FXML private TextField inputTextArea;
+  @FXML private Label timeLabel;
 
   private ChatCompletionRequest chatCompletionRequest;
 
@@ -83,8 +85,18 @@ public class RiddleChatController {
                   e.printStackTrace();
                 }
               }
+              if (GameState.timeManager != null && GameState.timeManager.getSecond() != null) {
+                initializeTimer();
+              }
             });
     thread.start();
+  }
+
+  private void initializeTimer() {
+    Platform.runLater(
+        () -> {
+          timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
+        });
   }
 
   /**

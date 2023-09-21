@@ -88,5 +88,15 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/TimerWhiteTxt.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="timeLabel" layoutX="823.0" layoutY="25.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
