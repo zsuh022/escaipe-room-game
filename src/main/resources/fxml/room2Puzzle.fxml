@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,36 +10,37 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2PuzzleController">
    <children>
+      <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/room2Image.jpeg" />
+            <Image url="@../images/Room2Puzzle.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="665.0" layoutX="53.0" layoutY="52.0" stroke="BLACK" strokeType="INSIDE" width="898.0" />
-      <Rectangle fx:id="one" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="334.0" layoutY="201.0" onMouseClicked="#clickOne" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="two" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="465.0" layoutY="201.0" onMouseClicked="#clickTwo" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="three" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="604.0" layoutY="201.0" onMouseClicked="#clickThree" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="four" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="334.0" layoutY="336.0" onMouseClicked="#clickFour" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="five" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="465.0" layoutY="336.0" onMouseClicked="#clickFive" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="six" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="604.0" layoutY="336.0" onMouseClicked="#clickSix" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="334.0" layoutY="468.0" onMouseClicked="#clickSeven" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="465.0" layoutY="468.0" onMouseClicked="#clickEight" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="604.0" layoutY="468.0" onMouseClicked="#clickNine" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="backPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" layoutX="91.0" layoutY="625.0" onMouseClicked="#backPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" width="134.0" />
-      <Rectangle fx:id="startPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="#00c922" height="58.0" layoutX="91.0" layoutY="95.0" onMouseClicked="#startPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" width="134.0" />
-      <Label fx:id="startLabel" layoutX="124.0" layoutY="100.0" onMouseClicked="#startPuzzle2Clicked" text="Start">
+      <Rectangle fx:id="one" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="472.0" layoutY="256.0" onMouseClicked="#clickOne" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="two" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="587.0" layoutY="256.0" onMouseClicked="#clickTwo" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="three" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="702.0" layoutY="256.0" onMouseClicked="#clickThree" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="four" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="472.0" layoutY="371.0" onMouseClicked="#clickFour" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="five" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="587.0" layoutY="371.0" onMouseClicked="#clickFive" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="six" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="702.0" layoutY="371.0" onMouseClicked="#clickSix" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="472.0" layoutY="486.0" onMouseClicked="#clickSeven" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="587.0" layoutY="486.0" onMouseClicked="#clickEight" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="702.0" layoutY="486.0" onMouseClicked="#clickNine" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle fx:id="backPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="#767676" height="49.0" layoutX="267.0" layoutY="462.0" onMouseClicked="#backPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="6.0" width="138.0" />
+      <Rectangle fx:id="startPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="#737272" height="49.0" layoutX="267.0" layoutY="347.0" onMouseClicked="#startPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="181.0" />
+      <Label fx:id="startLabel" layoutX="276.0" layoutY="354.0" onMouseClicked="#startPuzzle2Clicked" text="INITIALIZE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="backLabel" layoutX="276.0" layoutY="461.0" onMouseClicked="#backPuzzle2Clicked" text="RETURN">
          <font>
             <Font size="33.0" />
          </font>
       </Label>
-      <Label fx:id="backLabel" layoutX="124.0" layoutY="630.0" onMouseClicked="#backPuzzle2Clicked" text="Back">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#737272" height="57.0" layoutX="306.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="518.0" />
+      <Label fx:id="puzzle2Label" layoutX="314.0" layoutY="183.0" text="L">
          <font>
-            <Font size="33.0" />
-         </font>
-      </Label>
-      <Label fx:id="puzzle2Label" layoutX="250.0" layoutY="91.0">
-         <font>
-            <Font size="45.0" />
+            <Font size="31.0" />
          </font>
       </Label>
    </children>

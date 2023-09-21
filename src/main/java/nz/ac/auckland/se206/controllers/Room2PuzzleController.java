@@ -44,6 +44,7 @@ public class Room2PuzzleController {
     seven.setFill(Color.WHITE);
     eight.setFill(Color.WHITE);
     nine.setFill(Color.WHITE);
+    puzzle2Label.setText("INITIALIZE TO START PUZZLE...");
   }
 
   private void puzzleSolved() {
@@ -187,13 +188,13 @@ public class Room2PuzzleController {
       if (currentIndex == buttonOrder.length) {
         // Puzzle solved
         puzzleSolved();
-        puzzle2Label.setText("Puzzle Solved! Press back to exit.");
+        puzzle2Label.setText("PUZZLE SOLVED! RETURN TO EXIT...");
       }
     } else {
       // Incorrect button pressed
       currentIndex = 0;
       flashColour(integerToRectangle(buttonNumber), Color.RED);
-      puzzle2Label.setText("Incorrect! Start again.");
+      puzzle2Label.setText("INCORRECT. INITIALIZE AGAIN...");
     }
   }
 }
