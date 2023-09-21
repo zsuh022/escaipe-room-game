@@ -155,7 +155,7 @@
             <Font size="23.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="300.0" layoutY="365.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="space1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="300.0" layoutY="365.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
       <Rectangle fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="65.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
       <Label layoutX="65.0" layoutY="307.0" text="Chances:" textFill="WHITE">
          <font>
@@ -173,10 +173,10 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="660.0" layoutY="366.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="390.0" layoutY="365.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="480.0" layoutY="366.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="570.0" layoutY="366.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="space5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="660.0" layoutY="366.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="space2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="390.0" layoutY="365.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="space3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="480.0" layoutY="366.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="space4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="570.0" layoutY="366.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
       <Label fx:id="letter1" layoutX="309.0" layoutY="353.0" text="O">
          <font>
             <Font size="69.0" />

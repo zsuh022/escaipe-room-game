@@ -1,11 +1,14 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.util.ArrayList;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
@@ -52,6 +55,11 @@ public class Room2Puzzle2Controller {
   @FXML private Rectangle chance6;
   @FXML private Label room2Puzzle2State;
   @FXML private Rectangle rectangleGameState;
+  @FXML private Rectangle space1;
+  @FXML private Rectangle space2;
+  @FXML private Rectangle space3;
+  @FXML private Rectangle space4;
+  @FXML private Rectangle space5;
 
   ArrayList<String> word = new ArrayList<String>();
   int chanceCount; // 0 to 6
@@ -61,6 +69,25 @@ public class Room2Puzzle2Controller {
     System.out.println("Puzzle solved");
 
     GameState.isPuzzleRoom2Solved.set(true);
+  }
+
+  @FXML
+  private void flashColour(Rectangle rectangle, Color colorFlash) {
+    // Flash the rectangle green for one second
+    rectangle.setFill(colorFlash);
+
+    // Create a timeline for the animation
+    Timeline timeline =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(0.4),
+                event -> {
+                  // After one second, revert the color back to the original color
+                  rectangle.setFill(Color.WHITE);
+                }));
+
+    // Play the timeline animation
+    timeline.play();
   }
 
   @FXML
@@ -106,6 +133,7 @@ public class Room2Puzzle2Controller {
     correctCount = 0;
     room2Puzzle2State.setText("");
     rectangleGameState.setOpacity(0);
+    setSpaces(Color.WHITE);
     newWord((int) (1 + (Math.random() * (8))));
   }
 
@@ -156,6 +184,22 @@ public class Room2Puzzle2Controller {
     }
   }
 
+  private void setSpaces(Color color) {
+    space1.setFill(color);
+    space2.setFill(color);
+    space3.setFill(color);
+    space4.setFill(color);
+    space5.setFill(color);
+  }
+
+  private void flashSpacesRed() {
+    flashColour(space1, Color.LIGHTPINK);
+    flashColour(space2, Color.LIGHTPINK);
+    flashColour(space3, Color.LIGHTPINK);
+    flashColour(space4, Color.LIGHTPINK);
+    flashColour(space5, Color.LIGHTPINK);
+  }
+
   private void handleKeyPressed(Character character) {
     if (word.contains(character.toString())) {
       for (int i = 0; i < 5; i++) {
@@ -194,6 +238,7 @@ public class Room2Puzzle2Controller {
         chance4.setFill(Color.GREEN);
         chance5.setFill(Color.GREEN);
         chance6.setFill(Color.GREEN);
+        setSpaces(Color.LIGHTGREEN);
       }
 
     } else {
@@ -202,18 +247,23 @@ public class Room2Puzzle2Controller {
         switch (chanceCount) {
           case 1:
             chance1.setFill(Color.RED);
+            flashSpacesRed();
             break;
           case 2:
             chance2.setFill(Color.RED);
+            flashSpacesRed();
             break;
           case 3:
             chance3.setFill(Color.RED);
+            flashSpacesRed();
             break;
           case 4:
             chance4.setFill(Color.RED);
+            flashSpacesRed();
             break;
           case 5:
             chance5.setFill(Color.RED);
+            flashSpacesRed();
             break;
           default:
             break;
