@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3PuzzleController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle1.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Puzzle1Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="808.0" fitWidth="1024.0" layoutY="-20.0">
@@ -78,12 +78,12 @@
             <Button fx:id="btnEmpty" alignment="CENTER" mnemonicParsing="false" onAction="#onTileClicked" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button fx:id="btnExitPuzzle" layoutX="774.0" layoutY="554.0" mnemonicParsing="false" onAction="#onBackButtonClicked" stylesheets="@../css/Room3Puzzle.css" text="Back">
+      <Button fx:id="btnExitPuzzle" layoutX="774.0" layoutY="554.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="602.0" layoutY="170.0" stylesheets="@../css/Room3Puzzle.css" text="Click the tiles around&#10;the empty tile to move&#10;them and complete the&#10;puzzle." textAlignment="CENTER">
+      <Label layoutX="602.0" layoutY="170.0" text="Click the tiles around&#10;the empty tile to move&#10;them and complete the&#10;puzzle." textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>

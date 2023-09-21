@@ -118,7 +118,7 @@ public class Room3Controller {
   @FXML
   private void room3PuzzleClicked(MouseEvent event) {
     System.out.println("Room 3 puzzle clicked");
-    App.setUi(RoomType.ROOM3PUZZLE);
+    App.setUi(RoomType.ROOM3PUZZLE1);
   }
 
   @FXML
