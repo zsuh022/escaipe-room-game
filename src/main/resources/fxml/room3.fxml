@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
+<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0">
@@ -24,16 +24,6 @@
             <Font size="10.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/TimerBlackTxt.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="timeLabel" layoutX="827.0" layoutY="32.0" prefHeight="38.0" prefWidth="91.0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
       <Polygon fx:id="polygonRoom3Puzzle1" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.0" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -69,6 +59,20 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Polygon>
+      <Pane layoutX="700.0" layoutY="10.0" pickOnBounds="false" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/TimerBlackTxt.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0" text="120">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Pane layoutX="919.0" layoutY="20.0" prefHeight="100.0" prefWidth="100.0">
          <children>
             <ImageView fitHeight="97.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
