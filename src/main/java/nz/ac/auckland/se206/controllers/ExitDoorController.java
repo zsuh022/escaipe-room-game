@@ -1,6 +1,8 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventTarget;
@@ -11,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager;
@@ -29,6 +32,26 @@ public class ExitDoorController {
   public void initialize() {
     initializeTimer();
     keyPad.setVisible(false);
+  }
+
+  @FXML private Pane indicationPane;
+
+  private void fadeInOutIndicationPane() {
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(0.5);
+
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
+    FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeOut.setFromValue(0.5);
+    fadeOut.setToValue(0);
+
+    fadeIn.setOnFinished(event -> pause.play());
+
+    pause.setOnFinished(event -> fadeOut.play());
+
+    fadeIn.play();
   }
 
   @FXML

@@ -6,6 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
@@ -50,5 +51,15 @@
          </children>
       </Pane>
       <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#room3Puzzle2Clicked" opacity="0.0" points="63.0, 480.0, 693.0, 480.0, 693.0, 170.0, 63.0, 170.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
+      <Pane fx:id="indicationPane" layoutX="-2.0" layoutY="670.0" prefHeight="108.0" prefWidth="1036.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#515457" height="108.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
+            <Label layoutX="340.0" layoutY="29.0" prefHeight="50.0" prefWidth="394.0" text="Habitation Module" textFill="#fffdfd">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </Pane>
