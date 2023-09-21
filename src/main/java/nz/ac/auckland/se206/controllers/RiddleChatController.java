@@ -2,7 +2,6 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.util.Random;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -49,7 +48,7 @@ public class RiddleChatController {
     GameState.riddleWord = celestialBodies[randomIndex];
 
     chatCompletionRequest =
-        new ChatCompletionRequest().setN(1).setTemperature(0.2).setTopP(0.5).setMaxTokens(250);
+        new ChatCompletionRequest().setN(1).setTemperature(0.1).setTopP(0.5).setMaxTokens(250);
 
     Thread thread =
         new Thread(
@@ -85,10 +84,10 @@ public class RiddleChatController {
                   e.printStackTrace();
                 }
               }
-              if (GameState.timeManager != null && GameState.timeManager.getSecond() != null) {
-                initializeTimer();
-              }
             });
+    if (GameState.timeManager != null && GameState.timeManager.getSecond() != null) {
+      initializeTimer();
+    }
     thread.start();
   }
 
@@ -153,8 +152,12 @@ public class RiddleChatController {
               if (GameState.difficulty == 2) {
                 msg =
                     new ChatMessage(
-                        "user",
-                        message + " \\n " + "Hint remaining: " + GameState.hintCount + " now");
+                        "user", message + " \\ " + "Hint remaining: " + GameState.hintCount);
+                if (containsHint(message)) {
+                  if (GameState.hintCount > 0) {
+                    GameState.hintCount--;
+                  }
+                }
               } else {
                 msg = new ChatMessage("user", message);
               }
@@ -166,12 +169,6 @@ public class RiddleChatController {
                     && lastMsg.getContent().startsWith("Correct")) {
                   GameState.isRiddleResolved.set(true);
                 }
-                if (GameState.difficulty == 2) {
-                  String lastMsgContent = lastMsg.getContent();
-                  GameState.hintCount = getHintRemaining(lastMsgContent);
-                  System.out.println(lastMsgContent);
-                  System.out.println("hint number: " + GameState.hintCount);
-                }
               } catch (ApiProxyException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -180,15 +177,10 @@ public class RiddleChatController {
     thread.start();
   }
 
-  public static int getHintRemaining(String input) {
-    Pattern pattern = Pattern.compile("Hint remaining: (\\d+)");
-    Matcher matcher = pattern.matcher(input);
-
-    if (matcher.find()) {
-      return Integer.parseInt(matcher.group(1));
-    } else {
-      throw new IllegalArgumentException("The hint number was not found in the given input.");
-    }
+  private Boolean containsHint(String input) {
+    if (input == null) return false;
+    Pattern pattern = Pattern.compile("\\bhint(s)?\\b", Pattern.CASE_INSENSITIVE);
+    return pattern.matcher(input).find();
   }
 
   /**
