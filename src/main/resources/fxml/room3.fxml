@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -63,5 +64,21 @@
             </Label>
          </children>
       </Pane>
+      <ImageView fitHeight="97.0" fitWidth="86.0" layoutX="99.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/mutebutton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="crossImage" fitHeight="24.0" fitWidth="25.0" layoutX="150.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/cross.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="waveImage" fitHeight="83.0" fitWidth="20.0" layoutX="151.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/wave.png" />
+         </image>
+      </ImageView>
+      <Circle fill="#1f93ff00" layoutX="140.0" layoutY="281.0" onMouseClicked="#muteBarClick" opacity="0.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </Pane>
