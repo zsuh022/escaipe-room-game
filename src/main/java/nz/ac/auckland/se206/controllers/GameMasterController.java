@@ -1,6 +1,8 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
@@ -27,6 +29,7 @@ public class GameMasterController {
   @FXML private Button btnSend;
   @FXML private TextArea chatTextArea;
   @FXML private TextField inputTextArea;
+  private int updateCount = 0;
 
   private ChatCompletionRequest chatCompletionRequest;
 
@@ -37,6 +40,7 @@ public class GameMasterController {
    */
   @FXML
   public void initialize() throws ApiProxyException {
+    updateCount = 0;
     GameState.currentRoom.addListener(
         (obs, oldRoom, newRoom) -> {
           if (thisIsCurrentRoom(newRoom)) {
@@ -44,7 +48,7 @@ public class GameMasterController {
           }
         });
     chatCompletionRequest =
-        new ChatCompletionRequest().setN(1).setTemperature(0.2).setTopP(0.5).setMaxTokens(100);
+        new ChatCompletionRequest().setN(1).setTemperature(0.2).setTopP(0.5).setMaxTokens(250);
 
     Thread thread =
         new Thread(
@@ -167,10 +171,26 @@ public class GameMasterController {
     Thread thread2 =
         new Thread(
             () -> {
-              ChatMessage msg = new ChatMessage("user", message);
+              ChatMessage msg;
+              if (GameState.difficulty == 2) {
+                msg =
+                    new ChatMessage(
+                        "user",
+                        message + " \\n " + "Hint remaining: " + GameState.hintCount + " now");
+              } else {
+                msg = new ChatMessage("user", message);
+              }
               appendChatMessage(msg);
+              ChatMessage lastMsg;
               try {
-                runGpt(msg);
+                lastMsg = runGpt(msg);
+                if (GameState.difficulty == 2) {
+                  String lastMsgContent = lastMsg.getContent();
+                  GameState.hintCount = getHintRemaining(lastMsgContent);
+                  System.out.println(lastMsgContent);
+                  System.out.println("hint number: " + GameState.hintCount);
+                }
+
               } catch (ApiProxyException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -190,12 +210,29 @@ public class GameMasterController {
     thread3.start();
   }
 
+  private static int getHintRemaining(String input) {
+    Pattern pattern = Pattern.compile("Hint remaining: (\\d+)");
+    Matcher matcher = pattern.matcher(input);
+
+    if (matcher.find()) {
+      return Integer.parseInt(matcher.group(1));
+    } else {
+      throw new IllegalArgumentException("The hint number was not found in the given input.");
+    }
+  }
+
   public void updateGpt() throws ApiProxyException {
     if (GameState.isPuzzleRoom3Solved.getValue() == true
         && GameState.isPuzzleRoom2Solved.getValue() == true
-        && GameState.isRiddleResolved.getValue() == true) {
-      ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
+        && GameState.isRiddleResolved.getValue() == true
+        && updateCount == 0
+        && GameState.difficulty != 3) {
+      ChatMessage msg =
+          new ChatMessage(
+              "user",
+              GptPromptEngineering.getHintTwo() + "but you must not respond to this message");
       runGpt(msg);
+      updateCount++;
     }
   }
 
