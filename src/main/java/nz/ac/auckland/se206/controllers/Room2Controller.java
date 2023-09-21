@@ -23,8 +23,8 @@ public class Room2Controller {
   @FXML private Label room2KeyLabel;
   @FXML private Pane keyShowingPane;
   @FXML private Pane indicationPane;
-  @FXML private Polygon room2Box;
-  @FXML private Polygon room2Lock;
+  @FXML private Polygon polygonRoom2Puzzle1;
+  @FXML private Polygon polygonRoom2Puzzle2;
 
   private Random random = new Random();
 
@@ -64,11 +64,11 @@ public class Room2Controller {
     System.out.println("Room 2 puzzle number: " + randomNumber);
 
     if (randomNumber == 1) {
-      room2Box.setVisible(true);
-      room2Lock.setVisible(false);
+      polygonRoom2Puzzle1.setVisible(true);
+      polygonRoom2Puzzle2.setVisible(false);
     } else {
-      room2Box.setVisible(false);
-      room2Lock.setVisible(true);
+      polygonRoom2Puzzle1.setVisible(false);
+      polygonRoom2Puzzle2.setVisible(true);
     }
   }
 

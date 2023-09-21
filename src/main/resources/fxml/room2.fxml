@@ -28,8 +28,8 @@
             <Font size="10.0" />
          </font>
       </Button>
-      <Polygon fx:id="room2Lock" fill="DODGERBLUE" layoutX="409.0" layoutY="590.0" onMouseClicked="#room2LockClicked" opacity="0.0" points="-109.0, -148.0, -109.0, -238.0, -59.0, -282.0, 270.0, -282.0, 323.0, -238.0, 323.0, -159.0, 270.0, -115.0, -70.0, -115.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
-      <Polygon fx:id="room2Box" fill="DODGERBLUE" layoutX="214.0" layoutY="640.0" onMouseClicked="#room2BoxClicked" opacity="0.0" points="19.0, 52.0, -181.0, 18.0, -181.0, -152.0, -149.0, -160.0, 183.0, -160.0, 231.0, -152.0, 231.0, 12.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
+      <Polygon fx:id="polygonRoom2Puzzle1" fill="DODGERBLUE" layoutX="409.0" layoutY="590.0" onMouseClicked="#room2LockClicked" opacity="0.0" points="-109.0, -148.0, -109.0, -238.0, -59.0, -282.0, 270.0, -282.0, 323.0, -238.0, 323.0, -159.0, 270.0, -115.0, -70.0, -115.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
+      <Polygon fx:id="polygonRoom2Puzzle2" fill="DODGERBLUE" layoutX="214.0" layoutY="640.0" onMouseClicked="#room2BoxClicked" opacity="0.0" points="19.0, 52.0, -181.0, 18.0, -181.0, -152.0, -149.0, -160.0, 183.0, -160.0, 231.0, -152.0, 231.0, 12.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
       <Pane fx:id="keyShowingPane" layoutX="580.0" layoutY="530.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">
