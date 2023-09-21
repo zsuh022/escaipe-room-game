@@ -28,7 +28,6 @@ public class Room2Controller {
 
   private Random random = new Random();
 
-  /** Initializes the room view, it is called when the room loads. */
   @FXML
   private void initialize() {
     initializeTimer();
@@ -60,7 +59,18 @@ public class Room2Controller {
         });
   }
 
-  private void initializePuzzle() {}
+  private void initializePuzzle() {
+    int randomNumber = random.nextInt(2) + 1;
+    System.out.println("Room 2 puzzle number: " + randomNumber);
+
+    if (randomNumber == 1) {
+      room2Box.setVisible(true);
+      room2Lock.setVisible(false);
+    } else {
+      room2Box.setVisible(false);
+      room2Lock.setVisible(true);
+    }
+  }
 
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 2;

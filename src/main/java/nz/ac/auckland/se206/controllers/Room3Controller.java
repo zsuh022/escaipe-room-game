@@ -140,7 +140,7 @@ public class Room3Controller {
 
   private void initializePuzzle() {
     int randomNumber = random.nextInt(2) + 1;
-    System.out.println("Random number: " + randomNumber);
+    System.out.println("Room 3 puzzle number: " + randomNumber);
 
     if (randomNumber == 1) {
       polygonRoom3Puzzle1.setVisible(true);
