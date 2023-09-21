@@ -4,12 +4,14 @@ import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room3Controller {
@@ -39,12 +41,32 @@ public class Room3Controller {
             fadeInOutIndicationPane();
           }
         });
+    GameState.isMuted.addListener(
+        (obs, wasMuted, isNowMuted) -> {
+          if (isNowMuted) {
+            crossImage.setVisible(true);
+            waveImage.setVisible(false);
+            MusicManager.mute();
+          } else {
+            crossImage.setVisible(false);
+            waveImage.setVisible(true);
+            MusicManager.unmute();
+          }
+        });
     i = 0;
     polygonRoom3Puzzle.setVisible(true);
     puzzle2Pane.setVisible(true);
     puzzle2Pane.setOpacity(1);
     polygonRoom3Puzzle2.setVisible(true);
     polygon2Room3Puzzle2.setVisible(false);
+  }
+
+  @FXML private ImageView crossImage;
+  @FXML private ImageView waveImage;
+
+  @FXML
+  private void muteBarClick() {
+    GameState.isMuted.set(!GameState.isMuted.get());
   }
 
   private boolean thisIsCurrentRoom(Number roomNumber) {

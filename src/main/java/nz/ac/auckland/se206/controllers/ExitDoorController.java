@@ -16,6 +16,7 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
@@ -38,6 +39,26 @@ public class ExitDoorController {
             fadeInOutIndicationPane();
           }
         });
+    GameState.isMuted.addListener(
+        (obs, wasMuted, isNowMuted) -> {
+          if (isNowMuted) {
+            crossImage.setVisible(true);
+            waveImage.setVisible(false);
+            MusicManager.mute();
+          } else {
+            crossImage.setVisible(false);
+            waveImage.setVisible(true);
+            MusicManager.unmute();
+          }
+        });
+  }
+
+  @FXML private ImageView crossImage;
+  @FXML private ImageView waveImage;
+
+  @FXML
+  private void muteBarClick() {
+    GameState.isMuted.set(!GameState.isMuted.get());
   }
 
   private boolean thisIsCurrentRoom(Number roomNumber) {
