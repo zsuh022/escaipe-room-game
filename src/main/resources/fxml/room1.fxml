@@ -61,10 +61,10 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
                <image>
-                  <Image url="@../images/TimerBlackTxt.png" />
+                  <Image url="@../images/timerBlackTxt.png" />
                </image>
             </ImageView>
-            <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0" text="120">
+            <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0">
                <font>
                   <Font size="36.0" />
                </font>
