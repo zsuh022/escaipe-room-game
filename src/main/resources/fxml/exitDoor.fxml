@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -35,7 +36,10 @@
             <Image url="@../images/keyPadSmall.png" />
          </image>
       </ImageView>
-      <Circle fx:id="smallKeyPadCircle" fill="DODGERBLUE" layoutX="658.0" layoutY="428.0" onMouseClicked="#onOpenKeyPad" opacity="0.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
+      <Circle fx:id="smallKeyPadCircle" fill="DODGERBLUE" layoutX="658.0" layoutY="428.0" onMouseClicked="#onOpenKeyPad" opacity="0.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Circle>
       <Pane fx:id="keyPad" layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0" visible="false">
          <children>
             <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
