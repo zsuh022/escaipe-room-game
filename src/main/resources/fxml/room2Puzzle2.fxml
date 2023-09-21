@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle2.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle2Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle2.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle2Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
@@ -146,14 +146,14 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="btnExitPuzzle" layoutX="69.0" layoutY="550.0" mnemonicParsing="false" onAction="#backRoom2Puzzle2Clicked" text="Back">
+      <Button fx:id="btnExitPuzzle" layoutX="75.0" layoutY="625.0" mnemonicParsing="false" onAction="#backRoom2Puzzle2Clicked" prefHeight="32.0" prefWidth="70.0" text="Back">
          <font>
-            <Font size="23.0" />
+            <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnResetPuzzle" layoutX="69.0" layoutY="619.0" mnemonicParsing="false" onAction="#resetRoom2Puzzle2Clicked" text="Reset">
+      <Button fx:id="btnResetPuzzle" layoutX="75.0" layoutY="570.0" mnemonicParsing="false" onAction="#resetRoom2Puzzle2Clicked" prefHeight="32.0" prefWidth="70.0" text="Reset">
          <font>
-            <Font size="23.0" />
+            <Font size="18.0" />
          </font>
       </Button>
       <Rectangle fx:id="space1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="300.0" layoutY="365.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
