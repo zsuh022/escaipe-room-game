@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import javafx.application.Platform;
+import javafx.beans.binding.BooleanExpression;
 import javafx.event.Event;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
@@ -31,6 +32,7 @@ public class ExitDoorController {
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
     initializeTimer();
+    initializeMuteButton();
     keyPad.setVisible(false);
   }
 
@@ -137,19 +139,27 @@ public class ExitDoorController {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  private void initializeMuteButton() {
+    crossImage.visibleProperty().bind(GameState.isMuted);
+    waveImage.visibleProperty().bind(((BooleanExpression) GameState.isMuted).not());
+  }
+
   @FXML
   private void muteBarClick() {
     System.out.println("Mute bar clicked");
-    if (GameState.isMuted) {
-      GameState.isMuted = false;
-      crossImage.setVisible(false);
-      waveImage.setVisible(true);
-      MusicManager.unmute();
-    } else {
-      GameState.isMuted = true;
+    GameState.toggleMuted();
+    updateMuteButton();
+  }
+
+  private void updateMuteButton() {
+    if (GameState.isMuted()) {
       crossImage.setVisible(true);
       waveImage.setVisible(false);
       MusicManager.mute();
+    } else {
+      crossImage.setVisible(false);
+      waveImage.setVisible(true);
+      MusicManager.unmute();
     }
   }
 }

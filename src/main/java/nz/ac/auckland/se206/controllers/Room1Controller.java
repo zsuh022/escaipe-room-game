@@ -1,5 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.beans.binding.BooleanExpression;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -17,6 +18,7 @@ public class Room1Controller {
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
     initializeTimer();
+    initializeMuteButton();
     keyShowingPane.setVisible(false);
     GameState.isRiddleResolved.addListener(
         (observable, oldValue, newValue) -> {
@@ -62,19 +64,27 @@ public class Room1Controller {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  private void initializeMuteButton() {
+    crossImage.visibleProperty().bind(GameState.isMuted);
+    waveImage.visibleProperty().bind(((BooleanExpression) GameState.isMuted).not());
+  }
+
   @FXML
   private void muteBarClick() {
     System.out.println("Mute bar clicked");
-    if (GameState.isMuted) {
-      GameState.isMuted = false;
-      crossImage.setVisible(false);
-      waveImage.setVisible(true);
-      MusicManager.unmute();
-    } else {
-      GameState.isMuted = true;
+    GameState.toggleMuted();
+    updateMuteButton();
+  }
+
+  private void updateMuteButton() {
+    if (GameState.isMuted()) {
       crossImage.setVisible(true);
       waveImage.setVisible(false);
       MusicManager.mute();
+    } else {
+      crossImage.setVisible(false);
+      waveImage.setVisible(true);
+      MusicManager.unmute();
     }
   }
 

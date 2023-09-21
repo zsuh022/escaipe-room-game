@@ -24,11 +24,19 @@ public class GameState {
 
   public static int key;
 
-  public static boolean isMuted = false;
+  public static BooleanProperty isMuted = new SimpleBooleanProperty(false);
 
   public static String room1Key;
 
   public static String room2Key;
 
   public static String room3Key;
+
+  public static boolean isMuted() {
+    return isMuted.get();
+  }
+
+  public static void toggleMuted() {
+    isMuted.set(!isMuted.get());
+  }
 }
