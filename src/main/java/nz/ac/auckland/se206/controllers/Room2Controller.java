@@ -115,6 +115,7 @@ public class Room2Controller {
     System.out.println("Button clicked");
     GameState.currentRoom.set(1);
     App.setUi(RoomType.ROOM1);
+    GameState.roomNumber = 1;
   }
 
   @FXML private Label timeLabel;
@@ -138,5 +139,13 @@ public class Room2Controller {
   @FXML
   private void muteBarClick() {
     GameState.isMuted.set(!GameState.isMuted.get());
+  }
+
+  @FXML
+  private void gameMasterClicked() {
+    System.out.println("Game master clicked");
+    GameState.currentRoom.set(5);
+    App.setUi(RoomType.GAMEMASTER);
+    GameState.roomNumber = 2;
   }
 }

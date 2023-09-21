@@ -245,7 +245,18 @@ public class GameMasterController {
    */
   @FXML
   private void onGoBack(ActionEvent event) throws ApiProxyException, IOException {
-    GameState.currentRoom.setValue(1);
-    App.setUi(RoomType.ROOM1);
+    if (GameState.roomNumber == 1) {
+      GameState.currentRoom.setValue(1);
+      App.setUi(RoomType.ROOM1);
+    } else if (GameState.roomNumber == 2) {
+      GameState.currentRoom.setValue(2);
+      App.setUi(RoomType.ROOM2);
+    } else if (GameState.roomNumber == 3) {
+      GameState.currentRoom.setValue(3);
+      App.setUi(RoomType.ROOM3);
+    } else if (GameState.roomNumber == 4) {
+      GameState.currentRoom.setValue(4);
+      App.setUi(RoomType.EXITDOOR);
+    }
   }
 }
