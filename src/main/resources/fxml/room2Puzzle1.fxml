@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle1.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle1Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle1.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle1Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
@@ -25,18 +25,16 @@
       <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="472.0" layoutY="486.0" onMouseClicked="#clickSeven" stroke="BLACK" strokeType="INSIDE" width="115.0" />
       <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="587.0" layoutY="486.0" onMouseClicked="#clickEight" stroke="BLACK" strokeType="INSIDE" width="115.0" />
       <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="702.0" layoutY="486.0" onMouseClicked="#clickNine" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="backPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="#767676" height="49.0" layoutX="267.0" layoutY="462.0" onMouseClicked="#backPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="6.0" width="102.0" />
-      <Rectangle fx:id="startPuzzle2" arcHeight="5.0" arcWidth="5.0" fill="#737272" height="49.0" layoutX="267.0" layoutY="347.0" onMouseClicked="#startPuzzle2Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="181.0" />
-      <Label fx:id="startLabel" layoutX="276.0" layoutY="354.0" onMouseClicked="#startPuzzle2Clicked" text="INITIALIZE">
+      <Button fx:id="btnExitPuzzle" layoutX="300.0" layoutY="470.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="32.0" prefWidth="130.0" text="Back">
          <font>
-            <Font name="Bookshelf Symbol 7" size="33.0" />
+            <Font size="24.0" />
          </font>
-      </Label>
-      <Label fx:id="backLabel" layoutX="276.0" layoutY="461.0" onMouseClicked="#backPuzzle2Clicked" text="BACK">
+      </Button>
+      <Button fx:id="btnInitializePuzzle" layoutX="300.0" layoutY="350.0" mnemonicParsing="false" onAction="#onInitializePuzzle1Clicked" prefHeight="44.0" prefWidth="130.0" text="Initialize">
          <font>
-            <Font size="33.0" />
+            <Font size="24.0" />
          </font>
-      </Label>
+      </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="306.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="518.0" />
       <Label fx:id="puzzle2Label" layoutX="314.0" layoutY="183.0" text="L">
          <font>
