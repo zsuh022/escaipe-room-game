@@ -36,4 +36,21 @@ public class GameState {
   public static IntegerProperty currentRoom = new SimpleIntegerProperty(0);
 
   public static int hintCount = 5;
+
+  public static void reset() {
+    isRiddleResolved = new SimpleBooleanProperty(false);
+    gameTime = new SimpleIntegerProperty(0);
+    difficulty = 0;
+    timeManager = new TimeManager();
+    riddleWord = "";
+    isPuzzleRoom2Solved = new SimpleBooleanProperty(false);
+    isPuzzleRoom3Solved = new SimpleBooleanProperty(false);
+    key = 0;
+    isMuted = new SimpleBooleanProperty(false);
+    room1Key = "";
+    room2Key = "";
+    room3Key = "";
+    currentRoom = new SimpleIntegerProperty(0);
+    hintCount = 5;
+  }
 }

@@ -98,6 +98,7 @@ public class Room2Puzzle2Controller {
 
   @FXML
   private void initialize() {
+    word = new ArrayList<String>();
     initializeTimer();
     gameState = false;
     initializeButton(buttonA);

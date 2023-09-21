@@ -44,6 +44,8 @@ public class Room3Puzzle2Controller {
 
   @FXML
   private void initialize() {
+    draggableManager = new DraggableManager();
+    solutionMap = new HashMap<>();
     initializeTimer();
     // Assuming a method to setup the correct planet-circle relationship
     setupSolutionMap();
