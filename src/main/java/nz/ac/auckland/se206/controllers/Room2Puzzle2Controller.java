@@ -64,6 +64,7 @@ public class Room2Puzzle2Controller {
   ArrayList<String> word = new ArrayList<String>();
   int chanceCount; // 0 to 6
   int correctCount; // 0 to 5
+  boolean gameState = false;
 
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
@@ -91,6 +92,7 @@ public class Room2Puzzle2Controller {
 
   @FXML
   private void initialize() {
+    gameState = false;
     initializeButton(buttonA);
     initializeButton(buttonB);
     initializeButton(buttonC);
@@ -228,6 +230,7 @@ public class Room2Puzzle2Controller {
 
       if (correctCount == 5) {
         puzzleSolved();
+        gameState = true;
         room2Puzzle2State.setText("PUZZLE CORRECT");
         rectangleGameState.setFill(Color.LIGHTGREEN);
         rectangleGameState.setOpacity(1);
@@ -269,6 +272,7 @@ public class Room2Puzzle2Controller {
         }
       } else {
         chanceCount++;
+        gameState = true;
         chance6.setFill(Color.RED);
         room2Puzzle2State.setText("PUZZLE FAILED");
         rectangleGameState.setFill(Color.LIGHTPINK);
@@ -290,183 +294,235 @@ public class Room2Puzzle2Controller {
 
   @FXML
   private void buttonAClicked() {
-    handleKeyPressed('A');
-    buttonA.setDisable(true);
-    buttonA.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('A');
+      buttonA.setDisable(true);
+      buttonA.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonBClicked() {
-    handleKeyPressed('B');
-    buttonB.setDisable(true);
-    buttonB.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('B');
+      buttonB.setDisable(true);
+      buttonB.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonCClicked() {
-    handleKeyPressed('C');
-    buttonC.setDisable(true);
-    buttonC.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('C');
+      buttonC.setDisable(true);
+      buttonC.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonDClicked() {
-    handleKeyPressed('D');
-    buttonD.setDisable(true);
-    buttonD.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('D');
+      buttonD.setDisable(true);
+      buttonD.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonEClicked() {
-    handleKeyPressed('E');
-    buttonE.setDisable(true);
-    buttonE.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('E');
+      buttonE.setDisable(true);
+      buttonE.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonFClicked() {
-    handleKeyPressed('F');
-    buttonF.setDisable(true);
-    buttonF.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('F');
+      buttonF.setDisable(true);
+      buttonF.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonGClicked() {
-    handleKeyPressed('G');
-    buttonG.setDisable(true);
-    buttonG.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('G');
+      buttonG.setDisable(true);
+      buttonG.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonHClicked() {
-    handleKeyPressed('H');
-    buttonH.setDisable(true);
-    buttonH.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('H');
+      buttonH.setDisable(true);
+      buttonH.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonIClicked() {
-    handleKeyPressed('I');
-    buttonI.setDisable(true);
-    buttonI.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('I');
+      buttonI.setDisable(true);
+      buttonI.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonJClicked() {
-    handleKeyPressed('J');
-    buttonJ.setDisable(true);
-    buttonJ.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('J');
+      buttonJ.setDisable(true);
+      buttonJ.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonKClicked() {
-    handleKeyPressed('K');
-    buttonK.setDisable(true);
-    buttonK.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('K');
+      buttonK.setDisable(true);
+      buttonK.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonLClicked() {
-    handleKeyPressed('L');
-    buttonL.setDisable(true);
-    buttonL.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('L');
+      buttonL.setDisable(true);
+      buttonL.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonMClicked() {
-    handleKeyPressed('M');
-    buttonM.setDisable(true);
-    buttonM.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('M');
+      buttonM.setDisable(true);
+      buttonM.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonNClicked() {
-    handleKeyPressed('N');
-    buttonN.setDisable(true);
-    buttonN.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('N');
+      buttonN.setDisable(true);
+      buttonN.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonOClicked() {
-    handleKeyPressed('O');
-    buttonO.setDisable(true);
-    buttonO.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('O');
+      buttonO.setDisable(true);
+      buttonO.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonPClicked() {
-    handleKeyPressed('P');
-    buttonP.setDisable(true);
-    buttonP.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('P');
+      buttonP.setDisable(true);
+      buttonP.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonQClicked() {
-    handleKeyPressed('Q');
-    buttonQ.setDisable(true);
-    buttonQ.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('Q');
+      buttonQ.setDisable(true);
+      buttonQ.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonRClicked() {
-    handleKeyPressed('R');
-    buttonR.setDisable(true);
-    buttonR.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('R');
+      buttonR.setDisable(true);
+      buttonR.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonSClicked() {
-    handleKeyPressed('S');
-    buttonS.setDisable(true);
-    buttonS.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('S');
+      buttonS.setDisable(true);
+      buttonS.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonTClicked() {
-    handleKeyPressed('T');
-    buttonT.setDisable(true);
-    buttonT.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('T');
+      buttonT.setDisable(true);
+      buttonT.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonUClicked() {
-    handleKeyPressed('U');
-    buttonU.setDisable(true);
-    buttonU.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('U');
+      buttonU.setDisable(true);
+      buttonU.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonVClicked() {
-    handleKeyPressed('V');
-    buttonV.setDisable(true);
-    buttonV.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('V');
+      buttonV.setDisable(true);
+      buttonV.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonWClicked() {
-    handleKeyPressed('W');
-    buttonW.setDisable(true);
-    buttonW.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('W');
+      buttonW.setDisable(true);
+      buttonW.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonXClicked() {
-    handleKeyPressed('X');
-    buttonX.setDisable(true);
-    buttonX.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('X');
+      buttonX.setDisable(true);
+      buttonX.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonYClicked() {
-    handleKeyPressed('Y');
-    buttonY.setDisable(true);
-    buttonY.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('Y');
+      buttonY.setDisable(true);
+      buttonY.setOpacity(0);
+    }
   }
 
   @FXML
   private void buttonZClicked() {
-    handleKeyPressed('Z');
-    buttonZ.setDisable(true);
-    buttonZ.setOpacity(0);
+    if (!gameState) {
+      handleKeyPressed('Z');
+      buttonZ.setDisable(true);
+      buttonZ.setOpacity(0);
+    }
   }
 }
