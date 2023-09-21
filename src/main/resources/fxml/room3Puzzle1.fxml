@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle1.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Puzzle1Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle1.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="nz.ac.auckland.se206.controllers.Room3Puzzle1Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="808.0" fitWidth="1024.0" layoutY="-20.0">
@@ -88,15 +88,19 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/TimerWhiteTxt.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="timeLabel" layoutX="823.0" layoutY="25.0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
+      <Pane layoutX="700.0" layoutY="10.0" pickOnBounds="false" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/timerWhiteTxt.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </Pane>
