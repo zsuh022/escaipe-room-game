@@ -43,6 +43,16 @@
             <Image url="@../images/gameMaster.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/TimerBlackTxt.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="timeLabel" layoutX="821.0" layoutY="27.0" prefHeight="50.0" prefWidth="86.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
       <Pane fx:id="keyShowingPane" layoutX="800.0" layoutY="460.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">
@@ -90,15 +100,5 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/TimerBlackTxt.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="timeLabel" layoutX="821.0" layoutY="27.0" prefHeight="50.0" prefWidth="150.0" text="240">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
    </children>
 </Pane>
