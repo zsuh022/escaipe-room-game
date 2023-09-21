@@ -4,8 +4,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -176,6 +178,7 @@ public class Room3Puzzle2Controller {
     }
     System.out.println("All matches correct");
     try {
+      showDialog("Solved", null, "You have ordered the planets correctly");
       puzzleSolved();
     } catch (ApiProxyException e) {
       // TODO Auto-generated catch block
@@ -186,5 +189,36 @@ public class Room3Puzzle2Controller {
   private void puzzleSolved() throws ApiProxyException {
     System.out.println("Puzzle solved");
     GameState.isPuzzleRoom3Solved.setValue(true);
+  }
+
+  /**
+   * Displays a dialog box with the given title, header text, and message.
+   *
+   * @param title the title of the dialog box
+   * @param headerText the header text of the dialog box
+   * @param message the message content of the dialog box
+   */
+  private void showDialog(String title, String headerText, String message) {
+    // create a dialog box with the given title, header text, and message
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle(title);
+    alert.setHeaderText(headerText);
+    alert.setContentText(message);
+    // close the dialog box after 4 seconds
+    Thread alertClose =
+        new Thread(
+            () -> {
+              try {
+                Thread.sleep(5000);
+                Platform.runLater(
+                    () -> {
+                      alert.close();
+                    });
+              } catch (InterruptedException e) {
+                e.printStackTrace();
+              }
+            });
+    alertClose.start();
+    alert.showAndWait();
   }
 }
