@@ -4,12 +4,18 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.DraggableManager;
+import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.SceneManager.RoomType;
+import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
 
 public class Room3Puzzle2Controller {
 
@@ -30,7 +36,7 @@ public class Room3Puzzle2Controller {
   @FXML private ImageView planetEight;
   @FXML private Rectangle menuArea;
 
-  DraggableManager draggableManager = new DraggableManager();
+  private DraggableManager draggableManager = new DraggableManager();
 
   private Map<Circle, ImageView> solutionMap = new HashMap<>();
 
@@ -64,20 +70,6 @@ public class Room3Puzzle2Controller {
     draggableManager.makeDraggable(planetSix, targetCirclesForPlanetOne);
     draggableManager.makeDraggable(planetSeven, targetCirclesForPlanetOne);
     draggableManager.makeDraggable(planetEight, targetCirclesForPlanetOne);
-  }
-
-  public void checkAllMatches() {
-    for (Map.Entry<Circle, ImageView> entry : solutionMap.entrySet()) {
-      if (entry.getKey().getLayoutX() != entry.getValue().getLayoutX()
-          || entry.getKey().getLayoutY() != entry.getValue().getLayoutY()) {
-        return;
-      }
-    }
-    puzzelsolved();
-  }
-
-  private void puzzelsolved() {
-    // your puzzle solved logic here
   }
 
   private void genertateRandomPositions() {
@@ -136,7 +128,97 @@ public class Room3Puzzle2Controller {
         return true;
       }
     }
-
     return false;
+  }
+
+  @FXML
+  private void onBackButtonClicked() {
+    System.out.println("Back button clicked");
+    App.setUi(RoomType.ROOM3);
+  }
+
+  @FXML
+  private void planetMouseReleased() {
+    // Once a planet is released, we should check if all matches are correct.
+    checkAllMatches();
+  }
+
+  private void checkAllMatches() {
+    System.out.println("Checking all matches");
+    for (Map.Entry<Circle, ImageView> entry : solutionMap.entrySet()) {
+      Circle circle = entry.getKey();
+      ImageView planet = entry.getValue();
+
+      double circleCenterX = circle.getLayoutX();
+      double circleCenterY = circle.getLayoutY();
+
+      double planetCenterX = planet.getLayoutX() + planet.getFitWidth() / 2.0;
+      double planetCenterY = planet.getLayoutY() + planet.getFitHeight() / 2.0;
+
+      System.out.println(
+          "Circle: "
+              + circleCenterX
+              + ", "
+              + circleCenterY
+              + " Planet: "
+              + planetCenterX
+              + ", "
+              + planetCenterY);
+
+      Point2D circleCenterPoint = new Point2D(circleCenterX, circleCenterY);
+      double distance = circleCenterPoint.distance(planetCenterX, planetCenterY);
+
+      // Adjust this threshold as necessary
+      double threshold = 5.0;
+
+      if (distance > threshold) {
+        System.out.println("Not all matches correct");
+        return;
+      }
+    }
+    System.out.println("All matches correct");
+    try {
+      showDialog("Solved", null, "You have ordered the planets correctly");
+      puzzleSolved();
+    } catch (ApiProxyException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
+  private void puzzleSolved() throws ApiProxyException {
+    System.out.println("Puzzle solved");
+    GameState.isPuzzleRoom3Solved.setValue(true);
+  }
+
+  /**
+   * Displays a dialog box with the given title, header text, and message.
+   *
+   * @param title the title of the dialog box
+   * @param headerText the header text of the dialog box
+   * @param message the message content of the dialog box
+   */
+  private void showDialog(String title, String headerText, String message) {
+    // create a dialog box with the given title, header text, and message
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle(title);
+    alert.setHeaderText(headerText);
+    alert.setContentText(message);
+    // close the dialog box after 4 seconds
+    Thread alertClose =
+        new Thread(
+            () -> {
+              try {
+                Thread.sleep(5000);
+                Platform.runLater(
+                    () -> {
+                      alert.close();
+                    });
+              } catch (InterruptedException e) {
+                e.printStackTrace();
+              }
+            });
+    alertClose.start();
+    alert.showAndWait();
   }
 }
