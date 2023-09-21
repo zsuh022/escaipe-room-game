@@ -36,6 +36,8 @@ public class Room2Puzzle1Controller {
 
   @FXML
   private void initialize() {
+    buttonOrder = new int[6];
+    currentIndex = 0;
     one.setFill(Color.WHITE);
     two.setFill(Color.WHITE);
     three.setFill(Color.WHITE);

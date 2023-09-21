@@ -55,4 +55,11 @@ public class App extends Application {
     stage.show();
     root.requestFocus();
   }
+
+  @Override
+  public void stop() throws Exception {
+    System.out.println("Stopping application");
+    super.stop();
+    System.exit(0);
+  }
 }

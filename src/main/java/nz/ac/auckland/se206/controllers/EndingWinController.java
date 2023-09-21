@@ -1,8 +1,10 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -13,6 +15,8 @@ import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.MusicManager;
+import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class EndingWinController {
 
@@ -21,6 +25,8 @@ public class EndingWinController {
 
   @FXML
   private void initialize() throws URISyntaxException {
+    isKeyOutputed = false;
+    isRiddleOutputed = false;
     System.out.println("EndingWinController initialized");
     MusicManager.playHappySong();
     keyLabel.setText(String.valueOf(GameState.key));
@@ -184,51 +190,19 @@ public class EndingWinController {
     return "";
   }
 
-  int i = 0;
-
-  public String formattedText(String str) {
-    i++;
-    System.out.println("executing formattedText " + i);
-    if (str == null) {
-      return null;
-    }
-    StringBuilder sb = new StringBuilder();
-    int lastBreak = 0;
-
-    for (int i = 0; i < str.length() && i < str.length() - 1; i++) {
-      if (i - lastBreak == 72) {
-        if (str.charAt(i) == ' ') {
-          sb.append("\n");
-          lastBreak = i + 1;
-        } else {
-          int lastSpace = str.lastIndexOf(' ', i);
-          if (lastSpace == -1 || lastSpace <= lastBreak) {
-            sb.append(str.charAt(i));
-          } else {
-            sb.setCharAt(lastSpace, '\n');
-            lastBreak = lastSpace + 1;
-          }
-        }
-      } else {
-        sb.append(str.charAt(i));
-      }
-    }
-
-    // Handle the last character
-    if (str.length() > 0) {
-      sb.append(str.charAt(str.length() - 1));
-    }
-
-    return sb.toString();
-  }
-
   @FXML
   private void exitButtonClicked() {
     System.out.println("Exit button clicked");
+    Platform.exit();
   }
 
   @FXML
-  private void restartButtonClicked() {
+  private void restartButtonClicked() throws IOException {
     System.out.println("Play again button clicked");
+    SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
+    App.setUi(RoomType.MENU);
+    GameState.reset();
+    SceneManager.reset();
+    MusicManager.mute();
   }
 }

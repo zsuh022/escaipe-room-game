@@ -140,6 +140,7 @@ public class ExitDoorController {
     System.out.println("correct key: " + GameState.key);
     if (n == GameState.key) {
       System.out.println("Key is correct");
+      GameState.timeManager.stopTimer();
       SceneManager.addUi(RoomType.ENDINGWIN, App.loadFxml("endingWin"));
       App.setUi(RoomType.ENDINGWIN);
     } else {

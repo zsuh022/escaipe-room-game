@@ -64,4 +64,10 @@ public class TimeManager {
   public IntegerProperty getSecond() {
     return seconds;
   }
+
+  public void stopTimer() {
+    if (timeLine != null) {
+      timeLine.stop();
+    }
+  }
 }

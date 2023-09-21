@@ -1,14 +1,20 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import java.net.URISyntaxException;
+import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.MusicManager;
+import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class EndingLoseController {
 
@@ -24,11 +30,17 @@ public class EndingLoseController {
   @FXML
   private void exitButtonClicked() {
     System.out.println("Exit button clicked");
+    Platform.exit();
   }
 
   @FXML
-  private void restartButtonClicked() {
+  private void restartButtonClicked() throws IOException {
     System.out.println("Play again button clicked");
+    SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
+    App.setUi(RoomType.MENU);
+    GameState.reset();
+    SceneManager.reset();
+    MusicManager.mute();
   }
 
   private void gameMasterTransition() {

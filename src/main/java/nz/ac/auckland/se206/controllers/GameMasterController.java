@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
@@ -51,7 +50,7 @@ public class GameMasterController {
           }
         });
     chatCompletionRequest =
-        new ChatCompletionRequest().setN(1).setTemperature(0.2).setTopP(0.5).setMaxTokens(250);
+        new ChatCompletionRequest().setN(1).setTemperature(0.1).setTopP(0.5).setMaxTokens(250);
 
     Thread thread =
         new Thread(
@@ -137,12 +136,18 @@ public class GameMasterController {
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   private ChatMessage runGpt(ChatMessage msg) throws ApiProxyException {
+    Boolean isEndWithNoRespond = false;
+    if (msg.getContent().endsWith("DONOTRESPOND")) {
+      isEndWithNoRespond = true;
+    }
     chatCompletionRequest.addMessage(msg);
     try {
       ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
       Choice result = chatCompletionResult.getChoices().iterator().next();
       chatCompletionRequest.addMessage(result.getChatMessage());
-      appendChatMessage(result.getChatMessage());
+      if (!isEndWithNoRespond) {
+        appendChatMessage(result.getChatMessage());
+      }
       return result.getChatMessage();
     } catch (ApiProxyException e) {
       // TODO handle exception appropriately
@@ -182,22 +187,18 @@ public class GameMasterController {
               if (GameState.difficulty == 2) {
                 msg =
                     new ChatMessage(
-                        "user",
-                        message + " \\n " + "Hint remaining: " + GameState.hintCount + " now");
+                        "user", message + " \\ " + "Hint remaining: " + GameState.hintCount);
+                if (containsHint(message)) {
+                  if (GameState.hintCount > 0) {
+                    GameState.hintCount--;
+                  }
+                }
               } else {
                 msg = new ChatMessage("user", message);
               }
               appendChatMessage(msg);
-              ChatMessage lastMsg;
               try {
-                lastMsg = runGpt(msg);
-                if (GameState.difficulty == 2) {
-                  String lastMsgContent = lastMsg.getContent();
-                  GameState.hintCount = getHintRemaining(lastMsgContent);
-                  System.out.println(lastMsgContent);
-                  System.out.println("hint number: " + GameState.hintCount);
-                }
-
+                runGpt(msg);
               } catch (ApiProxyException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -217,30 +218,22 @@ public class GameMasterController {
     thread3.start();
   }
 
-  private static int getHintRemaining(String input) {
-    Pattern pattern = Pattern.compile("Hint remaining: (\\d+)");
-    Matcher matcher = pattern.matcher(input);
-
-    if (matcher.find()) {
-      return Integer.parseInt(matcher.group(1));
-    } else {
-      throw new IllegalArgumentException("The hint number was not found in the given input.");
-    }
-  }
-
   public void updateGpt() throws ApiProxyException {
     if (GameState.isPuzzleRoom3Solved.getValue() == true
         && GameState.isPuzzleRoom2Solved.getValue() == true
         && GameState.isRiddleResolved.getValue() == true
         && updateCount == 0
         && GameState.difficulty != 3) {
-      ChatMessage msg =
-          new ChatMessage(
-              "user",
-              GptPromptEngineering.getHintTwo() + "but you must not respond to this message");
+      ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
       runGpt(msg);
       updateCount++;
     }
+  }
+
+  private Boolean containsHint(String input) {
+    if (input == null) return false;
+    Pattern pattern = Pattern.compile("\\bhint(s)?\\b", Pattern.CASE_INSENSITIVE);
+    return pattern.matcher(input).find();
   }
 
   /**

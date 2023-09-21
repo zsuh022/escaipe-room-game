@@ -42,6 +42,7 @@ public class Room3Puzzle1Controller {
   @FXML
   public void initialize() {
     initializeTimer();
+    initialButtonPositions = new HashMap<>();
     buttons = Arrays.asList(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btnEmpty);
 
     // set the images for the buttons

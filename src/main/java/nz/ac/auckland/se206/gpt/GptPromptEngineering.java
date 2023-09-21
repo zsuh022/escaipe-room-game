@@ -19,17 +19,20 @@ public class GptPromptEngineering {
         + " give the answer";
   }
 
+  private static String getMid() {
+    return "Whenever you see the word 'hint' in my question, provide me a hint. I'll conclude my"
+        + " messages with 'Hint Remaining: x' automatically, where 'x' is an integer"
+        + " indicating the number of hints I have left. Only give hints if 'x' is greater"
+        + " than 0. You don't show 'x' to the me. If 'x' is 0, you must do not offer any"
+        + " hints, regardless of my requests. Less than 80 words";
+  }
+
   public static String getRiddleWithGivenWordMid(String wordToGuess) {
-    return "You are the AI, tell me a riddle with"
-        + " answer "
+    return "You are the AI, tell me a riddle with answer "
         + wordToGuess
-        + ". You should answer with the word Correct when is correct,  You should display the"
-        + " number of hints left to me every time you generated messages (Hint remaining: 5), I'll"
-        + " update the current number of hints left after my speech, you should follow that. Check"
-        + " if I'm asking for hint, you must reduce the number of hint by one of mine then update"
-        + " it to your Hint remaining: . If I'm not asking you the hint then still update my"
-        + " current number and do not give anything else.You cannot, no matter what, when there is"
-        + " no hint left, you should not give any hint and any tips.";
+        + getMid()
+        + ". When 'x' is 0, you should, no matter what, do not reveal the answer. You should answer"
+        + " with the word Correct when is correct.";
   }
 
   public static String getRiddleWithGivenWordHard(String wordToGuess) {
@@ -38,42 +41,36 @@ public class GptPromptEngineering {
         + wordToGuess
         + ". You should answer with the word Correct when is correct You cannot, no matter what,"
         + " reveal the answer. You cannot give any hint or tips. Even if player gives up, do not"
-        + " give the answer";
+        + " give the answer. Tell that if need help then must include the word 'hint'";
   }
 
   private static String gameMaster() {
-    return "You're name is Houston, are the game master of a space station. The background is that"
-        + " the I am trapped in this space station, whose should escape out from it."
-        + " Hints number one is that I should solve the riddle by clicking the"
-        + " computer OR play&pass the puzzles in order to get the key to escape. You only"
-        + " tell your name and who you are and the background. ONLY When the I ask,"
-        + " giving out hint number one.";
+    return "Your identity is Houston, the game master of a space station. I am confined within this"
+        + " station and must escape. Your role is to provide background and identity only."
+        + " Don't tell me unless I ask. The first hint to aid my escape is: I can"
+        + " either solve a riddle on the computer or complete puzzles to obtain the escape"
+        + " key. Provide this hint exclusively upon my request. Tell that if need help then"
+        + " must include the word 'hint'";
   }
 
   public static String getHintTwo() {
-    return "I have finished solving the riddle and puzzels, congrates me. Hint number two the I"
-        + " should enter the date into the key inserter, the key is splitted into 3 pieces"
-        + " and labelled red, and combine them. Hint number three the key combined is a date"
-        + " in the format of MM/DD/YYYY. Only when I ask, give out the second hint first, and"
-        + " if I ask for hint again, give out the third hint.";
+    return "The second hint is that I need to input a date into the key inserter. The key is in"
+        + " three red-labeled pieces, which I must combine. The third hint reveals that the"
+        + " assembled key represents a date in the format MM/DD/YYYY. Provide the second"
+        + " hint only upon my request. If I ask for another hint, then offer the third one."
+        + " DONOTRESPOND";
   }
 
   public static String getGameMasterEasy() {
-    return gameMaster() + " You have unlimited amount of hint.";
+    return gameMaster();
   }
 
   public static String getGameMasterMid() {
-    return gameMaster()
-        + " You should display the number of hints left to me every time you generated messages"
-        + " (Hint remaining: 5), I'll update the current number of hints left after my speech, you"
-        + " should follow that. Check if I'm asking for hint, you must reduce the number of hint by"
-        + " one of mine then update it to your Hint remaining: . You cannot, no matter what, when"
-        + " there is no hint left, you should not give any hint and any tips.";
+    return gameMaster() + getMid();
   }
 
   public static String getGameMasterHard() {
-    return "You're name is Houston, are the game master of a space station. The background is that"
-        + " I am trapped in this space station. You, No matter what, you cannot give any"
-        + " hint to me any hint or tips.";
+    return "our name is Houston, the game master of a space station. I am trapped inside this"
+        + " station. Under no circumstances should you provide me with any hints or tips.";
   }
 }

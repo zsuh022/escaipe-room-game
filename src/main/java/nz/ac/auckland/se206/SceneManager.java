@@ -24,6 +24,10 @@ public class SceneManager {
 
   private static HashMap<RoomType, Parent> sceneMap = new HashMap<RoomType, Parent>();
 
+  public static void reset() {
+    sceneMap = new HashMap<RoomType, Parent>();
+  }
+
   public static void addUi(RoomType room, Parent parent) {
     sceneMap.put(room, parent);
   }

@@ -98,6 +98,7 @@ public class Room2Puzzle2Controller {
 
   @FXML
   private void initialize() {
+    word = new ArrayList<String>();
     initializeTimer();
     gameState = false;
     initializeButton(buttonA);
@@ -154,30 +155,39 @@ public class Room2Puzzle2Controller {
     switch (randomInt) {
       case 1:
         addCharacters("COMET");
+        System.out.println("COMET");
         break;
       case 2:
         addCharacters("SOLAR");
+        System.out.println("SOLAR");
         break;
       case 3:
         addCharacters("STARS");
+        System.out.println("STARS");
         break;
       case 4:
         addCharacters("EARTH");
+        System.out.println("EARTH");
         break;
       case 5:
         addCharacters("VENUS");
+        System.out.println("VENUS");
         break;
       case 6:
         addCharacters("PLUTO");
+        System.out.println("PLUTO");
         break;
       case 7:
         addCharacters("ORION");
+        System.out.println("ORION");
         break;
       case 8:
         addCharacters("MOONS");
+        System.out.println("MOONS");
         break;
       default:
         addCharacters("PLUTO");
+        System.out.println("PLUTO");
         break;
     }
   }

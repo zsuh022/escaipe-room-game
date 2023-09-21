@@ -122,6 +122,7 @@ public class Room3Controller {
 
   @FXML
   private void room3Puzzle2Clicked() {
+    random = new Random();
     System.out.println("Room 3 puzzle 2 clicked");
     App.setUi(RoomType.ROOM3PUZZLE2);
     if (count == 0) {
