@@ -58,14 +58,14 @@
          </image>
       </ImageView>
       <Circle fill="#1f93ff00" layoutX="120.0" layoutY="261.0" onMouseClicked="#muteBarClick" opacity="0.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" />
-      <Pane fx:id="keyShowingPane" layoutX="800.0" layoutY="450.0" prefHeight="200.0" prefWidth="200.0">
+      <Pane fx:id="keyShowingPane" layoutX="800.0" layoutY="460.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">
                <image>
-                  <Image url="@../images/keyBackground.png" />
+                  <Image url="@../images/keyBackground2.png" />
                </image>
             </ImageView>
-            <Label fx:id="room1KeyLabel" layoutX="65.0" layoutY="60.0" prefHeight="40.0" prefWidth="90.0" textFill="RED">
+            <Label fx:id="room1KeyLabel" layoutX="60.0" layoutY="100.0" prefHeight="40.0" prefWidth="90.0" textFill="RED">
                <font>
                   <Font size="36.0" />
                </font>

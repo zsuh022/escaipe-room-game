@@ -31,7 +31,7 @@
          <children>
             <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">
                <image>
-                  <Image url="@../images/keyBackground.png" />
+                  <Image url="@../images/keyBackground1.png" />
                </image>
             </ImageView>
             <Label fx:id="room2KeyLabel" layoutX="65.0" layoutY="60.0" prefHeight="40.0" prefWidth="90.0" textFill="RED">
