@@ -12,7 +12,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Menu.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <MediaView fx:id="earthMpfour" fitHeight="0.0" fitWidth="0.0" layoutX="-238.0" layoutY="-79.0">
@@ -33,13 +33,13 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <Button fx:id="startButton" layoutX="-2.0" layoutY="594.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="174.0" prefWidth="1027.0" stylesheets="@../css/MenuButton.css" text="start">
+      <Button fx:id="startButton" layoutX="-2.0" layoutY="594.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="174.0" prefWidth="1027.0" text="start">
          <font>
             <Font size="62.0" />
          </font>
       </Button>
-      <Slider fx:id="difficultySlider" layoutX="379.0" layoutY="281.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="72.0" prefWidth="388.0" showTickMarks="true" snapToTicks="true" stylesheets="@../css/MenuSlider.css" value="2.0" />
-      <Slider fx:id="timeSlider" layoutX="378.0" layoutY="382.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="34.0" prefWidth="390.0" showTickMarks="true" snapToTicks="true" stylesheets="@../css/MenuSlider.css" value="2.0" />
+      <Slider fx:id="difficultySlider" layoutX="379.0" layoutY="281.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="72.0" prefWidth="388.0" showTickMarks="true" snapToTicks="true" value="2.0" />
+      <Slider fx:id="timeSlider" layoutX="378.0" layoutY="382.0" majorTickUnit="4.0" max="3.0" min="1.0" prefHeight="34.0" prefWidth="390.0" showTickMarks="true" snapToTicks="true" value="2.0" />
       <Label fx:id="difficultyLabel" layoutX="205.0" layoutY="267.0" prefHeight="79.0" prefWidth="144.0" text="Difficulty">
          <font>
             <Font size="32.0" />
