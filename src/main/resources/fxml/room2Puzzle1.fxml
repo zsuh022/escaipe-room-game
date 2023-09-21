@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle1.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle1Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle1.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle1Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
@@ -43,15 +43,19 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/TimerBlackTxt.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="timeLabel" layoutX="824.0" layoutY="25.0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
+      <Pane layoutX="700.0" layoutY="10.0" pickOnBounds="false" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/timerBlackTxt.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </Pane>
