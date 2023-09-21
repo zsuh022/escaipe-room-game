@@ -33,6 +33,12 @@ public class Room3Controller {
             showRoom3Key();
           }
         });
+    GameState.currentRoom.addListener(
+        (obs, oldRoom, newRoom) -> {
+          if (thisIsCurrentRoom(newRoom)) {
+            fadeInOutIndicationPane();
+          }
+        });
     i = 0;
     polygonRoom3Puzzle.setVisible(true);
     puzzle2Pane.setVisible(true);
@@ -41,7 +47,12 @@ public class Room3Controller {
     polygon2Room3Puzzle2.setVisible(false);
   }
 
-    @FXML private Pane indicationPane;
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    return roomNumber.intValue() == 3;
+  }
+
+  @FXML private Pane indicationPane;
+
   private void fadeInOutIndicationPane() {
     FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
     fadeIn.setFromValue(0);
@@ -53,16 +64,12 @@ public class Room3Controller {
     fadeOut.setFromValue(0.5);
     fadeOut.setToValue(0);
 
-    fadeIn.setOnFinished(
-        event -> pause.play()
-    );
+    fadeIn.setOnFinished(event -> pause.play());
 
-    pause.setOnFinished(
-        event -> fadeOut.play()
-    );
+    pause.setOnFinished(event -> fadeOut.play());
 
     fadeIn.play();
-}
+  }
 
   private void showRoom3Key() {
     System.out.println("Showing room 3 key");

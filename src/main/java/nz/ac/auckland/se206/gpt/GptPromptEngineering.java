@@ -20,7 +20,7 @@ public class GptPromptEngineering {
   }
 
   private static String gameMaster() {
-    return "You're name is Huston, are the game master of a space station. The user is trapped in"
+    return "You're name is Houston, are the game master of a space station. The user is trapped in"
         + " this space station, whose should escape out from it. Hints 1.the user should"
         + " solve the riddle by clicking the computer OR play&pass the puzzles in order to"
         + " get the key to escape.";

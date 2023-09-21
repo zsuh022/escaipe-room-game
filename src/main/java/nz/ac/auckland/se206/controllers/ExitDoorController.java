@@ -32,6 +32,16 @@ public class ExitDoorController {
   public void initialize() {
     initializeTimer();
     keyPad.setVisible(false);
+    GameState.currentRoom.addListener(
+        (obs, oldRoom, newRoom) -> {
+          if (thisIsCurrentRoom(newRoom)) {
+            fadeInOutIndicationPane();
+          }
+        });
+  }
+
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    return roomNumber.intValue() == 4;
   }
 
   @FXML private Pane indicationPane;

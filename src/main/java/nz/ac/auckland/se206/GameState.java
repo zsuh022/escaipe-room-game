@@ -33,5 +33,5 @@ public class GameState {
 
   public static String room3Key;
 
-  public static IntegerProperty currentRoom = new SimpleIntegerProperty(1);
+  public static IntegerProperty currentRoom = new SimpleIntegerProperty(0);
 }
