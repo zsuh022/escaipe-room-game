@@ -42,12 +42,12 @@ public class Room1Controller {
     indicationPane.setVisible(true);
     FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
     fadeIn.setFromValue(0);
-    fadeIn.setToValue(0.7);
+    fadeIn.setToValue(1);
 
-    PauseTransition pause = new PauseTransition(Duration.seconds(2));
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
 
     FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
-    fadeOut.setFromValue(0.7);
+    fadeOut.setFromValue(1);
     fadeOut.setToValue(0);
 
     fadeIn.setOnFinished(

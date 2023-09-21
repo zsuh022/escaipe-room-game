@@ -47,20 +47,29 @@ public class ExitDoorController {
   @FXML private Pane indicationPane;
 
   private void fadeInOutIndicationPane() {
+    indicationPane.setVisible(true);
     FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
     fadeIn.setFromValue(0);
-    fadeIn.setToValue(0.5);
+    fadeIn.setToValue(1);
 
     PauseTransition pause = new PauseTransition(Duration.seconds(1));
 
     FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
-    fadeOut.setFromValue(0.5);
+    fadeOut.setFromValue(1);
     fadeOut.setToValue(0);
 
-    fadeIn.setOnFinished(event -> pause.play());
-
-    pause.setOnFinished(event -> fadeOut.play());
-
+    fadeIn.setOnFinished(
+        event -> {
+          pause.play();
+        });
+    pause.setOnFinished(
+        event -> {
+          fadeOut.play();
+        });
+    fadeOut.setOnFinished(
+        e -> {
+          indicationPane.setVisible(false);
+        });
     fadeIn.play();
   }
 
