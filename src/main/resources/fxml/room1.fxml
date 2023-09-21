@@ -79,7 +79,10 @@
                   <Image url="@../images/wave.png" />
                </image>
             </ImageView>
-            <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#muteBarClick" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#muteBarClick" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Circle>
          </children>
       </Pane>
       <Pane fx:id="indicationPane" layoutY="669.0" prefHeight="108.0" prefWidth="1024.0">
