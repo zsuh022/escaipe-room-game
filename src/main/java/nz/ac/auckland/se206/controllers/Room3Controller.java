@@ -1,11 +1,14 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Polygon;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.MusicManager;
@@ -34,12 +37,51 @@ public class Room3Controller {
             showRoom3Key();
           }
         });
+    GameState.currentRoom.addListener(
+        (obs, oldRoom, newRoom) -> {
+          if (thisIsCurrentRoom(newRoom)) {
+            fadeInOutIndicationPane();
+          }
+        });
     i = 0;
     polygonRoom3Puzzle.setVisible(true);
     puzzle2Pane.setVisible(true);
     puzzle2Pane.setOpacity(1);
     polygonRoom3Puzzle2.setVisible(true);
     polygon2Room3Puzzle2.setVisible(false);
+  }
+
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    return roomNumber.intValue() == 3;
+  }
+
+  @FXML private Pane indicationPane;
+
+  private void fadeInOutIndicationPane() {
+    indicationPane.setVisible(true);
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
+
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
+    FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeOut.setFromValue(1);
+    fadeOut.setToValue(0);
+
+    fadeIn.setOnFinished(
+        event -> {
+          pause.play();
+        });
+    pause.setOnFinished(
+        event -> {
+          fadeOut.play();
+        });
+    fadeOut.setOnFinished(
+        e -> {
+          indicationPane.setVisible(false);
+        });
+    fadeIn.play();
   }
 
   private void showRoom3Key() {
@@ -51,6 +93,7 @@ public class Room3Controller {
   @FXML
   private void room1ButtonClicked() {
     System.out.println("Room 1 button clicked");
+    GameState.currentRoom.set(1);
     App.setUi(RoomType.ROOM1);
   }
 

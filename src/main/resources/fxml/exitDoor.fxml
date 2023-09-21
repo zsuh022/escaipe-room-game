@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css"
@@ -128,6 +129,7 @@
             </GridPane>
          </children>
       </Pane>
+
       <Pane layoutX="919.0" layoutY="20.0" prefHeight="100.0" prefWidth="100.0">
          <children>
             <ImageView fitHeight="97.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
@@ -146,6 +148,15 @@
                </image>
             </ImageView>
             <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#muteBarClick" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
+      <Pane fx:id="indicationPane" layoutY="666.0" prefHeight="108.0" prefWidth="1024.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#515457" height="108.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
+            <Label layoutX="361.0" layoutY="29.0" prefHeight="50.0" prefWidth="356.0" text="Descent Module" textFill="#fffdfd">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+
          </children>
       </Pane>
    </children>
