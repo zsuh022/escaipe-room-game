@@ -29,8 +29,10 @@ public class Room2Controller {
   private Random random = new Random();
 
   /** Initializes the room view, it is called when the room loads. */
-  public void initialize() {
+  @FXML
+  private void initialize() {
     initializeTimer();
+    initializePuzzle();
     keyShowingPane.setVisible(false);
     GameState.isPuzzleRoom2Solved.addListener(
         (observable, oldValue, newValue) -> {
@@ -57,6 +59,8 @@ public class Room2Controller {
           }
         });
   }
+
+  private void initializePuzzle() {}
 
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 2;
