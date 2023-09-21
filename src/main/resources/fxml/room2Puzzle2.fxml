@@ -16,12 +16,12 @@
             <Image url="@../images/Room2Puzzle2.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="buttonA" layoutX="242.0" layoutY="496.0" mnemonicParsing="false" onAction="#buttonAClicked" text="A">
+      <Button fx:id="buttonA" layoutX="239.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonAClicked" text="A">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonB" layoutX="297.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonBClicked" text="B">
+      <Button fx:id="buttonB" layoutX="299.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonBClicked" text="B">
          <font>
             <Font size="26.0" />
          </font>
