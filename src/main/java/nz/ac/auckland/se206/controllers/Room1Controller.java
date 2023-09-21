@@ -11,6 +11,9 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room1Controller {
 
+  @FXML private ImageView crossImage;
+  @FXML private ImageView waveImage;
+
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
     initializeTimer();
@@ -58,9 +61,6 @@ public class Room1Controller {
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
-
-  @FXML private ImageView crossImage;
-  @FXML private ImageView waveImage;
 
   @FXML
   private void muteBarClick() {

@@ -5,10 +5,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
+<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css"
+   xmlns="http://javafx.com/javafx/20.0.1"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
@@ -18,7 +21,8 @@
       <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room1ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
          <font>
             <Font size="10.0" />
-         </font></Button>
+         </font>
+      </Button>
       <Label fx:id="timeLabel" layoutX="907.0" layoutY="22.0" prefHeight="38.0" prefWidth="91.0">
          <font>
             <Font size="32.0" />
@@ -50,5 +54,25 @@
          </children>
       </Pane>
       <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#room3Puzzle2Clicked" opacity="0.0" points="63.0, 480.0, 693.0, 480.0, 693.0, 170.0, 63.0, 170.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
+      <Pane layoutX="919.0" layoutY="20.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="97.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/mutebutton.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="crossImage" fitHeight="24.0" fitWidth="25.0" layoutX="50.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/cross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="waveImage" fitHeight="83.0" fitWidth="20.0" layoutX="50.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/wave.png" />
+               </image>
+            </ImageView>
+            <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#muteBarClick" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Pane>
    </children>
 </Pane>
