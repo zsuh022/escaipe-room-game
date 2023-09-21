@@ -51,6 +51,7 @@ public class Room2Puzzle2Controller {
   @FXML private Rectangle chance5;
   @FXML private Rectangle chance6;
   @FXML private Label room2Puzzle2State;
+  @FXML private Rectangle rectangleGameState;
 
   ArrayList<String> word = new ArrayList<String>();
   int chanceCount; // 0 to 6
@@ -104,6 +105,7 @@ public class Room2Puzzle2Controller {
     chanceCount = 0;
     correctCount = 0;
     room2Puzzle2State.setText("");
+    rectangleGameState.setOpacity(0);
     newWord((int) (1 + (Math.random() * (8))));
   }
 
@@ -183,7 +185,9 @@ public class Room2Puzzle2Controller {
 
       if (correctCount == 5) {
         puzzleSolved();
-        room2Puzzle2State.setText("Puzzle Solved! Press back to exit.");
+        room2Puzzle2State.setText("PUZZLE CORRECT");
+        rectangleGameState.setFill(Color.LIGHTGREEN);
+        rectangleGameState.setOpacity(1);
         chance1.setFill(Color.GREEN);
         chance2.setFill(Color.GREEN);
         chance3.setFill(Color.GREEN);
@@ -217,7 +221,9 @@ public class Room2Puzzle2Controller {
       } else {
         chanceCount++;
         chance6.setFill(Color.RED);
-        room2Puzzle2State.setText("Puzzle Failed! Press reset to try again.");
+        room2Puzzle2State.setText("PUZZLE FAILED");
+        rectangleGameState.setFill(Color.LIGHTPINK);
+        rectangleGameState.setOpacity(1);
       }
     }
   }
