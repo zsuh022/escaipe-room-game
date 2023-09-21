@@ -5,20 +5,15 @@ import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
-import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room2Controller {
-
-  @FXML private ImageView crossImage;
-  @FXML private ImageView waveImage;
   @FXML private Polygon room2Box;
   @FXML private Polygon room2Lock;
   @FXML private Pane keyShowingPane;
@@ -102,21 +97,5 @@ public class Room2Controller {
   public void room2LockClicked(MouseEvent event) throws IOException {
     System.out.println("lock clicked");
     App.setUi(RoomType.ROOM2PUZZLE);
-  }
-
-  @FXML
-  private void muteBarClick() {
-    System.out.println("Mute bar clicked");
-    if (GameState.isMuted) {
-      GameState.isMuted = false;
-      crossImage.setVisible(false);
-      waveImage.setVisible(true);
-      MusicManager.unmute();
-    } else {
-      GameState.isMuted = true;
-      crossImage.setVisible(true);
-      waveImage.setVisible(false);
-      MusicManager.mute();
-    }
   }
 }

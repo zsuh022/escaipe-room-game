@@ -55,19 +55,19 @@ public class MusicManager {
     player.play();
   }
 
+  /** Mute the music when the user clicks the mute button. */
   public static void mute() {
-    // mute the music
-    player.setMute(true);
-  }
-
-  public static void unmute() {
-    // unmute the music
-    setMute(false);
-  }
-
-  private static void setMute(boolean mute) {
     if (player != null) {
-      player.setMute(mute);
+      // mute the music
+      player.setMute(true);
+    }
+  }
+
+  /** Unmute the music when the user clicks the mute button again. */
+  public static void unmute() {
+    if (player != null) {
+      // unmute the music
+      player.setMute(false);
     }
   }
 }
