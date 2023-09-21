@@ -15,6 +15,8 @@ public class Room3Controller {
   @FXML private Polygon polygonRoom3Puzzle;
   @FXML private Pane keyShowingPane;
   @FXML private Label room3KeyLabel;
+  @FXML private Polygon polygonRoom3Puzzle2;
+  @FXML private Pane puzzle2Pane;
 
   /** Initializes the room view, it is called when the room loads. */
   @FXML
@@ -45,6 +47,12 @@ public class Room3Controller {
   private void room3PuzzleClicked(MouseEvent event) {
     System.out.println("Room 3 puzzle clicked");
     App.setUi(RoomType.ROOM3PUZZLE);
+  }
+
+  @FXML
+  private void room3Puzzle2Clicked() {
+    System.out.println("Room 3 puzzle 2 clicked");
+    App.setUi(RoomType.ROOM3PUZZLE2);
   }
 
   private void initializeTimer() {
