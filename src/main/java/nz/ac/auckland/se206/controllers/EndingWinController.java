@@ -1,5 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
@@ -13,6 +14,8 @@ import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.MusicManager;
+import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class EndingWinController {
 
@@ -192,7 +195,12 @@ public class EndingWinController {
   }
 
   @FXML
-  private void restartButtonClicked() {
+  private void restartButtonClicked() throws IOException {
     System.out.println("Play again button clicked");
+    SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
+    App.setUi(RoomType.MENU);
+    GameState.reset();
+    SceneManager.reset();
+    MusicManager.mute();
   }
 }
