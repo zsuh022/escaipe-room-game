@@ -14,7 +14,7 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
-public class Room2PuzzleController {
+public class Room2Puzzle1Controller {
   @FXML private Rectangle one;
   @FXML private Rectangle two;
   @FXML private Rectangle three;
