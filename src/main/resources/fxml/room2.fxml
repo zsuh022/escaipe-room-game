@@ -15,7 +15,7 @@
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1031.0" layoutX="-1.0">
          <image>
-            <Image url="@../images/room2image.jpg" />
+            <Image url="@../images/room2.jpg" />
          </image>
       </ImageView>
       <Label fx:id="timeLabel" layoutX="889.0" prefHeight="50.0" prefWidth="150.0" textFill="#00e9f5">
