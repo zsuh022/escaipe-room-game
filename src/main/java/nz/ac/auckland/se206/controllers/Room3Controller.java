@@ -16,12 +16,15 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room3Controller {
 
-  @FXML private Label timeLabel;
-  @FXML private Polygon polygonRoom3Puzzle;
-  @FXML private Pane keyShowingPane;
+  @FXML private ImageView crossImage;
+  @FXML private ImageView waveImage;
   @FXML private Label room3KeyLabel;
-  @FXML private Polygon polygonRoom3Puzzle2;
+  @FXML private Label timeLabel;
+  @FXML private Pane indicationPane;
+  @FXML private Pane keyShowingPane;
   @FXML private Pane puzzle2Pane;
+  @FXML private Polygon polygonRoom3Puzzle;
+  @FXML private Polygon polygonRoom3Puzzle2;
   @FXML private Polygon polygon2Room3Puzzle2;
 
   private int count;
@@ -63,9 +66,6 @@ public class Room3Controller {
     polygon2Room3Puzzle2.setVisible(false);
   }
 
-  @FXML private ImageView crossImage;
-  @FXML private ImageView waveImage;
-
   @FXML
   private void muteBarClick() {
     GameState.isMuted.set(!GameState.isMuted.get());
@@ -74,8 +74,6 @@ public class Room3Controller {
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 3;
   }
-
-  @FXML private Pane indicationPane;
 
   private void fadeInOutIndicationPane() {
     indicationPane.setVisible(true);
