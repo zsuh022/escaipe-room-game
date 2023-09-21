@@ -6,9 +6,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
+<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
@@ -24,17 +25,38 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Polygon fx:id="polygonRoom3Puzzle" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.5" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" />
-      <Pane fx:id="keyShowingPane" layoutX="680.0" layoutY="550.0" prefHeight="200.0" prefWidth="220.0">
+      <Polygon fx:id="polygonRoom3Puzzle" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.0" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
+      <Polygon fx:id="polygon2Room3Puzzle2" fill="DODGERBLUE" layoutX="10.0" layoutY="10.0" onMouseClicked="#room3Puzzle2Clicked" opacity="0.0" points="69.0, 457.0, 581.0, 470.0, 581.0, 187.0, 69.0, 179.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
+      <Pane fx:id="keyShowingPane" layoutX="680.0" layoutY="550.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="300.0" preserveRatio="true">
+            <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">
                <image>
-                  <Image url="@../images/keyBackground.png" />
+                  <Image url="@../images/keyBackground1.png" />
                </image>
             </ImageView>
-            <Label fx:id="room3KeyLabel" layoutX="65.0" layoutY="60.0" text="9999" textFill="RED">
+            <Label fx:id="room3KeyLabel" layoutX="65.0" layoutY="60.0" styleClass="keyLabel">
                <font>
                   <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="puzzle2Pane" layoutX="70.0" layoutY="177.0" prefHeight="297.0" prefWidth="613.0">
+         <children>
+            <ImageView fitHeight="295.0" fitWidth="613.0">
+               <image>
+                  <Image url="@../images/solarSystem.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#room3Puzzle2Clicked" opacity="0.0" points="63.0, 480.0, 693.0, 480.0, 693.0, 170.0, 63.0, 170.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
+      <Pane fx:id="indicationPane" layoutX="-2.0" layoutY="670.0" prefHeight="108.0" prefWidth="1036.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#515457" height="108.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
+            <Label layoutX="340.0" layoutY="29.0" prefHeight="50.0" prefWidth="394.0" text="Habitation Module" textFill="#fffdfd">
+               <font>
+                  <Font size="45.0" />
                </font>
             </Label>
          </children>

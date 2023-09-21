@@ -19,19 +19,19 @@
 }
 
 .btnKeyPad {
-    -fx-font-size: 24px;
     -fx-background-color: #F1F6F9;
+    -fx-font-size: 24px;
     -fx-text-fill: #212A3E;
 }
 
 .btnKeyPad:hover {
-    -fx-font-size: 24px;
     -fx-background-color: #9BA4B5;
+    -fx-font-size: 24px;
 }
 
 .btnKeyPadDisplay {
-    -fx-font-size: 48px;
     -fx-background-color: #F1F6F9;
+    -fx-font-size: 48px;
     -fx-text-fill: #212A3E;
 }
 
@@ -41,9 +41,24 @@
 }
 
 .btnKeyPadExit:hover {
-    -fx-font-size: 18px;
     -fx-background-color: #FF5677;
+    -fx-font-size: 18px;
     -fx-text-fill: #9BA4B5;
+}
+
+.keyLabel {
+    -fx-text-fill: #FF5677;
+}
+
+.shape {
+    -fx-opacity: 0;
+    -fx-stroke: #EB6440;
+    -fx-stroke-width: 3px;
+}
+
+.shape:hover {
+    -fx-fill: #CBFFA9;
+    -fx-opacity: 0.3;
 }
 
 #btnClear,

@@ -1,6 +1,8 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventTarget;
@@ -10,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager;
@@ -18,8 +22,9 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 /** Controller class for the room view. */
 public class ExitDoorController {
 
-  @FXML private ImageView smallKeyPad;
   @FXML private Button btnKeyPadDisplay;
+  @FXML private Circle smallKeyPadCircle;
+  @FXML private ImageView smallKeyPad;
   @FXML private Label timeLabel;
   @FXML private Pane keyPad;
 
@@ -27,11 +32,51 @@ public class ExitDoorController {
   public void initialize() {
     initializeTimer();
     keyPad.setVisible(false);
+    GameState.currentRoom.addListener(
+        (obs, oldRoom, newRoom) -> {
+          if (thisIsCurrentRoom(newRoom)) {
+            fadeInOutIndicationPane();
+          }
+        });
+  }
+
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    return roomNumber.intValue() == 4;
+  }
+
+  @FXML private Pane indicationPane;
+
+  private void fadeInOutIndicationPane() {
+    indicationPane.setVisible(true);
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
+
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
+    FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeOut.setFromValue(1);
+    fadeOut.setToValue(0);
+
+    fadeIn.setOnFinished(
+        event -> {
+          pause.play();
+        });
+    pause.setOnFinished(
+        event -> {
+          fadeOut.play();
+        });
+    fadeOut.setOnFinished(
+        e -> {
+          indicationPane.setVisible(false);
+        });
+    fadeIn.play();
   }
 
   @FXML
   private void room1ButtonClicked() {
     System.out.println("Room 1 button clicked");
+    GameState.currentRoom.set(1);
     App.setUi(RoomType.ROOM1);
   }
 
@@ -117,12 +162,14 @@ public class ExitDoorController {
   private void onOpenKeyPad() {
     keyPad.setVisible(true);
     smallKeyPad.setVisible(false);
+    smallKeyPadCircle.setVisible(false);
   }
 
   @FXML
   private void onExitKeyPadClicked() {
     keyPad.setVisible(false);
     smallKeyPad.setVisible(true);
+    smallKeyPadCircle.setVisible(true);
     btnKeyPadDisplay.setText("");
   }
 
