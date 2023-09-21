@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Puzzle2Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room3Puzzle2.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx" fx:controller="nz.ac.auckland.se206.controllers.Room3Puzzle2Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="560.0" fitWidth="1027.0" layoutX="-1.0" layoutY="216.0">
@@ -80,7 +80,7 @@
             <Image url="@../images/room3puzzle2Images/earth.png" />
          </image>
       </ImageView>
-      <Button layoutX="926.0" layoutY="692.0" mnemonicParsing="false" onAction="#onBackButtonClicked" stylesheets="@../css/Room3Puzzle.css" text="Back">
+      <Button fx:id="btnExitPuzzle" layoutX="926.0" layoutY="692.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back">
          <font>
             <Font size="18.0" />
          </font>

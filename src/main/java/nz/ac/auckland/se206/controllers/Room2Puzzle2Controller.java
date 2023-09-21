@@ -40,8 +40,8 @@ public class Room2Puzzle2Controller {
   @FXML private Button buttonX;
   @FXML private Button buttonY;
   @FXML private Button buttonZ;
-  @FXML private Button resetRoom2Puzzle2;
-  @FXML private Button backRoom2Puzzle2;
+  @FXML private Button btnResetPuzzle;
+  @FXML private Button btnExitPuzzle;
   @FXML private Label letter1;
   @FXML private Label letter2;
   @FXML private Label letter3;
