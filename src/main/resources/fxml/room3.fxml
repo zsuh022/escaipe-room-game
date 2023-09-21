@@ -29,7 +29,6 @@
          </font>
       </Label>
       <Polygon fx:id="polygonRoom3Puzzle1" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.0" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
-      <Polygon fx:id="polygon2Room3Puzzle2" fill="DODGERBLUE" layoutX="10.0" layoutY="10.0" onMouseClicked="#room3Puzzle2Clicked" opacity="0.0" points="69.0, 457.0, 581.0, 470.0, 581.0, 187.0, 69.0, 179.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
       <Pane fx:id="keyShowingPane" layoutX="680.0" layoutY="550.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">
@@ -44,6 +43,7 @@
             </Label>
          </children>
       </Pane>
+      <Polygon fx:id="polygon2Room3Puzzle2" fill="DODGERBLUE" layoutX="10.0" layoutY="10.0" onMouseClicked="#room3Puzzle2Clicked" opacity="0.0" points="69.0, 457.0, 581.0, 470.0, 581.0, 187.0, 69.0, 179.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
       <Pane fx:id="puzzle2Pane" layoutX="70.0" layoutY="177.0" prefHeight="297.0" prefWidth="613.0">
          <children>
             <ImageView fitHeight="295.0" fitWidth="613.0">
@@ -54,6 +54,26 @@
          </children>
       </Pane>
       <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#room3Puzzle2Clicked" opacity="0.0" points="63.0, 480.0, 693.0, 480.0, 693.0, 170.0, 63.0, 170.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" />
+      <Pane layoutX="919.0" layoutY="20.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="97.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/mutebutton.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="crossImage" fitHeight="24.0" fitWidth="25.0" layoutX="50.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/cross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="waveImage" fitHeight="83.0" fitWidth="20.0" layoutX="50.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/wave.png" />
+               </image>
+            </ImageView>
+            <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#muteBarClick" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Pane>
       <Pane fx:id="indicationPane" layoutX="-2.0" layoutY="670.0" prefHeight="108.0" prefWidth="1036.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#515457" height="108.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
@@ -64,21 +84,5 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="97.0" fitWidth="86.0" layoutX="99.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/mutebutton.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="crossImage" fitHeight="24.0" fitWidth="25.0" layoutX="150.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../images/cross.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="waveImage" fitHeight="83.0" fitWidth="20.0" layoutX="151.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/wave.png" />
-         </image>
-      </ImageView>
-      <Circle fill="#1f93ff00" layoutX="140.0" layoutY="281.0" onMouseClicked="#muteBarClick" opacity="0.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </Pane>
