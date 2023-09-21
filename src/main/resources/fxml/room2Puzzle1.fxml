@@ -41,12 +41,12 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="startPuzzle2" layoutX="274.0" layoutY="366.0" mnemonicParsing="false" onAction="#startPuzzle2Clicked" text="INITIALIZE">
+      <Button fx:id="startPuzzle2" layoutX="274.0" layoutY="366.0" mnemonicParsing="false" onAction="#startPuzzle2Clicked" prefHeight="48.0" prefWidth="189.0" text="INITIALIZE">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Button fx:id="backPuzzle2" layoutX="277.0" layoutY="442.0" mnemonicParsing="false" onAction="#backPuzzle2Clicked" text="BACK">
+      <Button fx:id="backPuzzle2" layoutX="274.0" layoutY="428.0" mnemonicParsing="false" onAction="#backPuzzle2Clicked" prefHeight="48.0" prefWidth="115.0" text="BACK">
          <font>
             <Font size="27.0" />
          </font>

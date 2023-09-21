@@ -16,132 +16,132 @@
             <Image url="@../images/Room2Puzzle2.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="buttonA" layoutX="239.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonAClicked" text="A">
+      <Button fx:id="buttonA" layoutX="239.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="A">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonB" layoutX="299.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonBClicked" text="B">
+      <Button fx:id="buttonB" layoutX="299.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="B">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonC" layoutX="357.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonCClicked" text="C">
+      <Button fx:id="buttonC" layoutX="357.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="C">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonD" layoutX="416.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonDClicked" text="D">
+      <Button fx:id="buttonD" layoutX="416.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="D">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonE" layoutX="478.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonEClicked" text="E">
+      <Button fx:id="buttonE" layoutX="478.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="E">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonF" layoutX="533.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonFClicked" text="F">
+      <Button fx:id="buttonF" layoutX="533.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="F">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonG" layoutX="589.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonGClicked" text="G">
+      <Button fx:id="buttonG" layoutX="589.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="G">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonH" layoutX="650.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonHClicked" text="H">
+      <Button fx:id="buttonH" layoutX="650.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="H">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonI" layoutX="712.0" layoutY="462.0" mnemonicParsing="false" onAction="#buttonIClicked" text="I">
+      <Button fx:id="buttonI" layoutX="712.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="I">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonJ" layoutX="275.0" layoutY="531.0" mnemonicParsing="false" onAction="#buttonJClicked" text="J">
+      <Button fx:id="buttonJ" layoutX="275.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="J">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonK" layoutX="327.0" layoutY="531.0" mnemonicParsing="false" onAction="#buttonKClicked" text="K">
+      <Button fx:id="buttonK" layoutX="327.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="K">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonL" layoutX="386.0" layoutY="531.0" mnemonicParsing="false" onAction="#buttonLClicked" text="L">
+      <Button fx:id="buttonL" layoutX="386.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="L">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonM" layoutX="441.0" layoutY="531.0" mnemonicParsing="false" onAction="#buttonMClicked" text="M">
+      <Button fx:id="buttonM" layoutX="441.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="M">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonN" layoutX="506.0" layoutY="531.0" mnemonicParsing="false" onAction="#buttonNClicked" text="N">
+      <Button fx:id="buttonN" layoutX="506.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="N">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonO" layoutX="567.0" layoutY="531.0" mnemonicParsing="false" onAction="#buttonOClicked" text="O">
+      <Button fx:id="buttonO" layoutX="567.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="O">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonP" layoutX="630.0" layoutY="531.0" mnemonicParsing="false" onAction="#buttonPClicked" text="P">
+      <Button fx:id="buttonP" layoutX="630.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="P">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonQ" layoutX="687.0" layoutY="531.0" mnemonicParsing="false" onAction="#buttonQClicked" text="Q">
+      <Button fx:id="buttonQ" layoutX="687.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="Q">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonR" layoutX="240.0" layoutY="600.0" mnemonicParsing="false" onAction="#buttonRClicked" text="R">
+      <Button fx:id="buttonR" layoutX="240.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="R">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonS" layoutX="301.0" layoutY="600.0" mnemonicParsing="false" onAction="#buttonSClicked" text="S">
+      <Button fx:id="buttonS" layoutX="301.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="S">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonT" layoutX="361.0" layoutY="600.0" mnemonicParsing="false" onAction="#buttonTClicked" text="T">
+      <Button fx:id="buttonT" layoutX="361.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="T">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonU" layoutX="419.0" layoutY="600.0" mnemonicParsing="false" onAction="#buttonUClicked" text="U">
+      <Button fx:id="buttonU" layoutX="419.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="U">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonV" layoutX="480.0" layoutY="600.0" mnemonicParsing="false" onAction="#buttonVClicked" text="V">
+      <Button fx:id="buttonV" layoutX="480.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="V">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonW" layoutX="541.0" layoutY="600.0" mnemonicParsing="false" onAction="#buttonWClicked" text="W">
+      <Button fx:id="buttonW" layoutX="541.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="W">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonX" layoutX="610.0" layoutY="600.0" mnemonicParsing="false" onAction="#buttonXClicked" text="X">
+      <Button fx:id="buttonX" layoutX="610.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="X">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonY" layoutX="668.0" layoutY="600.0" mnemonicParsing="false" onAction="#buttonYClicked" text="Y">
+      <Button fx:id="buttonY" layoutX="668.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="Y">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="buttonZ" layoutX="725.0" layoutY="600.0" mnemonicParsing="false" onAction="#buttonZClicked" text="Z">
+      <Button fx:id="buttonZ" layoutX="725.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="Z">
          <font>
             <Font size="26.0" />
          </font>
@@ -168,7 +168,7 @@
       <Rectangle fx:id="chance4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="118.0" layoutY="401.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
       <Rectangle fx:id="chance5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="65.0" layoutY="454.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
       <Rectangle fx:id="chance6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="118.0" layoutY="454.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-      <Rectangle fx:id="rectangleGameState" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="341.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="337.0" />
+      <Rectangle fx:id="rectangleGameState" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="341.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="355.0" />
       <Label fx:id="room2Puzzle2State" layoutX="346.0" layoutY="302.0" text="PUZZLE FINISHED">
          <font>
             <Font size="40.0" />
