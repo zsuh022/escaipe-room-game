@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
@@ -21,7 +22,9 @@ public class ExitDoorController {
 
   @FXML private Button btnKeyPadDisplay;
   @FXML private Circle smallKeyPadCircle;
+  @FXML private ImageView crossImage;
   @FXML private ImageView smallKeyPad;
+  @FXML private ImageView waveImage;
   @FXML private Label timeLabel;
   @FXML private Pane keyPad;
 
@@ -132,5 +135,21 @@ public class ExitDoorController {
 
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
+  }
+
+  @FXML
+  private void muteBarClick() {
+    System.out.println("Mute bar clicked");
+    if (GameState.isMuted) {
+      GameState.isMuted = false;
+      crossImage.setVisible(false);
+      waveImage.setVisible(true);
+      MusicManager.unmute();
+    } else {
+      GameState.isMuted = true;
+      crossImage.setVisible(true);
+      waveImage.setVisible(false);
+      MusicManager.mute();
+    }
   }
 }
