@@ -20,7 +20,7 @@ import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
 
-public class Room3PuzzleController {
+public class Room3Puzzle1Controller {
 
   @FXML private Button btn1;
   @FXML private Button btn2;
@@ -44,7 +44,7 @@ public class Room3PuzzleController {
     // set the images for the buttons
     for (int i = 1; i < buttons.size(); i++) {
       String imagePath =
-          "/images/"
+          "/images/room3puzzle1images/"
               + GameState.riddleWord.toLowerCase()
               + "/"
               + GameState.riddleWord.toLowerCase()

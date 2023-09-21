@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.util.Random;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
@@ -16,15 +17,21 @@ import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room2Controller {
-  @FXML private Polygon room2Box;
-  @FXML private Polygon room2Lock;
-  @FXML private Pane keyShowingPane;
-  @FXML private Label room2KeyLabel;
-  @FXML private Pane indicationPane;
 
-  /** Initializes the room view, it is called when the room loads. */
-  public void initialize() {
+  @FXML private ImageView crossImage;
+  @FXML private ImageView waveImage;
+  @FXML private Label room2KeyLabel;
+  @FXML private Pane keyShowingPane;
+  @FXML private Pane indicationPane;
+  @FXML private Polygon polygonRoom2Puzzle1;
+  @FXML private Polygon polygonRoom2Puzzle2;
+
+  private Random random = new Random();
+
+  @FXML
+  private void initialize() {
     initializeTimer();
+    initializePuzzle();
     keyShowingPane.setVisible(false);
     GameState.isPuzzleRoom2Solved.addListener(
         (observable, oldValue, newValue) -> {
@@ -50,6 +57,19 @@ public class Room2Controller {
             MusicManager.unmute();
           }
         });
+  }
+
+  private void initializePuzzle() {
+    int randomNumber = random.nextInt(2) + 1;
+    System.out.println("Room 2 puzzle number: " + randomNumber);
+
+    if (randomNumber == 1) {
+      polygonRoom2Puzzle1.setVisible(true);
+      polygonRoom2Puzzle2.setVisible(false);
+    } else {
+      polygonRoom2Puzzle1.setVisible(false);
+      polygonRoom2Puzzle2.setVisible(true);
+    }
   }
 
   private boolean thisIsCurrentRoom(Number roomNumber) {
@@ -113,9 +133,6 @@ public class Room2Controller {
     System.out.println("lock clicked");
     App.setUi(RoomType.ROOM2PUZZLE);
   }
-
-  @FXML private ImageView crossImage;
-  @FXML private ImageView waveImage;
 
   @FXML
   private void muteBarClick() {

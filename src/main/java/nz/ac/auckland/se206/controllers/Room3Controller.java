@@ -1,5 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.util.Random;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
@@ -16,18 +17,26 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class Room3Controller {
 
-  @FXML private Label timeLabel;
-  @FXML private Polygon polygonRoom3Puzzle;
-  @FXML private Pane keyShowingPane;
+  @FXML private ImageView crossImage;
+  @FXML private ImageView waveImage;
   @FXML private Label room3KeyLabel;
-  @FXML private Polygon polygonRoom3Puzzle2;
+  @FXML private Label timeLabel;
+  @FXML private Pane indicationPane;
+  @FXML private Pane keyShowingPane;
   @FXML private Pane puzzle2Pane;
+  @FXML private Polygon polygonRoom3Puzzle1;
+  @FXML private Polygon polygonRoom3Puzzle2;
   @FXML private Polygon polygon2Room3Puzzle2;
+
+  private int count;
+
+  private Random random = new Random();
 
   /** Initializes the room view, it is called when the room loads. */
   @FXML
   private void initialize() {
     initializeTimer();
+    initializePuzzle();
     keyShowingPane.setVisible(false);
     GameState.isPuzzleRoom3Solved.addListener(
         (observable, oldValue, newValue) -> {
@@ -53,16 +62,8 @@ public class Room3Controller {
             MusicManager.unmute();
           }
         });
-    i = 0;
-    polygonRoom3Puzzle.setVisible(true);
-    puzzle2Pane.setVisible(true);
-    puzzle2Pane.setOpacity(1);
-    polygonRoom3Puzzle2.setVisible(true);
-    polygon2Room3Puzzle2.setVisible(false);
+    count = 0;
   }
-
-  @FXML private ImageView crossImage;
-  @FXML private ImageView waveImage;
 
   @FXML
   private void muteBarClick() {
@@ -72,8 +73,6 @@ public class Room3Controller {
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 3;
   }
-
-  @FXML private Pane indicationPane;
 
   private void fadeInOutIndicationPane() {
     indicationPane.setVisible(true);
@@ -118,26 +117,42 @@ public class Room3Controller {
   @FXML
   private void room3PuzzleClicked(MouseEvent event) {
     System.out.println("Room 3 puzzle clicked");
-    App.setUi(RoomType.ROOM3PUZZLE);
+    App.setUi(RoomType.ROOM3PUZZLE1);
   }
-
-  private int i;
 
   @FXML
   private void room3Puzzle2Clicked() {
     System.out.println("Room 3 puzzle 2 clicked");
     App.setUi(RoomType.ROOM3PUZZLE2);
-    if (i == 0) {
+    if (count == 0) {
       puzzle2Pane.setOpacity(0.5);
-      i++;
-    } else if (i == 1) {
+      count++;
+    } else if (count == 1) {
       puzzle2Pane.setOpacity(0.2);
-      i++;
+      count++;
     } else {
       puzzle2Pane.setOpacity(0);
       polygonRoom3Puzzle2.setVisible(false);
       polygon2Room3Puzzle2.setVisible(true);
       puzzle2Pane.setVisible(false);
+    }
+  }
+
+  private void initializePuzzle() {
+    int randomNumber = random.nextInt(2) + 1;
+    System.out.println("Room 3 puzzle number: " + randomNumber);
+
+    if (randomNumber == 1) {
+      polygonRoom3Puzzle1.setVisible(true);
+      puzzle2Pane.setVisible(false);
+      polygonRoom3Puzzle2.setVisible(false);
+      polygon2Room3Puzzle2.setVisible(false);
+    } else if (randomNumber == 2) {
+      polygonRoom3Puzzle1.setVisible(false);
+      puzzle2Pane.setVisible(true);
+      puzzle2Pane.setOpacity(1);
+      polygonRoom3Puzzle2.setVisible(true);
+      polygon2Room3Puzzle2.setVisible(true);
     }
   }
 
