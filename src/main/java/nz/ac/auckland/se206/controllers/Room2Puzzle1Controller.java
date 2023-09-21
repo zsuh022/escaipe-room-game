@@ -1,12 +1,11 @@
 package nz.ac.auckland.se206.controllers;
 
-import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -24,10 +23,8 @@ public class Room2Puzzle1Controller {
   @FXML private Rectangle seven;
   @FXML private Rectangle eight;
   @FXML private Rectangle nine;
-  @FXML private Rectangle backPuzzle2;
-  @FXML private Rectangle startPuzzle2;
-  @FXML private Label startLabel;
-  @FXML private Label backLabel;
+  @FXML private Button backPuzzle2;
+  @FXML private Button startPuzzle2;
   @FXML private Label puzzle2Label;
   @FXML private Label timeLabel;
 
@@ -81,7 +78,7 @@ public class Room2Puzzle1Controller {
   }
 
   @FXML
-  public void startPuzzle2Clicked(MouseEvent event) throws IOException {
+  public void startPuzzle2Clicked() {
     puzzle2Label.setText("");
     buttonOrder[0] = (int) (1 + (Math.random() * (9)));
     buttonOrder[1] = (int) (1 + (Math.random() * (9)));
@@ -138,7 +135,7 @@ public class Room2Puzzle1Controller {
   }
 
   @FXML
-  public void backPuzzle2Clicked(MouseEvent event) throws IOException {
+  public void backPuzzle2Clicked() {
     App.setUi(RoomType.ROOM2);
   }
 
