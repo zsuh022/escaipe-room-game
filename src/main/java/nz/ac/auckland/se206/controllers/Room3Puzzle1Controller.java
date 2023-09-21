@@ -44,7 +44,7 @@ public class Room3Puzzle1Controller {
     // set the images for the buttons
     for (int i = 1; i < buttons.size(); i++) {
       String imagePath =
-          "/images/"
+          "/images/room3puzzle1images/"
               + GameState.riddleWord.toLowerCase()
               + "/"
               + GameState.riddleWord.toLowerCase()
