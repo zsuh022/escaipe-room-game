@@ -31,6 +31,18 @@ public class Room1Controller {
             fadeInOutIndicationPane();
           }
         });
+    GameState.isMuted.addListener(
+        (obs, wasMuted, isNowMuted) -> {
+          if (isNowMuted) {
+            crossImage.setVisible(true);
+            waveImage.setVisible(false);
+            MusicManager.mute();
+          } else {
+            crossImage.setVisible(false);
+            waveImage.setVisible(true);
+            MusicManager.unmute();
+          }
+        });
   }
 
   private boolean thisIsCurrentRoom(Number roomNumber) {
@@ -112,17 +124,7 @@ public class Room1Controller {
   @FXML
   private void muteBarClick() {
     System.out.println("Mute bar clicked");
-    if (GameState.isMuted) {
-      GameState.isMuted = false;
-      crossImage.setVisible(false);
-      waveImage.setVisible(true);
-      MusicManager.unmute();
-    } else {
-      GameState.isMuted = true;
-      crossImage.setVisible(true);
-      waveImage.setVisible(false);
-      MusicManager.mute();
-    }
+    GameState.isMuted.set(!GameState.isMuted.get());
   }
 
   @FXML private Label room1KeyLabel;

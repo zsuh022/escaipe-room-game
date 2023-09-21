@@ -25,7 +25,7 @@ public class GameState {
 
   public static int key;
 
-  public static boolean isMuted = false;
+  public static BooleanProperty isMuted = new SimpleBooleanProperty(false);
 
   public static String room1Key;
 
