@@ -18,6 +18,7 @@ public class Room1Controller {
   public void initialize() {
     initializeTimer();
     keyShowingPane.setVisible(false);
+    indicationPane.setOpacity(0);
     GameState.isRiddleResolved.addListener(
         (observable, oldValue, newValue) -> {
           if (newValue) {
