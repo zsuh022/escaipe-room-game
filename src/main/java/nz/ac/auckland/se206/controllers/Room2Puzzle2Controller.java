@@ -60,7 +60,6 @@ public class Room2Puzzle2Controller {
     System.out.println("Puzzle solved");
 
     GameState.isPuzzleRoom2Solved.set(true);
-
   }
 
   @FXML
@@ -194,7 +193,7 @@ public class Room2Puzzle2Controller {
       }
 
     } else {
-      if (chanceCount < 6) {
+      if (chanceCount < 5) {
         chanceCount++;
         switch (chanceCount) {
           case 1:
