@@ -64,13 +64,14 @@ public class Room1Controller {
 
   @FXML
   private void muteBarClick() {
-    if (GameState.isMuted.get()) {
-      GameState.isMuted.set(false);
+    System.out.println("Mute bar clicked");
+    if (GameState.isMuted) {
+      GameState.isMuted = false;
       crossImage.setVisible(false);
       waveImage.setVisible(true);
       MusicManager.unmute();
     } else {
-      GameState.isMuted.set(true);
+      GameState.isMuted = true;
       crossImage.setVisible(true);
       waveImage.setVisible(false);
       MusicManager.mute();
