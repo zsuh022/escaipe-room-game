@@ -33,7 +33,7 @@
                   <Image url="@../images/keyBackground.png" />
                </image>
             </ImageView>
-            <Label fx:id="room3KeyLabel" layoutX="65.0" layoutY="60.0" prefHeight="40.0" prefWidth="91.0" text="9999" textFill="RED">
+            <Label fx:id="room3KeyLabel" layoutX="65.0" layoutY="60.0" prefHeight="40.0" prefWidth="91.0" textFill="RED">
                <font>
                   <Font size="36.0" />
                </font>
