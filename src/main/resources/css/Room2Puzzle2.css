@@ -2,6 +2,10 @@
     -fx-font-family: "Times New Roman", serif;
 }
 
+Button {
+    -fx-font-size: 26px;
+}
+
 #btnExitPuzzle {
     -fx-background-color: #F1F6F9;
     -fx-font-size: 18px;
