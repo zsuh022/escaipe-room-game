@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -192,6 +193,7 @@ public class EndingWinController {
   @FXML
   private void exitButtonClicked() {
     System.out.println("Exit button clicked");
+    Platform.exit();
   }
 
   @FXML

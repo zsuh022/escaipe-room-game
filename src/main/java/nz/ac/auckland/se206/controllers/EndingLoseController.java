@@ -6,6 +6,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -29,6 +30,7 @@ public class EndingLoseController {
   @FXML
   private void exitButtonClicked() {
     System.out.println("Exit button clicked");
+    Platform.exit();
   }
 
   @FXML
