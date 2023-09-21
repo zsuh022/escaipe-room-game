@@ -9,6 +9,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Ending.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EndingLoseController">
    <children>
+      <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
             <Image url="@../images/ending.jpg" />
@@ -22,11 +23,13 @@
       <Button layoutX="915.0" layoutY="689.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="45.0" prefWidth="75.0" styleClass="btnExit" text="Exit">
          <font>
             <Font size="24.0" />
-         </font></Button>
+         </font>
+      </Button>
       <Button layoutX="460.0" layoutY="580.0" mnemonicParsing="false" onAction="#restartButtonClicked" prefHeight="45.0" prefWidth="100.0" styleClass="btnRestart" text="Restart">
          <font>
             <Font size="24.0" />
-         </font></Button>
+         </font>
+      </Button>
       <ImageView fx:id="gameMasterLose" fitHeight="100.0" fitWidth="100.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameMaster.png" />
