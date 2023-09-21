@@ -34,6 +34,7 @@ public class ExitDoorController {
   @FXML
   private void room1ButtonClicked() {
     System.out.println("Room 1 button clicked");
+    GameState.currentRoom.set(1);
     App.setUi(RoomType.ROOM1);
   }
 
