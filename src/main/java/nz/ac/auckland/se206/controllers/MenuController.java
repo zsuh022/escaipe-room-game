@@ -115,6 +115,9 @@ public class MenuController {
   }
 
   private void setUiAfterFade() throws IOException, URISyntaxException {
+
+    // do not change the order here********************
+    SceneManager.addUi(RoomType.CHAT, App.loadFxml("chat"));
     SceneManager.addUi(RoomType.ROOM1, App.loadFxml("room1"));
     SceneManager.addUi(RoomType.ROOM2, App.loadFxml("room2"));
     SceneManager.addUi(RoomType.ROOM3, App.loadFxml("room3"));
@@ -124,6 +127,8 @@ public class MenuController {
     SceneManager.addUi(RoomType.ROOM2PUZZLE2, App.loadFxml("room2Puzzle2"));
     SceneManager.addUi(RoomType.ROOM3PUZZLE2, App.loadFxml("room3Puzzle2"));
     SceneManager.addUi(RoomType.GAMEMASTER, App.loadFxml("gamemaster"));
+    // do not change the order here********************
+
     GameState.currentRoom.set(1);
     App.setUi(RoomType.ROOM1);
     player.stop();
@@ -157,7 +162,7 @@ public class MenuController {
         GameState.key = 12041961;
         GameState.room2Key = "12";
         GameState.room1Key = "04";
-        GameState.room3Key = "1916";
+        GameState.room3Key = "1961";
         break;
       case 2:
         GameState.key = 19041971;
