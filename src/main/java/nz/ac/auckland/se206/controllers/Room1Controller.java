@@ -26,6 +26,7 @@ public class Room1Controller {
   @FXML
   private void room2ButtonClicked() {
     System.out.println("Room 2 button clicked");
+    GameState.currentRoom.set(2);
     App.setUi(RoomType.ROOM2);
   }
 

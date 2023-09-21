@@ -3,6 +3,7 @@ package nz.ac.auckland.se206;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 /** Represents the state of the game. */
 public class GameState {
@@ -31,4 +32,6 @@ public class GameState {
   public static String room2Key;
 
   public static String room3Key;
+
+  public static IntegerProperty currentRoom = new SimpleIntegerProperty(1);
 }

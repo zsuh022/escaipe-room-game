@@ -1,11 +1,14 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Polygon;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
@@ -15,6 +18,7 @@ public class Room2Controller {
   @FXML private Polygon room2Lock;
   @FXML private Pane keyShowingPane;
   @FXML private Label room2KeyLabel;
+  @FXML private Pane indicationPane;
 
   /** Initializes the room view, it is called when the room loads. */
   public void initialize() {
@@ -26,6 +30,31 @@ public class Room2Controller {
             showRoom2Key();
           }
         });
+    GameState.currentRoom.addListener(
+        (obs, oldRoom, newRoom) -> {
+          if (thisIsCurrentRoom(newRoom)) {
+            fadeInOutIndicationPane();
+          }
+        });
+  }
+
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    return roomNumber.intValue() == 2;
+  }
+
+  private void fadeInOutIndicationPane() {
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(0.7);
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeOut.setFromValue(0.7);
+    fadeOut.setToValue(0);
+
+    fadeIn.setOnFinished(event -> pause.play());
+    pause.setOnFinished(event -> fadeOut.play());
+
+    fadeIn.play();
   }
 
   private void showRoom2Key() {
