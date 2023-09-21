@@ -23,8 +23,8 @@ public class GptPromptEngineering {
     return "Whenever you see the word 'hint' in my question, provide me a hint. I'll conclude my"
         + " messages with 'Hint Remaining: x' automatically, where 'x' is an integer"
         + " indicating the number of hints I have left. Only give hints if 'x' is greater"
-        + " than 0. You don't show 'x' to the me. If 'x' is 0, you must do not offer any"
-        + " hints, regardless of my requests. Less than 80 words";
+        + " than 0. You don't append 'Hint Remaining: x' to the the user. If 'x' is 0, you must"
+        + " do not offer any hints, regardless of my requests. Less than 80 words";
   }
 
   public static String getRiddleWithGivenWordMid(String wordToGuess) {

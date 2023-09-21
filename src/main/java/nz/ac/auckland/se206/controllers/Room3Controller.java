@@ -112,6 +112,7 @@ public class Room3Controller {
     System.out.println("Room 1 button clicked");
     GameState.currentRoom.set(1);
     App.setUi(RoomType.ROOM1);
+    GameState.roomNumber = 1;
   }
 
   @FXML
@@ -159,5 +160,13 @@ public class Room3Controller {
 
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
+  }
+
+  @FXML
+  private void gameMasterClicked() {
+    System.out.println("Game master clicked");
+    GameState.currentRoom.set(5);
+    App.setUi(RoomType.GAMEMASTER);
+    GameState.roomNumber = 3;
   }
 }

@@ -83,6 +83,7 @@ public class Room1Controller {
     System.out.println("Room 2 button clicked");
     GameState.currentRoom.set(2);
     App.setUi(RoomType.ROOM2);
+    GameState.roomNumber = 2;
   }
 
   @FXML
@@ -90,6 +91,7 @@ public class Room1Controller {
     System.out.println("Room 3 button clicked");
     GameState.currentRoom.set(3);
     App.setUi(RoomType.ROOM3);
+    GameState.roomNumber = 3;
   }
 
   @FXML
@@ -97,6 +99,7 @@ public class Room1Controller {
     System.out.println("Exit door button clicked");
     GameState.currentRoom.set(4);
     App.setUi(RoomType.EXITDOOR);
+    GameState.roomNumber = 4;
   }
 
   @FXML
@@ -110,6 +113,7 @@ public class Room1Controller {
     System.out.println("Game master clicked");
     GameState.currentRoom.set(5);
     App.setUi(RoomType.GAMEMASTER);
+    GameState.roomNumber = 1;
   }
 
   @FXML private Label timeLabel;
