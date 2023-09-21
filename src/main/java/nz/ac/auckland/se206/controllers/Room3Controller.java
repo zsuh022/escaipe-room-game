@@ -24,6 +24,8 @@ public class Room3Controller {
   @FXML private Pane puzzle2Pane;
   @FXML private Polygon polygon2Room3Puzzle2;
 
+  private int count;
+
   /** Initializes the room view, it is called when the room loads. */
   @FXML
   private void initialize() {
@@ -53,7 +55,7 @@ public class Room3Controller {
             MusicManager.unmute();
           }
         });
-    i = 0;
+    count = 0;
     polygonRoom3Puzzle.setVisible(true);
     puzzle2Pane.setVisible(true);
     puzzle2Pane.setOpacity(1);
@@ -121,18 +123,16 @@ public class Room3Controller {
     App.setUi(RoomType.ROOM3PUZZLE);
   }
 
-  private int i;
-
   @FXML
   private void room3Puzzle2Clicked() {
     System.out.println("Room 3 puzzle 2 clicked");
     App.setUi(RoomType.ROOM3PUZZLE2);
-    if (i == 0) {
+    if (count == 0) {
       puzzle2Pane.setOpacity(0.5);
-      i++;
-    } else if (i == 1) {
+      count++;
+    } else if (count == 1) {
       puzzle2Pane.setOpacity(0.2);
-      i++;
+      count++;
     } else {
       puzzle2Pane.setOpacity(0);
       polygonRoom3Puzzle2.setVisible(false);
