@@ -62,6 +62,7 @@ public class Room2Controller {
   private void initializePuzzle() {
     random = new Random();
     int randomNumber = random.nextInt(2) + 1;
+    randomNumber = 1;
     System.out.println("Room 2 puzzle number: " + randomNumber);
 
     if (randomNumber == 1) {
