@@ -8,8 +8,6 @@ public class MusicManager {
 
   private static MediaPlayer player;
 
-  public static void playMenuVideo() throws URISyntaxException {}
-
   /**
    * Play the particular song when the player is in the room during the game.
    *

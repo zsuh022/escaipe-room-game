@@ -43,42 +43,7 @@ public class Room3Puzzle1Controller {
   @FXML
   public void initialize() {
     initializeTimer();
-    initialButtonPositions = new HashMap<>();
-    buttons = Arrays.asList(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btnEmpty);
-
-    // set the images for the buttons
-    for (int i = 1; i < buttons.size(); i++) {
-      String imagePath =
-          "/images/room3puzzle1images/"
-              + GameState.riddleWord.toLowerCase()
-              + "/"
-              + GameState.riddleWord.toLowerCase()
-              + String.valueOf(i)
-              + ".jpg";
-      Image image = new Image(App.class.getResource(imagePath).toExternalForm());
-      BackgroundImage backgroundImage =
-          new BackgroundImage(
-              image,
-              BackgroundRepeat.NO_REPEAT,
-              BackgroundRepeat.NO_REPEAT,
-              BackgroundPosition.CENTER,
-              new BackgroundSize(150, 150, false, false, false, false));
-      buttons.get(i - 1).setBackground(new Background(backgroundImage));
-    }
-
-    // shuffle the buttons
-    shuffleButtons();
-
-    for (int i = 0; i < buttons.size(); i++) {
-      Button button = buttons.get(i);
-      int[] position = new int[] {i % 3, i / 3};
-      initialButtonPositions.put(button, position);
-      GridPane.setColumnIndex(button, position[0]);
-      GridPane.setRowIndex(button, position[1]);
-    }
-
-    // hide the empty button
-    btnEmpty.setVisible(false);
+    initializePuzzle();
   }
 
   @FXML
@@ -135,6 +100,22 @@ public class Room3Puzzle1Controller {
     return null;
   }
 
+  private void initializePuzzle() {
+    buttons = Arrays.asList(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btnEmpty);
+
+    // set the images for the buttons
+    setButtonImages();
+
+    // shuffle the buttons
+    shuffleButtons();
+
+    // set the initial positions of the buttons
+    setButtonPositions();
+
+    // hide the empty button
+    btnEmpty.setVisible(false);
+  }
+
   private boolean isPuzzleCompleted() {
     int correctValue = 1;
 
@@ -185,6 +166,38 @@ public class Room3Puzzle1Controller {
     System.out.println("Puzzle solved");
     messageLabel.setText("Puzzle solved!");
     GameState.isPuzzleRoom3Solved.setValue(true);
+  }
+
+  private void setButtonImages() {
+    for (int i = 1; i < buttons.size(); i++) {
+      // get the image path for the image
+      String imagePath =
+          "/images/room3puzzle1images/"
+              + GameState.riddleWord.toLowerCase()
+              + "/"
+              + GameState.riddleWord.toLowerCase()
+              + String.valueOf(i)
+              + ".jpg";
+      Image image = new Image(App.class.getResource(imagePath).toExternalForm());
+      BackgroundImage backgroundImage =
+          new BackgroundImage(
+              image,
+              BackgroundRepeat.NO_REPEAT,
+              BackgroundRepeat.NO_REPEAT,
+              BackgroundPosition.CENTER,
+              new BackgroundSize(150, 150, false, false, false, false));
+      buttons.get(i - 1).setBackground(new Background(backgroundImage));
+    }
+  }
+
+  private void setButtonPositions() {
+    for (int i = 0; i < buttons.size(); i++) {
+      Button button = buttons.get(i);
+      int[] position = new int[] {i % 3, i / 3};
+      initialButtonPositions.put(button, position);
+      GridPane.setColumnIndex(button, position[0]);
+      GridPane.setRowIndex(button, position[1]);
+    }
   }
 
   private void shuffleButtons() {

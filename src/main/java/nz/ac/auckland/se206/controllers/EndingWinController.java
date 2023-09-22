@@ -21,71 +21,37 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 public class EndingWinController {
 
   private MediaPlayer player;
+
+  @FXML private Label keyLabel;
+  @FXML private Label riddleLabel;
+  @FXML private Label skipLabel;
   @FXML private MediaView depart;
+  @FXML private TextArea keyTextArea;
+  @FXML private TextArea riddleTextArea;
+
+  private Boolean isKeyOutputed = false;
+  private Boolean isRiddleOutputed = false;
+
+  @FXML
+  private void baseTouched() {
+    keyTextArea.setVisible(false);
+    riddleTextArea.setVisible(false);
+  }
+
+  @FXML
+  private void exitButtonClicked() {
+    System.out.println("Exit button clicked");
+    Platform.exit();
+  }
 
   @FXML
   private void initialize() throws URISyntaxException {
-    isKeyOutputed = false;
-    isRiddleOutputed = false;
     System.out.println("EndingWinController initialized");
+
     MusicManager.playHappySong();
-    keyLabel.setText(String.valueOf(GameState.key));
-    riddleLabel.setText(String.valueOf(GameState.riddleWord));
-    keyTextArea.setVisible(false);
-    riddleTextArea.setVisible(false);
-    depart.setVisible(true);
-    skipLabel.setVisible(true);
+    initializeRoom();
     playVideo();
   }
-
-  @FXML private Label skipLabel;
-
-  private void playVideo() throws URISyntaxException {
-    Media media = new Media(App.class.getResource("/sounds/depart.mp4").toURI().toString());
-    player = new MediaPlayer(media);
-    depart.setMediaPlayer(player);
-
-    FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), depart);
-    fadeOut.setFromValue(1.0);
-    fadeOut.setToValue(0.1);
-    fadeOut.setOnFinished(
-        e -> {
-          player.stop();
-          depart.setVisible(false);
-          skipLabel.setVisible(false);
-        });
-
-    player.setOnPlaying(
-        () -> {
-          PauseTransition delayFade = new PauseTransition(Duration.seconds(7));
-          delayFade.setOnFinished(e -> fadeOut.play());
-          delayFade.play();
-        });
-
-    depart.setOnMouseClicked(
-        e -> {
-          player.stop();
-          depart.setVisible(false);
-          skipLabel.setVisible(false);
-        });
-
-    skipLabel.setOnMouseClicked(
-        e -> {
-          player.stop();
-          depart.setVisible(false);
-          skipLabel.setVisible(false);
-        });
-
-    player.play();
-  }
-
-  @FXML private Label keyLabel;
-  @FXML private TextArea keyTextArea;
-
-  @FXML private Label riddleLabel;
-  @FXML private TextArea riddleTextArea;
-  private Boolean isKeyOutputed = false;
-  private Boolean isRiddleOutputed = false;
 
   @FXML
   private void keyLabelEntered() {
@@ -94,6 +60,21 @@ public class EndingWinController {
       keyTextArea.appendText(outputKeyBackground() + "\n\n");
       isKeyOutputed = true;
     }
+  }
+
+  @FXML
+  private void keyTextAreaEntered() {
+    keyTextArea.setVisible(true);
+  }
+
+  @FXML
+  private void restartButtonClicked() throws IOException {
+    System.out.println("Play again button clicked");
+    SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
+    App.setUi(RoomType.MENU);
+    GameState.reset();
+    SceneManager.reset();
+    MusicManager.mute();
   }
 
   @FXML
@@ -106,19 +87,39 @@ public class EndingWinController {
   }
 
   @FXML
-  private void keyTextAreaEntered() {
-    keyTextArea.setVisible(true);
-  }
-
-  @FXML
-  void riddleTextAreaEntered() {
+  private void riddleTextAreaEntered() {
     riddleTextArea.setVisible(true);
   }
 
-  @FXML
-  private void baseTouched() {
+  private void initializeRoom() {
+    isKeyOutputed = false;
+    isRiddleOutputed = false;
+    keyLabel.setText(String.valueOf(GameState.key));
+    riddleLabel.setText(String.valueOf(GameState.riddleWord));
     keyTextArea.setVisible(false);
     riddleTextArea.setVisible(false);
+    depart.setVisible(true);
+    skipLabel.setVisible(true);
+  }
+
+  private String outputKeyBackground() {
+    switch (GameState.key) {
+      case 12041961:
+        return "12 April, 1961 was the date of the first human space flight, carried out by Yuri"
+            + " Gagarin, a Soviet citizen. This historic event opened the way for space"
+            + " exploration for the benefit of all humanity.";
+      case 19041971:
+        return "April 19, 1971, the Soviet Union placed into orbit Salyut, the world’s first space"
+            + " station. Designed for a 6-month on orbit operational lifetime, Salyut hosted"
+            + " the crew of Georgi T. Dobrovolski, Vladislav N. Volkov, and Viktor I.";
+      case 16071969:
+        return " July 16, 1969, liftoff North America on taken during the translunar part of their"
+            + " journey. Apollo 11, with Neil Armstrong, Buzz Aldrin and Michael Collins,"
+            + " lifted off as scheduled from Kennedy Space Center Launch Complex 39A in"
+            + " Florida at 9:32 a.m. local time (1332 UTC).";
+    }
+
+    return "";
   }
 
   private String outputRiddleBackground() {
@@ -170,39 +171,41 @@ public class EndingWinController {
     return "";
   }
 
-  private String outputKeyBackground() {
-
-    switch (GameState.key) {
-      case 12041961:
-        return "12 April, 1961 was the date of the first human space flight, carried out by Yuri"
-            + " Gagarin, a Soviet citizen. This historic event opened the way for space"
-            + " exploration for the benefit of all humanity.";
-      case 19041971:
-        return "April 19, 1971, the Soviet Union placed into orbit Salyut, the world’s first space"
-            + " station. Designed for a 6-month on orbit operational lifetime, Salyut hosted"
-            + " the crew of Georgi T. Dobrovolski, Vladislav N. Volkov, and Viktor I.";
-      case 16071969:
-        return " July 16, 1969, liftoff North America on taken during the translunar part of their"
-            + " journey. Apollo 11, with Neil Armstrong, Buzz Aldrin and Michael Collins,"
-            + " lifted off as scheduled from Kennedy Space Center Launch Complex 39A in"
-            + " Florida at 9:32 a.m. local time (1332 UTC).";
-    }
-    return "";
+  private void playVideo() throws URISyntaxException {
+    setupMedia();
+    setupFadeTransition();
+    setupPlayerHandlers();
   }
 
-  @FXML
-  private void exitButtonClicked() {
-    System.out.println("Exit button clicked");
-    Platform.exit();
+  private void setupMedia() throws URISyntaxException {
+    Media media = new Media(App.class.getResource("/sounds/depart.mp4").toURI().toString());
+    player = new MediaPlayer(media);
+    depart.setMediaPlayer(player);
   }
 
-  @FXML
-  private void restartButtonClicked() throws IOException {
-    System.out.println("Play again button clicked");
-    SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
-    App.setUi(RoomType.MENU);
-    GameState.reset();
-    SceneManager.reset();
-    MusicManager.mute();
+  private void setupFadeTransition() {
+    FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), depart);
+    fadeOut.setFromValue(1.0);
+    fadeOut.setToValue(0.1);
+    fadeOut.setOnFinished(e -> stopAndHidePlayer());
+
+    player.setOnPlaying(
+        () -> {
+          PauseTransition delayFade = new PauseTransition(Duration.seconds(7));
+          delayFade.setOnFinished(e -> fadeOut.play());
+          delayFade.play();
+        });
+  }
+
+  private void setupPlayerHandlers() {
+    depart.setOnMouseClicked(e -> stopAndHidePlayer());
+    skipLabel.setOnMouseClicked(e -> stopAndHidePlayer());
+    player.play();
+  }
+
+  private void stopAndHidePlayer() {
+    player.stop();
+    depart.setVisible(false);
+    skipLabel.setVisible(false);
   }
 }

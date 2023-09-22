@@ -31,8 +31,8 @@ public class ExitDoorController {
   @FXML private ImageView waveImage;
   @FXML private Pane indicationPane;
 
-  /** Initializes the room view, it is called when the room loads. */
-  public void initialize() {
+  @FXML
+  private void initialize() {
     initializeTimer();
     keyPad.setVisible(false);
     // initialize music and sound
@@ -149,6 +149,8 @@ public class ExitDoorController {
     int n = Integer.parseInt(btnKeyPadDisplay.getText());
 
     // if the number is correct, go to ending win
+    System.out.println("entered key: " + n);
+    System.out.println("correct key: " + GameState.key);
     if (n == GameState.key) {
       System.out.println("Key is correct");
       GameState.timeManager.stopTimer();

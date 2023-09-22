@@ -30,6 +30,7 @@ public class DraggableManager {
   }
 
   private void checkAndSnapToTarget(ImageView planet, Circle targetCircle) {
+    // get the distance between the center of the planet and the center of the target circle
     double distance =
         Math.sqrt(
             Math.pow(
@@ -38,8 +39,10 @@ public class DraggableManager {
                 + Math.pow(
                     (planet.getLayoutY() + planet.getFitHeight() / 2.0) - targetCircle.getLayoutY(),
                     2));
+    // get the threshold for the planet to snap to the target circle
     double threshold = threholdConstant * targetCircle.getRadius();
 
+    // check when the distance is less than the threshold, snap the planet to the target circle
     if (distance < threshold) {
       planet.setLayoutX(targetCircle.getLayoutX() - planet.getFitWidth() / 2.0);
       planet.setLayoutY(targetCircle.getLayoutY() - planet.getFitHeight() / 2.0);

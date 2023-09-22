@@ -49,6 +49,7 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
+    // start with the menu scene
     Parent root = loadFxml("menu");
     scene = new Scene(root, 1024, 768);
     stage.setScene(scene);
@@ -58,6 +59,7 @@ public class App extends Application {
 
   @Override
   public void stop() throws Exception {
+    // this will be called when the application is stopped
     System.out.println("Stopping application");
     super.stop();
     System.exit(0);
