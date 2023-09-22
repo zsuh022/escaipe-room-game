@@ -282,6 +282,7 @@ public class Room2Puzzle2Controller {
             flashSpacesRed();
             break;
           case 3:
+            // if the chance count is 3, set the first rectangle to red and flash the spaces red
             chance3.setFill(Color.RED);
             flashSpacesRed();
             break;
