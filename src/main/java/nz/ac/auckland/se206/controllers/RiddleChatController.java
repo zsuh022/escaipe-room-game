@@ -3,6 +3,9 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import java.util.Random;
 import java.util.regex.Pattern;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
@@ -27,7 +32,10 @@ public class RiddleChatController {
   @FXML private TextArea chatTextArea;
   @FXML private TextField inputTextArea;
   @FXML private Label timeLabel;
+  @FXML private Pane waitingResponsePane;
+  @FXML private Label transLabel;
 
+  private Timeline labelAnimationTimeline;
   private ChatCompletionRequest chatCompletionRequest;
 
   /**
@@ -37,19 +45,21 @@ public class RiddleChatController {
    */
   @FXML
   public void initialize() throws ApiProxyException {
+    // Hide loading pane
+    waitingResponsePane.setVisible(false);
 
+    // randomly select a celestial body to be the riddle word
     String[] celestialBodies = {
       "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"
     };
     Random random = new Random();
     int randomIndex = random.nextInt(celestialBodies.length);
     System.out.println(celestialBodies[randomIndex]);
-
     GameState.riddleWord = celestialBodies[randomIndex];
-
     chatCompletionRequest =
         new ChatCompletionRequest().setN(1).setTemperature(0.1).setTopP(0.5).setMaxTokens(250);
 
+    // to select the difficulty of the riddle
     Thread thread =
         new Thread(
             () -> {
@@ -64,6 +74,7 @@ public class RiddleChatController {
                   e.printStackTrace();
                 }
               } else if (GameState.difficulty == 2) {
+                // for example, if the difficulty equals 2, then call the mid level solver
                 try {
                   runGpt(
                       new ChatMessage(
@@ -85,13 +96,17 @@ public class RiddleChatController {
                 }
               }
             });
+    // initialize the timer
     if (GameState.timeManager != null && GameState.timeManager.getSecond() != null) {
       initializeTimer();
     }
+    // hide the loading pane when clicked
+    waitingResponsePane.setOnMouseClicked(e -> waitingResponsePane.setVisible(false));
     thread.start();
   }
 
   private void initializeTimer() {
+    // timer
     Platform.runLater(
         () -> {
           timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
@@ -116,8 +131,17 @@ public class RiddleChatController {
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   private ChatMessage runGpt(ChatMessage msg) throws ApiProxyException {
+    // show loading pane and start animation
+    Platform.runLater(
+        () -> {
+          transLabel.setText("Transmitting to earth .");
+          startLabelAnimation(transLabel);
+          waitingResponsePane.setVisible(true); // Show loading pane
+        });
+
     chatCompletionRequest.addMessage(msg);
     try {
+      // send message to GPT model and get response
       ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
       Choice result = chatCompletionResult.getChoices().iterator().next();
       chatCompletionRequest.addMessage(result.getChatMessage());
@@ -127,7 +151,43 @@ public class RiddleChatController {
       // TODO handle exception appropriately
       e.printStackTrace();
       return null;
+    } finally {
+      // stop animation and hide loading pane
+      Platform.runLater(
+          () -> {
+            if (labelAnimationTimeline != null) {
+              labelAnimationTimeline.stop();
+            }
+            transLabel.setText("");
+            waitingResponsePane.setVisible(false); // Hide loading pane
+          });
     }
+  }
+
+  private void startLabelAnimation(Label label) {
+    // this will be called when waiting for response
+    if (labelAnimationTimeline != null) {
+      labelAnimationTimeline.stop();
+    }
+    // animate the label
+    labelAnimationTimeline =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(0.5),
+                e -> {
+                  String currentText = label.getText();
+                  if (currentText.equals("Transmitting to earth .")) {
+                    label.setText("Transmitting to earth ..");
+                  } else if (currentText.equals("Transmitting to earth ..")) {
+                    label.setText("Transmitting to earth ...");
+                  } else {
+                    label.setText("Transmitting to earth .");
+                  }
+                }));
+
+    // repeat forever
+    labelAnimationTimeline.setCycleCount(Animation.INDEFINITE);
+    labelAnimationTimeline.play();
   }
 
   /**
@@ -144,26 +204,31 @@ public class RiddleChatController {
       return;
     }
     inputTextArea.clear();
-
+    // send message to GPT
     Thread thread =
         new Thread(
             () -> {
               ChatMessage msg;
+              // if the difficulty is 2, then the message will be split into two parts
+              // one is the message, the other is the hint number
               if (GameState.difficulty == 2) {
                 msg =
                     new ChatMessage(
                         "user", message + " \\ " + "Hint remaining: " + GameState.hintCount);
                 if (containsHint(message)) {
+                  // if the message contains hint, then the hint count will be reduced by 1
                   if (GameState.hintCount > 0) {
                     GameState.hintCount--;
                   }
                 }
               } else {
+                // otherwise, the message will be the message
                 msg = new ChatMessage("user", message);
               }
               appendChatMessage(msg);
               ChatMessage lastMsg;
               try {
+                // get the response from GPT and check if the riddle is resolved
                 lastMsg = runGpt(msg);
                 if (lastMsg.getRole().equals("assistant")
                     && lastMsg.getContent().startsWith("Correct")) {
@@ -178,6 +243,7 @@ public class RiddleChatController {
   }
 
   private Boolean containsHint(String input) {
+    // determine if the message contains hint
     if (input == null) return false;
     Pattern pattern = Pattern.compile("\\bhint(s)?\\b", Pattern.CASE_INSENSITIVE);
     return pattern.matcher(input).find();

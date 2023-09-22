@@ -27,19 +27,20 @@ public class GameState {
 
   public static BooleanProperty isMuted = new SimpleBooleanProperty(false);
 
-  public static String room1Key;
+  public static String room1Key; // one of the split key
 
   public static String room2Key;
 
   public static String room3Key;
 
-  public static IntegerProperty currentRoom = new SimpleIntegerProperty(0);
+  public static IntegerProperty currentRoom = new SimpleIntegerProperty(0); // 1, 2, 3, 4
 
   public static int hintCount = 5;
 
   public static int roomNumber = 1;
 
   public static void reset() {
+    // reset all the variables for a new game
     isRiddleResolved = new SimpleBooleanProperty(false);
     gameTime = new SimpleIntegerProperty(0);
     difficulty = 0;
@@ -54,6 +55,6 @@ public class GameState {
     room3Key = "";
     currentRoom = new SimpleIntegerProperty(0);
     hintCount = 5;
-    roomNumber = 1;
+    roomNumber = 1; // the room number will be 1 at the beginning
   }
 }

@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 
 public class SceneManager {
 
+  // Enum for all the different rooms, puzzles and scenes
   public enum RoomType {
     CHAT,
     ENDINGLOSE,
@@ -22,9 +23,11 @@ public class SceneManager {
     ROOM3PUZZLE2
   }
 
+  // HashMap to store the different rooms and their scenes
   private static HashMap<RoomType, Parent> sceneMap = new HashMap<RoomType, Parent>();
 
   public static void reset() {
+    // reset the sceneMap
     sceneMap = new HashMap<RoomType, Parent>();
   }
 
