@@ -88,7 +88,7 @@ public class Room1Controller {
   }
 
   @FXML
-  private void room2ButtonClicked() {
+  private void onRoom2ButtonClicked() {
     // go to Room 2
     System.out.println("Room 2 button clicked");
     GameState.currentRoom.set(2);
@@ -97,7 +97,7 @@ public class Room1Controller {
   }
 
   @FXML
-  private void room3ButtonClicked() {
+  private void onRoom3ButtonClicked() {
     // go to Room 3
     System.out.println("Room 3 button clicked");
     GameState.currentRoom.set(3);
@@ -106,7 +106,7 @@ public class Room1Controller {
   }
 
   @FXML
-  private void room4ButtonClicked() {
+  private void onExitDoorButtonClicked() {
     // go to Room 4
     System.out.println("Exit door button clicked");
     GameState.currentRoom.set(4);
@@ -115,14 +115,14 @@ public class Room1Controller {
   }
 
   @FXML
-  private void computerClicked() {
+  private void onComputerClicked() {
     // go to chat
     System.out.println("Computer clicked");
     App.setUi(RoomType.CHAT);
   }
 
   @FXML
-  private void gameMasterClicked() {
+  private void onGameMasterClicked() {
     // go to game master
     System.out.println("Game master clicked");
     GameState.currentRoom.set(5);
@@ -138,7 +138,7 @@ public class Room1Controller {
   }
 
   @FXML
-  private void muteBarClick() {
+  private void onMuteBarClicked() {
     // mute the music
     System.out.println("Mute bar clicked");
     GameState.isMuted.set(!GameState.isMuted.get());

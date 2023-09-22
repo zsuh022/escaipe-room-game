@@ -115,7 +115,7 @@ public class Room2Controller {
   }
 
   @FXML
-  private void buttonClicked() {
+  private void onRoom1ButtonClicked() {
     // change to room 1
     System.out.println("Button clicked");
     GameState.currentRoom.set(1);
@@ -130,24 +130,24 @@ public class Room2Controller {
   }
 
   @FXML
-  public void room2BoxClicked(MouseEvent event) throws IOException {
-    System.out.println("box clicked");
-    App.setUi(RoomType.ROOM2PUZZLE2);
-  }
-
-  @FXML
-  public void room2LockClicked(MouseEvent event) throws IOException {
+  public void onPuzzle1Clicked(MouseEvent event) throws IOException {
     System.out.println("lock clicked");
     App.setUi(RoomType.ROOM2PUZZLE1);
   }
 
   @FXML
-  private void muteBarClick() {
+  public void onPuzzle2Clicked(MouseEvent event) throws IOException {
+    System.out.println("box clicked");
+    App.setUi(RoomType.ROOM2PUZZLE2);
+  }
+
+  @FXML
+  private void onMuteBarClicked() {
     GameState.isMuted.set(!GameState.isMuted.get());
   }
 
   @FXML
-  private void gameMasterClicked() {
+  private void onGameMasterClicked() {
     // change to game master
     System.out.println("Game master clicked");
     GameState.currentRoom.set(5);

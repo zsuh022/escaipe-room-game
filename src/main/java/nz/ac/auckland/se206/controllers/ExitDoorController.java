@@ -57,7 +57,7 @@ public class ExitDoorController {
   }
 
   @FXML
-  private void muteBarClick() {
+  private void onMuteBarClicked() {
     // mute sound
     GameState.isMuted.set(!GameState.isMuted.get());
   }
@@ -97,7 +97,7 @@ public class ExitDoorController {
   }
 
   @FXML
-  private void room1ButtonClicked() {
+  private void onRoom1ButtonClicked() {
     // switch to room 1
     System.out.println("Room 1 button clicked");
     GameState.currentRoom.set(1);
@@ -199,7 +199,7 @@ public class ExitDoorController {
   }
 
   @FXML
-  private void gameMasterClicked() {
+  private void onGameMasterClicked() {
     // go to game master
     System.out.println("Game master clicked");
     GameState.currentRoom.set(5);
