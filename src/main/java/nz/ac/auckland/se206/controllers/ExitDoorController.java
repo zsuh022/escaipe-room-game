@@ -3,11 +3,9 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
-import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -123,6 +121,7 @@ public class ExitDoorController {
 
     if (key.equals("Enter")) {
       System.out.println("1");
+
       checkKey();
       return;
     }
@@ -133,13 +132,16 @@ public class ExitDoorController {
 
   private void checkKey() throws IOException {
     System.out.println("2");
+
     if (btnKeyPadDisplay.getText().equals("")) {
-      showDialog("Info", null, "Please enter the key.");
+      showErrorMessage();
       return;
     }
+
     int n = Integer.parseInt(btnKeyPadDisplay.getText());
     System.out.println("entered key: " + n);
     System.out.println("correct key: " + GameState.key);
+    
     if (n == GameState.key) {
       System.out.println("Key is correct");
       GameState.timeManager.stopTimer();
@@ -149,49 +151,6 @@ public class ExitDoorController {
       showErrorMessage();
       btnKeyPadDisplay.setText("");
     }
-  }
-
-  /**
-   * Displays a dialog box with the given title, header text, and message.
-   *
-   * @param title the title of the dialog box
-   * @param headerText the header text of the dialog box
-   * @param message the message content of the dialog box
-   */
-  private void showDialog(String title, String headerText, String message) {
-    // create a dialog box with the given title, header text, and message
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle(title);
-    alert.setHeaderText(headerText);
-    alert.setContentText(message);
-    // close the dialog box after 4 seconds
-    Thread alertClose =
-        new Thread(
-            () -> {
-              try {
-                Thread.sleep(5000);
-                Platform.runLater(
-                    () -> {
-                      alert.close();
-                    });
-              } catch (InterruptedException e) {
-                e.printStackTrace();
-              }
-            });
-    alertClose.start();
-    alert.showAndWait();
-  }
-
-  private void showErrorMessage() {
-    keyPadMessageLabel.setText("Try Again");
-    keyPadMessageLabel.setVisible(true);
-
-    PauseTransition pause = new PauseTransition(Duration.seconds(1));
-    pause.setOnFinished(
-        event -> {
-          keyPadMessageLabel.setVisible(false);
-        });
-    pause.play();
   }
 
   @FXML
@@ -211,6 +170,18 @@ public class ExitDoorController {
 
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
+  }
+
+  private void showErrorMessage() {
+    keyPadMessageLabel.setText("Try Again");
+    keyPadMessageLabel.setVisible(true);
+
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    pause.setOnFinished(
+        event -> {
+          keyPadMessageLabel.setVisible(false);
+        });
+    pause.play();
   }
 
   @FXML
