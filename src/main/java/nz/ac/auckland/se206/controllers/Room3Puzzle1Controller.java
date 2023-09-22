@@ -41,7 +41,7 @@ public class Room3Puzzle1Controller {
   private Map<Button, int[]> initialButtonPositions = new HashMap<>();
 
   @FXML
-  public void initialize() {
+  private void initialize() {
     initializeTimer();
     initializePuzzle();
   }
@@ -58,7 +58,7 @@ public class Room3Puzzle1Controller {
   }
 
   @FXML
-  public void clickOnTile() throws ApiProxyException {
+  private void onTileClicked() throws ApiProxyException {
     if (GameState.isPuzzleRoom3Solved.getValue() == true) {
       return;
     }
