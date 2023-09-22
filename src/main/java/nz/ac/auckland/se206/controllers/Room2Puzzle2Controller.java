@@ -64,8 +64,10 @@ public class Room2Puzzle2Controller {
   @FXML private Label timeLabel;
 
   ArrayList<String> word = new ArrayList<String>();
-  int chanceCount; // 0 to 6
-  int correctCount; // 0 to 5
+  // goes from 0 to 6
+  int chanceCount;
+  // goes from 0 to 5
+  int correctCount;
   boolean gameState = false;
 
   private void puzzleSolved() {
@@ -102,32 +104,18 @@ public class Room2Puzzle2Controller {
     word = new ArrayList<String>();
     initializeTimer();
     gameState = false;
-    initializeButton(buttonA);
-    initializeButton(buttonB);
-    initializeButton(buttonC);
-    initializeButton(buttonD);
-    initializeButton(buttonE);
-    initializeButton(buttonF);
-    initializeButton(buttonG);
-    initializeButton(buttonH);
-    initializeButton(buttonI);
-    initializeButton(buttonJ);
-    initializeButton(buttonK);
-    initializeButton(buttonL);
-    initializeButton(buttonM);
-    initializeButton(buttonN);
-    initializeButton(buttonO);
-    initializeButton(buttonP);
-    initializeButton(buttonQ);
-    initializeButton(buttonR);
-    initializeButton(buttonS);
-    initializeButton(buttonT);
-    initializeButton(buttonU);
-    initializeButton(buttonV);
-    initializeButton(buttonW);
-    initializeButton(buttonX);
-    initializeButton(buttonY);
-    initializeButton(buttonZ);
+    // intialize keyboard
+    Button[] buttons = {
+      buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ,
+      buttonK, buttonL, buttonM, buttonN, buttonO, buttonP, buttonQ, buttonR, buttonS, buttonT,
+      buttonU, buttonV, buttonW, buttonX, buttonY, buttonZ
+    };
+
+    for (Button button : buttons) {
+      initializeButton(button);
+    }
+
+    // intialize word and puzzle
     letter1.setText("");
     letter2.setText("");
     letter3.setText("");
@@ -144,6 +132,8 @@ public class Room2Puzzle2Controller {
     room2Puzzle2State.setText("");
     rectangleGameState.setOpacity(0);
     setSpaces(Color.WHITE);
+
+    // get new word
     newWord((int) (1 + (Math.random() * (8))));
   }
 

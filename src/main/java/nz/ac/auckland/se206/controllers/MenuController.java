@@ -32,6 +32,7 @@ public class MenuController {
   @FXML private MediaView earthMpfour;
   @FXML private Slider difficultySlider;
   @FXML private Slider timeSlider;
+
   private MediaPlayer player;
   private final StringProperty difficultyLabelColor = new SimpleStringProperty("#ffffff");
   private final StringProperty timeLabelColor = new SimpleStringProperty("#ffffff");
@@ -42,10 +43,12 @@ public class MenuController {
    * @throws URISyntaxException
    */
   public void initialize() throws URISyntaxException {
-
+    // initialize images and labels
     nextImageView.setVisible(false);
     startButton.setVisible(true);
     initializeLabelColour();
+
+    // initialize music
     Media media = new Media(App.class.getResource("/sounds/earth.mp4").toURI().toString());
     player = new MediaPlayer(media);
     earthMpfour.setMediaPlayer(player);
@@ -54,6 +57,7 @@ public class MenuController {
   }
 
   private void initializeLabelColour() {
+    // set label for different colours
     difficultyLabelColor.bind(
         Bindings.when(difficultySlider.valueProperty().isEqualTo(1))
             .then("aqua")
@@ -64,12 +68,13 @@ public class MenuController {
                         Bindings.when(difficultySlider.valueProperty().isEqualTo(3))
                             .then("magenta")
                             .otherwise("white"))));
+    // Apply the label color binding to the text fill property of difficultyLabel
     difficultyLabel
         .textFillProperty()
         .bind(
             Bindings.createObjectBinding(
                 () -> Paint.valueOf(difficultyLabelColor.get()), difficultyLabelColor));
-
+    // Bind label color to the value of the time slider
     timeLabelColor.bind(
         Bindings.when(timeSlider.valueProperty().isEqualTo(1))
             .then("aqua")
@@ -80,6 +85,7 @@ public class MenuController {
                         Bindings.when(timeSlider.valueProperty().isEqualTo(3))
                             .then("magenta")
                             .otherwise("white"))));
+    // Apply the label color binding to the text fill property of timeLabel
     timeLabel
         .textFillProperty()
         .bind(
@@ -89,6 +95,7 @@ public class MenuController {
 
   @FXML
   private void buttonClicked() throws IOException, URISyntaxException {
+    // set difficulty, time, and key
     setDifficulty();
     setGameTime();
     setKey();
@@ -96,12 +103,14 @@ public class MenuController {
   }
 
   private void fadeInNextImageView() {
+    // fade in next image view
     startButton.setVisible(false);
     nextImageView.setVisible(true);
     FadeTransition fade = new FadeTransition(Duration.millis(1000), nextImageView);
     fade.setFromValue(0.0);
     fade.setToValue(1.0);
 
+    // set the order of the transitions
     fade.setOnFinished(
         e -> {
           try {
@@ -115,7 +124,7 @@ public class MenuController {
   }
 
   private void setUiAfterFade() throws IOException, URISyntaxException {
-
+    // set all the uis after fade
     // do not change the order here********************
     SceneManager.addUi(RoomType.CHAT, App.loadFxml("chat"));
     SceneManager.addUi(RoomType.ROOM1, App.loadFxml("room1"));
@@ -129,6 +138,7 @@ public class MenuController {
     SceneManager.addUi(RoomType.GAMEMASTER, App.loadFxml("gamemaster"));
     // do not change the order here********************
 
+    // set ui for the current room
     GameState.currentRoom.set(1);
     App.setUi(RoomType.ROOM1);
     player.stop();
@@ -137,10 +147,12 @@ public class MenuController {
   }
 
   private void setDifficulty() {
+    // set difficulty
     GameState.difficulty = (int) difficultySlider.getValue();
   }
 
   private void setGameTime() {
+    // set game time
     switch ((int) timeSlider.getValue()) {
       case 1:
         GameState.timeManager.setTime(120);
@@ -155,6 +167,7 @@ public class MenuController {
   }
 
   private void setKey() {
+    // get a random integer to set the game key
     Random random = new Random();
     int number = random.nextInt(3) + 1;
     switch (number) {
@@ -177,6 +190,5 @@ public class MenuController {
         GameState.room3Key = "1969";
         break;
     }
-    System.out.println("key = " + GameState.key);
   }
 }

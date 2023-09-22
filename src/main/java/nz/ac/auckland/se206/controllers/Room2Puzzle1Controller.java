@@ -33,6 +33,7 @@ public class Room2Puzzle1Controller {
 
   @FXML
   private void initialize() {
+    // initialize all objects
     buttonOrder = new int[6];
     currentIndex = 0;
     one.setFill(Color.WHITE);
@@ -78,8 +79,8 @@ public class Room2Puzzle1Controller {
   }
 
   @FXML
-
   private void onInitializePuzzle1Clicked() {
+    // set a random sequence of buttons to flash
     puzzle2Label.setText("");
     buttonOrder[0] = (int) (1 + (Math.random() * (9)));
     buttonOrder[1] = (int) (1 + (Math.random() * (9)));
@@ -112,6 +113,7 @@ public class Room2Puzzle1Controller {
   }
 
   public Rectangle integerToRectangle(int integer) {
+    // get a rectangle from an integer
     if (integer == 1) {
       return one;
     } else if (integer == 2) {
@@ -137,6 +139,7 @@ public class Room2Puzzle1Controller {
 
   @FXML
   private void onBackButtonClicked() {
+    // go to room 2
     System.out.println("Back button clicked");
     App.setUi(RoomType.ROOM2);
   }

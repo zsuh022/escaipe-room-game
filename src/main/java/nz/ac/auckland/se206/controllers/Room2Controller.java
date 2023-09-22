@@ -30,9 +30,11 @@ public class Room2Controller {
 
   @FXML
   private void initialize() {
+    // intialize room 2
     initializeTimer();
     initializePuzzle();
     keyShowingPane.setVisible(false);
+    // initialize music
     GameState.isPuzzleRoom2Solved.addListener(
         (observable, oldValue, newValue) -> {
           if (newValue) {
@@ -62,8 +64,8 @@ public class Room2Controller {
   private void initializePuzzle() {
     random = new Random();
     int randomNumber = random.nextInt(2) + 1;
-    System.out.println("Room 2 puzzle number: " + randomNumber);
 
+    // set which puzzle to do
     if (randomNumber == 1) {
       polygonRoom2Puzzle1.setVisible(true);
       polygonRoom2Puzzle2.setVisible(false);
@@ -78,6 +80,7 @@ public class Room2Controller {
   }
 
   private void fadeInOutIndicationPane() {
+    // initalize indication pane
     indicationPane.setVisible(true);
     FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
     fadeIn.setFromValue(0);
@@ -89,6 +92,7 @@ public class Room2Controller {
     fadeOut.setFromValue(1);
     fadeOut.setToValue(0);
 
+    // fade banner in and out
     fadeIn.setOnFinished(
         event -> {
           pause.play();
@@ -112,6 +116,7 @@ public class Room2Controller {
 
   @FXML
   private void buttonClicked() {
+    // change to room 1
     System.out.println("Button clicked");
     GameState.currentRoom.set(1);
     App.setUi(RoomType.ROOM1);
@@ -143,6 +148,7 @@ public class Room2Controller {
 
   @FXML
   private void gameMasterClicked() {
+    // change to game master
     System.out.println("Game master clicked");
     GameState.currentRoom.set(5);
     App.setUi(RoomType.GAMEMASTER);
