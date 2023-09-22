@@ -21,6 +21,7 @@ public class Room2Controller {
   @FXML private ImageView crossImage;
   @FXML private ImageView waveImage;
   @FXML private Label room2KeyLabel;
+  @FXML private Label timeLabel;
   @FXML private Pane keyShowingPane;
   @FXML private Pane indicationPane;
   @FXML private Polygon polygonRoom2Puzzle1;
@@ -122,8 +123,6 @@ public class Room2Controller {
     App.setUi(RoomType.ROOM1);
     GameState.roomNumber = 1;
   }
-
-  @FXML private Label timeLabel;
 
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());

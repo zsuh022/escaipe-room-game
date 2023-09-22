@@ -17,6 +17,8 @@ public class Room1Controller {
   @FXML private ImageView crossImage;
   @FXML private ImageView waveImage;
   @FXML private Label room1KeyLabel;
+  @FXML private Label timeLabel;
+  @FXML private Pane indicationPane;
   @FXML private Pane keyShowingPane;
 
   /** Initializes the room view, it is called when the room loads. */
@@ -56,8 +58,6 @@ public class Room1Controller {
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 1;
   }
-
-  @FXML private Pane indicationPane;
 
   private void fadeInOutIndicationPane() {
     // set up pane along the bottom
@@ -130,8 +130,6 @@ public class Room1Controller {
     App.setUi(RoomType.GAMEMASTER);
     GameState.roomNumber = 1;
   }
-
-  @FXML private Label timeLabel;
 
   private void initializeTimer() {
     // bind the time label to the time manager
