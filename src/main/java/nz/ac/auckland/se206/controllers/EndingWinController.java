@@ -34,6 +34,14 @@ public class EndingWinController {
 
   @FXML
   private void initialize() throws URISyntaxException {
+    System.out.println("EndingWinController initialized");
+
+    MusicManager.playHappySong();
+    initializeRoom();
+    playVideo();
+  }
+
+  private void initializeRoom() {
     isKeyOutputed = false;
     isRiddleOutputed = false;
     keyLabel.setText(String.valueOf(GameState.key));
@@ -45,19 +53,22 @@ public class EndingWinController {
   }
 
   private void playVideo() throws URISyntaxException {
+    setupMedia();
+    setupFadeTransition();
+    setupPlayerHandlers();
+  }
+
+  private void setupMedia() throws URISyntaxException {
     Media media = new Media(App.class.getResource("/sounds/depart.mp4").toURI().toString());
     player = new MediaPlayer(media);
     depart.setMediaPlayer(player);
+  }
 
+  private void setupFadeTransition() {
     FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), depart);
     fadeOut.setFromValue(1.0);
     fadeOut.setToValue(0.1);
-    fadeOut.setOnFinished(
-        e -> {
-          player.stop();
-          depart.setVisible(false);
-          skipLabel.setVisible(false);
-        });
+    fadeOut.setOnFinished(e -> stopAndHidePlayer());
 
     player.setOnPlaying(
         () -> {
@@ -65,22 +76,18 @@ public class EndingWinController {
           delayFade.setOnFinished(e -> fadeOut.play());
           delayFade.play();
         });
+  }
 
-    depart.setOnMouseClicked(
-        e -> {
-          player.stop();
-          depart.setVisible(false);
-          skipLabel.setVisible(false);
-        });
-
-    skipLabel.setOnMouseClicked(
-        e -> {
-          player.stop();
-          depart.setVisible(false);
-          skipLabel.setVisible(false);
-        });
-
+  private void setupPlayerHandlers() {
+    depart.setOnMouseClicked(e -> stopAndHidePlayer());
+    skipLabel.setOnMouseClicked(e -> stopAndHidePlayer());
     player.play();
+  }
+
+  private void stopAndHidePlayer() {
+    player.stop();
+    depart.setVisible(false);
+    skipLabel.setVisible(false);
   }
 
   @FXML
