@@ -271,8 +271,8 @@ public class Room2Puzzle2Controller {
       // if the word does not contain the character, increment the chance count
       if (chanceCount < 5) {
         chanceCount++;
+        // for each chance count, set the corresponding rectangle to red
         switch (chanceCount) {
-            // for each chance count, set the corresponding rectangle to red
           case 1:
             chance1.setFill(Color.RED);
             flashSpacesRed();
