@@ -161,7 +161,7 @@ public class ExitDoorController {
     fadeIn.setFromValue(0);
     fadeIn.setToValue(1);
 
-    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    PauseTransition pause = new PauseTransition(Duration.seconds(0.99));
 
     FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
     fadeOut.setFromValue(1);

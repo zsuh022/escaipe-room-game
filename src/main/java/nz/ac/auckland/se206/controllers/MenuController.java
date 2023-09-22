@@ -193,5 +193,6 @@ public class MenuController {
         GameState.room3Key = "1969";
         break;
     }
+    System.out.println("key = " + GameState.key);
   }
 }

@@ -149,7 +149,7 @@ public class RiddleChatController {
     // show loading pane and start animation
     Platform.runLater(
         () -> {
-          transLabel.setText("Transmitting to earth .");
+          transLabel.setText("Sending to Earth .");
           startLabelAnimation(transLabel);
           waitingResponsePane.setVisible(true); // Show loading pane
         });
@@ -191,12 +191,12 @@ public class RiddleChatController {
                 Duration.seconds(0.5),
                 e -> {
                   String currentText = label.getText();
-                  if (currentText.equals("Transmitting to earth .")) {
-                    label.setText("Transmitting to earth ..");
-                  } else if (currentText.equals("Transmitting to earth ..")) {
-                    label.setText("Transmitting to earth ...");
+                  if (currentText.equals("Sending to Earth .")) {
+                    label.setText("Sending to Earth ..");
+                  } else if (currentText.equals("Sending to Earth ..")) {
+                    label.setText("Sending to Earth ...");
                   } else {
-                    label.setText("Transmitting to earth .");
+                    label.setText("Sending to Earth .");
                   }
                 }));
 

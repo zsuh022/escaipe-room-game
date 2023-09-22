@@ -37,7 +37,7 @@ public class EndingWinController {
     keyTextArea.setVisible(false);
     riddleTextArea.setVisible(false);
   }
-
+  
   @FXML
   private void initialize() throws URISyntaxException {
     // this method is called when the fxml file is loaded

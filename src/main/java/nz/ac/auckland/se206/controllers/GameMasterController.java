@@ -125,7 +125,7 @@ public class GameMasterController {
     fadeIn.setFromValue(0);
     fadeIn.setToValue(1);
 
-    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    PauseTransition pause = new PauseTransition(Duration.seconds(0.97));
 
     FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
     fadeOut.setFromValue(1);
@@ -168,7 +168,7 @@ public class GameMasterController {
     // show loading pane and start animation
     Platform.runLater(
         () -> {
-          transLabel.setText("Transmitting to earth .");
+          transLabel.setText("Transmitting to Earth .");
           startLabelAnimation(transLabel);
           waitingResponsePane.setVisible(true); // Show loading pane
         });
@@ -221,12 +221,12 @@ public class GameMasterController {
                 e -> {
                   String currentText = label.getText();
                   // set . to .. to ... to . and repeat
-                  if (currentText.equals("Transmitting to earth .")) {
-                    label.setText("Transmitting to earth ..");
-                  } else if (currentText.equals("Transmitting to earth ..")) {
-                    label.setText("Transmitting to earth ...");
+                  if (currentText.equals("Transmitting to Earth .")) {
+                    label.setText("Transmitting to Earth ..");
+                  } else if (currentText.equals("Transmitting to Earth ..")) {
+                    label.setText("Transmitting to Earth ...");
                   } else {
-                    label.setText("Transmitting to earth .");
+                    label.setText("Transmitting to Earth .");
                   }
                 }));
 
