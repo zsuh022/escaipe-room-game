@@ -23,6 +23,7 @@ public class EndingLoseController {
   @FXML
   private void initialize() throws URISyntaxException {
     System.out.println("EndingWinController initialized");
+
     MusicManager.playBadSong();
     gameMasterTransition();
   }
@@ -30,12 +31,14 @@ public class EndingLoseController {
   @FXML
   private void exitButtonClicked() {
     System.out.println("Exit button clicked");
+
     Platform.exit();
   }
 
   @FXML
   private void restartButtonClicked() throws IOException {
     System.out.println("Play again button clicked");
+
     SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
     App.setUi(RoomType.MENU);
     GameState.reset();
@@ -57,6 +60,7 @@ public class EndingLoseController {
     rotateTransition.setByAngle(360);
     rotateTransition.setInterpolator(Interpolator.LINEAR);
 
+    // play both transitions
     translateTransition.play();
     rotateTransition.play();
   }
