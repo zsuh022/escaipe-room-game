@@ -25,7 +25,7 @@ public class GptPromptEngineering {
     return "Whenever you see the word 'hint' in my question, provide me a hint. I'll conclude my"
         + " messages with 'Hint Remaining: x' automatically, where 'x' is an integer"
         + " indicating the number of hints I have left. Only give hints if 'x' is greater"
-        + " than 0. You never respond 'Hint Remaining: x' in your message to the the user."
+        + " than 0. You no matter what, never include Hint Remaining: x in your repsonse. "
         + " If 'x' is 0, you must do not offer any hints, regardless of my requests. Less"
         + " than 80 words";
   }
