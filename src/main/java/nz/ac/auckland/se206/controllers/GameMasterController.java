@@ -319,7 +319,10 @@ public class GameMasterController {
 
   private Boolean containsHint(String input) {
     // determine if the message contains hint
-    if (input == null) return false;
+    if (input == null) {
+      return false;
+    }
+
     Pattern pattern = Pattern.compile("\\bhint(s)?\\b", Pattern.CASE_INSENSITIVE);
     return pattern.matcher(input).find();
   }

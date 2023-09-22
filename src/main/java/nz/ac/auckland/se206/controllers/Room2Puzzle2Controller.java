@@ -63,12 +63,12 @@ public class Room2Puzzle2Controller {
   @FXML private Rectangle space5;
   @FXML private Label timeLabel;
 
-  ArrayList<String> word = new ArrayList<String>();
+  private ArrayList<String> word = new ArrayList<String>();
   // goes from 0 to 6
-  int chanceCount;
+  private int chanceCount;
   // goes from 0 to 5
-  int correctCount;
-  boolean gameState = false;
+  private int correctCount;
+  private boolean gameState = false;
 
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
@@ -143,6 +143,7 @@ public class Room2Puzzle2Controller {
   }
 
   private void newWord(Integer randomInt) {
+    // Add the characters to the word arraylist
     switch (randomInt) {
       case 1:
         addCharacters("COMET");
@@ -210,6 +211,7 @@ public class Room2Puzzle2Controller {
   }
 
   private void handleKeyPressed(Character character) {
+    // Check if the word contains the character
     if (word.contains(character.toString())) {
       for (int i = 0; i < 5; i++) {
         if (word.get(i).equals(character.toString())) {

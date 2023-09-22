@@ -17,10 +17,13 @@ public class Room1Controller {
   @FXML private ImageView crossImage;
   @FXML private ImageView waveImage;
   @FXML private Label room1KeyLabel;
+  @FXML private Label timeLabel;
+  @FXML private Pane indicationPane;
   @FXML private Pane keyShowingPane;
 
   /** Initializes the room view, it is called when the room loads. */
-  public void initialize() {
+  @FXML
+  private void initialize() {
     initializeTimer();
     keyShowingPane.setVisible(false);
     indicationPane.setOpacity(0);
@@ -52,11 +55,60 @@ public class Room1Controller {
         });
   }
 
-  private boolean thisIsCurrentRoom(Number roomNumber) {
-    return roomNumber.intValue() == 1;
+  @FXML
+  private void onComputerClicked() {
+    // go to chat
+    System.out.println("Computer clicked");
+    App.setUi(RoomType.CHAT);
   }
 
-  @FXML private Pane indicationPane;
+  @FXML
+  private void onExitDoorButtonClicked() {
+    // go to Room 4
+    System.out.println("Exit door button clicked");
+    GameState.currentRoom.set(4);
+    App.setUi(RoomType.EXITDOOR);
+    GameState.roomNumber = 4;
+  }
+
+  @FXML
+  private void onGameMasterClicked() {
+    // go to game master
+    System.out.println("Game master clicked");
+    GameState.currentRoom.set(5);
+    App.setUi(RoomType.GAMEMASTER);
+    GameState.roomNumber = 1;
+  }
+
+  @FXML
+  private void onRoom2ButtonClicked() {
+    // go to Room 2
+    System.out.println("Room 2 button clicked");
+    GameState.currentRoom.set(2);
+    App.setUi(RoomType.ROOM2);
+    GameState.roomNumber = 2;
+  }
+
+  @FXML
+  private void onRoom3ButtonClicked() {
+    // go to Room 3
+    System.out.println("Room 3 button clicked");
+    GameState.currentRoom.set(3);
+    App.setUi(RoomType.ROOM3);
+    GameState.roomNumber = 3;
+  }
+
+  @FXML
+  private void onMuteBarClicked() {
+    // mute the music
+    System.out.println("Mute bar clicked");
+    GameState.isMuted.set(!GameState.isMuted.get());
+  }
+
+  private void initializeTimer() {
+    // bind the time label to the time manager
+    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
+  }
 
   private void fadeInOutIndicationPane() {
     // set up pane along the bottom
@@ -87,67 +139,14 @@ public class Room1Controller {
     fadeIn.play();
   }
 
-  @FXML
-  private void clickRoom2Button() {
-    // go to Room 2
-    System.out.println("Room 2 button clicked");
-    GameState.currentRoom.set(2);
-    App.setUi(RoomType.ROOM2);
-    GameState.roomNumber = 2;
-  }
-
-  @FXML
-  private void clickRoom3Button() {
-    // go to Room 3
-    System.out.println("Room 3 button clicked");
-    GameState.currentRoom.set(3);
-    App.setUi(RoomType.ROOM3);
-    GameState.roomNumber = 3;
-  }
-
-  @FXML
-  private void clickRoom4Button() {
-    // go to Room 4
-    System.out.println("Exit door button clicked");
-    GameState.currentRoom.set(4);
-    App.setUi(RoomType.EXITDOOR);
-    GameState.roomNumber = 4;
-  }
-
-  @FXML
-  private void clickComputer() {
-    // go to chat
-    System.out.println("Computer clicked");
-    App.setUi(RoomType.CHAT);
-  }
-
-  @FXML
-  private void clickGameMaster() {
-    // go to game master
-    System.out.println("Game master clicked");
-    GameState.currentRoom.set(5);
-    App.setUi(RoomType.GAMEMASTER);
-    GameState.roomNumber = 1;
-  }
-
-  @FXML private Label timeLabel;
-
-  private void initializeTimer() {
-    // bind the time label to the time manager
-    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
-  }
-
-  @FXML
-  private void muteBarClick() {
-    // mute the music
-    System.out.println("Mute bar clicked");
-    GameState.isMuted.set(!GameState.isMuted.get());
-  }
-
   public void showRoom1Key() {
     // show the room 1 key
     System.out.println("Room 1 key shown");
     keyShowingPane.setVisible(true);
     room1KeyLabel.setText(GameState.room1Key);
+  }
+
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    return roomNumber.intValue() == 1;
   }
 }

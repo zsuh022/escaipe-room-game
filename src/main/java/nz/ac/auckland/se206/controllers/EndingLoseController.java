@@ -38,7 +38,7 @@ public class EndingLoseController {
   @FXML
   private void clickRestartButton() throws IOException {
     System.out.println("Play again button clicked");
-
+    // reset game state
     SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
     App.setUi(RoomType.MENU);
     GameState.reset();

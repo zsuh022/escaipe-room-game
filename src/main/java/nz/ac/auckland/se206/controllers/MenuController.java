@@ -172,12 +172,14 @@ public class MenuController {
     int number = random.nextInt(3) + 1;
     switch (number) {
       case 1:
+        // for example, if the random number is 1, the key will be 12041961
         GameState.key = 12041961;
         GameState.room2Key = "12";
         GameState.room1Key = "04";
         GameState.room3Key = "1961";
         break;
       case 2:
+        // for example, if the random number is 2, the key will be 19041971
         GameState.key = 19041971;
         GameState.room2Key = "19";
         GameState.room1Key = "04";

@@ -141,7 +141,9 @@ public class Room3Puzzle2Controller {
 
     // if the planet is too close to other planets, return true
     for (ImageView otherPlanet : allPlanets) {
-      if (otherPlanet == planet) continue;
+      if (otherPlanet == planet) {
+        continue;
+      }
 
       double distance = position.distance(otherPlanet.getLayoutX(), otherPlanet.getLayoutY());
       if (distance < minDistance) {
