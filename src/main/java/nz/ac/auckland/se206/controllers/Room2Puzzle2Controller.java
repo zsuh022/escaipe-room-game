@@ -250,11 +250,14 @@ public class Room2Puzzle2Controller {
       }
 
       if (correctCount == 5) {
+        // if the word is correct, set the game state to true
         puzzleSolved();
         gameState = true;
         room2Puzzle2State.setText("PUZZLE CORRECT");
         rectangleGameState.setFill(Color.LIGHTGREEN);
         rectangleGameState.setOpacity(1);
+
+        // set all the rectangles to green for correct game
         chance1.setFill(Color.GREEN);
         chance2.setFill(Color.GREEN);
         chance3.setFill(Color.GREEN);
@@ -265,9 +268,11 @@ public class Room2Puzzle2Controller {
       }
 
     } else {
+      // if the word does not contain the character, increment the chance count
       if (chanceCount < 5) {
         chanceCount++;
         switch (chanceCount) {
+            // for each chance count, set the corresponding rectangle to red
           case 1:
             chance1.setFill(Color.RED);
             flashSpacesRed();
@@ -292,6 +297,7 @@ public class Room2Puzzle2Controller {
             break;
         }
       } else {
+        // if the chance count is 6, set the last rectangle to red and set the game state to true
         chanceCount++;
         gameState = true;
         chance6.setFill(Color.RED);
