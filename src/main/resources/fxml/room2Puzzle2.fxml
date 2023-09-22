@@ -13,7 +13,7 @@
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/room2puzzle2.jpg" />
+            <Image url="@../images/room2Puzzle2.jpg" />
          </image>
       </ImageView>
       <Button fx:id="buttonA" layoutX="239.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonClicked" text="A">
