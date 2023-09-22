@@ -78,6 +78,7 @@ public class TextToSpeech {
    * @param sentence A string to speak.
    */
   public void speak(final String sentence) {
+    // cannot speak null
     if (sentence == null) {
       throw new IllegalArgumentException("Text cannot be null.");
     }

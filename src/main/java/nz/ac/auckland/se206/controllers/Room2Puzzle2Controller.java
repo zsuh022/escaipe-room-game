@@ -143,41 +143,50 @@ public class Room2Puzzle2Controller {
   }
 
   private void newWord(Integer randomInt) {
-    // Add the characters to the word arraylist
+    // add the characters to the word arraylist
     switch (randomInt) {
       case 1:
+        // add COMET to the arraylist
         addCharacters("COMET");
         System.out.println("COMET");
         break;
       case 2:
+        // add SOLAR to the arraylist
         addCharacters("SOLAR");
         System.out.println("SOLAR");
         break;
       case 3:
+        // add STARS to the arraylist
         addCharacters("STARS");
         System.out.println("STARS");
         break;
       case 4:
+        // add EARTH to the arraylist
         addCharacters("EARTH");
         System.out.println("EARTH");
         break;
       case 5:
+        // add VENUS to the arraylist
         addCharacters("VENUS");
         System.out.println("VENUS");
         break;
       case 6:
+        // add PLUTO to the arraylist
         addCharacters("PLUTO");
         System.out.println("PLUTO");
         break;
       case 7:
+        // add ORION to the arraylist
         addCharacters("ORION");
         System.out.println("ORION");
         break;
       case 8:
+        // add MOONS to the arraylist
         addCharacters("MOONS");
         System.out.println("MOONS");
         break;
       default:
+        // add PLUTO to the arraylist
         addCharacters("PLUTO");
         System.out.println("PLUTO");
         break;
@@ -211,11 +220,13 @@ public class Room2Puzzle2Controller {
   }
 
   private void handleKeyPressed(Character character) {
-    // Check if the word contains the character
+    // check if the word contains the character
     if (word.contains(character.toString())) {
       for (int i = 0; i < 5; i++) {
+        // check if the character is in the word
         if (word.get(i).equals(character.toString())) {
           correctCount++;
+          // set the letter to the correct label
           switch (i) {
             case 0:
               letter1.setText(character.toString());
