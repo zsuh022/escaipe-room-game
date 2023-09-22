@@ -33,7 +33,7 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <Button fx:id="startButton" layoutX="-2.0" layoutY="594.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="174.0" prefWidth="1027.0" text="start">
+      <Button fx:id="startButton" layoutX="-2.0" layoutY="594.0" mnemonicParsing="false" onAction="#onStartButtonClicked" prefHeight="174.0" prefWidth="1027.0" text="start">
          <font>
             <Font size="62.0" />
          </font>
