@@ -143,6 +143,7 @@ public class Room2Puzzle2Controller {
   }
 
   private void newWord(Integer randomInt) {
+    // Add the characters to the word arraylist
     switch (randomInt) {
       case 1:
         addCharacters("COMET");
@@ -210,6 +211,7 @@ public class Room2Puzzle2Controller {
   }
 
   private void handleKeyPressed(Character character) {
+    // Check if the word contains the character
     if (word.contains(character.toString())) {
       for (int i = 0; i < 5; i++) {
         if (word.get(i).equals(character.toString())) {
@@ -291,7 +293,7 @@ public class Room2Puzzle2Controller {
 
   @FXML
   private void resetRoom2Puzzle2Clicked() {
-    word.clear(); // Clear the current word.
+    word.clear(); // Clear the current word from the arraylist
     initialize();
   }
 
