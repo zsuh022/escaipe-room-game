@@ -65,3 +65,7 @@
 #btnEnter {
     -fx-text-fill: #EB6440;
 }
+
+#keyPadMessageLabel {
+    -fx-text-fill: #FF5677;
+}
