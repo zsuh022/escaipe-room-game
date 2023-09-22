@@ -53,6 +53,7 @@ public class App extends Application {
     Parent root = loadFxml("menu");
     scene = new Scene(root, 1024, 768);
     stage.setScene(scene);
+    stage.setResizable(false);
     stage.show();
     root.requestFocus();
   }
