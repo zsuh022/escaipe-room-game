@@ -62,22 +62,39 @@ public class Room2Controller {
         });
   }
 
-  private void initializePuzzle() {
-    random = new Random();
-    int randomNumber = random.nextInt(2) + 1;
-
-    // set which puzzle to do
-    if (randomNumber == 1) {
-      polygonRoom2Puzzle1.setVisible(true);
-      polygonRoom2Puzzle2.setVisible(false);
-    } else {
-      polygonRoom2Puzzle1.setVisible(false);
-      polygonRoom2Puzzle2.setVisible(true);
-    }
+  @FXML
+  private void onGameMasterClicked() {
+    // change to game master
+    System.out.println("Game master clicked");
+    GameState.currentRoom.set(5);
+    App.setUi(RoomType.GAMEMASTER);
+    GameState.roomNumber = 2;
   }
 
-  private boolean thisIsCurrentRoom(Number roomNumber) {
-    return roomNumber.intValue() == 2;
+  @FXML
+  private void onMuteBarClicked() {
+    GameState.isMuted.set(!GameState.isMuted.get());
+  }
+
+  @FXML
+  private void onPuzzle1Clicked(MouseEvent event) throws IOException {
+    System.out.println("lock clicked");
+    App.setUi(RoomType.ROOM2PUZZLE1);
+  }
+
+  @FXML
+  private void onPuzzle2Clicked(MouseEvent event) throws IOException {
+    System.out.println("box clicked");
+    App.setUi(RoomType.ROOM2PUZZLE2);
+  }
+
+  @FXML
+  private void onRoom1ButtonClicked() {
+    // change to room 1
+    System.out.println("Button clicked");
+    GameState.currentRoom.set(1);
+    App.setUi(RoomType.ROOM1);
+    GameState.roomNumber = 1;
   }
 
   private void fadeInOutIndicationPane() {
@@ -109,48 +126,31 @@ public class Room2Controller {
     fadeIn.play();
   }
 
-  private void showRoom2Key() {
-    System.out.println("Showing room 2 key");
-    keyShowingPane.setVisible(true);
-    room2KeyLabel.setText(GameState.room2Key);
-  }
+  private void initializePuzzle() {
+    random = new Random();
+    int randomNumber = random.nextInt(2) + 1;
 
-  @FXML
-  private void onRoom1ButtonClicked() {
-    // change to room 1
-    System.out.println("Button clicked");
-    GameState.currentRoom.set(1);
-    App.setUi(RoomType.ROOM1);
-    GameState.roomNumber = 1;
+    // set which puzzle to do
+    if (randomNumber == 1) {
+      polygonRoom2Puzzle1.setVisible(true);
+      polygonRoom2Puzzle2.setVisible(false);
+    } else {
+      polygonRoom2Puzzle1.setVisible(false);
+      polygonRoom2Puzzle2.setVisible(true);
+    }
   }
 
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
-  @FXML
-  private void onPuzzle1Clicked(MouseEvent event) throws IOException {
-    System.out.println("lock clicked");
-    App.setUi(RoomType.ROOM2PUZZLE1);
+  private void showRoom2Key() {
+    System.out.println("Showing room 2 key");
+    keyShowingPane.setVisible(true);
+    room2KeyLabel.setText(GameState.room2Key);
   }
 
-  @FXML
-  private void onPuzzle2Clicked(MouseEvent event) throws IOException {
-    System.out.println("box clicked");
-    App.setUi(RoomType.ROOM2PUZZLE2);
-  }
-
-  @FXML
-  private void onMuteBarClicked() {
-    GameState.isMuted.set(!GameState.isMuted.get());
-  }
-
-  @FXML
-  private void onGameMasterClicked() {
-    // change to game master
-    System.out.println("Game master clicked");
-    GameState.currentRoom.set(5);
-    App.setUi(RoomType.GAMEMASTER);
-    GameState.roomNumber = 2;
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    return roomNumber.intValue() == 2;
   }
 }

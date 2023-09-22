@@ -68,48 +68,17 @@ public class Room3Controller {
   }
 
   @FXML
+  private void onGameMasterClicked() {
+    // change to game master
+    System.out.println("Game master clicked");
+    GameState.currentRoom.set(5);
+    App.setUi(RoomType.GAMEMASTER);
+    GameState.roomNumber = 3;
+  }
+
+  @FXML
   private void onMuteBarClicked() {
     GameState.isMuted.set(!GameState.isMuted.get());
-  }
-
-  private boolean thisIsCurrentRoom(Number roomNumber) {
-    return roomNumber.intValue() == 3;
-  }
-
-  private void fadeInOutIndicationPane() {
-    // fades banner in and out of view
-    indicationPane.setVisible(true);
-    FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
-    fadeIn.setFromValue(0);
-    fadeIn.setToValue(1);
-
-    PauseTransition pause = new PauseTransition(Duration.seconds(1));
-
-    FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
-    fadeOut.setFromValue(1);
-    fadeOut.setToValue(0);
-
-    // sets the order of the transitions
-    fadeIn.setOnFinished(
-        event -> {
-          pause.play();
-        });
-    pause.setOnFinished(
-        event -> {
-          fadeOut.play();
-        });
-    fadeOut.setOnFinished(
-        e -> {
-          indicationPane.setVisible(false);
-        });
-    fadeIn.play();
-  }
-
-  private void showRoom3Key() {
-    // shows room 3 key
-    System.out.println("Showing room 3 key");
-    keyShowingPane.setVisible(true);
-    room3KeyLabel.setText(GameState.room3Key);
   }
 
   @FXML
@@ -149,6 +118,35 @@ public class Room3Controller {
     }
   }
 
+  private void fadeInOutIndicationPane() {
+    // fades banner in and out of view
+    indicationPane.setVisible(true);
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
+
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
+    FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeOut.setFromValue(1);
+    fadeOut.setToValue(0);
+
+    // sets the order of the transitions
+    fadeIn.setOnFinished(
+        event -> {
+          pause.play();
+        });
+    pause.setOnFinished(
+        event -> {
+          fadeOut.play();
+        });
+    fadeOut.setOnFinished(
+        e -> {
+          indicationPane.setVisible(false);
+        });
+    fadeIn.play();
+  }
+
   private void initializePuzzle() {
     // choosing random puzzle for implementation
     int randomNumber = random.nextInt(2) + 1;
@@ -173,12 +171,14 @@ public class Room3Controller {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
-  @FXML
-  private void onGameMasterClicked() {
-    // change to game master
-    System.out.println("Game master clicked");
-    GameState.currentRoom.set(5);
-    App.setUi(RoomType.GAMEMASTER);
-    GameState.roomNumber = 3;
+  private void showRoom3Key() {
+    // shows room 3 key
+    System.out.println("Showing room 3 key");
+    keyShowingPane.setVisible(true);
+    room3KeyLabel.setText(GameState.room3Key);
+  }
+
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    return roomNumber.intValue() == 3;
   }
 }
