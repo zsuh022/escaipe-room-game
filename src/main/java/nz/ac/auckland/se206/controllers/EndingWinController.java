@@ -37,13 +37,7 @@ public class EndingWinController {
     keyTextArea.setVisible(false);
     riddleTextArea.setVisible(false);
   }
-
-  @FXML
-  private void clickExitButton() {
-    System.out.println("Exit button clicked");
-    Platform.exit();
-  }
-
+  
   @FXML
   private void initialize() throws URISyntaxException {
     // this method is called when the fxml file is loaded
@@ -69,7 +63,13 @@ public class EndingWinController {
   }
 
   @FXML
-  private void restartButtonClicked() throws IOException {
+  private void onExitButtonClicked() {
+    System.out.println("Exit button clicked");
+    Platform.exit();
+  }
+
+  @FXML
+  private void onRestartButtonClicked() throws IOException {
     // when the restart button is clicked, the game will restart
     System.out.println("Play again button clicked");
     SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
@@ -177,19 +177,19 @@ public class EndingWinController {
 
   private void playVideo() throws URISyntaxException {
     // this the method that plays the video
-    setupMedia();
-    setupFadeTransition();
-    setupPlayerHandlers();
+    setUpMedia();
+    setUpFadeTransition();
+    setUpPlayerHandlers();
   }
 
-  private void setupMedia() throws URISyntaxException {
+  private void setUpMedia() throws URISyntaxException {
     // this method sets up the media player
     Media media = new Media(App.class.getResource("/sounds/depart.mp4").toURI().toString());
     player = new MediaPlayer(media);
     depart.setMediaPlayer(player);
   }
 
-  private void setupFadeTransition() {
+  private void setUpFadeTransition() {
     // this method sets up the fade transition
     FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), depart);
     fadeOut.setFromValue(1.0);
@@ -205,7 +205,7 @@ public class EndingWinController {
         });
   }
 
-  private void setupPlayerHandlers() {
+  private void setUpPlayerHandlers() {
     // this method sets up the player handlers
     depart.setOnMouseClicked(e -> stopAndHidePlayer());
     skipLabel.setOnMouseClicked(e -> stopAndHidePlayer());

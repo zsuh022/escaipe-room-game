@@ -12,7 +12,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Ending.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EndingWinController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Ending.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx" fx:controller="nz.ac.auckland.se206.controllers.EndingWinController">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" onMouseEntered="#baseTouched">
@@ -35,12 +35,12 @@
             <Font size="55.0" />
          </font>
       </Label>
-      <Button layoutX="460.0" layoutY="610.0" mnemonicParsing="false" onAction="#restartButtonClicked" styleClass="btnRestart" text="Restart">
+      <Button layoutX="460.0" layoutY="610.0" mnemonicParsing="false" onAction="#onRestartButtonClicked" styleClass="btnRestart" text="Restart">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="921.0" layoutY="689.0" mnemonicParsing="false" onAction="#clickExitButton" styleClass="btnExit" text="Exit">
+      <Button layoutX="921.0" layoutY="689.0" mnemonicParsing="false" onAction="#onExitButtonClicked" styleClass="btnExit" text="Exit">
          <font>
             <Font size="24.0" />
          </font>

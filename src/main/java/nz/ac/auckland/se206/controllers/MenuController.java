@@ -42,7 +42,8 @@ public class MenuController {
    *
    * @throws URISyntaxException
    */
-  public void initialize() throws URISyntaxException {
+  @FXML
+  private void initialize() throws URISyntaxException {
     // initialize images and labels
     nextImageView.setVisible(false);
     startButton.setVisible(true);
@@ -94,7 +95,7 @@ public class MenuController {
   }
 
   @FXML
-  private void clickButton() throws IOException, URISyntaxException {
+  private void onStartButtonClicked() throws IOException, URISyntaxException {
     // set difficulty, time, and key
     setDifficulty();
     setGameTime();

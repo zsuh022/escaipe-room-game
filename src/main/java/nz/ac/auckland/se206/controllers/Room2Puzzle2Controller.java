@@ -292,18 +292,19 @@ public class Room2Puzzle2Controller {
   }
 
   @FXML
-  private void ClickRoom2Puzzle2ResetButton() {
-    word.clear(); // Clear the current word.
+  private void onResetButtonClicked() {
+    // clear the current word from the arraylist
+    word.clear();
     initialize();
   }
 
   @FXML
-  private void ClickRoom2Puzzle2BackButton() {
+  private void onBackButtonClicked() {
     App.setUi(RoomType.ROOM2);
   }
 
   @FXML
-  private void clickHandleButton(ActionEvent event) {
+  private void onLetterButtonClicked(ActionEvent event) {
     if (!gameState) {
       Button clickedButton = (Button) event.getSource();
       clickedButton.setDisable(true);
