@@ -78,6 +78,7 @@ public class Room2Puzzle1Controller {
   }
 
   @FXML
+
   private void onInitializePuzzle1Clicked() {
     puzzle2Label.setText("");
     buttonOrder[0] = (int) (1 + (Math.random() * (9)));
