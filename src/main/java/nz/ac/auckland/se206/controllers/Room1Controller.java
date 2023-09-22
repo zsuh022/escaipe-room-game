@@ -20,7 +20,8 @@ public class Room1Controller {
   @FXML private Pane keyShowingPane;
 
   /** Initializes the room view, it is called when the room loads. */
-  public void initialize() {
+  @FXML
+  private void initialize() {
     initializeTimer();
     keyShowingPane.setVisible(false);
     indicationPane.setOpacity(0);

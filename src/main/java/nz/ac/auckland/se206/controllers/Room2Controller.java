@@ -130,13 +130,13 @@ public class Room2Controller {
   }
 
   @FXML
-  public void onPuzzle1Clicked(MouseEvent event) throws IOException {
+  private void onPuzzle1Clicked(MouseEvent event) throws IOException {
     System.out.println("lock clicked");
     App.setUi(RoomType.ROOM2PUZZLE1);
   }
 
   @FXML
-  public void onPuzzle2Clicked(MouseEvent event) throws IOException {
+  private void onPuzzle2Clicked(MouseEvent event) throws IOException {
     System.out.println("box clicked");
     App.setUi(RoomType.ROOM2PUZZLE2);
   }

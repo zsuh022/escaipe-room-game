@@ -114,7 +114,7 @@ public class ExitDoorController {
   }
 
   @FXML
-  public void updateKeyLabel(String key) throws IOException {
+  private void updateKeyLabel(String key) throws IOException {
     // update key label when the key pressed
     if (key.equals("Clear")) {
       btnKeyPadDisplay.setText("");
