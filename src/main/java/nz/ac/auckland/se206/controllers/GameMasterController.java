@@ -2,8 +2,11 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
+import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
@@ -30,8 +34,12 @@ public class GameMasterController {
   @FXML private TextArea chatTextArea;
   @FXML private TextField inputTextArea;
   @FXML private Label timeLabel;
+  @FXML private Pane waitingResponsePane;
+  @FXML private Label transLabel;
+  @FXML private Pane indicationPane;
+  @FXML private Label transLabel1;
+  private Timeline labelAnimationTimeline;
   private int updateCount = 0;
-
   private ChatCompletionRequest chatCompletionRequest;
 
   /**
@@ -41,8 +49,12 @@ public class GameMasterController {
    */
   @FXML
   public void initialize() throws ApiProxyException {
+    // this will be called when the view is loaded
     initializeTimer();
     updateCount = 0;
+    chatTextArea.setEditable(false);
+    waitingResponsePane.setVisible(false);
+    transLabel1.setVisible(false);
     GameState.currentRoom.addListener(
         (obs, oldRoom, newRoom) -> {
           if (thisIsCurrentRoom(newRoom)) {
@@ -52,6 +64,7 @@ public class GameMasterController {
     chatCompletionRequest =
         new ChatCompletionRequest().setN(1).setTemperature(0.1).setTopP(0.5).setMaxTokens(250);
 
+    // determine which prompt to use
     Thread thread =
         new Thread(
             () -> {
@@ -64,6 +77,7 @@ public class GameMasterController {
                 }
               } else if (GameState.difficulty == 2) {
                 try {
+                  // for example, if the difficulty is 2, then the prompt will be the medium
                   runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterMid()));
                 } catch (ApiProxyException e) {
                   // TODO Auto-generated catch block
@@ -78,6 +92,21 @@ public class GameMasterController {
                 }
               }
             });
+    inputTextArea.setOnKeyPressed(
+        event -> {
+          if (event.getCode() == KeyCode.ENTER) {
+            try {
+              onSendMessage(null); // Call the existing send message method
+            } catch (ApiProxyException | IOException e) {
+              // Handle the exception, for instance, by showing an error message to the user.
+              e.printStackTrace();
+            }
+            event.consume(); // Prevent default behavior of newline on 'Enter' key press.
+          }
+        });
+
+    // hide loading pane when clicked
+    waitingResponsePane.setOnMouseClicked(e -> waitingResponsePane.setVisible(false));
     thread.start();
   }
 
@@ -89,9 +118,8 @@ public class GameMasterController {
     return roomNumber.intValue() == 5;
   }
 
-  @FXML private Pane indicationPane;
-
   private void fadeInOutIndicationPane() {
+    // fade in and out the indication pane
     indicationPane.setVisible(true);
     FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
     fadeIn.setFromValue(0);
@@ -103,6 +131,7 @@ public class GameMasterController {
     fadeOut.setFromValue(1);
     fadeOut.setToValue(0);
 
+    // when fade in is finished, start the pause transition
     fadeIn.setOnFinished(
         event -> {
           pause.play();
@@ -136,8 +165,18 @@ public class GameMasterController {
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   private ChatMessage runGpt(ChatMessage msg) throws ApiProxyException {
+    // show loading pane and start animation
+    Platform.runLater(
+        () -> {
+          transLabel.setText("Transmitting to earth .");
+          startLabelAnimation(transLabel);
+          waitingResponsePane.setVisible(true); // Show loading pane
+        });
+
+    // check if the message ends with "DONOTRESPOND"
     Boolean isEndWithNoRespond = false;
     if (msg.getContent().endsWith("DONOTRESPOND")) {
+      transLabel1.setVisible(true);
       isEndWithNoRespond = true;
     }
     chatCompletionRequest.addMessage(msg);
@@ -145,6 +184,7 @@ public class GameMasterController {
       ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
       Choice result = chatCompletionResult.getChoices().iterator().next();
       chatCompletionRequest.addMessage(result.getChatMessage());
+      // if the message ends with "DONOTRESPOND", then don't append the message
       if (!isEndWithNoRespond) {
         appendChatMessage(result.getChatMessage());
       }
@@ -153,7 +193,46 @@ public class GameMasterController {
       // TODO handle exception appropriately
       e.printStackTrace();
       return null;
+    } finally {
+      // stop animation and hide loading pane
+      Platform.runLater(
+          () -> {
+            if (labelAnimationTimeline != null) {
+              labelAnimationTimeline.stop();
+            }
+            transLabel.setText("");
+            waitingResponsePane.setVisible(false); // Hide loading pane
+            transLabel1.setVisible(false);
+          });
     }
+  }
+
+  private void startLabelAnimation(Label label) {
+    // this will be called when waiting for response
+    if (labelAnimationTimeline != null) {
+      labelAnimationTimeline.stop();
+    }
+
+    // animate the label
+    labelAnimationTimeline =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(0.5),
+                e -> {
+                  String currentText = label.getText();
+                  // set . to .. to ... to . and repeat
+                  if (currentText.equals("Transmitting to earth .")) {
+                    label.setText("Transmitting to earth ..");
+                  } else if (currentText.equals("Transmitting to earth ..")) {
+                    label.setText("Transmitting to earth ...");
+                  } else {
+                    label.setText("Transmitting to earth .");
+                  }
+                }));
+
+    // repeat forever
+    labelAnimationTimeline.setCycleCount(Animation.INDEFINITE);
+    labelAnimationTimeline.play();
   }
 
   /**
@@ -180,20 +259,25 @@ public class GameMasterController {
       return;
     }
     inputTextArea.clear();
+    // send message to GPT
     Thread thread2 =
         new Thread(
             () -> {
               ChatMessage msg;
+              // if the difficulty is 2, then the message will be split into two parts
+              // one is the message, the other is the hint number
               if (GameState.difficulty == 2) {
                 msg =
                     new ChatMessage(
                         "user", message + " \\ " + "Hint remaining: " + GameState.hintCount);
                 if (containsHint(message)) {
+                  // if the message contains hint, then the hint count will be reduced by 1
                   if (GameState.hintCount > 0) {
                     GameState.hintCount--;
                   }
                 }
               } else {
+                // otherwise, the message will be the message
                 msg = new ChatMessage("user", message);
               }
               appendChatMessage(msg);
@@ -204,6 +288,7 @@ public class GameMasterController {
                 e.printStackTrace();
               }
             });
+    // thread 3 is used to make sure that the updateGpt() is called before runGpt()
     Thread thread3 =
         new Thread(
             () -> {
@@ -219,6 +304,7 @@ public class GameMasterController {
   }
 
   public void updateGpt() throws ApiProxyException {
+    // this will be called when the user has done all the puzzles
     if (GameState.isPuzzleRoom3Solved.getValue() == true
         && GameState.isPuzzleRoom2Solved.getValue() == true
         && GameState.isRiddleResolved.getValue() == true
@@ -226,11 +312,13 @@ public class GameMasterController {
         && GameState.difficulty != 3) {
       ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
       runGpt(msg);
+      // updateCount is used to make sure that the message is only sent once
       updateCount++;
     }
   }
 
   private Boolean containsHint(String input) {
+    // determine if the message contains hint
     if (input == null) return false;
     Pattern pattern = Pattern.compile("\\bhint(s)?\\b", Pattern.CASE_INSENSITIVE);
     return pattern.matcher(input).find();
@@ -245,6 +333,7 @@ public class GameMasterController {
    */
   @FXML
   private void onGoBack(ActionEvent event) throws ApiProxyException, IOException {
+    // go back to the previous view
     if (GameState.roomNumber == 1) {
       GameState.currentRoom.setValue(1);
       App.setUi(RoomType.ROOM1);

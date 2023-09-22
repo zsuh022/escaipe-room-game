@@ -4,10 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
@@ -56,10 +54,12 @@ public class Room3Puzzle2Controller {
 
   @FXML
   private void initializeTimer() {
+    // Bind the timer to the label
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
   private void setupSolutionMap() {
+    // put the correct planet-circle relationship into the solution map
     solutionMap.put(circleOne, planetOne);
     solutionMap.put(circleTwo, planetTwo);
     solutionMap.put(circleThree, planetThree);
@@ -70,6 +70,7 @@ public class Room3Puzzle2Controller {
   }
 
   private void setupDraggables() {
+    // make all the planets draggable and be able to snap to an arbitrary target circles
     List<Circle> targetCirclesForPlanetOne =
         Arrays.asList(
             circleOne, circleTwo, circleThree, circleFour, circleFive, circleSix, circleSeven);
@@ -80,10 +81,12 @@ public class Room3Puzzle2Controller {
     draggableManager.makeDraggable(planetFive, targetCirclesForPlanetOne);
     draggableManager.makeDraggable(planetSix, targetCirclesForPlanetOne);
     draggableManager.makeDraggable(planetSeven, targetCirclesForPlanetOne);
+    // the eighth planet is still draggable but it doesn't have a target circle
     draggableManager.makeDraggable(planetEight, targetCirclesForPlanetOne);
   }
 
   private void genertateRandomPositions() {
+    // generate random positions for all the planets
     placePlanetWithinMenu(planetOne);
     placePlanetWithinMenu(planetTwo);
     placePlanetWithinMenu(planetThree);
@@ -95,6 +98,7 @@ public class Room3Puzzle2Controller {
   }
 
   private void placePlanetWithinMenu(ImageView planet) {
+    // place the planet within the menu area
     Point2D position;
     int retryCount = 0;
 
@@ -102,23 +106,27 @@ public class Room3Puzzle2Controller {
       position = getRandomPositionWithinMenu(planet);
       retryCount++;
       if (retryCount > 100) {
+        // try 100 times to find a suitable position
         System.err.println("Failed to find suitable position for planet after 100 attempts.");
         return;
       }
     } while (isTooCloseToOtherPlanets(planet, position));
 
+    // Set the position of the planet
     planet.setLayoutX(position.getX());
     planet.setLayoutY(position.getY());
   }
 
   private Point2D getRandomPositionWithinMenu(ImageView planet) {
+    // calculate a random position within the menu area
     double x = menuArea.getX() + (Math.random() * (menuArea.getWidth() - planet.getFitWidth()));
     double y = menuArea.getY() + (Math.random() * (menuArea.getHeight() - planet.getFitHeight()));
     return new Point2D(x, y);
   }
 
   private boolean isTooCloseToOtherPlanets(ImageView planet, Point2D position) {
-    double minDistance = 30; // for example, adjust as required
+    // check if the planet is too close to other planets
+    double minDistance = 30;
 
     List<ImageView> allPlanets =
         Arrays.asList(
@@ -131,6 +139,7 @@ public class Room3Puzzle2Controller {
             planetSeven,
             planetEight);
 
+    // if the planet is too close to other planets, return true
     for (ImageView otherPlanet : allPlanets) {
       if (otherPlanet == planet) continue;
 
@@ -144,6 +153,7 @@ public class Room3Puzzle2Controller {
 
   @FXML
   private void onBackButtonClicked() {
+    // Go back to room3
     System.out.println("Back button clicked");
     App.setUi(RoomType.ROOM3);
   }
@@ -156,10 +166,13 @@ public class Room3Puzzle2Controller {
 
   private void checkAllMatches() {
     System.out.println("Checking all matches");
+
+    // loop through all the planet-circle pairs in the solution map
     for (Map.Entry<Circle, ImageView> entry : solutionMap.entrySet()) {
       Circle circle = entry.getKey();
       ImageView planet = entry.getValue();
 
+      // get the center of the circle and the center of the planet
       double circleCenterX = circle.getLayoutX();
       double circleCenterY = circle.getLayoutY();
 
@@ -176,6 +189,7 @@ public class Room3Puzzle2Controller {
               + ", "
               + planetCenterY);
 
+      // new Point2D(x, y) represents a point at (x, y) and get the distance between two points
       Point2D circleCenterPoint = new Point2D(circleCenterX, circleCenterY);
       double distance = circleCenterPoint.distance(planetCenterX, planetCenterY);
 
@@ -197,39 +211,9 @@ public class Room3Puzzle2Controller {
   }
 
   private void puzzleSolved() throws ApiProxyException {
+    // if all matches are correct, the puzzle is solved
     System.out.println("Puzzle solved");
     messageLabel.setText("Puzzle solved!");
     GameState.isPuzzleRoom3Solved.setValue(true);
-  }
-
-  /**
-   * Displays a dialog box with the given title, header text, and message.
-   *
-   * @param title the title of the dialog box
-   * @param headerText the header text of the dialog box
-   * @param message the message content of the dialog box
-   */
-  private void showDialog(String title, String headerText, String message) {
-    // create a dialog box with the given title, header text, and message
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle(title);
-    alert.setHeaderText(headerText);
-    alert.setContentText(message);
-    // close the dialog box after 4 seconds
-    Thread alertClose =
-        new Thread(
-            () -> {
-              try {
-                Thread.sleep(5000);
-                Platform.runLater(
-                    () -> {
-                      alert.close();
-                    });
-              } catch (InterruptedException e) {
-                e.printStackTrace();
-              }
-            });
-    alertClose.start();
-    alert.showAndWait();
   }
 }
