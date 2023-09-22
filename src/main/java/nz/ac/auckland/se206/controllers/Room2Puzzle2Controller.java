@@ -63,12 +63,12 @@ public class Room2Puzzle2Controller {
   @FXML private Rectangle space5;
   @FXML private Label timeLabel;
 
-  ArrayList<String> word = new ArrayList<String>();
+  private ArrayList<String> word = new ArrayList<String>();
   // goes from 0 to 6
-  int chanceCount;
+  private int chanceCount;
   // goes from 0 to 5
-  int correctCount;
-  boolean gameState = false;
+  private int correctCount;
+  private boolean gameState = false;
 
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
