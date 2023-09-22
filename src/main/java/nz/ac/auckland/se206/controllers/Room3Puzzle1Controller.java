@@ -58,7 +58,7 @@ public class Room3Puzzle1Controller {
   }
 
   @FXML
-  public void onTileClicked() throws ApiProxyException {
+  public void clickOnTile() throws ApiProxyException {
     if (GameState.isPuzzleRoom3Solved.getValue() == true) {
       return;
     }

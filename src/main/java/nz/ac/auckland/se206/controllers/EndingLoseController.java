@@ -29,14 +29,14 @@ public class EndingLoseController {
   }
 
   @FXML
-  private void exitButtonClicked() {
+  private void clictExitButton() {
     System.out.println("Exit button clicked");
 
     Platform.exit();
   }
 
   @FXML
-  private void restartButtonClicked() throws IOException {
+  private void clickRestartButton() throws IOException {
     System.out.println("Play again button clicked");
     // reset game state
     SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
