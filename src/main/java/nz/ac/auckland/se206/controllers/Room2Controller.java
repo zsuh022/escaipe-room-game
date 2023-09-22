@@ -115,7 +115,7 @@ public class Room2Controller {
   }
 
   @FXML
-  private void buttonClicked() {
+  private void clickButton() {
     // change to room 1
     System.out.println("Button clicked");
     GameState.currentRoom.set(1);

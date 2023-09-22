@@ -21,7 +21,7 @@
             <Image url="@../images/exitDoor.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="487.0" layoutY="20.0" mnemonicParsing="false" onAction="#room1ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnUpRoom">
+      <Button layoutX="487.0" layoutY="20.0" mnemonicParsing="false" onAction="#clickRoom1Button" prefHeight="50.0" prefWidth="50.0" styleClass="btnUpRoom">
          <font>
             <Font size="10.0" />
          </font>

@@ -19,7 +19,7 @@
             <Image url="@../images/room3.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room1ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
+      <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#clickRoom1Button" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
          <font>
             <Font size="10.0" />
          </font>

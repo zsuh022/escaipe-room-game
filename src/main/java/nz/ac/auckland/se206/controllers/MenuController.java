@@ -94,7 +94,7 @@ public class MenuController {
   }
 
   @FXML
-  private void buttonClicked() throws IOException, URISyntaxException {
+  private void clickButton() throws IOException, URISyntaxException {
     // set difficulty, time, and key
     setDifficulty();
     setGameTime();

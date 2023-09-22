@@ -39,7 +39,7 @@ public class EndingWinController {
   }
 
   @FXML
-  private void exitButtonClicked() {
+  private void clickExitButton() {
     System.out.println("Exit button clicked");
     Platform.exit();
   }

@@ -19,7 +19,7 @@
             <Image url="@../images/room2.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="954.0" layoutY="359.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom">
+      <Button layoutX="954.0" layoutY="359.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="50.0" prefWidth="50.0" styleClass="btnRightRoom">
          <font>
             <Font size="10.0" />
          </font>

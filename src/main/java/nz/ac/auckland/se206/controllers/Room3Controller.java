@@ -113,7 +113,7 @@ public class Room3Controller {
   }
 
   @FXML
-  private void room1ButtonClicked() {
+  private void clickRoom1Button() {
     // go to room 1
     System.out.println("Room 1 button clicked");
     GameState.currentRoom.set(1);

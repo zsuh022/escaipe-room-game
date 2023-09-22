@@ -97,7 +97,7 @@ public class ExitDoorController {
   }
 
   @FXML
-  private void room1ButtonClicked() {
+  private void clickRoom1Button() {
     // switch to room 1
     System.out.println("Room 1 button clicked");
     GameState.currentRoom.set(1);
