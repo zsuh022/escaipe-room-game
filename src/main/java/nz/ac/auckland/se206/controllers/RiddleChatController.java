@@ -48,6 +48,7 @@ public class RiddleChatController {
   public void initialize() throws ApiProxyException {
     // Hide loading pane
     waitingResponsePane.setVisible(false);
+    chatTextArea.setEditable(false);
 
     // randomly select a celestial body to be the riddle word
     String[] celestialBodies = {

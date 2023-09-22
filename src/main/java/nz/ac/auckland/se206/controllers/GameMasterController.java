@@ -37,7 +37,7 @@ public class GameMasterController {
   @FXML private Pane waitingResponsePane;
   @FXML private Label transLabel;
   @FXML private Pane indicationPane;
-
+  @FXML private Label transLabel1;
   private Timeline labelAnimationTimeline;
   private int updateCount = 0;
   private ChatCompletionRequest chatCompletionRequest;
@@ -52,7 +52,9 @@ public class GameMasterController {
     // this will be called when the view is loaded
     initializeTimer();
     updateCount = 0;
+    chatTextArea.setEditable(false);
     waitingResponsePane.setVisible(false);
+    transLabel1.setVisible(false);
     GameState.currentRoom.addListener(
         (obs, oldRoom, newRoom) -> {
           if (thisIsCurrentRoom(newRoom)) {
@@ -174,6 +176,7 @@ public class GameMasterController {
     // check if the message ends with "DONOTRESPOND"
     Boolean isEndWithNoRespond = false;
     if (msg.getContent().endsWith("DONOTRESPOND")) {
+      transLabel1.setVisible(true);
       isEndWithNoRespond = true;
     }
     chatCompletionRequest.addMessage(msg);
@@ -199,6 +202,7 @@ public class GameMasterController {
             }
             transLabel.setText("");
             waitingResponsePane.setVisible(false); // Hide loading pane
+            transLabel1.setVisible(false);
           });
     }
   }

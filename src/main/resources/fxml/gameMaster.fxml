@@ -75,6 +75,11 @@
                   <Font name="Wingdings" size="37.0" />
                </font>
             </Label>
+            <Label fx:id="transLabel1" layoutX="512.0" layoutY="437.0" prefHeight="41.0" prefWidth="427.0" text="Warning: Delay due to Geomagnetic storm " textFill="RED">
+               <font>
+                  <Font name="Wingdings" size="22.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
