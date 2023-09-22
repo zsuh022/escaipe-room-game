@@ -21,24 +21,28 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 public class EndingWinController {
 
   private MediaPlayer player;
+
+  @FXML private Label keyLabel;
+  @FXML private Label riddleLabel;
+  @FXML private Label skipLabel;
   @FXML private MediaView depart;
+  @FXML private TextArea keyTextArea;
+  @FXML private TextArea riddleTextArea;
+
+  private Boolean isKeyOutputed = false;
+  private Boolean isRiddleOutputed = false;
 
   @FXML
   private void initialize() throws URISyntaxException {
     isKeyOutputed = false;
     isRiddleOutputed = false;
-    System.out.println("EndingWinController initialized");
-    MusicManager.playHappySong();
     keyLabel.setText(String.valueOf(GameState.key));
     riddleLabel.setText(String.valueOf(GameState.riddleWord));
     keyTextArea.setVisible(false);
     riddleTextArea.setVisible(false);
     depart.setVisible(true);
     skipLabel.setVisible(true);
-    playVideo();
   }
-
-  @FXML private Label skipLabel;
 
   private void playVideo() throws URISyntaxException {
     Media media = new Media(App.class.getResource("/sounds/depart.mp4").toURI().toString());
@@ -78,14 +82,6 @@ public class EndingWinController {
 
     player.play();
   }
-
-  @FXML private Label keyLabel;
-  @FXML private TextArea keyTextArea;
-
-  @FXML private Label riddleLabel;
-  @FXML private TextArea riddleTextArea;
-  private Boolean isKeyOutputed = false;
-  private Boolean isRiddleOutputed = false;
 
   @FXML
   private void keyLabelEntered() {
@@ -171,7 +167,6 @@ public class EndingWinController {
   }
 
   private String outputKeyBackground() {
-
     switch (GameState.key) {
       case 12041961:
         return "12 April, 1961 was the date of the first human space flight, carried out by Yuri"
@@ -187,6 +182,7 @@ public class EndingWinController {
             + " lifted off as scheduled from Kennedy Space Center Launch Complex 39A in"
             + " Florida at 9:32 a.m. local time (1332 UTC).";
     }
+
     return "";
   }
 
