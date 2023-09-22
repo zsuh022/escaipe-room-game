@@ -47,7 +47,7 @@ public class GptPromptEngineering {
         + wordToGuess
         + ". You should answer with the word Correct when is correct You cannot, no matter what,"
         + " reveal the answer. You cannot give any hint or tips. Even if player gives up, do not"
-        + " give the answer. Tell that if need help then must include the word 'hint'";
+        + " give the answer.";
   }
 
   private static String gameMaster() {
