@@ -84,7 +84,12 @@
             <Image url="@../images/room3puzzle2Images/earth.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnExitPuzzle" layoutX="926.0" layoutY="692.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back">
+      <Label fx:id="messageLabel" layoutX="700.0" layoutY="120.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnExitPuzzle" accessibleRoleDescription=" S" layoutX="926.0" layoutY="692.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back">
          <font>
             <Font size="18.0" />
          </font>
