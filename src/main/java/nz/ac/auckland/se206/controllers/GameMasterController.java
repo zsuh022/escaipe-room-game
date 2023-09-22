@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
@@ -89,6 +90,19 @@ public class GameMasterController {
                 }
               }
             });
+    inputTextArea.setOnKeyPressed(
+        event -> {
+          if (event.getCode() == KeyCode.ENTER) {
+            try {
+              onSendMessage(null); // Call the existing send message method
+            } catch (ApiProxyException | IOException e) {
+              // Handle the exception, for instance, by showing an error message to the user.
+              e.printStackTrace();
+            }
+            event.consume(); // Prevent default behavior of newline on 'Enter' key press.
+          }
+        });
+
     // hide loading pane when clicked
     waitingResponsePane.setOnMouseClicked(e -> waitingResponsePane.setVisible(false));
     thread.start();
