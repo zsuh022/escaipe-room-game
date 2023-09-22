@@ -1,3 +1,17 @@
 * {
     -fx-font-family: "Times New Roman", serif;
 }
+
+#btnExitPuzzle,
+#btnInitializePuzzle {
+    -fx-background-color: #394867;
+    -fx-font-size: 24px;
+    -fx-text-fill: #F1F6F9;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+}
+
+#btnExitPuzzle:hover,
+#btnInitializePuzzle:hover {
+    -fx-background-color: #212A3E;
+}

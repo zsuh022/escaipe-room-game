@@ -23,8 +23,8 @@ public class Room2Puzzle1Controller {
   @FXML private Rectangle seven;
   @FXML private Rectangle eight;
   @FXML private Rectangle nine;
-  @FXML private Button backPuzzle2;
-  @FXML private Button startPuzzle2;
+  @FXML private Button btnInitializePuzzle;
+  @FXML private Button btnExitPuzzle;
   @FXML private Label puzzle2Label;
   @FXML private Label timeLabel;
 
@@ -78,7 +78,8 @@ public class Room2Puzzle1Controller {
   }
 
   @FXML
-  public void startPuzzle2Clicked() {
+
+  private void onInitializePuzzle1Clicked() {
     puzzle2Label.setText("");
     buttonOrder[0] = (int) (1 + (Math.random() * (9)));
     buttonOrder[1] = (int) (1 + (Math.random() * (9)));
@@ -135,7 +136,8 @@ public class Room2Puzzle1Controller {
   }
 
   @FXML
-  public void backPuzzle2Clicked() {
+  private void onBackButtonClicked() {
+    System.out.println("Back button clicked");
     App.setUi(RoomType.ROOM2);
   }
 

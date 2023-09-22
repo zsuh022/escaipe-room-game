@@ -25,31 +25,36 @@
       <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="472.0" layoutY="486.0" onMouseClicked="#clickSeven" stroke="BLACK" strokeType="INSIDE" width="115.0" />
       <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="587.0" layoutY="486.0" onMouseClicked="#clickEight" stroke="BLACK" strokeType="INSIDE" width="115.0" />
       <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="702.0" layoutY="486.0" onMouseClicked="#clickNine" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+
+      <Button fx:id="btnExitPuzzle" layoutX="300.0" layoutY="470.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="32.0" prefWidth="130.0" text="Back">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnInitializePuzzle" layoutX="300.0" layoutY="350.0" mnemonicParsing="false" onAction="#onInitializePuzzle1Clicked" prefHeight="44.0" prefWidth="130.0" text="Initialize">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="306.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="518.0" />
       <Label fx:id="puzzle2Label" layoutX="314.0" layoutY="183.0" text="L">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/TimerBlackTxt.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="timeLabel" layoutX="824.0" layoutY="25.0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Button fx:id="startPuzzle2" layoutX="274.0" layoutY="366.0" mnemonicParsing="false" onAction="#startPuzzle2Clicked" prefHeight="48.0" prefWidth="189.0" text="INITIALIZE" style="-fx-font-size: 27.0;">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Button>
-      <Button fx:id="backPuzzle2" layoutX="274.0" layoutY="428.0" mnemonicParsing="false" onAction="#backPuzzle2Clicked" prefHeight="48.0" prefWidth="115.0" text="BACK" style="-fx-font-size: 27.0;">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Button>
+      <Pane layoutX="700.0" layoutY="10.0" pickOnBounds="false" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/timerBlackTxt.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </Pane>

@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/GameMaster.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameMasterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/GameMaster.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameMasterController">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
@@ -43,6 +43,20 @@
             <Image url="@../images/gameMaster.png" />
          </image>
       </ImageView>
+      <Pane layoutX="700.0" layoutY="10.0" pickOnBounds="false" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/timerBlackTxt.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Pane fx:id="indicationPane" layoutY="670.0" prefHeight="108.0" prefWidth="1024.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#515457" height="108.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
@@ -53,15 +67,5 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="700.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/TimerBlackTxt.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="timeLabel" layoutX="820.0" layoutY="32.0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>
