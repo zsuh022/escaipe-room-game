@@ -34,6 +34,7 @@ public class Room3Puzzle1Controller {
   @FXML private Button btnEmpty;
   @FXML private Button btnExitPuzzle;
   @FXML private GridPane gridPane;
+  @FXML private Label messageLabel;
   @FXML private Label timeLabel;
 
   private List<Button> buttons;
@@ -182,6 +183,7 @@ public class Room3Puzzle1Controller {
 
   private void puzzleSolved() throws ApiProxyException {
     System.out.println("Puzzle solved");
+    messageLabel.setText("Puzzle solved!");
     GameState.isPuzzleRoom3Solved.setValue(true);
   }
 
