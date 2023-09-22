@@ -35,7 +35,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Circle>
-      <Pane fx:id="keyPad" layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0" visible="false">
+      <Pane fx:id="keyPad" layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0">
          <children>
             <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
                <image>
@@ -52,6 +52,11 @@
                   <Font size="48.0" />
                </font>
             </Button>
+            <Label fx:id="keyPadMessageLabel" alignment="CENTER" layoutX="150.0" layoutY="50.0" pickOnBounds="false" prefHeight="92.0" prefWidth="310.0" visible="false">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
             <GridPane alignment="CENTER" hgap="5.0" layoutX="150.0" layoutY="170.0" prefHeight="360.0" prefWidth="300.0" vgap="5.0">
                <Button alignment="CENTER" onAction="#onKeyPadClicked" prefHeight="90.0" prefWidth="100.0" styleClass="btnKeyPad" text="1">
                   <font>

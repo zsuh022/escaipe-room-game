@@ -26,6 +26,7 @@ public class ExitDoorController {
   @FXML private Button btnKeyPadDisplay;
   @FXML private Circle smallKeyPadCircle;
   @FXML private ImageView smallKeyPad;
+  @FXML private Label keyPadMessageLabel;
   @FXML private Label timeLabel;
   @FXML private Pane keyPad;
 
@@ -145,7 +146,7 @@ public class ExitDoorController {
       SceneManager.addUi(RoomType.ENDINGWIN, App.loadFxml("endingWin"));
       App.setUi(RoomType.ENDINGWIN);
     } else {
-      showDialog("Warning", null, "The answer is wrong, please try again.");
+      showErrorMessage();
       btnKeyPadDisplay.setText("");
     }
   }
@@ -179,6 +180,18 @@ public class ExitDoorController {
             });
     alertClose.start();
     alert.showAndWait();
+  }
+
+  private void showErrorMessage() {
+    keyPadMessageLabel.setText("Try Again");
+    keyPadMessageLabel.setVisible(true);
+
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    pause.setOnFinished(
+        event -> {
+          keyPadMessageLabel.setVisible(false);
+        });
+    pause.play();
   }
 
   @FXML
