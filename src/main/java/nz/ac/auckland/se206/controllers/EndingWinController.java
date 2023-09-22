@@ -39,12 +39,6 @@ public class EndingWinController {
   }
 
   @FXML
-  private void exitButtonClicked() {
-    System.out.println("Exit button clicked");
-    Platform.exit();
-  }
-
-  @FXML
   private void initialize() throws URISyntaxException {
     // this method is called when the fxml file is loaded
     System.out.println("EndingWinController initialized");
@@ -69,7 +63,13 @@ public class EndingWinController {
   }
 
   @FXML
-  private void restartButtonClicked() throws IOException {
+  private void onExitButtonClicked() {
+    System.out.println("Exit button clicked");
+    Platform.exit();
+  }
+
+  @FXML
+  private void onRestartButtonClicked() throws IOException {
     // when the restart button is clicked, the game will restart
     System.out.println("Play again button clicked");
     SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
