@@ -108,15 +108,15 @@ public class EndingWinController {
 
   private String outputKeyBackground() {
     switch (GameState.key) {
-      case 12041961: // 12 April 1961
+      case 12041961: // 12 April 1961 (Yuri Gagarin)
         return "12 April, 1961 was the date of the first human space flight, carried out by Yuri"
             + " Gagarin, a Soviet citizen. This historic event opened the way for space"
             + " exploration for the benefit of all humanity.";
-      case 19041971: // 19 April 1971
+      case 19041971: // 19 April 1971 (Salyut 1)
         return "April 19, 1971, the Soviet Union placed into orbit Salyut, the world’s first space"
             + " station. Designed for a 6-month on orbit operational lifetime, Salyut hosted"
             + " the crew of Georgi T. Dobrovolski, Vladislav N. Volkov, and Viktor I.";
-      case 16071969: // 16 July 1969
+      case 16071969: // 16 July 1969 (Apollo 11)
         return " July 16, 1969, liftoff North America on taken during the translunar part of their"
             + " journey. Apollo 11, with Neil Armstrong, Buzz Aldrin and Michael Collins,"
             + " lifted off as scheduled from Kennedy Space Center Launch Complex 39A in"

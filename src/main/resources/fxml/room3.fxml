@@ -19,12 +19,12 @@
             <Image url="@../images/room3.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#room1ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
+      <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#onRoom1ButtonClicked" prefHeight="50.0" prefWidth="50.0" styleClass="btnLeftRoom" stylesheets="@../css/Rooms.css">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Polygon fx:id="polygonRoom3Puzzle1" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#room3PuzzleClicked" opacity="0.0" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
+      <Polygon fx:id="polygonRoom3Puzzle1" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#onRoom3Puzzle1Clicked" opacity="0.0" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Polygon>
@@ -42,7 +42,7 @@
             </Label>
          </children>
       </Pane>
-      <Polygon fx:id="polygon2Room3Puzzle2" fill="DODGERBLUE" layoutX="10.0" layoutY="10.0" onMouseClicked="#room3Puzzle2Clicked" opacity="0.0" points="69.0, 457.0, 581.0, 470.0, 581.0, 187.0, 69.0, 179.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
+      <Polygon fx:id="polygon2Room3Puzzle2" fill="DODGERBLUE" layoutX="10.0" layoutY="10.0" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="69.0, 457.0, 581.0, 470.0, 581.0, 187.0, 69.0, 179.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Polygon>
@@ -55,7 +55,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#room3Puzzle2Clicked" opacity="0.0" points="63.0, 480.0, 693.0, 480.0, 693.0, 170.0, 63.0, 170.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
+      <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="63.0, 480.0, 693.0, 480.0, 693.0, 170.0, 63.0, 170.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Polygon>
@@ -90,7 +90,7 @@
                   <Image url="@../images/wave.png" />
                </image>
             </ImageView>
-            <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#muteBarClick" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE">
+            <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#onMuteBarClicked" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -107,7 +107,7 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="170.0" fitWidth="189.0" layoutX="44.0" layoutY="20.0" onMouseClicked="#gameMasterClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="170.0" fitWidth="189.0" layoutX="44.0" layoutY="20.0" onMouseClicked="#onGameMasterClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameMaster.png" />
          </image>

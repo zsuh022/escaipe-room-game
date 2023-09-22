@@ -124,6 +124,7 @@ public class Room2Puzzle1Controller {
       return four;
     } else if (integer == 5) {
       return five;
+      // for example if integer is 5, return five
     } else if (integer == 6) {
       return six;
     } else if (integer == 7) {
@@ -191,18 +192,18 @@ public class Room2Puzzle1Controller {
 
   private void handleButtonClick(int buttonNumber) {
     if (buttonNumber == buttonOrder[currentIndex]) {
-      // Correct button pressed
+      // Correct button pressed - increment index
       if (currentIndex < 6) {
         currentIndex++;
       }
       flashColour(integerToRectangle(buttonNumber), Color.GREEN);
       if (currentIndex == buttonOrder.length) {
-        // Puzzle solved
+        // Puzzle solved if all buttons pressed
         puzzleSolved();
         puzzle2Label.setText("SOLVED! PRESS BACK TO EXIT...");
       }
     } else {
-      // Incorrect button pressed
+      // Incorrect button pressed - reset puzzle
       currentIndex = 0;
       flashColour(integerToRectangle(buttonNumber), Color.RED);
       puzzle2Label.setText("INCORRECT. INITIALIZE AGAIN...");

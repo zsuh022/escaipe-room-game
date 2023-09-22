@@ -68,12 +68,54 @@ public class Room3Controller {
   }
 
   @FXML
-  private void muteBarClick() {
+  private void onGameMasterClicked() {
+    // change to game master
+    System.out.println("Game master clicked");
+    GameState.currentRoom.set(5);
+    App.setUi(RoomType.GAMEMASTER);
+    GameState.roomNumber = 3;
+  }
+
+  @FXML
+  private void onMuteBarClicked() {
     GameState.isMuted.set(!GameState.isMuted.get());
   }
 
-  private boolean thisIsCurrentRoom(Number roomNumber) {
-    return roomNumber.intValue() == 3;
+  @FXML
+  private void onRoom1ButtonClicked() {
+    // go to room 1
+    System.out.println("Room 1 button clicked");
+    GameState.currentRoom.set(1);
+    App.setUi(RoomType.ROOM1);
+    GameState.roomNumber = 1;
+  }
+
+  @FXML
+  private void onRoom3Puzzle1Clicked(MouseEvent event) {
+    // start room 3 puzzle
+    System.out.println("Room 3 puzzle clicked");
+    App.setUi(RoomType.ROOM3PUZZLE1);
+  }
+
+  @FXML
+  private void onRoom3Puzzle2Clicked() {
+    // go to room 3 puzzle 2
+    random = new Random();
+    System.out.println("Room 3 puzzle 2 clicked");
+    App.setUi(RoomType.ROOM3PUZZLE2);
+    // setting panes
+    if (count == 0) {
+      puzzle2Pane.setOpacity(0.5);
+      count++;
+    } else if (count == 1) {
+      puzzle2Pane.setOpacity(0.2);
+      count++;
+    } else {
+      puzzle2Pane.setOpacity(0);
+      polygonRoom3Puzzle2.setVisible(false);
+      polygon2Room3Puzzle2.setVisible(true);
+      puzzle2Pane.setVisible(false);
+    }
   }
 
   private void fadeInOutIndicationPane() {
@@ -105,50 +147,6 @@ public class Room3Controller {
     fadeIn.play();
   }
 
-  private void showRoom3Key() {
-    // shows room 3 key
-    System.out.println("Showing room 3 key");
-    keyShowingPane.setVisible(true);
-    room3KeyLabel.setText(GameState.room3Key);
-  }
-
-  @FXML
-  private void room1ButtonClicked() {
-    // go to room 1
-    System.out.println("Room 1 button clicked");
-    GameState.currentRoom.set(1);
-    App.setUi(RoomType.ROOM1);
-    GameState.roomNumber = 1;
-  }
-
-  @FXML
-  private void room3PuzzleClicked(MouseEvent event) {
-    // start room 3 puzzle
-    System.out.println("Room 3 puzzle clicked");
-    App.setUi(RoomType.ROOM3PUZZLE1);
-  }
-
-  @FXML
-  private void room3Puzzle2Clicked() {
-    // go to room 3 puzzle 2
-    random = new Random();
-    System.out.println("Room 3 puzzle 2 clicked");
-    App.setUi(RoomType.ROOM3PUZZLE2);
-    // setting panes
-    if (count == 0) {
-      puzzle2Pane.setOpacity(0.5);
-      count++;
-    } else if (count == 1) {
-      puzzle2Pane.setOpacity(0.2);
-      count++;
-    } else {
-      puzzle2Pane.setOpacity(0);
-      polygonRoom3Puzzle2.setVisible(false);
-      polygon2Room3Puzzle2.setVisible(true);
-      puzzle2Pane.setVisible(false);
-    }
-  }
-
   private void initializePuzzle() {
     // choosing random puzzle for implementation
     int randomNumber = random.nextInt(2) + 1;
@@ -173,12 +171,14 @@ public class Room3Controller {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
-  @FXML
-  private void gameMasterClicked() {
-    // change to game master
-    System.out.println("Game master clicked");
-    GameState.currentRoom.set(5);
-    App.setUi(RoomType.GAMEMASTER);
-    GameState.roomNumber = 3;
+  private void showRoom3Key() {
+    // shows room 3 key
+    System.out.println("Showing room 3 key");
+    keyShowingPane.setVisible(true);
+    room3KeyLabel.setText(GameState.room3Key);
+  }
+
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    return roomNumber.intValue() == 3;
   }
 }

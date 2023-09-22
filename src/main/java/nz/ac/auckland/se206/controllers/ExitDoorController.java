@@ -57,52 +57,21 @@ public class ExitDoorController {
   }
 
   @FXML
-  private void muteBarClick() {
-    // mute sound
-    GameState.isMuted.set(!GameState.isMuted.get());
-  }
-
-  private boolean thisIsCurrentRoom(Number roomNumber) {
-    // 4 is the room number for the exit door
-    return roomNumber.intValue() == 4;
-  }
-
-  private void fadeInOutIndicationPane() {
-    // set induction pane up
-    indicationPane.setVisible(true);
-    FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
-    fadeIn.setFromValue(0);
-    fadeIn.setToValue(1);
-
-    PauseTransition pause = new PauseTransition(Duration.seconds(1));
-
-    FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
-    fadeOut.setFromValue(1);
-    fadeOut.setToValue(0);
-
-    // fade pane in and out of view
-    fadeIn.setOnFinished(
-        event -> {
-          pause.play();
-        });
-    pause.setOnFinished(
-        event -> {
-          fadeOut.play();
-        });
-    fadeOut.setOnFinished(
-        e -> {
-          indicationPane.setVisible(false);
-        });
-    fadeIn.play();
+  private void onExitKeyPadClicked() {
+    // exit keypad
+    keyPad.setVisible(false);
+    smallKeyPad.setVisible(true);
+    smallKeyPadCircle.setVisible(true);
+    btnKeyPadDisplay.setText("");
   }
 
   @FXML
-  private void room1ButtonClicked() {
-    // switch to room 1
-    System.out.println("Room 1 button clicked");
-    GameState.currentRoom.set(1);
-    App.setUi(RoomType.ROOM1);
-    GameState.roomNumber = 1;
+  private void onGameMasterClicked() {
+    // go to game master
+    System.out.println("Game master clicked");
+    GameState.currentRoom.set(5);
+    App.setUi(RoomType.GAMEMASTER);
+    GameState.roomNumber = 4;
   }
 
   @FXML
@@ -114,7 +83,30 @@ public class ExitDoorController {
   }
 
   @FXML
-  public void updateKeyLabel(String key) throws IOException {
+  private void onMuteBarClicked() {
+    // mute sound
+    GameState.isMuted.set(!GameState.isMuted.get());
+  }
+
+  @FXML
+  private void onOpenKeyPad() {
+    // open keypad
+    keyPad.setVisible(true);
+    smallKeyPad.setVisible(false);
+    smallKeyPadCircle.setVisible(false);
+  }
+
+  @FXML
+  private void onRoom1ButtonClicked() {
+    // switch to room 1
+    System.out.println("Room 1 button clicked");
+    GameState.currentRoom.set(1);
+    App.setUi(RoomType.ROOM1);
+    GameState.roomNumber = 1;
+  }
+
+  @FXML
+  private void updateKeyLabel(String key) throws IOException {
     // update key label when the key pressed
     if (key.equals("Clear")) {
       btnKeyPadDisplay.setText("");
@@ -162,21 +154,33 @@ public class ExitDoorController {
     }
   }
 
-  @FXML
-  private void onOpenKeyPad() {
-    // open keypad
-    keyPad.setVisible(true);
-    smallKeyPad.setVisible(false);
-    smallKeyPadCircle.setVisible(false);
-  }
+  private void fadeInOutIndicationPane() {
+    // set induction pane up
+    indicationPane.setVisible(true);
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
 
-  @FXML
-  private void onExitKeyPadClicked() {
-    // exit keypad
-    keyPad.setVisible(false);
-    smallKeyPad.setVisible(true);
-    smallKeyPadCircle.setVisible(true);
-    btnKeyPadDisplay.setText("");
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
+    FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), indicationPane);
+    fadeOut.setFromValue(1);
+    fadeOut.setToValue(0);
+
+    // fade pane in and out of view
+    fadeIn.setOnFinished(
+        event -> {
+          pause.play();
+        });
+    pause.setOnFinished(
+        event -> {
+          fadeOut.play();
+        });
+    fadeOut.setOnFinished(
+        e -> {
+          indicationPane.setVisible(false);
+        });
+    fadeIn.play();
   }
 
   private void initializeTimer() {
@@ -198,12 +202,8 @@ public class ExitDoorController {
     pause.play();
   }
 
-  @FXML
-  private void gameMasterClicked() {
-    // go to game master
-    System.out.println("Game master clicked");
-    GameState.currentRoom.set(5);
-    App.setUi(RoomType.GAMEMASTER);
-    GameState.roomNumber = 4;
+  private boolean thisIsCurrentRoom(Number roomNumber) {
+    // 4 is the room number for the exit door
+    return roomNumber.intValue() == 4;
   }
 }
