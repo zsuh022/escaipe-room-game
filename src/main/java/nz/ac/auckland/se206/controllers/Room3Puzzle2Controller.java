@@ -36,6 +36,7 @@ public class Room3Puzzle2Controller {
   @FXML private ImageView planetSeven;
   @FXML private ImageView planetEight;
   @FXML private Rectangle menuArea;
+  @FXML private Label messageLabel;
   @FXML private Label timeLabel;
 
   private DraggableManager draggableManager = new DraggableManager();
@@ -188,7 +189,6 @@ public class Room3Puzzle2Controller {
     }
     System.out.println("All matches correct");
     try {
-      showDialog("Solved", null, "You have ordered the planets correctly");
       puzzleSolved();
     } catch (ApiProxyException e) {
       // TODO Auto-generated catch block
@@ -198,6 +198,7 @@ public class Room3Puzzle2Controller {
 
   private void puzzleSolved() throws ApiProxyException {
     System.out.println("Puzzle solved");
+    messageLabel.setText("Puzzle solved!");
     GameState.isPuzzleRoom3Solved.setValue(true);
   }
 
