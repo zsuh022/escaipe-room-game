@@ -36,10 +36,7 @@ public class HintDisplayHelper {
                   Platform.runLater(
                       () -> {
                         displayText.append(c);
-                        textArea.setText(displayText.toString());
-
-                        // Set cursor to the end to mimic typing effect
-                        textArea.positionCaret(textArea.getText().length());
+                        GameState.sharedMessage.setValue(displayText.toString());
                       });
                 } catch (InterruptedException e) {
                   e.printStackTrace();

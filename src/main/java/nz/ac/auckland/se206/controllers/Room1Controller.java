@@ -58,6 +58,7 @@ public class Room1Controller {
             MusicManager.unmute();
           }
         });
+    aiMessageTextArea.textProperty().bind(GameState.sharedMessage);
     GameState.latestHint.addListener(
         (obs, oldHint, newHint) -> {
           HintDisplayHelper.displayHintInTextArea(aiMessageTextArea, newHint);
@@ -79,7 +80,7 @@ public class Room1Controller {
 
     fadeIn.setOnFinished(
         e -> {
-          HintDisplayHelper.displayHintInTextArea(aiMessageTextArea, GameState.latestHint.get());
+          GameState.latestHint.setValue("May I help you?");
         });
 
     fadeIn2.play(); // This will play the triangle fade-in first

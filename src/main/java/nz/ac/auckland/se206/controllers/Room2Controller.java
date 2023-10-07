@@ -6,6 +6,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -13,6 +14,7 @@ import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.HintDisplayHelper;
 import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
@@ -26,7 +28,7 @@ public class Room2Controller {
   @FXML private Pane indicationPane;
   @FXML private Polygon polygonRoom2Puzzle1;
   @FXML private Polygon polygonRoom2Puzzle2;
-
+  @FXML private TextArea aiMessageTextArea;
   private Random random = new Random();
 
   @FXML
@@ -60,6 +62,12 @@ public class Room2Controller {
             MusicManager.unmute();
           }
         });
+
+    aiMessageTextArea.textProperty().bind(GameState.sharedMessage);
+    GameState.latestHint.addListener(
+        (obs, oldHint, newHint) -> {
+          HintDisplayHelper.displayHintInTextArea(aiMessageTextArea, newHint);
+        });
   }
 
   @FXML
@@ -69,6 +77,11 @@ public class Room2Controller {
     GameState.currentRoom.set(5);
     App.setUi(RoomType.GAMEMASTER);
     GameState.roomNumber = 2;
+  }
+
+  @FXML
+  private void onHintButtonClick() {
+    GameState.requestHint.set(!GameState.requestHint.get());
   }
 
   @FXML

@@ -43,9 +43,11 @@ public class GameState {
 
   public static IntegerProperty hintNumberRemaining = new SimpleIntegerProperty(5);
 
-  public static StringProperty latestHint = new SimpleStringProperty("May I help you?");
+  public static StringProperty latestHint = new SimpleStringProperty("");
 
   public static BooleanProperty requestHint = new SimpleBooleanProperty(false);
+
+  public static StringProperty sharedMessage = new SimpleStringProperty("");
 
   public static void reset() {
     // reset all the variables for a new game
@@ -65,7 +67,8 @@ public class GameState {
     hintCount = 5;
     roomNumber = 1; // the room number will be 1 at the beginning
     hintNumberRemaining = new SimpleIntegerProperty(5);
-    latestHint = new SimpleStringProperty("May I help you?");
+    latestHint = new SimpleStringProperty("");
     requestHint = new SimpleBooleanProperty(false);
+    sharedMessage = new SimpleStringProperty("");
   }
 }
