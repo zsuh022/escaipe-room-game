@@ -2,7 +2,6 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.util.Random;
-import java.util.regex.Pattern;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -35,6 +34,8 @@ public class RiddleChatController {
   @FXML private Label timeLabel;
   @FXML private Pane waitingResponsePane;
   @FXML private Label transLabel;
+  @FXML private Label hintRemainLabel;
+  @FXML private Label hintNumberLabel;
 
   private Timeline labelAnimationTimeline;
   private ChatCompletionRequest chatCompletionRequest;
@@ -98,6 +99,15 @@ public class RiddleChatController {
                 }
               }
             });
+    if (GameState.difficulty == 2) {
+      hintRemainLabel.setVisible(true);
+      hintNumberLabel.setVisible(true);
+      // bind the hint number to the hint number remaining
+      hintNumberLabel.textProperty().bind(GameState.hintNumberRemaining.asString());
+    } else {
+      hintRemainLabel.setVisible(false);
+      hintNumberLabel.setVisible(false);
+    }
     // initialize the timer
     if (GameState.timeManager != null && GameState.timeManager.getSecond() != null) {
       initializeTimer();
@@ -230,12 +240,6 @@ public class RiddleChatController {
                 msg =
                     new ChatMessage(
                         "user", message + " \\ " + "Hint remaining: " + GameState.hintCount);
-                if (containsHint(message)) {
-                  // if the message contains hint, then the hint count will be reduced by 1
-                  if (GameState.hintCount > 0) {
-                    GameState.hintCount--;
-                  }
-                }
               } else {
                 // otherwise, the message will be the message
                 msg = new ChatMessage("user", message);
@@ -249,22 +253,19 @@ public class RiddleChatController {
                     && lastMsg.getContent().startsWith("Correct")) {
                   GameState.isRiddleResolved.set(true);
                 }
+                if (lastMsg.getRole().equals("assistant")
+                    && lastMsg.getContent().startsWith("Hint")) {
+                  if (GameState.hintNumberRemaining.getValue() > 0) {
+                    GameState.hintNumberRemaining.setValue(
+                        GameState.hintNumberRemaining.getValue() - 1);
+                  }
+                }
               } catch (ApiProxyException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
               }
             });
     thread.start();
-  }
-
-  private Boolean containsHint(String input) {
-    // determine if the message contains hint
-    if (input == null) {
-      return false;
-    }
-
-    Pattern pattern = Pattern.compile("\\bhint(s)?\\b", Pattern.CASE_INSENSITIVE);
-    return pattern.matcher(input).find();
   }
 
   /**

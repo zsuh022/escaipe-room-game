@@ -39,6 +39,8 @@ public class GameState {
 
   public static int roomNumber = 1;
 
+  public static IntegerProperty hintNumberRemaining = new SimpleIntegerProperty(5);
+
   public static void reset() {
     // reset all the variables for a new game
     isRiddleResolved = new SimpleBooleanProperty(false);
@@ -56,5 +58,6 @@ public class GameState {
     currentRoom = new SimpleIntegerProperty(0);
     hintCount = 5;
     roomNumber = 1; // the room number will be 1 at the beginning
+    hintNumberRemaining = new SimpleIntegerProperty(5);
   }
 }

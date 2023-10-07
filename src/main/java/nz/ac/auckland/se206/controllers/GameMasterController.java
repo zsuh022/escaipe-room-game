@@ -38,6 +38,8 @@ public class GameMasterController {
   @FXML private Label transLabel;
   @FXML private Pane indicationPane;
   @FXML private Label transLabel1;
+  @FXML private Label hintRemainLabel;
+  @FXML private Label hintNumberLabel;
   private Timeline labelAnimationTimeline;
   private int updateCount = 0;
   private ChatCompletionRequest chatCompletionRequest;
@@ -107,7 +109,22 @@ public class GameMasterController {
 
     // hide loading pane when clicked
     waitingResponsePane.setOnMouseClicked(e -> waitingResponsePane.setVisible(false));
+
+    // set the hint number
+    setHintNumber();
     thread.start();
+  }
+
+  private void setHintNumber() {
+    if (GameState.difficulty == 2) {
+      hintRemainLabel.setVisible(true);
+      hintNumberLabel.setVisible(true);
+      // bind the hint number to the hint number remaining
+      hintNumberLabel.textProperty().bind(GameState.hintNumberRemaining.asString());
+    } else {
+      hintRemainLabel.setVisible(false);
+      hintNumberLabel.setVisible(false);
+    }
   }
 
   private void initializeTimer() {
@@ -270,19 +287,22 @@ public class GameMasterController {
                 msg =
                     new ChatMessage(
                         "user", message + " \\ " + "Hint remaining: " + GameState.hintCount);
-                if (containsHint(message)) {
-                  // if the message contains hint, then the hint count will be reduced by 1
-                  if (GameState.hintCount > 0) {
-                    GameState.hintCount--;
-                  }
-                }
               } else {
                 // otherwise, the message will be the message
                 msg = new ChatMessage("user", message);
               }
               appendChatMessage(msg);
+              ChatMessage lastMsg;
               try {
-                runGpt(msg);
+                // get the response from GPT and check if the riddle is resolved
+                lastMsg = runGpt(msg);
+                if (lastMsg.getRole().equals("assistant")
+                    && lastMsg.getContent().startsWith("Hint")) {
+                  if (GameState.hintNumberRemaining.getValue() > 0) {
+                    GameState.hintNumberRemaining.setValue(
+                        GameState.hintNumberRemaining.getValue() - 1);
+                  }
+                }
               } catch (ApiProxyException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -315,16 +335,6 @@ public class GameMasterController {
       // updateCount is used to make sure that the message is only sent once
       updateCount++;
     }
-  }
-
-  private Boolean containsHint(String input) {
-    // determine if the message contains hint
-    if (input == null) {
-      return false;
-    }
-
-    Pattern pattern = Pattern.compile("\\bhint(s)?\\b", Pattern.CASE_INSENSITIVE);
-    return pattern.matcher(input).find();
   }
 
   /**

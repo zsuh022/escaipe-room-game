@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/GameMaster.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameMasterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/GameMaster.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameMasterController">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
@@ -67,7 +67,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="waitingResponsePane" prefHeight="768.0" prefWidth="1024.0">
+      <Pane fx:id="waitingResponsePane" prefHeight="768.0" prefWidth="1024.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dae8f5" height="768.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" width="1024.0" />
             <Label fx:id="transLabel" layoutX="332.0" layoutY="364.0" prefHeight="41.0" prefWidth="461.0" text="Transmitting to earth ..." textFill="#0025ff">
@@ -82,5 +82,15 @@
             </Label>
          </children>
       </Pane>
+      <Label fx:id="hintRemainLabel" layoutX="14.0" layoutY="250.0" prefHeight="44.0" prefWidth="179.0" text="Hint Remaining: " textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="hintNumberLabel" layoutX="159.0" layoutY="254.0" prefHeight="40.0" prefWidth="51.0" text="5 " textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
