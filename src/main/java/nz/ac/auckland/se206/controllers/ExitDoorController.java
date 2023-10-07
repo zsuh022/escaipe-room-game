@@ -33,11 +33,17 @@ public class ExitDoorController {
   @FXML private ImageView waveImage;
   @FXML private Pane indicationPane;
   @FXML private TextArea aiMessageTextArea;
+  @FXML private Button btnHint;
 
   @FXML
   private void initialize() {
     initializeTimer();
     keyPad.setVisible(false);
+    if (GameState.difficulty == 3) {
+      btnHint.setVisible(false);
+    } else {
+      btnHint.setVisible(true);
+    }
     // initialize music and sound
     GameState.currentRoom.addListener(
         (obs, oldRoom, newRoom) -> {
@@ -57,6 +63,8 @@ public class ExitDoorController {
             MusicManager.unmute();
           }
         });
+
+    // binding the message text area to the shared message
     aiMessageTextArea.textProperty().bind(GameState.sharedMessage);
     GameState.latestHint.addListener(
         (obs, oldHint, newHint) -> {

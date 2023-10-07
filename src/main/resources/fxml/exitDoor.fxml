@@ -95,7 +95,7 @@
          </font>
       </TextArea>
       <Polygon fx:id="triangle" fill="WHITE" layoutX="211.0" layoutY="228.0" opacity="0.6" points="80.246337890625, -66.39346313476562, 80.24636840820312, -137.25094604492188, 8.54534912109375, -103.71337127685547" stroke="#ffffff00" strokeType="INSIDE" />
-      <Button layoutX="719.0" layoutY="261.0" mnemonicParsing="false" onAction="#onHintButtonClick" prefHeight="12.0" prefWidth="64.0" text="Hint">
+      <Button fx:id="btnHint" layoutX="719.0" layoutY="261.0" mnemonicParsing="false" onAction="#onHintButtonClick" prefHeight="12.0" prefWidth="64.0" text="Hint">
          <font>
             <Font size="16.0" />
          </font>

@@ -3,6 +3,7 @@ package nz.ac.auckland.se206.controllers;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
@@ -25,6 +26,7 @@ public class Room1Controller {
   @FXML private Pane keyShowingPane;
   @FXML private TextArea aiMessageTextArea;
   @FXML private Polygon triangle;
+  @FXML private Button btnHint;
 
   /** Initializes the room view, it is called when the room loads. */
   @FXML
@@ -32,6 +34,11 @@ public class Room1Controller {
     initializeTimer();
     keyShowingPane.setVisible(false);
     indicationPane.setOpacity(0);
+    if (GameState.difficulty == 3) {
+      btnHint.setVisible(false);
+    } else {
+      btnHint.setVisible(true);
+    }
     // add music
     GameState.isRiddleResolved.addListener(
         (observable, oldValue, newValue) -> {
@@ -58,6 +65,8 @@ public class Room1Controller {
             MusicManager.unmute();
           }
         });
+
+    // to display the hint message
     aiMessageTextArea.textProperty().bind(GameState.sharedMessage);
     GameState.latestHint.addListener(
         (obs, oldHint, newHint) -> {
@@ -80,7 +89,11 @@ public class Room1Controller {
 
     fadeIn.setOnFinished(
         e -> {
-          GameState.latestHint.setValue("May I help you?");
+          if (GameState.difficulty == 3) {
+            GameState.latestHint.setValue("Sorry, I cannot help you this time.");
+          } else {
+            GameState.latestHint.setValue("May I help you?");
+          }
         });
 
     fadeIn2.play(); // This will play the triangle fade-in first

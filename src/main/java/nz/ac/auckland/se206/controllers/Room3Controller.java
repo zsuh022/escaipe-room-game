@@ -4,6 +4,7 @@ import java.util.Random;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
@@ -31,6 +32,7 @@ public class Room3Controller {
   @FXML private Polygon polygon2Room3Puzzle2;
   @FXML private TextArea aiMessageTextArea;
   @FXML private Polygon blackBackGround;
+  @FXML private Button btnHint;
 
   private int count;
 
@@ -41,6 +43,11 @@ public class Room3Controller {
   private void initialize() {
     initializeTimer();
     initializePuzzle();
+    if (GameState.difficulty == 3) {
+      btnHint.setVisible(false);
+    } else {
+      btnHint.setVisible(true);
+    }
     keyShowingPane.setVisible(false);
     // starts music
     GameState.isPuzzleRoom3Solved.addListener(
@@ -69,6 +76,7 @@ public class Room3Controller {
           }
         });
 
+        // this will bind the hint message to the hint text area
     aiMessageTextArea.textProperty().bind(GameState.sharedMessage);
     GameState.latestHint.addListener(
         (obs, oldHint, newHint) -> {

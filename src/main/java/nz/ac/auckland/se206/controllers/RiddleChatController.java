@@ -250,17 +250,9 @@ public class RiddleChatController {
     Thread thread2 =
         new Thread(
             () -> {
+              // append the message to the chat text area
               ChatMessage msg;
-              // if the difficulty is 2, then the message will be split into two parts
-              // one is the message, the other is the hint number
-              if (GameState.difficulty == 2) {
-                msg =
-                    new ChatMessage(
-                        "user", message + " \\ " + "Hint remaining: " + GameState.hintCount);
-              } else {
-                // otherwise, the message will be the message
-                msg = new ChatMessage("user", message);
-              }
+              msg = new ChatMessage("user", message);
               appendChatMessage(msg);
               ChatMessage lastMsg;
               try {
