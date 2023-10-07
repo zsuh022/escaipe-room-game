@@ -117,7 +117,7 @@ public class GameMasterController {
           if (newVal) {
             try {
               // Set the input text area to the desired message
-              inputTextArea.setText("give me a hint");
+              inputTextArea.setText("hint");
 
               // Call the onSendMessage method to process the message
               onSendMessage(null);

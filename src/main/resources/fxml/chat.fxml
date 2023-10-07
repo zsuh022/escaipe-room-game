@@ -55,7 +55,7 @@
       <Pane fx:id="waitingResponsePane" prefHeight="768.0" prefWidth="1024.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dae8f5" height="768.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" width="1024.0" />
-            <Label fx:id="transLabel" layoutX="332.0" layoutY="364.0" prefHeight="41.0" prefWidth="461.0" text="Transmitting to earth ..." textFill="#0025ff">
+            <Label fx:id="transLabel" layoutX="332.0" layoutY="364.0" prefHeight="41.0" prefWidth="461.0" text="Transmitting to earth ..." textFill="#00fbff">
                <font>
                   <Font name="Wingdings" size="37.0" />
                </font>
