@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
@@ -23,6 +24,7 @@ public class Room1Controller {
   @FXML private Pane indicationPane;
   @FXML private Pane keyShowingPane;
   @FXML private TextArea aiMessageTextArea;
+  @FXML private Polygon triangle;
 
   /** Initializes the room view, it is called when the room loads. */
   @FXML
@@ -60,6 +62,27 @@ public class Room1Controller {
         (obs, oldHint, newHint) -> {
           HintDisplayHelper.displayHintInTextArea(aiMessageTextArea, newHint);
         });
+    setAiMessage();
+  }
+
+  private void setAiMessage() {
+    aiMessageTextArea.setOpacity(0); // start fully transparent
+    triangle.setOpacity(0);
+
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), aiMessageTextArea);
+    FadeTransition fadeIn2 = new FadeTransition(Duration.seconds(2), triangle);
+    // fade in of the hint message
+    fadeIn2.setToValue(0.6);
+    fadeIn.setToValue(0.6);
+
+    fadeIn.play();
+
+    fadeIn.setOnFinished(
+        e -> {
+          HintDisplayHelper.displayHintInTextArea(aiMessageTextArea, GameState.latestHint.get());
+        });
+
+    fadeIn2.play(); // This will play the triangle fade-in first
   }
 
   @FXML
