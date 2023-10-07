@@ -112,9 +112,31 @@ public class GameMasterController {
     // hide loading pane when clicked
     waitingResponsePane.setOnMouseClicked(e -> waitingResponsePane.setVisible(false));
 
+    GameState.requestHint.addListener(
+        (obs, oldVal, newVal) -> {
+          if (newVal) {
+            try {
+              // Set the input text area to the desired message
+              inputTextArea.setText("give me a hint");
+
+              // Call the onSendMessage method to process the message
+              onSendMessage(null);
+              GameState.requestHint.set(false);
+            } catch (ApiProxyException | IOException e) {
+              e.printStackTrace();
+            }
+          }
+        });
+
     // set the hint number
     setHintNumber();
     thread.start();
+  }
+
+  public void sendCustomMessageToGPT(String message) throws ApiProxyException, IOException {
+    ChatMessage chatMessage = new ChatMessage("user", message);
+    runGpt(chatMessage);
+    GameState.requestHint.set(false);
   }
 
   private void setHintNumber() {

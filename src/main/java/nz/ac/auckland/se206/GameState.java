@@ -45,6 +45,8 @@ public class GameState {
 
   public static StringProperty latestHint = new SimpleStringProperty("May I help you?");
 
+  public static BooleanProperty requestHint = new SimpleBooleanProperty(false);
+
   public static void reset() {
     // reset all the variables for a new game
     isRiddleResolved = new SimpleBooleanProperty(false);
@@ -64,5 +66,6 @@ public class GameState {
     roomNumber = 1; // the room number will be 1 at the beginning
     hintNumberRemaining = new SimpleIntegerProperty(5);
     latestHint = new SimpleStringProperty("May I help you?");
+    requestHint = new SimpleBooleanProperty(false);
   }
 }

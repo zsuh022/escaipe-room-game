@@ -86,6 +86,11 @@ public class Room1Controller {
   }
 
   @FXML
+  private void onHintButtonClick() {
+    GameState.requestHint.set(!GameState.requestHint.get());
+  }
+
+  @FXML
   private void onComputerClicked() {
     // go to chat
     System.out.println("Computer clicked");
