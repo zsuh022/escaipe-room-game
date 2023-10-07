@@ -37,12 +37,14 @@ public class EndingWinController {
     keyTextArea.setVisible(false);
     riddleTextArea.setVisible(false);
   }
-  
+
   @FXML
   private void initialize() throws URISyntaxException {
     // this method is called when the fxml file is loaded
     System.out.println("EndingWinController initialized");
     MusicManager.playHappySong();
+    keyTextArea.setEditable(false);
+    riddleTextArea.setEditable(false);
     initializeRoom();
     playVideo();
   }

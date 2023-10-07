@@ -69,3 +69,7 @@
 #keyPadMessageLabel {
     -fx-text-fill: #FF5677;
 }
+
+TextArea {
+    -fx-font-size: 20px;
+}
