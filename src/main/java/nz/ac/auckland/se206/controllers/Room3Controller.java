@@ -30,6 +30,7 @@ public class Room3Controller {
   @FXML private Polygon polygonRoom3Puzzle2;
   @FXML private Polygon polygon2Room3Puzzle2;
   @FXML private TextArea aiMessageTextArea;
+  @FXML private Polygon blackBackGround;
 
   private int count;
 
@@ -173,12 +174,14 @@ public class Room3Controller {
       puzzle2Pane.setVisible(false);
       polygonRoom3Puzzle2.setVisible(false);
       polygon2Room3Puzzle2.setVisible(false);
+      blackBackGround.setVisible(false);
     } else if (randomNumber == 2) {
       polygonRoom3Puzzle1.setVisible(false);
       puzzle2Pane.setVisible(true);
       puzzle2Pane.setOpacity(1);
       polygonRoom3Puzzle2.setVisible(true);
       polygon2Room3Puzzle2.setVisible(true);
+      blackBackGround.setVisible(true);
     }
   }
 

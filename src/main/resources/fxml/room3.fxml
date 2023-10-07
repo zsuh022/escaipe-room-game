@@ -29,6 +29,11 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Polygon>
+      <Polygon fx:id="blackBackGround" layoutX="54.0" layoutY="294.0" points="48.5, 142.0, 135.5, 175.0, 468.5, 175.0, 533.5, 127.0, 533.5, -45.0, 454.5, -95.0, 109.5, -95.0, 48.5, -45.0" stroke="BLACK" strokeType="INSIDE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Polygon>
       <Pane fx:id="keyShowingPane" layoutX="680.0" layoutY="550.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">
@@ -47,16 +52,16 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Polygon>
-      <Pane fx:id="puzzle2Pane" layoutX="70.0" layoutY="177.0" prefHeight="297.0" prefWidth="613.0">
+      <Pane fx:id="puzzle2Pane" layoutX="70.0" layoutY="177.0" prefHeight="297.0" prefWidth="522.0">
          <children>
-            <ImageView fitHeight="295.0" fitWidth="613.0">
+            <ImageView fitHeight="171.0" fitWidth="464.0" layoutX="40.0" layoutY="75.0">
                <image>
                   <Image url="@../images/solarSystem.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="63.0, 480.0, 693.0, 480.0, 693.0, 170.0, 63.0, 170.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
+      <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="78.5, 480.0, 589.5, 480.0, 589.5, 190.0, 78.5, 190.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Polygon>
