@@ -40,6 +40,7 @@ public class RiddleChatController {
   private Timeline labelAnimationTimeline;
   private ChatCompletionRequest chatCompletionRequest;
   private int updateCount1 = 0;
+  private String role = "";
 
   /**
    * Initializes the chat view, loading the riddle.
@@ -144,9 +145,14 @@ public class RiddleChatController {
    *
    * @param msg the chat message to append
    */
-  private void appendChatMessage(ChatMessage msg) {
-    Platform.runLater(
-        () -> chatTextArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n"));
+  public void appendChatMessage(ChatMessage msg) {
+    if (msg.getRole().equals("assistant")) {
+      role = "Earth";
+    } else {
+      // if the role is user, then the role will be you
+      role = "You";
+    }
+    Platform.runLater(() -> chatTextArea.appendText(role + ": " + msg.getContent() + "\n\n"));
   }
 
   /**

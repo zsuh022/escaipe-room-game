@@ -43,6 +43,7 @@ public class GameMasterController {
   private int updateCount = 0;
   private ChatCompletionRequest chatCompletionRequest;
   private int updateCount1 = 0;
+  private String role = "";
 
   /**
    * Initializes the chat view, loading the riddle.
@@ -171,8 +172,13 @@ public class GameMasterController {
    * @param msg the chat message to append
    */
   public void appendChatMessage(ChatMessage msg) {
-    Platform.runLater(
-        () -> chatTextArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n"));
+    if (msg.getRole().equals("assistant")) {
+      // if the message is from the assistant, then set the role to Earth
+      role = "Earth";
+    } else {
+      role = "You";
+    }
+    Platform.runLater(() -> chatTextArea.appendText(role + ": " + msg.getContent() + "\n\n"));
   }
 
   /**
