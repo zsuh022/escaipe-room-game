@@ -35,7 +35,7 @@ public class GameState {
 
   public static IntegerProperty currentRoom = new SimpleIntegerProperty(0); // 1, 2, 3, 4
 
-  public static int hintCount = 5;
+  public static Integer hintCount = 5;
 
   public static int roomNumber = 1;
 

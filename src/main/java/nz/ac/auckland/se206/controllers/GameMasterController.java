@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-import java.util.regex.Pattern;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
@@ -43,6 +42,7 @@ public class GameMasterController {
   private Timeline labelAnimationTimeline;
   private int updateCount = 0;
   private ChatCompletionRequest chatCompletionRequest;
+  private int updateCount1 = 0;
 
   /**
    * Initializes the chat view, loading the riddle.
@@ -54,6 +54,7 @@ public class GameMasterController {
     // this will be called when the view is loaded
     initializeTimer();
     updateCount = 0;
+    updateCount1 = 0;
     chatTextArea.setEditable(false);
     waitingResponsePane.setVisible(false);
     transLabel1.setVisible(false);
@@ -294,13 +295,16 @@ public class GameMasterController {
               appendChatMessage(msg);
               ChatMessage lastMsg;
               try {
-                // get the response from GPT and check if the riddle is resolved
+                // get the response from GPT and check if it
                 lastMsg = runGpt(msg);
                 if (lastMsg.getRole().equals("assistant")
                     && lastMsg.getContent().startsWith("Hint")) {
-                  if (GameState.hintNumberRemaining.getValue() > 0) {
-                    GameState.hintNumberRemaining.setValue(
-                        GameState.hintNumberRemaining.getValue() - 1);
+                  if (GameState.hintNumberRemaining.get() > 0) {
+                    Platform.runLater(
+                        () -> {
+                          int hintNumber = GameState.hintNumberRemaining.get() - 1;
+                          GameState.hintNumberRemaining.setValue(hintNumber);
+                        });
                   }
                 }
               } catch (ApiProxyException e) {
@@ -329,11 +333,20 @@ public class GameMasterController {
         && GameState.isPuzzleRoom2Solved.getValue() == true
         && GameState.isRiddleResolved.getValue() == true
         && updateCount == 0
-        && GameState.difficulty != 3) {
+        && GameState.difficulty != 3
+        && GameState.hintNumberRemaining.get() > 0) {
       ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
       runGpt(msg);
       // updateCount is used to make sure that the message is only sent once
       updateCount++;
+    }
+
+    if (GameState.hintNumberRemaining.getValue() == 0
+        && GameState.difficulty == 2
+        && updateCount1 == 0) {
+      ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getMessageNoHint());
+      runGpt(msg);
+      updateCount1++;
     }
   }
 
