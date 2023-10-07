@@ -4,11 +4,13 @@ import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.HintDisplayHelper;
 import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
@@ -20,6 +22,7 @@ public class Room1Controller {
   @FXML private Label timeLabel;
   @FXML private Pane indicationPane;
   @FXML private Pane keyShowingPane;
+  @FXML private TextArea aiMessageTextArea;
 
   /** Initializes the room view, it is called when the room loads. */
   @FXML
@@ -52,6 +55,10 @@ public class Room1Controller {
             waveImage.setVisible(true);
             MusicManager.unmute();
           }
+        });
+    GameState.latestHint.addListener(
+        (obs, oldHint, newHint) -> {
+          HintDisplayHelper.displayHintInTextArea(aiMessageTextArea, newHint);
         });
   }
 

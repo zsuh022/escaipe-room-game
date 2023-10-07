@@ -4,6 +4,8 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /** Represents the state of the game. */
 public class GameState {
@@ -41,6 +43,8 @@ public class GameState {
 
   public static IntegerProperty hintNumberRemaining = new SimpleIntegerProperty(5);
 
+  public static StringProperty latestHint = new SimpleStringProperty("May I help you?");
+
   public static void reset() {
     // reset all the variables for a new game
     isRiddleResolved = new SimpleBooleanProperty(false);
@@ -59,5 +63,6 @@ public class GameState {
     hintCount = 5;
     roomNumber = 1; // the room number will be 1 at the beginning
     hintNumberRemaining = new SimpleIntegerProperty(5);
+    latestHint = new SimpleStringProperty("May I help you?");
   }
 }
