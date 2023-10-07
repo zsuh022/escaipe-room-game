@@ -108,7 +108,7 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="170.0" fitWidth="189.0" layoutX="44.0" layoutY="20.0" onMouseClicked="#onGameMasterClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="170.0" fitWidth="189.0" layoutX="44.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameMaster.png" />
          </image>
@@ -124,5 +124,10 @@
             <Font size="16.0" />
          </font>
       </Button>
+      <Polygon fill="DODGERBLUE" layoutX="-19.0" layoutY="256.0" onMouseClicked="#onGameMasterClicked" points="100.53632354736328, -89.0, 145.11734008789062, -64.88265991210938, 190.97207641601562, -89.0, 230.3126678466797, -151.0, 218.9944305419922, -236.00001525878906, 145.11734008789062, -216.45809936523438, 69.96649169921875, -236.00001525878906, 61.999996185302734, -151.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Polygon>
    </children>
 </Pane>
