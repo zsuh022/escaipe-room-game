@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-import java.util.regex.Pattern;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
@@ -38,9 +37,13 @@ public class GameMasterController {
   @FXML private Label transLabel;
   @FXML private Pane indicationPane;
   @FXML private Label transLabel1;
+  @FXML private Label hintRemainLabel;
+  @FXML private Label hintNumberLabel;
   private Timeline labelAnimationTimeline;
   private int updateCount = 0;
   private ChatCompletionRequest chatCompletionRequest;
+  private int updateCount1 = 0;
+  private String role = "";
 
   /**
    * Initializes the chat view, loading the riddle.
@@ -52,6 +55,7 @@ public class GameMasterController {
     // this will be called when the view is loaded
     initializeTimer();
     updateCount = 0;
+    updateCount1 = 0;
     chatTextArea.setEditable(false);
     waitingResponsePane.setVisible(false);
     transLabel1.setVisible(false);
@@ -107,7 +111,44 @@ public class GameMasterController {
 
     // hide loading pane when clicked
     waitingResponsePane.setOnMouseClicked(e -> waitingResponsePane.setVisible(false));
+
+    GameState.requestHint.addListener(
+        (obs, oldVal, newVal) -> {
+          if (newVal) {
+            try {
+              // Set the input text area to the desired message
+              inputTextArea.setText("hint");
+
+              // Call the onSendMessage method to process the message
+              onSendMessage(null);
+              GameState.requestHint.set(false);
+            } catch (ApiProxyException | IOException e) {
+              e.printStackTrace();
+            }
+          }
+        });
+
+    // set the hint number
+    setHintNumber();
     thread.start();
+  }
+
+  public void sendCustomMessageToGPT(String message) throws ApiProxyException, IOException {
+    ChatMessage chatMessage = new ChatMessage("user", message);
+    runGpt(chatMessage);
+    GameState.requestHint.set(false);
+  }
+
+  private void setHintNumber() {
+    if (GameState.difficulty == 2) {
+      hintRemainLabel.setVisible(true);
+      hintNumberLabel.setVisible(true);
+      // bind the hint number to the hint number remaining
+      hintNumberLabel.textProperty().bind(GameState.hintNumberRemaining.asString());
+    } else {
+      hintRemainLabel.setVisible(false);
+      hintNumberLabel.setVisible(false);
+    }
   }
 
   private void initializeTimer() {
@@ -153,8 +194,13 @@ public class GameMasterController {
    * @param msg the chat message to append
    */
   public void appendChatMessage(ChatMessage msg) {
-    Platform.runLater(
-        () -> chatTextArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n"));
+    if (msg.getRole().equals("assistant")) {
+      // if the message is from the assistant, then set the role to Earth
+      role = "Earth";
+    } else {
+      role = "You";
+    }
+    Platform.runLater(() -> chatTextArea.appendText(role + ": " + msg.getContent() + "\n\n"));
   }
 
   /**
@@ -263,26 +309,28 @@ public class GameMasterController {
     Thread thread2 =
         new Thread(
             () -> {
+              // append the message to the chat text area
               ChatMessage msg;
-              // if the difficulty is 2, then the message will be split into two parts
-              // one is the message, the other is the hint number
-              if (GameState.difficulty == 2) {
-                msg =
-                    new ChatMessage(
-                        "user", message + " \\ " + "Hint remaining: " + GameState.hintCount);
-                if (containsHint(message)) {
-                  // if the message contains hint, then the hint count will be reduced by 1
-                  if (GameState.hintCount > 0) {
-                    GameState.hintCount--;
-                  }
-                }
-              } else {
-                // otherwise, the message will be the message
-                msg = new ChatMessage("user", message);
-              }
+              msg = new ChatMessage("user", message);
               appendChatMessage(msg);
+              ChatMessage lastMsg;
               try {
-                runGpt(msg);
+                // get the response from GPT and check if it
+                lastMsg = runGpt(msg);
+                if (lastMsg.getRole().equals("assistant")
+                    && lastMsg.getContent().startsWith("Hint")) {
+                  if (GameState.hintNumberRemaining.get() > 0) {
+                    Platform.runLater(
+                        () -> {
+                          int hintNumber = GameState.hintNumberRemaining.get() - 1;
+                          GameState.hintNumberRemaining.setValue(hintNumber);
+                        });
+                  }
+                  Platform.runLater(
+                      () -> {
+                        GameState.latestHint.set(lastMsg.getContent());
+                      });
+                }
               } catch (ApiProxyException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -309,22 +357,21 @@ public class GameMasterController {
         && GameState.isPuzzleRoom2Solved.getValue() == true
         && GameState.isRiddleResolved.getValue() == true
         && updateCount == 0
-        && GameState.difficulty != 3) {
+        && GameState.difficulty != 3
+        && GameState.hintNumberRemaining.get() > 0) {
       ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
       runGpt(msg);
       // updateCount is used to make sure that the message is only sent once
       updateCount++;
     }
-  }
 
-  private Boolean containsHint(String input) {
-    // determine if the message contains hint
-    if (input == null) {
-      return false;
+    if (GameState.hintNumberRemaining.getValue() == 0
+        && GameState.difficulty == 2
+        && updateCount1 == 0) {
+      ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getMessageNoHint());
+      runGpt(msg);
+      updateCount1++;
     }
-
-    Pattern pattern = Pattern.compile("\\bhint(s)?\\b", Pattern.CASE_INSENSITIVE);
-    return pattern.matcher(input).find();
   }
 
   /**

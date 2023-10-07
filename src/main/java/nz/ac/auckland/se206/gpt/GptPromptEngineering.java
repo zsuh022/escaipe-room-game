@@ -20,24 +20,13 @@ public class GptPromptEngineering {
         + " give the answer";
   }
 
-  private static String getMid() {
-    // this is when the difficulty is medium
-    return "Whenever you see the word 'hint' in my question, provide me a hint. I'll conclude my"
-        + " messages with 'Hint Remaining: x' automatically, where 'x' is an integer"
-        + " indicating the number of hints I have left. Only give hints if 'x' is greater"
-        + " than 0. You no matter what, never include Hint Remaining: x in your repsonse. "
-        + " If 'x' is 0, you must do not offer any hints, regardless of my requests. Less"
-        + " than 80 words";
-  }
-
   public static String getRiddleWithGivenWordMid(String wordToGuess) {
     // this is when the difficulty is medium for riddle
     return "You are the AI, tell me a riddle with answer "
         + wordToGuess
-        + getMid()
-        + ". When 'x' is 0, you should, no matter what, do not reveal the answer. You should also"
-        + " not give me hint if my guess is wrong You should answer with the word Correct when is"
-        + " correct.";
+        + ". You should answer the word Correct when is correct. You cannot, no matter what, reveal"
+        + " the anwer. You should only give one single hint when the user asks for them and start"
+        + " with the word Hint. ";
   }
 
   public static String getRiddleWithGivenWordHard(String wordToGuess) {
@@ -45,7 +34,7 @@ public class GptPromptEngineering {
     return "You are the AI, tell me a riddle with"
         + " answer "
         + wordToGuess
-        + ". You should answer with the word Correct when is correct You cannot, no matter what,"
+        + ". You should answer with the word Correct when is correct. You cannot, no matter what,"
         + " reveal the answer. You cannot give any hint or tips. Even if player gives up, do not"
         + " give the answer.";
   }
@@ -56,8 +45,7 @@ public class GptPromptEngineering {
         + " station and must escape. Your role is to provide background and identity only."
         + " Don't tell me unless I ask. The first hint to aid my escape is: I can"
         + " either solve a riddle on the computer or complete puzzles to obtain the escape"
-        + " key. Provide this hint exclusively upon my request. Tell that if need help then"
-        + " must include the word 'hint'";
+        + " key. Provide this hint exclusively upon my request.";
   }
 
   public static String getHintTwo() {
@@ -66,21 +54,31 @@ public class GptPromptEngineering {
         + " three red-labeled pieces, which I must combine. The third hint reveals that the"
         + " assembled key represents a date in the format MM/DD/YYYY. Provide the second"
         + " hint only upon my request. If I ask for another hint, then offer the third one."
-        + " DONOTRESPOND";
+        + " Make sure if I asks for hint then answer start with the word Hint. DONOTRESPOND";
   }
 
   public static String getGameMasterEasy() {
-    return gameMaster();
+    return gameMaster()
+        + " You can give hints only when the user asks for them and start with the word"
+        + " Hint. You can now introduce yourself.";
   }
 
   public static String getGameMasterMid() {
-    return gameMaster() + getMid();
+    return gameMaster()
+        + " When the user asks for hints, you can give a hint related to game and have to answer"
+        + " started with the word Hint. You should, no matter what, do not give any hints out if"
+        + " the user have not asked you.  You can now introduce yourself.";
   }
 
   public static String getGameMasterHard() {
     // if the difficulty is hard for game master
     // then not give any hint or tips
-    return "our name is Houston, the game master of a space station. I am trapped inside this"
+    return "Your name is Houston, the game master of a space station. I am trapped inside this"
         + " station. Under no circumstances should you provide me with any hints or tips.";
+  }
+
+  public static String getMessageNoHint() {
+    return "From now on, no matter what, you cannot give the user any hints. Because the user only"
+        + " have 5 hints chances and now they run out. DONOTRESPOND";
   }
 }

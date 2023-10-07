@@ -2,7 +2,6 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.util.Random;
-import java.util.regex.Pattern;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -35,9 +34,13 @@ public class RiddleChatController {
   @FXML private Label timeLabel;
   @FXML private Pane waitingResponsePane;
   @FXML private Label transLabel;
+  @FXML private Label hintRemainLabel;
+  @FXML private Label hintNumberLabel;
 
   private Timeline labelAnimationTimeline;
   private ChatCompletionRequest chatCompletionRequest;
+  private int updateCount1 = 0;
+  private String role = "";
 
   /**
    * Initializes the chat view, loading the riddle.
@@ -49,7 +52,7 @@ public class RiddleChatController {
     // Hide loading pane
     waitingResponsePane.setVisible(false);
     chatTextArea.setEditable(false);
-
+    updateCount1 = 0;
     // randomly select a celestial body to be the riddle word
     String[] celestialBodies = {
       "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"
@@ -98,6 +101,15 @@ public class RiddleChatController {
                 }
               }
             });
+    if (GameState.difficulty == 2) {
+      hintRemainLabel.setVisible(true);
+      hintNumberLabel.setVisible(true);
+      // bind the hint number to the hint number remaining
+      hintNumberLabel.textProperty().bind(GameState.hintNumberRemaining.asString());
+    } else {
+      hintRemainLabel.setVisible(false);
+      hintNumberLabel.setVisible(false);
+    }
     // initialize the timer
     if (GameState.timeManager != null && GameState.timeManager.getSecond() != null) {
       initializeTimer();
@@ -133,9 +145,14 @@ public class RiddleChatController {
    *
    * @param msg the chat message to append
    */
-  private void appendChatMessage(ChatMessage msg) {
-    Platform.runLater(
-        () -> chatTextArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n"));
+  public void appendChatMessage(ChatMessage msg) {
+    if (msg.getRole().equals("assistant")) {
+      role = "Earth";
+    } else {
+      // if the role is user, then the role will be you
+      role = "You";
+    }
+    Platform.runLater(() -> chatTextArea.appendText(role + ": " + msg.getContent() + "\n\n"));
   }
 
   /**
@@ -160,7 +177,10 @@ public class RiddleChatController {
       ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
       Choice result = chatCompletionResult.getChoices().iterator().next();
       chatCompletionRequest.addMessage(result.getChatMessage());
-      appendChatMessage(result.getChatMessage());
+      if (!msg.getContent().endsWith("DONOTRESPOND")) {
+        appendChatMessage(result.getChatMessage());
+      }
+
       return result.getChatMessage();
     } catch (ApiProxyException e) {
       // TODO handle exception appropriately
@@ -214,32 +234,28 @@ public class RiddleChatController {
    */
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
+    Thread thread1 =
+        new Thread(
+            () -> {
+              try {
+                updateGpt();
+              } catch (ApiProxyException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+            });
     String message = inputTextArea.getText();
     if (message.trim().isEmpty()) {
       return;
     }
     inputTextArea.clear();
     // send message to GPT
-    Thread thread =
+    Thread thread2 =
         new Thread(
             () -> {
+              // append the message to the chat text area
               ChatMessage msg;
-              // if the difficulty is 2, then the message will be split into two parts
-              // one is the message, the other is the hint number
-              if (GameState.difficulty == 2) {
-                msg =
-                    new ChatMessage(
-                        "user", message + " \\ " + "Hint remaining: " + GameState.hintCount);
-                if (containsHint(message)) {
-                  // if the message contains hint, then the hint count will be reduced by 1
-                  if (GameState.hintCount > 0) {
-                    GameState.hintCount--;
-                  }
-                }
-              } else {
-                // otherwise, the message will be the message
-                msg = new ChatMessage("user", message);
-              }
+              msg = new ChatMessage("user", message);
               appendChatMessage(msg);
               ChatMessage lastMsg;
               try {
@@ -249,22 +265,44 @@ public class RiddleChatController {
                     && lastMsg.getContent().startsWith("Correct")) {
                   GameState.isRiddleResolved.set(true);
                 }
+                if (lastMsg.getRole().equals("assistant")
+                    && lastMsg.getContent().startsWith("Hint")) {
+                  if (GameState.hintNumberRemaining.get() > 0) {
+                    Platform.runLater(
+                        () -> {
+                          int hintNumber = GameState.hintNumberRemaining.get() - 1;
+                          GameState.hintNumberRemaining.setValue(hintNumber);
+                        });
+                  }
+                }
               } catch (ApiProxyException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
               }
             });
-    thread.start();
+    Thread thread4 =
+        new Thread(
+            () -> {
+              thread1.start();
+              try {
+                thread1.join();
+              } catch (InterruptedException e) {
+                e.printStackTrace();
+              }
+              thread2.start();
+            });
+    thread4.start();
   }
 
-  private Boolean containsHint(String input) {
-    // determine if the message contains hint
-    if (input == null) {
-      return false;
+  public void updateGpt() throws ApiProxyException {
+    // this will be called when the hint number is 0
+    if (GameState.hintNumberRemaining.getValue() == 0
+        && GameState.difficulty == 2
+        && updateCount1 == 0) {
+      ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getMessageNoHint());
+      runGpt(msg);
+      updateCount1++;
     }
-
-    Pattern pattern = Pattern.compile("\\bhint(s)?\\b", Pattern.CASE_INSENSITIVE);
-    return pattern.matcher(input).find();
   }
 
   /**

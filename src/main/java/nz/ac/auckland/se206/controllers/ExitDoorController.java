@@ -8,12 +8,14 @@ import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.HintDisplayHelper;
 import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
@@ -30,11 +32,18 @@ public class ExitDoorController {
   @FXML private ImageView crossImage;
   @FXML private ImageView waveImage;
   @FXML private Pane indicationPane;
+  @FXML private TextArea aiMessageTextArea;
+  @FXML private Button btnHint;
 
   @FXML
   private void initialize() {
     initializeTimer();
     keyPad.setVisible(false);
+    if (GameState.difficulty == 3) {
+      btnHint.setVisible(false);
+    } else {
+      btnHint.setVisible(true);
+    }
     // initialize music and sound
     GameState.currentRoom.addListener(
         (obs, oldRoom, newRoom) -> {
@@ -54,6 +63,13 @@ public class ExitDoorController {
             MusicManager.unmute();
           }
         });
+
+    // binding the message text area to the shared message
+    aiMessageTextArea.textProperty().bind(GameState.sharedMessage);
+    GameState.latestHint.addListener(
+        (obs, oldHint, newHint) -> {
+          HintDisplayHelper.displayHintInTextArea(aiMessageTextArea, newHint);
+        });
   }
 
   @FXML
@@ -63,6 +79,11 @@ public class ExitDoorController {
     smallKeyPad.setVisible(true);
     smallKeyPadCircle.setVisible(true);
     btnKeyPadDisplay.setText("");
+  }
+
+  @FXML
+  private void onHintButtonClick() {
+    GameState.requestHint.set(!GameState.requestHint.get());
   }
 
   @FXML

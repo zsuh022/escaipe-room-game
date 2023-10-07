@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -10,10 +11,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.ExitDoorController">
+<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.ExitDoorController">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0">
@@ -35,6 +37,69 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Circle>
+      <Pane layoutX="700.0" layoutY="10.0" pickOnBounds="false" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/timerBlackTxt.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="919.0" layoutY="20.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="97.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/mutebutton.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="crossImage" fitHeight="24.0" fitWidth="25.0" layoutX="50.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/cross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="waveImage" fitHeight="83.0" fitWidth="20.0" layoutX="50.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/wave.png" />
+               </image>
+            </ImageView>
+            <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#onMuteBarClicked" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Circle>
+         </children>
+      </Pane>
+      <Pane fx:id="indicationPane" layoutY="666.0" prefHeight="108.0" prefWidth="1024.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#515457" height="108.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
+            <Label layoutX="361.0" layoutY="29.0" prefHeight="50.0" prefWidth="356.0" text="Descent Module" textFill="#fffdfd">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="170.0" fitWidth="189.0" layoutX="44.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/gameMaster.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="aiMessageTextArea" editable="false" layoutX="291.0" layoutY="91.0" opacity="0.6" prefHeight="200.0" prefWidth="492.0" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextArea>
+      <Polygon fx:id="triangle" fill="WHITE" layoutX="211.0" layoutY="228.0" opacity="0.6" points="80.246337890625, -66.39346313476562, 80.24636840820312, -137.25094604492188, 8.54534912109375, -103.71337127685547" stroke="#ffffff00" strokeType="INSIDE" />
+      <Button fx:id="btnHint" layoutX="719.0" layoutY="261.0" mnemonicParsing="false" onAction="#onHintButtonClick" prefHeight="12.0" prefWidth="64.0" text="Hint">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
       <Pane fx:id="keyPad" layoutX="212.0" layoutY="120.0" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0">
          <children>
             <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
@@ -135,57 +200,10 @@
             </GridPane>
          </children>
       </Pane>
-      <Pane layoutX="700.0" layoutY="10.0" pickOnBounds="false" prefHeight="150.0" prefWidth="200.0">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
-               <image>
-                  <Image url="@../images/timerBlackTxt.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane layoutX="919.0" layoutY="20.0" prefHeight="100.0" prefWidth="100.0">
-         <children>
-            <ImageView fitHeight="97.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/mutebutton.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="crossImage" fitHeight="24.0" fitWidth="25.0" layoutX="50.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../images/cross.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="waveImage" fitHeight="83.0" fitWidth="20.0" layoutX="50.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/wave.png" />
-               </image>
-            </ImageView>
-            <Circle centerX="43.0" centerY="43.0" fill="#1f93ff00" onMouseClicked="#onMuteBarClicked" opacity="0.0" radius="43.0" stroke="BLACK" strokeType="INSIDE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Circle>
-         </children>
-      </Pane>
-      <Pane fx:id="indicationPane" layoutY="666.0" prefHeight="108.0" prefWidth="1024.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#515457" height="108.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
-            <Label layoutX="361.0" layoutY="29.0" prefHeight="50.0" prefWidth="356.0" text="Descent Module" textFill="#fffdfd">
-               <font>
-                  <Font size="45.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <ImageView fitHeight="170.0" fitWidth="189.0" layoutX="44.0" layoutY="20.0" onMouseClicked="#onGameMasterClicked" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/gameMaster.png" />
-         </image>
-      </ImageView>
+      <Polygon fill="DODGERBLUE" layoutX="-19.0" layoutY="255.0" onMouseClicked="#onGameMasterClicked" points="100.53632354736328, -89.0, 145.11734008789062, -64.88265991210938, 190.97207641601562, -89.0, 230.3126678466797, -151.0, 218.9944305419922, -236.00001525878906, 145.11734008789062, -216.45809936523438, 69.96649169921875, -236.00001525878906, 61.999996185302734, -151.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Polygon>
    </children>
 </Pane>

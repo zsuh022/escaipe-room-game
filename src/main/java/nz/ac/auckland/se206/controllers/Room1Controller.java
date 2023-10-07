@@ -3,12 +3,16 @@ package nz.ac.auckland.se206.controllers;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.HintDisplayHelper;
 import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
@@ -20,6 +24,9 @@ public class Room1Controller {
   @FXML private Label timeLabel;
   @FXML private Pane indicationPane;
   @FXML private Pane keyShowingPane;
+  @FXML private TextArea aiMessageTextArea;
+  @FXML private Polygon triangle;
+  @FXML private Button btnHint;
 
   /** Initializes the room view, it is called when the room loads. */
   @FXML
@@ -27,6 +34,11 @@ public class Room1Controller {
     initializeTimer();
     keyShowingPane.setVisible(false);
     indicationPane.setOpacity(0);
+    if (GameState.difficulty == 3) {
+      btnHint.setVisible(false);
+    } else {
+      btnHint.setVisible(true);
+    }
     // add music
     GameState.isRiddleResolved.addListener(
         (observable, oldValue, newValue) -> {
@@ -53,6 +65,43 @@ public class Room1Controller {
             MusicManager.unmute();
           }
         });
+
+    // to display the hint message
+    aiMessageTextArea.textProperty().bind(GameState.sharedMessage);
+    GameState.latestHint.addListener(
+        (obs, oldHint, newHint) -> {
+          HintDisplayHelper.displayHintInTextArea(aiMessageTextArea, newHint);
+        });
+    setAiMessage();
+  }
+
+  private void setAiMessage() {
+    aiMessageTextArea.setOpacity(0); // start fully transparent
+    triangle.setOpacity(0);
+
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), aiMessageTextArea);
+    FadeTransition fadeIn2 = new FadeTransition(Duration.seconds(2), triangle);
+    // fade in of the hint message
+    fadeIn2.setToValue(0.6);
+    fadeIn.setToValue(0.6);
+
+    fadeIn.play();
+
+    fadeIn.setOnFinished(
+        e -> {
+          if (GameState.difficulty == 3) {
+            GameState.latestHint.setValue("Sorry, I cannot help you this time.");
+          } else {
+            GameState.latestHint.setValue("May I help you?");
+          }
+        });
+
+    fadeIn2.play(); // This will play the triangle fade-in first
+  }
+
+  @FXML
+  private void onHintButtonClick() {
+    GameState.requestHint.set(!GameState.requestHint.get());
   }
 
   @FXML
