@@ -177,7 +177,10 @@ public class RiddleChatController {
       ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
       Choice result = chatCompletionResult.getChoices().iterator().next();
       chatCompletionRequest.addMessage(result.getChatMessage());
-      appendChatMessage(result.getChatMessage());
+      if (!msg.getContent().endsWith("DONOTRESPOND")) {
+        appendChatMessage(result.getChatMessage());
+      }
+
       return result.getChatMessage();
     } catch (ApiProxyException e) {
       // TODO handle exception appropriately

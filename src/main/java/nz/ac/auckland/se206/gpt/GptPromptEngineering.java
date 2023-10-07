@@ -25,8 +25,8 @@ public class GptPromptEngineering {
     return "You are the AI, tell me a riddle with answer "
         + wordToGuess
         + ". You should answer the word Correct when is correct. You cannot, no matter what, reveal"
-        + " the anwer. You should give hints when the user asks for them and start with the word"
-        + " Hint. ";
+        + " the anwer. You should only give one single hint when the user asks for them and start"
+        + " with the word Hint. ";
   }
 
   public static String getRiddleWithGivenWordHard(String wordToGuess) {
@@ -65,9 +65,9 @@ public class GptPromptEngineering {
 
   public static String getGameMasterMid() {
     return gameMaster()
-        + " When the user asks for hints, you can give them hint and must must must answer with the"
-        + " word Hint. You should, no matter what, do not give any hints out if the user have not"
-        + " asked you.  You can now introduce yourself.";
+        + " When the user asks for hints, you can give a hint related to game and have to answer"
+        + " started with the word Hint. You should, no matter what, do not give any hints out if"
+        + " the user have not asked you.  You can now introduce yourself.";
   }
 
   public static String getGameMasterHard() {
