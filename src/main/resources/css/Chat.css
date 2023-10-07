@@ -10,7 +10,9 @@ TextArea {
 #chatTextArea {
     -fx-border-color: #FFC107;
     -fx-border-width: 3px;
-    -fx-font-size: 18px;
+    -fx-font-size: 20px;
+    -fx-text-fill: #ffffff;
+    -fx-control-inner-background: #000000;
 }
 
 #inputTextArea {
