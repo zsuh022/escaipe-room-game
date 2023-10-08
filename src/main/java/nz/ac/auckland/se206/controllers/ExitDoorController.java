@@ -90,6 +90,7 @@ public class ExitDoorController {
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
+    HintDisplayHelper.displayThreeDots();
   }
 
   /** this will be called when the game master is clicked. */

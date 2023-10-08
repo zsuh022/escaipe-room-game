@@ -113,6 +113,7 @@ public class Room3Controller {
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
+    HintDisplayHelper.displayThreeDots();
   }
 
   /** This method will be called when room1 button is clicked. */

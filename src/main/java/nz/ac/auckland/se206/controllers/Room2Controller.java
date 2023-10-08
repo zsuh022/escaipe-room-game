@@ -101,6 +101,7 @@ public class Room2Controller {
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
+    HintDisplayHelper.displayThreeDots();
   }
 
   /** This method will be called when the mute button is clicked. */

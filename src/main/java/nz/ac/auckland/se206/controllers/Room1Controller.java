@@ -109,6 +109,7 @@ public class Room1Controller {
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
+    HintDisplayHelper.displayThreeDots();
   }
 
   /** this method will be called when the riddle/computer is clicked. */

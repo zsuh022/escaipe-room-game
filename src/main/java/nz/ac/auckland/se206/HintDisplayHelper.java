@@ -55,4 +55,32 @@ public class HintDisplayHelper {
             })
         .start();
   }
+
+  public static void displayThreeDots() {
+    stopCurrentTyping = true;
+    // Pause to allow the current typing operation to stop
+    try {
+      Thread.sleep(140); // This duration can be adjusted
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    stopCurrentTyping = false;
+    new Thread(
+            () -> {
+              for (int i = 1; i <= 6; i++) {
+                final int count = i;
+                Platform.runLater(
+                    () -> {
+                      GameState.sharedMessage.setValue(".".repeat(count));
+                    });
+                try {
+                  Thread.sleep(700); // This causes the pause between each dot
+                } catch (InterruptedException e) {
+                  e.printStackTrace();
+                  return; // Exit the thread if an interruption occurs
+                }
+              }
+            })
+        .start();
+  }
 }
