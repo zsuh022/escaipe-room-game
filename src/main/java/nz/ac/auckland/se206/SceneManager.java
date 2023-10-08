@@ -26,15 +26,28 @@ public class SceneManager {
   // HashMap to store the different rooms and their scenes
   private static HashMap<RoomType, Parent> sceneMap = new HashMap<RoomType, Parent>();
 
+  /** this will reset all the variables for a new game. */
   public static void reset() {
     // reset the sceneMap
     sceneMap = new HashMap<RoomType, Parent>();
   }
 
+  /**
+   * Add a new scene to the sceneMap.
+   *
+   * @param room the room type
+   * @param parent the parent node
+   */
   public static void addUi(RoomType room, Parent parent) {
     sceneMap.put(room, parent);
   }
 
+  /**
+   * Get the scene from the sceneMap.
+   *
+   * @param room the room type
+   * @return the parent node
+   */
   public static Parent getUi(RoomType room) {
     return sceneMap.get(room);
   }

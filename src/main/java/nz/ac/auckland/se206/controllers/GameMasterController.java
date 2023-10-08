@@ -133,12 +133,20 @@ public class GameMasterController {
     thread.start();
   }
 
+  /**
+   * Sends a custom message to the GPT model.
+   *
+   * @param message the message to send
+   * @throws ApiProxyException if there is an error communicating with the API proxy
+   * @throws IOException if there is an I/O error
+   */
   public void sendCustomMessageToGPT(String message) throws ApiProxyException, IOException {
     ChatMessage chatMessage = new ChatMessage("user", message);
     runGpt(chatMessage);
     GameState.requestHint.set(false);
   }
 
+  /** this will be called when the hint number needs to be set. */
   private void setHintNumber() {
     if (GameState.difficulty == 2) {
       hintRemainLabel.setVisible(true);
@@ -151,14 +159,22 @@ public class GameMasterController {
     }
   }
 
+  /** this will update the key label of the timer. */
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  /**
+   * this will check if this is the current room.
+   *
+   * @param roomNumber the room number
+   * @return true if this is the current room
+   */
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 5;
   }
 
+  /** this will make the indication pane fade in and out. */
   private void fadeInOutIndicationPane() {
     // fade in and out the indication pane
     indicationPane.setVisible(true);
@@ -253,6 +269,11 @@ public class GameMasterController {
     }
   }
 
+  /**
+   * Starts the label animation of the indicator.
+   *
+   * @param label the label to animate
+   */
   private void startLabelAnimation(Label label) {
     // this will be called when waiting for response
     if (labelAnimationTimeline != null) {
@@ -351,6 +372,11 @@ public class GameMasterController {
     thread3.start();
   }
 
+  /**
+   * Updates the GPT model of the new messages.
+   *
+   * @throws ApiProxyException
+   */
   public void updateGpt() throws ApiProxyException {
     // this will be called when the user has done all the puzzles
     if (GameState.isPuzzleRoom3Solved.getValue() == true

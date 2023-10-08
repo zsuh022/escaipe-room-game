@@ -49,6 +49,7 @@ public class GameState {
 
   public static StringProperty sharedMessage = new SimpleStringProperty("");
 
+  /** this will reset all the variables for a new game */
   public static void reset() {
     // reset all the variables for a new game
     isRiddleResolved = new SimpleBooleanProperty(false);

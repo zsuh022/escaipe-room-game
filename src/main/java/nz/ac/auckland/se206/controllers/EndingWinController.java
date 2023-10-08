@@ -31,6 +31,7 @@ public class EndingWinController {
   private Boolean isRiddleOutputed = false;
   private MediaPlayer player;
 
+  /** when the mouse is clicked on the base, the text area will disappear */
   @FXML
   private void baseTouched() {
     // when the mouse is clicked on the base, the text area will disappear
@@ -38,6 +39,11 @@ public class EndingWinController {
     riddleTextArea.setVisible(false);
   }
 
+  /**
+   * Called to initialize a controller after its root element has been completely processed.
+   *
+   * @throws URISyntaxException if the URI syntax is invalid
+   */
   @FXML
   private void initialize() throws URISyntaxException {
     // this method is called when the fxml file is loaded
@@ -49,6 +55,7 @@ public class EndingWinController {
     playVideo();
   }
 
+  /** Called when entering the key label. */
   @FXML
   private void keyLabelEntered() {
     // when the mouse is entered on the key label, the text area will appear
@@ -59,17 +66,20 @@ public class EndingWinController {
     }
   }
 
+  /** Called when entering the key text area. */
   @FXML
   private void keyTextAreaEntered() {
     keyTextArea.setVisible(true);
   }
 
+  /** Called when the exit button is clicked. */
   @FXML
   private void onExitButtonClicked() {
     System.out.println("Exit button clicked");
     Platform.exit();
   }
 
+  /** Called when the restart button is clicked. */
   @FXML
   private void onRestartButtonClicked() throws IOException {
     // when the restart button is clicked, the game will restart
@@ -81,6 +91,7 @@ public class EndingWinController {
     MusicManager.mute();
   }
 
+  /** Called when entering the riddle label. */
   @FXML
   private void riddleLabelEntered() {
     // when the mouse is entered on the riddle label, the text area will appear
@@ -91,11 +102,13 @@ public class EndingWinController {
     }
   }
 
+  /** Called when entering the riddle text area. */
   @FXML
   private void riddleTextAreaEntered() {
     riddleTextArea.setVisible(true);
   }
 
+  /** initialize the room with the key and riddle word. */
   private void initializeRoom() {
     // this method is called when the fxml file is loaded
     isKeyOutputed = false;
@@ -108,6 +121,11 @@ public class EndingWinController {
     skipLabel.setVisible(true);
   }
 
+  /**
+   * this method will output the background information for the key.
+   *
+   * @return
+   */
   private String outputKeyBackground() {
     switch (GameState.key) {
       case 12041961: // 12 April 1961 (Yuri Gagarin)
@@ -128,6 +146,11 @@ public class EndingWinController {
     return "";
   }
 
+  /**
+   * this method will output the background information for the riddle word.
+   *
+   * @return
+   */
   private String outputRiddleBackground() {
     switch (GameState.riddleWord) {
       case "Mercury": // background information for Mercury
@@ -177,6 +200,7 @@ public class EndingWinController {
     return "";
   }
 
+  /** this method plays the video. */
   private void playVideo() throws URISyntaxException {
     // this the method that plays the video
     setUpMedia();
@@ -184,6 +208,7 @@ public class EndingWinController {
     setUpPlayerHandlers();
   }
 
+  /** this method sets up the media player. */
   private void setUpMedia() throws URISyntaxException {
     // this method sets up the media player
     Media media = new Media(App.class.getResource("/sounds/depart.mp4").toURI().toString());
@@ -191,6 +216,7 @@ public class EndingWinController {
     depart.setMediaPlayer(player);
   }
 
+  /** this method sets up the fade transition. */
   private void setUpFadeTransition() {
     // this method sets up the fade transition
     FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), depart);
@@ -207,6 +233,7 @@ public class EndingWinController {
         });
   }
 
+  /** this method sets up the player handlers. */
   private void setUpPlayerHandlers() {
     // this method sets up the player handlers
     depart.setOnMouseClicked(e -> stopAndHidePlayer());
@@ -214,6 +241,7 @@ public class EndingWinController {
     player.play();
   }
 
+  /** this method stops and hides the player. */
   private void stopAndHidePlayer() {
     player.stop();
     depart.setVisible(false);

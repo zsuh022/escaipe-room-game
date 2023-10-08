@@ -20,6 +20,11 @@ public class EndingLoseController {
 
   @FXML private ImageView gameMasterLose;
 
+  /**
+   * Called to initialize a controller after its root element has been completely processed.
+   *
+   * @throws URISyntaxException if the URI syntax is invalid
+   */
   @FXML
   private void initialize() throws URISyntaxException {
     System.out.println("EndingWinController initialized");
@@ -28,6 +33,7 @@ public class EndingLoseController {
     gameMasterTransition();
   }
 
+  /** Called when the exit button is clicked. */
   @FXML
   private void onExitButtonClicked() {
     System.out.println("Exit button clicked");
@@ -35,6 +41,11 @@ public class EndingLoseController {
     Platform.exit();
   }
 
+  /**
+   * Called when the restart button is clicked.
+   *
+   * @throws IOException if the input or output is invalid
+   */
   @FXML
   private void onRestartButtonClicked() throws IOException {
     System.out.println("Play again button clicked");
@@ -46,6 +57,11 @@ public class EndingLoseController {
     MusicManager.mute();
   }
 
+  /**
+   * this will make the game master move and rotate.
+   *
+   * @throws IOException if the input or output is invalid
+   */
   private void gameMasterTransition() {
     // game master translation
     TranslateTransition translateTransition =

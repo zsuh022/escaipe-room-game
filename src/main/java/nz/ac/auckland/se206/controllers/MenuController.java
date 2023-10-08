@@ -57,6 +57,7 @@ public class MenuController {
     player.play();
   }
 
+  /** This method will initialize the label colour. */
   private void initializeLabelColour() {
     // set label for different colours
     difficultyLabelColor.bind(
@@ -94,6 +95,12 @@ public class MenuController {
                 () -> Paint.valueOf(timeLabelColor.get()), timeLabelColor));
   }
 
+  /**
+   * this method will be called when the start button is clicked.
+   *
+   * @throws IOException
+   * @throws URISyntaxException
+   */
   @FXML
   private void onStartButtonClicked() throws IOException, URISyntaxException {
     // set difficulty, time, and key
@@ -103,6 +110,7 @@ public class MenuController {
     fadeInNextImageView();
   }
 
+  /** this method will fade in the next image view. */
   private void fadeInNextImageView() {
     // fade in next image view
     startButton.setVisible(false);
@@ -124,6 +132,7 @@ public class MenuController {
     fade.play();
   }
 
+  /** this method will set the ui after fade. */
   private void setUiAfterFade() throws IOException, URISyntaxException {
     // set all the uis after fade
     // do not change the order here********************
@@ -147,11 +156,21 @@ public class MenuController {
     GameState.timeManager.setTimer();
   }
 
+  /**
+   * this method will be called to set the difficulty.
+   *
+   * @throws IOException
+   */
   private void setDifficulty() {
     // set difficulty
     GameState.difficulty = (int) difficultySlider.getValue();
   }
 
+  /**
+   * this method will be called to set the game time.
+   *
+   * @throws IOException
+   */
   private void setGameTime() {
     // set game time
     switch ((int) timeSlider.getValue()) {
@@ -167,6 +186,11 @@ public class MenuController {
     }
   }
 
+  /**
+   * this method will be called to set the key.
+   *
+   * @throws IOException
+   */
   private void setKey() {
     // get a random integer to set the game key
     Random random = new Random();

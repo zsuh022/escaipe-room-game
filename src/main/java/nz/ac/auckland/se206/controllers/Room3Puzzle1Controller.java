@@ -40,23 +40,27 @@ public class Room3Puzzle1Controller {
   private List<Button> buttons;
   private Map<Button, int[]> initialButtonPositions = new HashMap<>();
 
+  /** Initializes the room view, it is called when the room loads. */
   @FXML
   private void initialize() {
     initializeTimer();
     initializePuzzle();
   }
 
+  /** Initializes the timer and bind the text label */
   @FXML
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  /** when the exit button is clicked, it will return to the room view */
   @FXML
   private void onBackButtonClicked() {
     System.out.println("Back button clicked");
     App.setUi(RoomType.ROOM3);
   }
 
+  /** when the tile is clicked, it will move the tile to the empty space */
   @FXML
   private void onTileClicked() throws ApiProxyException {
     if (GameState.isPuzzleRoom3Solved.getValue() == true) {
@@ -90,6 +94,13 @@ public class Room3Puzzle1Controller {
     }
   }
 
+  /**
+   * this will get the button at the specified row and column
+   *
+   * @param row the row of the button
+   * @param col the column of the button
+   * @return the button at the specified row and column
+   */
   private Button getButtonAt(int row, int col) {
     for (Node child : gridPane.getChildren()) {
       if (GridPane.getRowIndex(child) == row && GridPane.getColumnIndex(child) == col) {
@@ -100,6 +111,7 @@ public class Room3Puzzle1Controller {
     return null;
   }
 
+  /** this will initialize the puzzle */
   private void initializePuzzle() {
     buttons = Arrays.asList(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btnEmpty);
 
@@ -116,6 +128,11 @@ public class Room3Puzzle1Controller {
     btnEmpty.setVisible(false);
   }
 
+  /**
+   * this will check if the puzzle is completed
+   *
+   * @return true if the puzzle is completed, false otherwise
+   */
   private boolean isPuzzleCompleted() {
     int correctValue = 1;
 
@@ -141,6 +158,12 @@ public class Room3Puzzle1Controller {
     return true;
   }
 
+  /**
+   * this will check if the puzzle is solvable
+   *
+   * @param buttons the buttons to check
+   * @return true if the puzzle is solvable, false otherwise
+   */
   private boolean isSolvable(List<Button> buttons) {
     int inversions = 0;
 
@@ -162,12 +185,14 @@ public class Room3Puzzle1Controller {
     return inversions % 2 == 0;
   }
 
+  /** this will be called when the puzzle is solved */
   private void puzzleSolved() throws ApiProxyException {
     System.out.println("Puzzle solved");
     messageLabel.setText("Puzzle solved!");
     GameState.isPuzzleRoom3Solved.setValue(true);
   }
 
+  /** this will set the images for the buttons */
   private void setButtonImages() {
     for (int i = 1; i < buttons.size(); i++) {
       // get the image path for the image
@@ -190,6 +215,7 @@ public class Room3Puzzle1Controller {
     }
   }
 
+  /** this will set the initial positions of the buttons */
   private void setButtonPositions() {
     for (int i = 0; i < buttons.size(); i++) {
       Button button = buttons.get(i);
@@ -200,6 +226,7 @@ public class Room3Puzzle1Controller {
     }
   }
 
+  /** this will shuffle the buttons */
   private void shuffleButtons() {
     do {
       Collections.shuffle(buttons);

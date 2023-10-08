@@ -10,6 +10,12 @@ public class DraggableManager {
   private double deltaX = 0;
   private double deltaY = 0;
 
+  /**
+   * Make the ImageView draggable.
+   *
+   * @param planet the ImageView to make draggable
+   * @param targetCircles the list of target circles to snap to
+   */
   public void makeDraggable(ImageView planet, List<Circle> targetCircles) {
     planet.setOnMousePressed(
         mouseEvent -> {
@@ -29,6 +35,13 @@ public class DraggableManager {
         });
   }
 
+  /**
+   * check if the planet is close enough to the target circle, if so, snap the planet to the target
+   * circle.
+   *
+   * @param planet the ImageView to check
+   * @param targetCircle the target circle to snap to
+   */
   private void checkAndSnapToTarget(ImageView planet, Circle targetCircle) {
     // get the distance between the center of the planet and the center of the target circle
     double distance =
