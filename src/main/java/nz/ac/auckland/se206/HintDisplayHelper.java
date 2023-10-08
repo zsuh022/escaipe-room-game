@@ -56,6 +56,7 @@ public class HintDisplayHelper {
         .start();
   }
 
+  /** Displays three dots in the given text area, one dot at a time. */
   public static void displayThreeDots() {
     if (GameState.hintNumberRemaining.getValue() == 0) {
       displayHintInTextArea(
