@@ -68,7 +68,7 @@ public class TimeManager {
     timeLine.setOnFinished(
         e -> {
           try {
-            SceneManager.addUi(RoomType.ENDINGLOSE, App.loadFxml("endinglose"));
+            SceneManager.addUi(RoomType.ENDINGLOSE, App.loadFxml("endingLose"));
             App.setUi(RoomType.ENDINGLOSE);
           } catch (IOException e1) {
             e1.printStackTrace();

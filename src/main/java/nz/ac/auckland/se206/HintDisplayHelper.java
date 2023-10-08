@@ -57,6 +57,11 @@ public class HintDisplayHelper {
   }
 
   public static void displayThreeDots() {
+    if (GameState.hintNumberRemaining.getValue() == 0) {
+      displayHintInTextArea(
+          null, "You have reached the hint limit. Click me to view previous hints.");
+      return;
+    }
     stopCurrentTyping = true;
     // Pause to allow the current typing operation to stop
     try {

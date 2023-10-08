@@ -98,7 +98,7 @@ public class Room1Controller {
             GameState.latestHint.setValue("Sorry, I cannot help you this time.");
           } else {
             GameState.latestHint.setValue(
-                "May I help you? Click me or Hint button for more information.");
+                "May I help you? Click me or the Hint button for more information.");
           }
         });
 
