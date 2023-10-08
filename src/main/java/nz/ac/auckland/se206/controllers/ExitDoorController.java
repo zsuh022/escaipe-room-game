@@ -35,6 +35,7 @@ public class ExitDoorController {
   @FXML private TextArea aiMessageTextArea;
   @FXML private Button btnHint;
 
+  /** this will initialize the controller. */
   @FXML
   private void initialize() {
     initializeTimer();
@@ -72,6 +73,7 @@ public class ExitDoorController {
         });
   }
 
+  /** this will be called when the exit keypad is clicked. */
   @FXML
   private void onExitKeyPadClicked() {
     // exit keypad
@@ -81,11 +83,13 @@ public class ExitDoorController {
     btnKeyPadDisplay.setText("");
   }
 
+  /** this will be called when the hint button is clicked. */
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
   }
 
+  /** this will be called when the game master is clicked. */
   @FXML
   private void onGameMasterClicked() {
     // go to game master
@@ -95,6 +99,7 @@ public class ExitDoorController {
     GameState.roomNumber = 4;
   }
 
+  /** this will be called when the keypad is clicked. */
   @FXML
   private void onKeyPadClicked(Event event) throws IOException {
     // check if key is correct
@@ -103,12 +108,14 @@ public class ExitDoorController {
     updateKeyLabel(button.getText());
   }
 
+  /** this will be called when the mute bar is clicked. */
   @FXML
   private void onMuteBarClicked() {
     // mute sound
     GameState.isMuted.set(!GameState.isMuted.get());
   }
 
+  /** this will be called when the open keypad button is clicked. */
   @FXML
   private void onOpenKeyPad() {
     // open keypad
@@ -117,6 +124,7 @@ public class ExitDoorController {
     smallKeyPadCircle.setVisible(false);
   }
 
+  /** this will be called when the room 1 button is clicked and will switch to room 1. */
   @FXML
   private void onRoom1ButtonClicked() {
     // switch to room 1
@@ -126,6 +134,12 @@ public class ExitDoorController {
     GameState.roomNumber = 1;
   }
 
+  /**
+   * this will update the key label.
+   *
+   * @param key the key to be updated
+   * @throws IOException if the input or output is invalid
+   */
   @FXML
   private void updateKeyLabel(String key) throws IOException {
     // update key label when the key pressed
@@ -137,7 +151,7 @@ public class ExitDoorController {
     if (btnKeyPadDisplay.getText().length() > 8) {
       return;
     }
-
+    // check if enter is pressed
     if (key.equals("Enter")) {
       System.out.println("1");
 
@@ -149,6 +163,11 @@ public class ExitDoorController {
     btnKeyPadDisplay.setText(prev + key);
   }
 
+  /**
+   * this will check if the key is correct.
+   *
+   * @throws IOException if the input or output is invalid
+   */
   private void checkKey() throws IOException {
     // check if key entered in correct
     System.out.println("2");
@@ -175,6 +194,7 @@ public class ExitDoorController {
     }
   }
 
+  /** this will fade in and out the indication pane. */
   private void fadeInOutIndicationPane() {
     // set induction pane up
     indicationPane.setVisible(true);
@@ -204,11 +224,13 @@ public class ExitDoorController {
     fadeIn.play();
   }
 
+  /** this will initialize the timer. */
   private void initializeTimer() {
     // bind the time label to the time manager
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  /** this will show the error message. */
   private void showErrorMessage() {
     // show error message if key is incorrect
     keyPadMessageLabel.setText("Try Again");
@@ -223,6 +245,12 @@ public class ExitDoorController {
     pause.play();
   }
 
+  /**
+   * this will check if this is the current room.
+   *
+   * @param roomNumber the room number to be checked
+   * @return true if this is the current room
+   */
   private boolean thisIsCurrentRoom(Number roomNumber) {
     // 4 is the room number for the exit door
     return roomNumber.intValue() == 4;

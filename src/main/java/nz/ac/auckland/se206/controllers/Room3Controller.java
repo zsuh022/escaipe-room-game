@@ -76,7 +76,7 @@ public class Room3Controller {
           }
         });
 
-        // this will bind the hint message to the hint text area
+    // this will bind the hint message to the hint text area
     aiMessageTextArea.textProperty().bind(GameState.sharedMessage);
     GameState.latestHint.addListener(
         (obs, oldHint, newHint) -> {
@@ -86,6 +86,7 @@ public class Room3Controller {
     count = 0;
   }
 
+  /** This method will go to he game master. */
   @FXML
   private void onGameMasterClicked() {
     // change to game master
@@ -95,16 +96,19 @@ public class Room3Controller {
     GameState.roomNumber = 3;
   }
 
+  /** this method is called when the mute button is clicked. */
   @FXML
   private void onMuteBarClicked() {
     GameState.isMuted.set(!GameState.isMuted.get());
   }
 
+  /** This method will be called when the hint button is clicked. */
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
   }
 
+  /** This method will be called when room1 button is clicked. */
   @FXML
   private void onRoom1ButtonClicked() {
     // go to room 1
@@ -114,6 +118,11 @@ public class Room3Controller {
     GameState.roomNumber = 1;
   }
 
+  /**
+   * This method will be called when puzzle1 is clicked.
+   *
+   * @param event the mouse event
+   */
   @FXML
   private void onRoom3Puzzle1Clicked(MouseEvent event) {
     // start room 3 puzzle
@@ -121,6 +130,7 @@ public class Room3Controller {
     App.setUi(RoomType.ROOM3PUZZLE1);
   }
 
+  /** This method will be called when puzzle2 is clicked. */
   @FXML
   private void onRoom3Puzzle2Clicked() {
     // go to room 3 puzzle 2
@@ -142,6 +152,7 @@ public class Room3Controller {
     }
   }
 
+  /** this method will fade in and out the indication pane. */
   private void fadeInOutIndicationPane() {
     // fades banner in and out of view
     indicationPane.setVisible(true);
@@ -171,6 +182,7 @@ public class Room3Controller {
     fadeIn.play();
   }
 
+  /** this method will initialize the puzzle. */
   private void initializePuzzle() {
     // choosing random puzzle for implementation
     int randomNumber = random.nextInt(2) + 1;
@@ -193,10 +205,12 @@ public class Room3Controller {
     }
   }
 
+  /** this method will initialize the timer. */
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  /** this will be called when the puzzle is solved then show the key in room3 */
   private void showRoom3Key() {
     // shows room 3 key
     System.out.println("Showing room 3 key");
@@ -204,6 +218,12 @@ public class Room3Controller {
     room3KeyLabel.setText(GameState.room3Key);
   }
 
+  /**
+   * This method will flash the colour.
+   *
+   * @param roomNumber
+   * @return
+   */
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 3;
   }

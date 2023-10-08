@@ -75,6 +75,7 @@ public class Room1Controller {
     setAiMessage();
   }
 
+  /** This method will set the hint message. */
   private void setAiMessage() {
     aiMessageTextArea.setOpacity(0); // start fully transparent
     triangle.setOpacity(0);
@@ -92,18 +93,21 @@ public class Room1Controller {
           if (GameState.difficulty == 3) {
             GameState.latestHint.setValue("Sorry, I cannot help you this time.");
           } else {
-            GameState.latestHint.setValue("May I help you?");
+            GameState.latestHint.setValue(
+                "May I help you? Click me or Hint button for more information.");
           }
         });
 
     fadeIn2.play(); // This will play the triangle fade-in first
   }
 
+  /** this method will be called when the hint button is clicked. */
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
   }
 
+  /** this method will be called when the riddle/computer is clicked. */
   @FXML
   private void onComputerClicked() {
     // go to chat
@@ -111,6 +115,7 @@ public class Room1Controller {
     App.setUi(RoomType.CHAT);
   }
 
+  /** this method will be called when the exit door button is clicked. */
   @FXML
   private void onExitDoorButtonClicked() {
     // go to Room 4
@@ -120,6 +125,7 @@ public class Room1Controller {
     GameState.roomNumber = 4;
   }
 
+  /** this method will be called when the game master is clicked. */
   @FXML
   private void onGameMasterClicked() {
     // go to game master
@@ -129,6 +135,7 @@ public class Room1Controller {
     GameState.roomNumber = 1;
   }
 
+  /** this method will be called when room 2 button is clicked and will switch to room 2. */
   @FXML
   private void onRoom2ButtonClicked() {
     // go to Room 2
@@ -138,6 +145,7 @@ public class Room1Controller {
     GameState.roomNumber = 2;
   }
 
+  /** this method will be called when room 3 button is clicked and will switch to room 3. */
   @FXML
   private void onRoom3ButtonClicked() {
     // go to Room 3
@@ -147,6 +155,7 @@ public class Room1Controller {
     GameState.roomNumber = 3;
   }
 
+  /** this method will be called when the mute bar is clicked. */
   @FXML
   private void onMuteBarClicked() {
     // mute the music
@@ -154,11 +163,13 @@ public class Room1Controller {
     GameState.isMuted.set(!GameState.isMuted.get());
   }
 
+  /** this method will be setting the time label. */
   private void initializeTimer() {
     // bind the time label to the time manager
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  /** this method will fade in and out the indication pane. */
   private void fadeInOutIndicationPane() {
     // set up pane along the bottom
     indicationPane.setVisible(true);
@@ -188,6 +199,7 @@ public class Room1Controller {
     fadeIn.play();
   }
 
+  /** this method will show the room 1 key. */
   public void showRoom1Key() {
     // show the room 1 key
     System.out.println("Room 1 key shown");
@@ -195,6 +207,12 @@ public class Room1Controller {
     room1KeyLabel.setText(GameState.room1Key);
   }
 
+  /**
+   * This method will check if the room number is 1.
+   *
+   * @param roomNumber the room number
+   * @return true if the room number is 1
+   */
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 1;
   }

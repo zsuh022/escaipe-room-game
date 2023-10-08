@@ -31,6 +31,7 @@ public class Room2Puzzle1Controller {
   private int[] buttonOrder = new int[6];
   private int currentIndex = 0;
 
+  /** Initializes the room view, it is called when the room loads. */
   @FXML
   private void initialize() {
     // initialize all objects
@@ -49,16 +50,24 @@ public class Room2Puzzle1Controller {
     initializeTimer();
   }
 
+  /** This method will initialize the timer. */
   @FXML
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  /** this will be called when the puzzle is solved. */
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
     GameState.isPuzzleRoom2Solved.set(true);
   }
 
+  /**
+   * This method will flash the colour.
+   *
+   * @param rectangle the rectangle to flash
+   * @param colorFlash the colour to flash
+   */
   @FXML
   private void flashColour(Rectangle rectangle, Color colorFlash) {
     // Flash the rectangle green for one second
@@ -78,6 +87,7 @@ public class Room2Puzzle1Controller {
     timeline.play();
   }
 
+  /** this will initialize the puzzle. */
   @FXML
   private void onInitializePuzzle1Clicked() {
     // set a random sequence of buttons to flash
@@ -112,6 +122,12 @@ public class Room2Puzzle1Controller {
     }
   }
 
+  /**
+   * This method will convert integer to rectangle.
+   *
+   * @param integer the integer to convert
+   * @return the rectangle
+   */
   public Rectangle integerToRectangle(int integer) {
     // get a rectangle from an integer
     if (integer == 1) {
@@ -138,6 +154,7 @@ public class Room2Puzzle1Controller {
     }
   }
 
+  /** This method will be called when the exit button is clicked. */
   @FXML
   private void onBackButtonClicked() {
     // go to room 2
@@ -145,51 +162,65 @@ public class Room2Puzzle1Controller {
     App.setUi(RoomType.ROOM2);
   }
 
+  /** This method will be called when the one button is clicked. */
   @FXML
   private void clickOne() {
     handleButtonClick(1);
   }
 
+  /** This method will be called when the two button is clicked. */
   @FXML
   private void clickTwo() {
     handleButtonClick(2);
   }
 
+  /** This method will be called when the three button is clicked. */
   @FXML
   private void clickThree() {
     handleButtonClick(3);
   }
 
+  /** This method will be called when the four button is clicked. */
   @FXML
   private void clickFour() {
     handleButtonClick(4);
   }
 
+  /** This method will be called when the five button is clicked. */
   @FXML
   private void clickFive() {
     handleButtonClick(5);
   }
 
+  /** This method will be called when the six button is clicked. */
   @FXML
   private void clickSix() {
     handleButtonClick(6);
   }
 
+  /** This method will be called when the seven button is clicked. */
   @FXML
   private void clickSeven() {
     handleButtonClick(7);
   }
 
+  /** This method will be called when the eight button is clicked. */
   @FXML
   private void clickEight() {
     handleButtonClick(8);
   }
 
+  /** This method will be called when the nine button is clicked. */
   @FXML
   private void clickNine() {
     handleButtonClick(9);
   }
 
+  /**
+   * This method will handle the button click.
+   *
+   * @param buttonNumber the button number
+   */
   private void handleButtonClick(int buttonNumber) {
     if (buttonNumber == buttonOrder[currentIndex]) {
       // Correct button pressed - increment index

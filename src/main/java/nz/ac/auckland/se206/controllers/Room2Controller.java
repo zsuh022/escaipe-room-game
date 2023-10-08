@@ -34,6 +34,7 @@ public class Room2Controller {
 
   private Random random = new Random();
 
+  /** Initializes the room view, it is called when the room loads. */
   @FXML
   private void initialize() {
     // intialize room 2
@@ -79,6 +80,7 @@ public class Room2Controller {
         });
   }
 
+  /** This method will be called when the game master is clicked. */
   @FXML
   private void onGameMasterClicked() {
     // change to game master
@@ -88,28 +90,33 @@ public class Room2Controller {
     GameState.roomNumber = 2;
   }
 
+  /** This method will be called when the hint button is clicked. */
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
   }
 
+  /** This method will be called when the mute button is clicked. */
   @FXML
   private void onMuteBarClicked() {
     GameState.isMuted.set(!GameState.isMuted.get());
   }
 
+  /** This method will be called when the first puzzle is clicked. */
   @FXML
   private void onPuzzle1Clicked(MouseEvent event) throws IOException {
     System.out.println("lock clicked");
     App.setUi(RoomType.ROOM2PUZZLE1);
   }
 
+  /** This method will be called when the second puzzle is clicked. */
   @FXML
   private void onPuzzle2Clicked(MouseEvent event) throws IOException {
     System.out.println("box clicked");
     App.setUi(RoomType.ROOM2PUZZLE2);
   }
 
+  /** This method will be called when the room 1 button is clicked. */
   @FXML
   private void onRoom1ButtonClicked() {
     // change to room 1
@@ -119,6 +126,7 @@ public class Room2Controller {
     GameState.roomNumber = 1;
   }
 
+  /** This method will fade in and out the indication pane. */
   private void fadeInOutIndicationPane() {
     // initalize indication pane
     indicationPane.setVisible(true);
@@ -148,6 +156,7 @@ public class Room2Controller {
     fadeIn.play();
   }
 
+  /** This method will initialize the puzzle. */
   private void initializePuzzle() {
     random = new Random();
     int randomNumber = random.nextInt(2) + 1;
@@ -162,16 +171,24 @@ public class Room2Controller {
     }
   }
 
+  /** This method will be setting the time label. */
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  /** This method will show the room 2 key. */
   private void showRoom2Key() {
     System.out.println("Showing room 2 key");
     keyShowingPane.setVisible(true);
     room2KeyLabel.setText(GameState.room2Key);
   }
 
+  /**
+   * This method will check if this is the current room.
+   *
+   * @param roomNumber the room number
+   * @return true if this is the current room
+   */
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 2;
   }

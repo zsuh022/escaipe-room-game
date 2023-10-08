@@ -41,6 +41,7 @@ public class Room3Puzzle2Controller {
 
   private Map<Circle, ImageView> solutionMap = new HashMap<>();
 
+  /** Initializes the room view, it is called when the room loads. */
   @FXML
   private void initialize() {
     draggableManager = new DraggableManager();
@@ -52,12 +53,14 @@ public class Room3Puzzle2Controller {
     genertateRandomPositions();
   }
 
+  /** Initializes the timer and bind the text label. */
   @FXML
   private void initializeTimer() {
     // Bind the timer to the label
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  /** this will setup the correct planet-circle relationship. */
   private void setupSolutionMap() {
     // put the correct planet-circle relationship into the solution map
     solutionMap.put(circleOne, planetOne);
@@ -69,6 +72,9 @@ public class Room3Puzzle2Controller {
     solutionMap.put(circleSeven, planetSeven);
   }
 
+  /**
+   * this will make all the planets draggable and be able to snap to an arbitrary target circles.
+   */
   private void setupDraggables() {
     // make all the planets draggable and be able to snap to an arbitrary target circles
     List<Circle> targetCirclesForPlanetOne =
@@ -85,6 +91,7 @@ public class Room3Puzzle2Controller {
     draggableManager.makeDraggable(planetEight, targetCirclesForPlanetOne);
   }
 
+  /** this will generate random positions for all the planets. */
   private void genertateRandomPositions() {
     // generate random positions for all the planets
     placePlanetWithinMenu(planetOne);
@@ -97,6 +104,7 @@ public class Room3Puzzle2Controller {
     placePlanetWithinMenu(planetEight);
   }
 
+  /** this will place the planet within the menu area. */
   private void placePlanetWithinMenu(ImageView planet) {
     // place the planet within the menu area
     Point2D position;
@@ -117,6 +125,11 @@ public class Room3Puzzle2Controller {
     planet.setLayoutY(position.getY());
   }
 
+  /**
+   * this will get a random position within the menu area.
+   *
+   * @param planet the planet to get the random position for
+   */
   private Point2D getRandomPositionWithinMenu(ImageView planet) {
     // calculate a random position within the menu area
     double x = menuArea.getX() + (Math.random() * (menuArea.getWidth() - planet.getFitWidth()));
@@ -124,6 +137,13 @@ public class Room3Puzzle2Controller {
     return new Point2D(x, y);
   }
 
+  /**
+   * this will check if the planet is too close to other planets.
+   *
+   * @param planet the planet to check
+   * @param position the position of the planet
+   * @return true if the planet is too close to other planets, false otherwise
+   */
   private boolean isTooCloseToOtherPlanets(ImageView planet, Point2D position) {
     // check if the planet is too close to other planets
     double minDistance = 30;
@@ -153,6 +173,7 @@ public class Room3Puzzle2Controller {
     return false;
   }
 
+  /** this will be called when the back button is clicked. */
   @FXML
   private void onBackButtonClicked() {
     // Go back to room3
@@ -160,12 +181,14 @@ public class Room3Puzzle2Controller {
     App.setUi(RoomType.ROOM3);
   }
 
+  /** this will be called when mouse is released. */
   @FXML
   private void planetMouseReleased() {
     // Once a planet is released, we should check if all matches are correct.
     checkAllMatches();
   }
 
+  /** this will check if all matches are correct. */
   private void checkAllMatches() {
     System.out.println("Checking all matches");
 
@@ -212,6 +235,11 @@ public class Room3Puzzle2Controller {
     }
   }
 
+  /**
+   * this will be called when the puzzle is solved.
+   *
+   * @throws ApiProxyException the api proxy exception
+   */
   private void puzzleSolved() throws ApiProxyException {
     // if all matches are correct, the puzzle is solved
     System.out.println("Puzzle solved");

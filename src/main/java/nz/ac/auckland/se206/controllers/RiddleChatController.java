@@ -132,6 +132,11 @@ public class RiddleChatController {
     thread.start();
   }
 
+  /**
+   * Initializes the timer and binds it to the time label.
+   *
+   * @throws ApiProxyException if there is an error communicating with the API proxy
+   */
   private void initializeTimer() {
     // timer
     Platform.runLater(
@@ -199,6 +204,11 @@ public class RiddleChatController {
     }
   }
 
+  /**
+   * Starts the label animation.
+   *
+   * @param label the label to animate
+   */
   private void startLabelAnimation(Label label) {
     // this will be called when waiting for response
     if (labelAnimationTimeline != null) {
@@ -294,6 +304,11 @@ public class RiddleChatController {
     thread4.start();
   }
 
+  /**
+   * Updates the GPT model for a new message.
+   *
+   * @throws ApiProxyException if there is an error communicating with the API proxy
+   */
   public void updateGpt() throws ApiProxyException {
     // this will be called when the hint number is 0
     if (GameState.hintNumberRemaining.getValue() == 0

@@ -70,16 +70,24 @@ public class Room2Puzzle2Controller {
   private int correctCount;
   private boolean gameState = false;
 
+  /** this will be called when the puzzle is solved. */
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
     GameState.isPuzzleRoom2Solved.set(true);
   }
 
+  /** This method will initialize the timer. */
   @FXML
   private void initializeTimer() {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
+  /**
+   * This method will flash the colour.
+   *
+   * @param rectangle the rectangle to flash
+   * @param colorFlash the colour to flash
+   */
   @FXML
   private void flashColour(Rectangle rectangle, Color colorFlash) {
     // Flash the rectangle green for one second
@@ -99,6 +107,7 @@ public class Room2Puzzle2Controller {
     timeline.play();
   }
 
+  /** Initializes the room view, it is called when the room loads. */
   @FXML
   private void initialize() {
     word = new ArrayList<String>();
@@ -137,11 +146,21 @@ public class Room2Puzzle2Controller {
     newWord((int) (1 + (Math.random() * (8))));
   }
 
+  /**
+   * This method will initialize the button.
+   *
+   * @param button the button to initialize
+   */
   private void initializeButton(Button button) {
     button.setDisable(false);
     button.setOpacity(1);
   }
 
+  /**
+   * This method will initialize the puzzle.
+   *
+   * @param randomInt the random integer
+   */
   private void newWord(Integer randomInt) {
     // add the characters to the word arraylist
     switch (randomInt) {
@@ -193,6 +212,11 @@ public class Room2Puzzle2Controller {
     }
   }
 
+  /**
+   * This method will add the characters to the word arraylist.
+   *
+   * @param string the string to add
+   */
   private void addCharacters(String string) {
     if (string.length() == 5) {
       word.add(string.substring(0, 1));
@@ -203,6 +227,11 @@ public class Room2Puzzle2Controller {
     }
   }
 
+  /**
+   * This method will set the spaces to the colour.
+   *
+   * @param color the colour to set
+   */
   private void setSpaces(Color color) {
     space1.setFill(color);
     space2.setFill(color);
@@ -211,6 +240,7 @@ public class Room2Puzzle2Controller {
     space5.setFill(color);
   }
 
+  /** This method will flash the spaces red. */
   private void flashSpacesRed() {
     flashColour(space1, Color.LIGHTPINK);
     flashColour(space2, Color.LIGHTPINK);
@@ -219,6 +249,11 @@ public class Room2Puzzle2Controller {
     flashColour(space5, Color.LIGHTPINK);
   }
 
+  /**
+   * This method will handle the key pressed.
+   *
+   * @param character the character to handle
+   */
   private void handleKeyPressed(Character character) {
     // check if the word contains the character
     if (word.contains(character.toString())) {
@@ -309,6 +344,7 @@ public class Room2Puzzle2Controller {
     }
   }
 
+  /** this will be called when reset */
   @FXML
   private void onResetButtonClicked() {
     // clear the current word from the arraylist
@@ -316,11 +352,13 @@ public class Room2Puzzle2Controller {
     initialize();
   }
 
+  /** this will be called when going back */
   @FXML
   private void onBackButtonClicked() {
     App.setUi(RoomType.ROOM2);
   }
 
+  /** this will be keboard is pressed */
   @FXML
   private void onLetterButtonClicked(ActionEvent event) {
     if (!gameState) {

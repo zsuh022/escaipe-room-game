@@ -4,7 +4,7 @@ package nz.ac.auckland.se206.gpt;
 public class GptPromptEngineering {
 
   /**
-   * Generates a GPT prompt engineering string for a riddle with the given word.
+   * Generates a GPT prompt engineering string for a riddle with the given word (easy difficulty).
    *
    * @param wordToGuess the word to be guessed in the riddle
    * @return the generated prompt engineering string
@@ -20,6 +20,12 @@ public class GptPromptEngineering {
         + " give the answer";
   }
 
+  /**
+   * Generates a GPT prompt engineering string for a riddle with the given word (medium difficulty).
+   *
+   * @param wordToGuess the word to be guessed in the riddle
+   * @return the generated prompt engineering string
+   */
   public static String getRiddleWithGivenWordMid(String wordToGuess) {
     // this is when the difficulty is medium for riddle
     return "You are the AI, tell me a riddle with answer "
@@ -29,6 +35,12 @@ public class GptPromptEngineering {
         + " with the word Hint. ";
   }
 
+  /**
+   * Generates a GPT prompt engineering string for a riddle with the given word (hard difficulty).
+   *
+   * @param wordToGuess the word to be guessed in the riddle
+   * @return the generated prompt engineering string
+   */
   public static String getRiddleWithGivenWordHard(String wordToGuess) {
     // this is when the difficulty is hard for riddle
     return "You are the AI, tell me a riddle with"
@@ -39,6 +51,11 @@ public class GptPromptEngineering {
         + " give the answer.";
   }
 
+  /**
+   * Generates a GPT prompt engineering string for the background of the game master (general).
+   *
+   * @return the generated prompt engineering string
+   */
   private static String gameMaster() {
     // this is when the difficulty is easy for game master
     return "Your identity is Houston, the game master of a space station. I am confined within this"
@@ -48,6 +65,11 @@ public class GptPromptEngineering {
         + " key. Provide this hint exclusively upon my request.";
   }
 
+  /**
+   * Update GPT prompt engineering string for the background of the game master
+   *
+   * @return the generated prompt engineering string
+   */
   public static String getHintTwo() {
     // update the hint two
     return "The second hint is that I need to input a date into the key inserter. The key is in"
@@ -57,12 +79,22 @@ public class GptPromptEngineering {
         + " Make sure if I asks for hint then answer start with the word Hint. DONOTRESPOND";
   }
 
+  /**
+   * Generates a GPT prompt engineering string for the rule of the game master (easy difficulty).
+   *
+   * @return the generated prompt engineering string
+   */
   public static String getGameMasterEasy() {
     return gameMaster()
         + " You can give hints only when the user asks for them and start with the word"
         + " Hint. You can now introduce yourself.";
   }
 
+  /**
+   * Generates a GPT prompt engineering string for the rule of the game master (medium difficulty).
+   *
+   * @return the generated prompt engineering string
+   */
   public static String getGameMasterMid() {
     return gameMaster()
         + " When the user asks for hints, you can give a hint related to game and have to answer"
@@ -70,6 +102,11 @@ public class GptPromptEngineering {
         + " the user have not asked you.  You can now introduce yourself.";
   }
 
+  /**
+   * Generates a GPT prompt engineering string for the rule of the game master (hard difficulty).
+   *
+   * @return the generated prompt engineering string
+   */
   public static String getGameMasterHard() {
     // if the difficulty is hard for game master
     // then not give any hint or tips
@@ -77,6 +114,11 @@ public class GptPromptEngineering {
         + " station. Under no circumstances should you provide me with any hints or tips.";
   }
 
+  /**
+   * Generates a GPT prompt engineering string for the rule of the game master (no hint).
+   *
+   * @return the generated prompt engineering string
+   */
   public static String getMessageNoHint() {
     return "From now on, no matter what, you cannot give the user any hints. Because the user only"
         + " have 5 hints chances and now they run out. DONOTRESPOND";

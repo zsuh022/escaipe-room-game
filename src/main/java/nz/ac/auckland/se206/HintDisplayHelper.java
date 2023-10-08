@@ -6,6 +6,12 @@ import javafx.scene.control.TextArea;
 public class HintDisplayHelper {
   private static volatile boolean stopCurrentTyping = false;
 
+  /**
+   * Displays a hint in the given text area, one character at a time.
+   *
+   * @param textArea the text area to display the hint in
+   * @param message the hint to display
+   */
   public static void displayHintInTextArea(TextArea textArea, String message) {
     // If there's a previous hint still being typed, stop it
     stopCurrentTyping = true;

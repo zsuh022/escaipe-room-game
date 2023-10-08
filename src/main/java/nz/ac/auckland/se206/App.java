@@ -16,14 +16,30 @@ public class App extends Application {
 
   private static Scene scene;
 
+  /**
+   * The entry point of the JavaFX application.
+   *
+   * @param args The command line arguments.
+   */
   public static void main(final String[] args) {
     launch();
   }
 
+  /**
+   * Returns the scene associated to the input file. The method expects that the file is located in
+   *
+   * @param fxml The name of the FXML file (without extension).
+   * @throws IOException If the file is not found.
+   */
   public static void setRoot(String fxml) throws IOException {
     scene.setRoot(loadFxml(fxml));
   }
 
+  /**
+   * Returns the scene associated to the input file.
+   *
+   * @param type the type of the room
+   */
   public static void setUi(RoomType type) {
     // set the scene to the new ui
     scene.setRoot(SceneManager.getUi(type));
@@ -58,6 +74,10 @@ public class App extends Application {
     root.requestFocus();
   }
 
+  /**
+   * This method is invoked when the application stops. It is called after the stop() method of the
+   * Application class is called.
+   */
   @Override
   public void stop() throws Exception {
     // this will be called when the application is stopped

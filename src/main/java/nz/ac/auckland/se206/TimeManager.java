@@ -14,10 +14,16 @@ public class TimeManager {
   private Timeline timeLine;
   private IntegerProperty seconds;
 
+  /**
+   * Constructor for TimeManager.
+   *
+   * @param seconds the seconds
+   */
   public void setTime(int seconds) {
     this.seconds = new SimpleIntegerProperty(seconds);
   }
 
+  /** This will set the timer and start the timer. */
   public void setTimer() {
     // using a timeline to update the timer
     timeLine =
@@ -66,10 +72,16 @@ public class TimeManager {
         });
   }
 
+  /**
+   * Get the seconds property of the timer.
+   *
+   * @return the seconds property
+   */
   public IntegerProperty getSecond() {
     return seconds;
   }
 
+  /** stop the timer and set the timer to null. */
   public void stopTimer() {
     // stop the timer when the input key is correct
     if (timeLine != null) {
