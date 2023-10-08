@@ -18,6 +18,10 @@ import nz.ac.auckland.se206.HintDisplayHelper;
 import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
+/**
+ * Room3Controller class is used to control the room 3. It will show the puzzle and the key in room
+ * 3.
+ */
 public class Room3Controller {
 
   @FXML private ImageView crossImage;
@@ -210,7 +214,7 @@ public class Room3Controller {
     timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
   }
 
-  /** this will be called when the puzzle is solved then show the key in room3 */
+  /** this will be called when the puzzle is solved then show the key in room3. */
   private void showRoom3Key() {
     // shows room 3 key
     System.out.println("Showing room 3 key");
@@ -221,8 +225,8 @@ public class Room3Controller {
   /**
    * This method will flash the colour.
    *
-   * @param roomNumber
-   * @return
+   * @param roomNumber the room number
+   * @return true if the room number is 3
    */
   private boolean thisIsCurrentRoom(Number roomNumber) {
     return roomNumber.intValue() == 3;

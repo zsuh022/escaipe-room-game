@@ -4,6 +4,10 @@ import java.net.URISyntaxException;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+/**
+ * MusicManager class is used to manage the music in the game. It can play the game song, happy song
+ * and bad song. It can also mute and unmute the music.
+ */
 public class MusicManager {
 
   private static MediaPlayer player;
@@ -11,7 +15,7 @@ public class MusicManager {
   /**
    * Play the particular song when the player is in the room during the game.
    *
-   * @throws URISyntaxException
+   * @throws URISyntaxException if the URI is invalid
    */
   public static void playGameSong() throws URISyntaxException {
     // play the game song
@@ -26,7 +30,7 @@ public class MusicManager {
   /**
    * Play the particular song when the player wins the game.
    *
-   * @throws URISyntaxException
+   * @throws URISyntaxException if the URI is invalid
    */
   public static void playHappySong() throws URISyntaxException {
     // play the happy song
@@ -41,7 +45,7 @@ public class MusicManager {
   /**
    * Play the particular song when the player loses the game.
    *
-   * @throws URISyntaxException
+   * @throws URISyntaxException if the URI is invalid
    */
   public static void playBadSong() throws URISyntaxException {
     // play the bad song

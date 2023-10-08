@@ -18,6 +18,10 @@ import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
+/**
+ * EndingWinController class is used to control the ending win. It will show the key and riddle word
+ * in the ending win.
+ */
 public class EndingWinController {
 
   @FXML private Label keyLabel;
@@ -31,7 +35,7 @@ public class EndingWinController {
   private Boolean isRiddleOutputed = false;
   private MediaPlayer player;
 
-  /** when the mouse is clicked on the base, the text area will disappear */
+  /** when the mouse is clicked on the base, the text area will disappear. */
   @FXML
   private void baseTouched() {
     // when the mouse is clicked on the base, the text area will disappear
@@ -124,7 +128,7 @@ public class EndingWinController {
   /**
    * this method will output the background information for the key.
    *
-   * @return
+   * @return the background information for the key
    */
   private String outputKeyBackground() {
     switch (GameState.key) {
@@ -149,7 +153,7 @@ public class EndingWinController {
   /**
    * this method will output the background information for the riddle word.
    *
-   * @return
+   * @return the background information for the riddle word
    */
   private String outputRiddleBackground() {
     switch (GameState.riddleWord) {

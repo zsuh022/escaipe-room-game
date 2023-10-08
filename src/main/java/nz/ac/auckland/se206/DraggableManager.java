@@ -4,6 +4,10 @@ import java.util.List;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 
+/**
+ * DraggableManager class is used to make the ImageView draggable. It will make the ImageView
+ * draggable and snap to the target circle.
+ */
 public class DraggableManager {
 
   private final double threholdConstant = 0.5;
@@ -11,7 +15,7 @@ public class DraggableManager {
   private double deltaY = 0;
 
   /**
-   * Make the ImageView draggable.
+   * this will make the ImageView draggable.
    *
    * @param planet the ImageView to make draggable
    * @param targetCircles the list of target circles to snap to

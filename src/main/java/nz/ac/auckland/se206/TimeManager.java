@@ -9,13 +9,17 @@ import javafx.util.Duration;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
+/**
+ * TimeManager class is used to manage the timer in the game. It will start the timer and stop the
+ * timer.
+ */
 public class TimeManager {
 
   private Timeline timeLine;
   private IntegerProperty seconds;
 
   /**
-   * Constructor for TimeManager.
+   * This is the constructor for TimeManager.
    *
    * @param seconds the seconds
    */

@@ -23,6 +23,10 @@ import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
+/**
+ * MenuController class is used to control the menu. It will set the difficulty, time and key for
+ * the game.
+ */
 public class MenuController {
 
   @FXML private Button startButton;
@@ -40,7 +44,7 @@ public class MenuController {
   /**
    * Initializes the room view, it is called when the room loads.
    *
-   * @throws URISyntaxException
+   * @throws URISyntaxException if the URI syntax is invalid
    */
   @FXML
   private void initialize() throws URISyntaxException {
@@ -98,8 +102,8 @@ public class MenuController {
   /**
    * this method will be called when the start button is clicked.
    *
-   * @throws IOException
-   * @throws URISyntaxException
+   * @throws IOException if the file is not found
+   * @throws URISyntaxException if the URI syntax is invalid
    */
   @FXML
   private void onStartButtonClicked() throws IOException, URISyntaxException {
@@ -159,7 +163,7 @@ public class MenuController {
   /**
    * this method will be called to set the difficulty.
    *
-   * @throws IOException
+   * @throws IOException if the file is not found
    */
   private void setDifficulty() {
     // set difficulty
@@ -169,7 +173,7 @@ public class MenuController {
   /**
    * this method will be called to set the game time.
    *
-   * @throws IOException
+   * @throws IOException if the file is not found
    */
   private void setGameTime() {
     // set game time
@@ -189,7 +193,7 @@ public class MenuController {
   /**
    * this method will be called to set the key.
    *
-   * @throws IOException
+   * @throws IOException if the file is not found
    */
   private void setKey() {
     // get a random integer to set the game key

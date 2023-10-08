@@ -362,7 +362,7 @@ public class GameMasterController {
   /**
    * Updates the GPT model of the new messages.
    *
-   * @throws ApiProxyException
+   * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   public void updateGpt() throws ApiProxyException {
     // this will be called when the user has done all the puzzles

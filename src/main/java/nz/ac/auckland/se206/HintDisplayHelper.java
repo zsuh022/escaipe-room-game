@@ -3,6 +3,10 @@ package nz.ac.auckland.se206;
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 
+/**
+ * HintDisplayHelper class is used to display a hint in the given text area, one character at a
+ * time.
+ */
 public class HintDisplayHelper {
   private static volatile boolean stopCurrentTyping = false;
 

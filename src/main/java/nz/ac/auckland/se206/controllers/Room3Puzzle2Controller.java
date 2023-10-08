@@ -16,6 +16,10 @@ import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 import nz.ac.auckland.se206.gpt.openai.ApiProxyException;
 
+/**
+ * Room3Puzzle2Controller class is used to control the puzzle in room 3. It will show the puzzle and
+ * the key in room 3.
+ */
 public class Room3Puzzle2Controller {
 
   @FXML private Circle circleOne;

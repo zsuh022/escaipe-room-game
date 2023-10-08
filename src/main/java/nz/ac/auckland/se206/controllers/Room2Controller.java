@@ -19,6 +19,10 @@ import nz.ac.auckland.se206.HintDisplayHelper;
 import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
+/**
+ * Room2Controller class is used to control the room 2. It will show the puzzle and the key in room
+ * 2.
+ */
 public class Room2Controller {
 
   @FXML private ImageView crossImage;
