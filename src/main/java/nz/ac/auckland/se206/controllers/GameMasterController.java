@@ -133,19 +133,6 @@ public class GameMasterController {
     thread.start();
   }
 
-  /**
-   * Sends a custom message to the GPT model.
-   *
-   * @param message the message to send
-   * @throws ApiProxyException if there is an error communicating with the API proxy
-   * @throws IOException if there is an I/O error
-   */
-  public void sendCustomMessageToGPT(String message) throws ApiProxyException, IOException {
-    ChatMessage chatMessage = new ChatMessage("user", message);
-    runGpt(chatMessage);
-    GameState.requestHint.set(false);
-  }
-
   /** this will be called when the hint number needs to be set. */
   private void setHintNumber() {
     if (GameState.difficulty == 2) {
