@@ -66,6 +66,9 @@ public class Room3Controller {
             fadeInOutIndicationPane();
           }
         });
+    // k is a dummy variable to make the lambda expression work
+    int n = 0;
+    n = n + 1;
     GameState.isMuted.addListener(
         (obs, wasMuted, isNowMuted) -> {
           // if muted, show cross, hide wave, and mute music

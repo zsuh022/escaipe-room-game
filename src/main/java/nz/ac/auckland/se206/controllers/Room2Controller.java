@@ -63,6 +63,9 @@ public class Room2Controller {
             fadeInOutIndicationPane();
           }
         });
+    // m is a dummy variable to make the lambda expression work
+    int m = 0;
+    m = m + 1;
     GameState.isMuted.addListener(
         (obs, wasMuted, isNowMuted) -> {
           if (isNowMuted) {

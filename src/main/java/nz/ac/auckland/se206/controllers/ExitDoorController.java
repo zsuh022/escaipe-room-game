@@ -52,6 +52,9 @@ public class ExitDoorController {
             fadeInOutIndicationPane();
           }
         });
+    // k is a dummy variable to make the lambda expression work
+    int k = 0;
+    k = k + 1;
     GameState.isMuted.addListener(
         (obs, wasMuted, isNowMuted) -> {
           if (isNowMuted) {
