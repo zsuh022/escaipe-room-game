@@ -13,6 +13,10 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
+/**
+ * Room2Puzzle1Controller class is used to control the puzzle in room 2. It will flash a sequence of
+ * buttons and the player has to press the buttons in the correct order.
+ */
 public class Room2Puzzle1Controller {
   @FXML private Rectangle one;
   @FXML private Rectangle two;

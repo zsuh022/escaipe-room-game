@@ -205,7 +205,7 @@ public class RiddleChatController {
   }
 
   /**
-   * Starts the label animation.
+   * This will start the label animation.
    *
    * @param label the label to animate
    */

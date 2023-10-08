@@ -16,6 +16,10 @@ import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
+/**
+ * EndingLoseController class is used to control the ending lose scene. It will show the game master
+ * and the player will lose the game.
+ */
 public class EndingLoseController {
 
   @FXML private ImageView gameMasterLose;

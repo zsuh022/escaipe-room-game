@@ -3,9 +3,13 @@ package nz.ac.auckland.se206;
 import java.util.HashMap;
 import javafx.scene.Parent;
 
+/**
+ * SceneManager class is used to manage the scenes in the game. It will add the scenes to the
+ * sceneMap and get the scenes from the sceneMap.
+ */
 public class SceneManager {
 
-  // Enum for all the different rooms, puzzles and scenes
+  /** Enum for all the different rooms, puzzles and scenes. */
   public enum RoomType {
     CHAT,
     ENDINGLOSE,

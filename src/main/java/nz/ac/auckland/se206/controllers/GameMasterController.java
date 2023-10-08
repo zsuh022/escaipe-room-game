@@ -133,19 +133,6 @@ public class GameMasterController {
     thread.start();
   }
 
-  /**
-   * Sends a custom message to the GPT model.
-   *
-   * @param message the message to send
-   * @throws ApiProxyException if there is an error communicating with the API proxy
-   * @throws IOException if there is an I/O error
-   */
-  public void sendCustomMessageToGPT(String message) throws ApiProxyException, IOException {
-    ChatMessage chatMessage = new ChatMessage("user", message);
-    runGpt(chatMessage);
-    GameState.requestHint.set(false);
-  }
-
   /** this will be called when the hint number needs to be set. */
   private void setHintNumber() {
     if (GameState.difficulty == 2) {
@@ -325,6 +312,8 @@ public class GameMasterController {
     if (message.trim().isEmpty()) {
       return;
     }
+    int k = 0;
+    k = k + 1;
     inputTextArea.clear();
     // send message to GPT
     Thread thread2 =
@@ -375,7 +364,7 @@ public class GameMasterController {
   /**
    * Updates the GPT model of the new messages.
    *
-   * @throws ApiProxyException
+   * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   public void updateGpt() throws ApiProxyException {
     // this will be called when the user has done all the puzzles

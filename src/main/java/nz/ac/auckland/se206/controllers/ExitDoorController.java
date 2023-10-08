@@ -52,6 +52,9 @@ public class ExitDoorController {
             fadeInOutIndicationPane();
           }
         });
+    // k is a dummy variable to make the lambda expression work
+    int k = 0;
+    k = k + 1;
     GameState.isMuted.addListener(
         (obs, wasMuted, isNowMuted) -> {
           if (isNowMuted) {
@@ -87,6 +90,7 @@ public class ExitDoorController {
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
+    HintDisplayHelper.displayThreeDots();
   }
 
   /** this will be called when the game master is clicked. */

@@ -16,6 +16,10 @@ import nz.ac.auckland.se206.HintDisplayHelper;
 import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
+/**
+ * Room1Controller class is used to control the room 1. It will show the puzzle and the key in room
+ * 1.
+ */
 public class Room1Controller {
 
   @FXML private ImageView crossImage;
@@ -94,7 +98,7 @@ public class Room1Controller {
             GameState.latestHint.setValue("Sorry, I cannot help you this time.");
           } else {
             GameState.latestHint.setValue(
-                "May I help you? Click me or Hint button for more information.");
+                "May I help you? Click me or the Hint button for more information.");
           }
         });
 
@@ -105,6 +109,7 @@ public class Room1Controller {
   @FXML
   private void onHintButtonClick() {
     GameState.requestHint.set(!GameState.requestHint.get());
+    HintDisplayHelper.displayThreeDots();
   }
 
   /** this method will be called when the riddle/computer is clicked. */

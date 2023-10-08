@@ -14,6 +14,10 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
+/**
+ * Room2Puzzle2Controller class is used to control the puzzle in room 2. It will display a word with
+ * 5 letters and the player has to guess the word. The player has 6 chances to guess the word.
+ */
 public class Room2Puzzle2Controller {
   @FXML private Button buttonA;
   @FXML private Button buttonB;
@@ -344,7 +348,7 @@ public class Room2Puzzle2Controller {
     }
   }
 
-  /** this will be called when reset */
+  /** this will be called when reset. */
   @FXML
   private void onResetButtonClicked() {
     // clear the current word from the arraylist
@@ -352,13 +356,13 @@ public class Room2Puzzle2Controller {
     initialize();
   }
 
-  /** this will be called when going back */
+  /** this will be called when going back. */
   @FXML
   private void onBackButtonClicked() {
     App.setUi(RoomType.ROOM2);
   }
 
-  /** this will be keboard is pressed */
+  /** this will be keboard is pressed. */
   @FXML
   private void onLetterButtonClicked(ActionEvent event) {
     if (!gameState) {
