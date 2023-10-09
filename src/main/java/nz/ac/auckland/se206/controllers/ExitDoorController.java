@@ -55,6 +55,7 @@ public class ExitDoorController {
     // k is a dummy variable to make the lambda expression work
     int k = 0;
     k = k + 1;
+    System.out.println(k);
     GameState.isMuted.addListener(
         (obs, wasMuted, isNowMuted) -> {
           if (isNowMuted) {
@@ -68,6 +69,7 @@ public class ExitDoorController {
           }
         });
 
+    System.out.println("k");
     // binding the message text area to the shared message
     aiMessageTextArea.textProperty().bind(GameState.sharedMessage);
     GameState.latestHint.addListener(
@@ -153,6 +155,9 @@ public class ExitDoorController {
     }
 
     if (btnKeyPadDisplay.getText().length() > 8) {
+      if (key.equals("Enter")) {
+        checkKey();
+      }
       return;
     }
     // check if enter is pressed
@@ -180,7 +185,7 @@ public class ExitDoorController {
       showErrorMessage();
       return;
     }
-
+    System.out.println("parsed the int");
     // get the number entered
     int n = Integer.parseInt(btnKeyPadDisplay.getText());
 
