@@ -7,7 +7,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import nz.ac.auckland.se206.App;
 
-public class MenuTutorialController {
+public class StartController {
 
   @FXML private MediaView earthMediaView;
 
