@@ -314,6 +314,7 @@ public class GameMasterController {
     }
     int k = 0;
     k = k + 1;
+    System.out.println(k);
     inputTextArea.clear();
     // send message to GPT
     Thread thread2 =

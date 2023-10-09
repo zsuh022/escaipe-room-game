@@ -66,6 +66,7 @@ public class Room2Controller {
     // m is a dummy variable to make the lambda expression work
     int m = 0;
     m = m + 1;
+    System.out.println(m + m);
     GameState.isMuted.addListener(
         (obs, wasMuted, isNowMuted) -> {
           if (isNowMuted) {
