@@ -58,7 +58,7 @@ public class HintDisplayHelper {
 
   /** Displays three dots in the given text area, one dot at a time. */
   public static void displayThreeDots() {
-    if (GameState.hintNumberRemaining.getValue() == 0) {
+    if (GameState.hintNumberRemaining.getValue() == 0 && GameState.difficulty == 2) {
       displayHintInTextArea(
           null, "You have reached the hint limit. Click me to view previous hints.");
       return;
