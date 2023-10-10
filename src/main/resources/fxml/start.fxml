@@ -8,9 +8,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0"
-   xmlns="http://javafx.com/javafx/20.0.1"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.StartController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.StartController">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" visible="false">
@@ -21,7 +19,7 @@
       <MediaView fx:id="earthMediaView" fitHeight="768.0" x="-340.0" />
       <Pane fx:id="startPane" prefHeight="768.0" prefWidth="1024.0">
          <children>
-            <Button alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" prefWidth="330.0" text="New Game">
+            <Button fx:id="btnNewGame" alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" prefWidth="330.0" text="New Game">
                <font>
                   <Font size="48.0" />
                </font>
@@ -31,11 +29,49 @@
                   <Font size="72.0" />
                </font>
             </Label>
+            <Pane fx:id="difficultyPane" layoutX="504.0" layoutY="234.0" prefHeight="125.0" prefWidth="500.0">
+               <children>
+                  <Label text="Easy">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="Medium">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="Hard">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="timePane" layoutX="504.0" layoutY="409.0" prefHeight="125.0" prefWidth="500.0">
+               <children>
+                  <Label text="6 mins">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="4 mins">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="2 mins">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </Pane>
-      <Pane fx:id="tutorialPane" prefHeight="768.0" prefWidth="1024.0">
+      <Pane fx:id="tutorialPane" prefHeight="768.0" prefWidth="1024.0" visible="false">
          <children>
-            <Button alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" prefWidth="330.0" text="Start">
+            <Button fx:id="btnStart" alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" prefWidth="330.0" text="Start">
                <font>
                   <Font size="48.0" />
                </font>

@@ -2,6 +2,8 @@ package nz.ac.auckland.se206.controllers;
 
 import java.net.URISyntaxException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -9,7 +11,11 @@ import nz.ac.auckland.se206.App;
 
 public class StartController {
 
+  @FXML private Button btnNewGame;
+  @FXML private Button btnStart;
   @FXML private MediaView earthMediaView;
+  @FXML private Pane difficultyPane;
+  @FXML private Pane timePane;
 
   @FXML
   private void initialize() throws URISyntaxException {
