@@ -3,6 +3,8 @@ package nz.ac.auckland.se206.controllers;
 import java.net.URISyntaxException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -13,9 +15,13 @@ public class StartController {
 
   @FXML private Button btnNewGame;
   @FXML private Button btnStart;
+  @FXML private Label easyLabel;
+  @FXML private Label mediumLabel;
+  @FXML private Label hardLabel;
   @FXML private MediaView earthMediaView;
   @FXML private Pane difficultyPane;
   @FXML private Pane timePane;
+  @FXML private Slider timeSlider;
 
   @FXML
   private void initialize() throws URISyntaxException {
