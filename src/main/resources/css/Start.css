@@ -1,0 +1,14 @@
+* {
+    -fx-font-family: "Times New Roman", serif;
+}
+
+Button {
+    -fx-background-radius: 10;
+    -fx-font-size: 48px;
+}
+
+
+.titleLabel {
+    -fx-font-size: 72px;
+    -fx-font-weight: bold;
+}

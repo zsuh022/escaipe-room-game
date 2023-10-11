@@ -10,9 +10,9 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.StartController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Start.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.StartController">
    <children>
-      <Button layoutY="-50.0" mnemonicParsing="false" />
+      <Button layoutY="-100.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" visible="false">
          <image>
             <Image url="@../images/menuImages/menuBackground.png" />
@@ -94,7 +94,7 @@
                   <Font size="48.0" />
                </font>
             </Button>
-            <Label alignment="CENTER_RIGHT" layoutX="-10.0" layoutY="10.0" prefWidth="1024.0" text="TUTORIAL " textAlignment="RIGHT">
+            <Label alignment="CENTER_RIGHT" layoutX="-10.0" layoutY="10.0" prefWidth="1024.0" styleClass="titleLabel" text="TUTORIAL " textAlignment="RIGHT">
                <font>
                   <Font size="72.0" />
                </font>
