@@ -44,6 +44,21 @@ public class StartController {
   }
 
   @FXML
+  private void onHoverEasy() {
+    hintInfoLabel.setText("Unlimited Hints");
+  }
+
+  @FXML
+  private void onHoverHard() {
+    hintInfoLabel.setText("No Hints");
+  }
+
+  @FXML
+  private void onHoverMedium() {
+    hintInfoLabel.setText("5 Hints");
+  }
+
+  @FXML
   private void onSelectDifficulty() {
     difficultyInfoLabel.setVisible(true);
     hintInfoLabel.setVisible(true);

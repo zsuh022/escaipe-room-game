@@ -33,17 +33,17 @@
             </Label>
             <Pane fx:id="difficultyPane" layoutX="504.0" layoutY="284.0" onMouseEntered="#onSelectDifficulty" onMouseExited="#onExitDifficultyPane" prefHeight="80.0" prefWidth="500.0">
                <children>
-                  <Label fx:id="easyLabel" alignment="CENTER" layoutX="27.5" layoutY="10.0" prefHeight="60.0" prefWidth="130.0" text="Easy">
+                  <Label fx:id="easyLabel" alignment="CENTER" layoutX="27.5" layoutY="10.0" onMouseEntered="#onHoverEasy" prefHeight="60.0" prefWidth="130.0" text="Easy">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="mediumLabel" alignment="CENTER" layoutX="185.0" layoutY="10.0" prefHeight="60.0" prefWidth="130.0" text="Medium">
+                  <Label fx:id="mediumLabel" alignment="CENTER" layoutX="185.0" layoutY="10.0" onMouseEntered="#onHoverMedium" prefHeight="60.0" prefWidth="130.0" text="Medium">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="hardLabel" alignment="CENTER" layoutX="342.5" layoutY="10.0" prefHeight="60.0" prefWidth="130.0" text="Hard">
+                  <Label fx:id="hardLabel" alignment="CENTER" layoutX="342.5" layoutY="10.0" onMouseEntered="#onHoverHard" prefHeight="60.0" prefWidth="130.0" text="Hard">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -70,17 +70,17 @@
                   <Slider fx:id="timeSlider" blockIncrement="1.0" layoutX="83.5" layoutY="25.0" majorTickUnit="1.0" max="2.0" minorTickCount="0" prefHeight="25.0" prefWidth="333.0" showTickMarks="true" snapToTicks="true" value="1.0" />
                </children>
             </Pane>
-            <Label fx:id="difficultyInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="284.0" prefWidth="230.0" text="Select a difficulty" textAlignment="CENTER">
+            <Label fx:id="difficultyInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="284.0" pickOnBounds="false" prefWidth="230.0" text="Select a difficulty" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="hintInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="324.0" prefWidth="230.0" textAlignment="CENTER">
+            <Label fx:id="hintInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="324.0" pickOnBounds="false" prefWidth="230.0" text="Hints" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="timeInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="439.0" prefWidth="230.0" text="Slide to select the time&#10;you'll have to escape!" textAlignment="CENTER">
+            <Label fx:id="timeInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="439.0" pickOnBounds="false" prefWidth="230.0" text="Slide to select the time&#10;you'll have to escape!" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
