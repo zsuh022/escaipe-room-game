@@ -16,8 +16,11 @@ public class StartController {
   @FXML private Button btnNewGame;
   @FXML private Button btnStart;
   @FXML private Label easyLabel;
-  @FXML private Label mediumLabel;
+  @FXML private Label difficultyInfoLabel;
   @FXML private Label hardLabel;
+  @FXML private Label hintInfoLabel;
+  @FXML private Label mediumLabel;
+  @FXML private Label timeInfoLabel;
   @FXML private MediaView earthMediaView;
   @FXML private Pane difficultyPane;
   @FXML private Pane timePane;
