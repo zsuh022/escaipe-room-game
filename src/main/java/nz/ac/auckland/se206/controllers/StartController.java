@@ -28,11 +28,41 @@ public class StartController {
 
   @FXML
   private void initialize() throws URISyntaxException {
+    initializeInfoLabels();
+
     // initialize video
     Media earthMedia =
         new Media(App.class.getResource("/videos/earthRotating.mp4").toURI().toString());
     MediaPlayer earthPlayer = new MediaPlayer(earthMedia);
     earthMediaView.setMediaPlayer(earthPlayer);
     earthPlayer.play();
+  }
+
+  @FXML
+  void onExitDifficultyPane() {
+    difficultyInfoLabel.setVisible(false);
+    hintInfoLabel.setVisible(false);
+  }
+
+  @FXML
+  void onExitTimePane() {
+    timeInfoLabel.setVisible(false);
+  }
+
+  @FXML
+  private void onSelectDifficulty() {
+    difficultyInfoLabel.setVisible(true);
+    hintInfoLabel.setVisible(true);
+  }
+
+  @FXML
+  private void onSelectTime() {
+    timeInfoLabel.setVisible(true);
+  }
+
+  private void initializeInfoLabels() {
+    difficultyInfoLabel.setVisible(false);
+    hintInfoLabel.setVisible(false);
+    timeInfoLabel.setVisible(false);
   }
 }
