@@ -33,13 +33,13 @@ public class StartController {
   }
 
   @FXML
-  void onExitDifficultyPane() {
+  private void onExitDifficultyPane() {
     difficultyInfoLabel.setVisible(false);
     hintInfoLabel.setVisible(false);
   }
 
   @FXML
-  void onExitTimePane() {
+  private void onExitTimePane() {
     timeInfoLabel.setVisible(false);
   }
 
