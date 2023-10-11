@@ -1,14 +1,25 @@
 * {
     -fx-font-family: "Times New Roman", serif;
+    -fx-text-fill: #DDDDDD;
 }
 
 Button {
+    -fx-background-color: #DDDDDD;
     -fx-background-radius: 10;
     -fx-font-size: 48px;
+    -fx-text-fill: #222831;
 }
 
+.polgon {
+    -fx-fill: #DDDDDD;
+}
 
 .titleLabel {
     -fx-font-size: 72px;
     -fx-font-weight: bold;
+}
+
+.tutorialLabel {
+    -fx-font-size: 30px;
+    -fx-text-fill: #222831;
 }

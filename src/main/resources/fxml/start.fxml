@@ -19,14 +19,14 @@
          </image>
       </ImageView>
       <MediaView fx:id="earthMediaView" fitHeight="768.0" x="-340.0" />
-      <Pane fx:id="startPane" prefHeight="768.0" prefWidth="1024.0" visible="false">
+      <Pane fx:id="startPane" prefHeight="768.0" prefWidth="1024.0">
          <children>
             <Button fx:id="btnNewGame" alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" prefWidth="330.0" text="New Game">
                <font>
                   <Font size="48.0" />
                </font>
             </Button>
-            <Label alignment="CENTER_RIGHT" layoutX="-10.0" layoutY="10.0" prefWidth="1024.0" text="ESCAPE THE &#10;SPACE STATION " textAlignment="RIGHT">
+            <Label alignment="CENTER_RIGHT" layoutX="-10.0" layoutY="10.0" prefWidth="1024.0" styleClass="titleLabel" text="ESCAPE THE &#10;SPACE STATION " textAlignment="RIGHT">
                <font>
                   <Font size="72.0" />
                </font>
@@ -87,7 +87,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="tutorialPane" prefHeight="768.0" prefWidth="1024.0">
+      <Pane fx:id="tutorialPane" prefHeight="768.0" prefWidth="1024.0" visible="false">
          <children>
             <Button fx:id="btnStart" alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" prefWidth="330.0" text="Start">
                <font>
@@ -104,8 +104,8 @@
                   <Image url="@../images/gameMaster.png" />
                </image>
             </ImageView>
-            <Polygon fill="DODGERBLUE" layoutX="411.0" layoutY="294.0" points="-130.0, -105.0, -130.0, -20.0, 491.0, -20.0, 491.0, -130.0, -157.0, -130.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label alignment="CENTER" layoutX="281.0" layoutY="182.0" prefHeight="74.0" prefWidth="621.0" text="For in-game hints, click on me!&#10;Find me at the top-left corner of the game!" textAlignment="CENTER">
+            <Polygon layoutX="411.0" layoutY="294.0" points="-130.0, -105.0, -130.0, -20.0, 491.0, -20.0, 491.0, -130.0, -157.0, -130.0" stroke="BLACK" strokeType="INSIDE" styleClass="polgon" />
+            <Label alignment="CENTER" layoutX="281.0" layoutY="182.0" prefHeight="74.0" prefWidth="621.0" styleClass="tutorialLabel" text="For in-game hints, click on me!&#10;Find me at the top-left corner of the game!" textAlignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
@@ -134,8 +134,8 @@
                   <ImageView fitHeight="300.0" fitWidth="150.0" layoutX="150.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
-            <Polygon fill="DODGERBLUE" layoutX="170.0" layoutY="479.0" points="0.0, 50.0, 420.0, 50.0, 420.0, -99.0, 0.0, -99.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label alignment="CENTER" layoutX="170.0" layoutY="399.0" prefWidth="420.0" text="Interactions will glow yellow&#10;when you hover your mouse&#10;over" textAlignment="CENTER">
+            <Polygon layoutX="170.0" layoutY="479.0" points="0.0, 50.0, 420.0, 50.0, 420.0, -99.0, 0.0, -99.0" stroke="BLACK" strokeType="INSIDE" styleClass="polgon" />
+            <Label alignment="CENTER" layoutX="170.0" layoutY="399.0" prefWidth="420.0" styleClass="tutorialLabel" text="Interactions will glow yellow&#10;when you hover your mouse&#10;over" textAlignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
