@@ -23,7 +23,9 @@ public class StartController {
   @FXML private Label timeInfoLabel;
   @FXML private MediaView earthMediaView;
   @FXML private Pane difficultyPane;
+  @FXML private Pane startPane;
   @FXML private Pane timePane;
+  @FXML private Pane tutorialPane;
   @FXML private Slider timeSlider;
 
   @FXML
@@ -56,6 +58,12 @@ public class StartController {
   @FXML
   private void onHoverMedium() {
     hintInfoLabel.setText("5 Hints");
+  }
+
+  @FXML
+  private void onNewGameButtonClicked() {
+    startPane.setVisible(false);
+    tutorialPane.setVisible(true);
   }
 
   @FXML
