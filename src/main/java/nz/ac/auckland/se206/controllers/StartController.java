@@ -29,13 +29,7 @@ public class StartController {
   @FXML
   private void initialize() throws URISyntaxException {
     initializeInfoLabels();
-
-    // initialize video
-    Media earthMedia =
-        new Media(App.class.getResource("/videos/earthRotating.mp4").toURI().toString());
-    MediaPlayer earthPlayer = new MediaPlayer(earthMedia);
-    earthMediaView.setMediaPlayer(earthPlayer);
-    earthPlayer.play();
+    initializeEarthMediaView();
   }
 
   @FXML
@@ -58,6 +52,14 @@ public class StartController {
   @FXML
   private void onSelectTime() {
     timeInfoLabel.setVisible(true);
+  }
+
+  private void initializeEarthMediaView() throws URISyntaxException {
+    Media earthMedia =
+        new Media(App.class.getResource("/videos/earthRotating.mp4").toURI().toString());
+    MediaPlayer earthPlayer = new MediaPlayer(earthMedia);
+    earthMediaView.setMediaPlayer(earthPlayer);
+    earthPlayer.play();
   }
 
   private void initializeInfoLabels() {
