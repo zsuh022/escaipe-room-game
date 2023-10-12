@@ -47,7 +47,7 @@ public class Room3Controller {
   private void initialize() {
     initializeTimer();
     initializePuzzle();
-    if (GameState.difficulty == 3) {
+    if (GameState.gameDifficulty == 3) {
       btnHint.setVisible(false);
     } else {
       btnHint.setVisible(true);

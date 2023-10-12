@@ -68,7 +68,7 @@ public class RiddleChatController {
     Thread thread =
         new Thread(
             () -> {
-              if (GameState.difficulty == 1) {
+              if (GameState.gameDifficulty == 1) {
                 try {
                   runGpt(
                       new ChatMessage(
@@ -78,7 +78,7 @@ public class RiddleChatController {
                   // TODO Auto-generated catch block
                   e.printStackTrace();
                 }
-              } else if (GameState.difficulty == 2) {
+              } else if (GameState.gameDifficulty == 2) {
                 // for example, if the difficulty equals 2, then call the mid level solver
                 try {
                   runGpt(
@@ -101,7 +101,7 @@ public class RiddleChatController {
                 }
               }
             });
-    if (GameState.difficulty == 2) {
+    if (GameState.gameDifficulty == 2) {
       hintRemainLabel.setVisible(true);
       hintNumberLabel.setVisible(true);
       // bind the hint number to the hint number remaining
@@ -312,7 +312,7 @@ public class RiddleChatController {
   public void updateGpt() throws ApiProxyException {
     // this will be called when the hint number is 0
     if (GameState.hintNumberRemaining.getValue() == 0
-        && GameState.difficulty == 2
+        && GameState.gameDifficulty == 2
         && updateCount1 == 0) {
       ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getMessageNoHint());
       runGpt(msg);

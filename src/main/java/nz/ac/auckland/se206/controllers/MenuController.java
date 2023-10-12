@@ -167,7 +167,7 @@ public class MenuController {
    */
   private void setDifficulty() {
     // set difficulty
-    GameState.difficulty = (int) difficultySlider.getValue();
+    GameState.gameDifficulty = (int) difficultySlider.getValue();
   }
 
   /**

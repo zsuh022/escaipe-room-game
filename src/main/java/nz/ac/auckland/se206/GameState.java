@@ -15,7 +15,7 @@ public class GameState {
 
   public static IntegerProperty gameTime; // 2, 4, 6
 
-  public static int difficulty; // 1 - easy, 2 - mid, 3 - hard
+  public static int gameDifficulty; // 1 - easy, 2 - mid, 3 - hard
 
   public static TimeManager timeManager = new TimeManager();
 
@@ -54,7 +54,7 @@ public class GameState {
     // reset all the variables for a new game
     isRiddleResolved = new SimpleBooleanProperty(false);
     gameTime = new SimpleIntegerProperty(0);
-    difficulty = 0;
+    gameDifficulty = 0;
     timeManager = new TimeManager();
     riddleWord = "";
     isPuzzleRoom2Solved = new SimpleBooleanProperty(false);
