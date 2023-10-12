@@ -215,7 +215,7 @@ public class EndingWinController {
   /** this method sets up the media player. */
   private void setUpMedia() throws URISyntaxException {
     // this method sets up the media player
-    Media media = new Media(App.class.getResource("/sounds/depart.mp4").toURI().toString());
+    Media media = new Media(App.class.getResource("/videos/depart.mp4").toURI().toString());
     player = new MediaPlayer(media);
     depart.setMediaPlayer(player);
   }
