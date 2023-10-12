@@ -22,6 +22,10 @@ import nz.ac.auckland.se206.MusicManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.RoomType;
 
+/**
+ * StartController is used to manage the user interactions and set all the UIs at the start of the
+ * game.
+ */
 public class StartController {
 
   @FXML private Button btnNewGame;
@@ -174,14 +178,11 @@ public class StartController {
   /** Handles the user click on the "Start" button. */
   @FXML
   private void onStartButtonClicked() {
-    // set key
     setKey();
-
-    // fade transition
     fadeInNextImageView();
   }
 
-  /** The method fades in the next image view */
+  /** The method fades in the next image view. */
   private void fadeInNextImageView() {
     // fade in next image view
     nextImageView.setVisible(true);
