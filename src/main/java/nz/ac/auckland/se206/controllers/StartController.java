@@ -1,12 +1,15 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Random;
+import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -15,11 +18,15 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
+import nz.ac.auckland.se206.MusicManager;
+import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.SceneManager.RoomType;
 
 public class StartController {
 
   @FXML private Button btnNewGame;
   @FXML private Button btnStart;
+  @FXML private ImageView nextImageView;
   @FXML private Label easyLabel;
   @FXML private Label easyHintLabel;
   @FXML private Label difficultyInfoLabel;
@@ -36,6 +43,8 @@ public class StartController {
   @FXML private Pane tutorialPane;
   @FXML private Slider timeSlider;
 
+  private MediaPlayer earthPlayer;
+
   @FXML
   private void initialize() throws URISyntaxException {
     initializeEarthMediaView();
@@ -45,16 +54,19 @@ public class StartController {
   @FXML
   private void onClickEasy(MouseEvent event) {
     setDifficultyColour(easyLabel, "easy");
+    GameState.gameDifficulty = 1;
   }
 
   @FXML
   private void onClickHard(MouseEvent event) {
     setDifficultyColour(hardLabel, "hard");
+    GameState.gameDifficulty = 3;
   }
 
   @FXML
   private void onClickMedium(MouseEvent event) {
     setDifficultyColour(mediumLabel, "medium");
+    GameState.gameDifficulty = 2;
   }
 
   @FXML
@@ -106,9 +118,9 @@ public class StartController {
       startPane.setVisible(false);
       tutorialPane.setVisible(true);
 
+      // set game difficulty and time
       setGameDifficulty();
       setGameTime();
-      setKey();
     }
   }
 
@@ -122,11 +134,41 @@ public class StartController {
     timeInfoLabel.setVisible(true);
   }
 
+  @FXML
+  private void onStartButtonClicked() {
+    // set key
+    setKey();
+
+    fadeInNextImageView();
+  }
+
+  /** this method will fade in the next image view. */
+  private void fadeInNextImageView() {
+    // fade in next image view
+    btnStart.setVisible(false);
+    nextImageView.setVisible(true);
+    FadeTransition fade = new FadeTransition(Duration.millis(1000), nextImageView);
+    fade.setFromValue(0.0);
+    fade.setToValue(1.0);
+
+    // set the order of the transitions
+    fade.setOnFinished(
+        e -> {
+          try {
+            setUiAfterFade();
+          } catch (IOException | URISyntaxException ex) {
+            ex.printStackTrace();
+          }
+        });
+
+    fade.play();
+  }
+
   private void initializeEarthMediaView() throws URISyntaxException {
     // set up earth video
     Media earthMedia =
         new Media(App.class.getResource("/videos/earthRotating.mp4").toURI().toString());
-    MediaPlayer earthPlayer = new MediaPlayer(earthMedia);
+    earthPlayer = new MediaPlayer(earthMedia);
     earthMediaView.setMediaPlayer(earthPlayer);
     earthPlayer.play();
   }
@@ -226,5 +268,36 @@ public class StartController {
     }
 
     System.out.println("key = " + GameState.key);
+  }
+
+  /**
+   * Sets all the UIs after the fade transition. Loads various game scenes from their respective
+   * FXML files and initializes the game state for the current room.
+   *
+   * @throws IOException if an FXML file is not found or cannot be loaded.
+   * @throws URISyntaxException if there's an error parsing the URI for the FXML files.
+   */
+  private void setUiAfterFade() throws IOException, URISyntaxException {
+    // set all the UIs after the fade transition
+    // do not change the order below this line
+    SceneManager.addUi(RoomType.CHAT, App.loadFxml("chat"));
+    SceneManager.addUi(RoomType.ROOM1, App.loadFxml("room1"));
+    SceneManager.addUi(RoomType.ROOM2, App.loadFxml("room2"));
+    SceneManager.addUi(RoomType.ROOM3, App.loadFxml("room3"));
+    SceneManager.addUi(RoomType.ROOM2PUZZLE1, App.loadFxml("room2Puzzle1"));
+    SceneManager.addUi(RoomType.ROOM3PUZZLE1, App.loadFxml("room3puzzle1"));
+    SceneManager.addUi(RoomType.EXITDOOR, App.loadFxml("exitdoor"));
+    SceneManager.addUi(RoomType.ROOM2PUZZLE2, App.loadFxml("room2Puzzle2"));
+    SceneManager.addUi(RoomType.ROOM3PUZZLE2, App.loadFxml("room3Puzzle2"));
+    SceneManager.addUi(RoomType.GAMEMASTER, App.loadFxml("gamemaster"));
+    // do not change the order above this line
+
+    // set ui for the current room
+    GameState.currentRoom.set(1);
+    App.setUi(RoomType.ROOM1);
+
+    earthPlayer.stop();
+    MusicManager.playGameSong();
+    GameState.timeManager.setTimer();
   }
 }

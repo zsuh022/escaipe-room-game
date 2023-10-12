@@ -104,7 +104,7 @@
       </Pane>
       <Pane fx:id="tutorialPane" prefHeight="768.0" prefWidth="1024.0" visible="false">
          <children>
-            <Button fx:id="btnStart" alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" prefWidth="330.0" text="Start">
+            <Button fx:id="btnStart" alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" onAction="#onStartButtonClicked" prefWidth="330.0" text="Start">
                <font>
                   <Font size="48.0" />
                </font>
@@ -158,5 +158,10 @@
             </Label>
          </children>
       </Pane>
+      <ImageView fx:id="nextImageView" fitHeight="768.0" fitWidth="1024.0" visible="false">
+         <image>
+            <Image url="@../images/room1.jpeg" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
