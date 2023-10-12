@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -89,5 +90,47 @@ public class StartController {
     difficultyInfoLabel.setVisible(false);
     hintInfoLabel.setVisible(false);
     timeInfoLabel.setVisible(false);
+  }
+
+  @FXML
+  private void onEasyClicked(MouseEvent event) {
+    setDifficultyColour(easyLabel, "easy");
+  }
+
+  @FXML
+  private void onMediumClicked(MouseEvent event) {
+    setDifficultyColour(mediumLabel, "medium");
+  }
+
+  @FXML
+  private void onHardClicked(MouseEvent event) {
+    setDifficultyColour(hardLabel, "hard");
+  }
+
+  private void setDifficultyColour(Label clickedLabel, String difficulty) {
+    // reset all labels to original colour
+    easyLabel.getStyleClass().removeAll("easyDifficulty");
+    mediumLabel.getStyleClass().removeAll("mediumDifficulty");
+    hardLabel.getStyleClass().removeAll("hardDifficulty");
+
+    easyLabel.getStyleClass().add("difficulties");
+    mediumLabel.getStyleClass().add("difficulties");
+    hardLabel.getStyleClass().add("difficulties");
+
+    // set the clicked label to its respective colour
+    switch (difficulty) {
+      case "easy":
+        clickedLabel.getStyleClass().removeAll("difficulties");
+        clickedLabel.getStyleClass().add("easyDifficulty");
+        break;
+      case "medium":
+        clickedLabel.getStyleClass().removeAll("difficulties");
+        clickedLabel.getStyleClass().add("mediumDifficulty");
+        break;
+      case "hard":
+        clickedLabel.getStyleClass().removeAll("difficulties");
+        clickedLabel.getStyleClass().add("hardDifficulty");
+        break;
+    }
   }
 }

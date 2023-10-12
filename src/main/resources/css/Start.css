@@ -10,8 +10,31 @@ Button {
     -fx-text-fill: #222831;
 }
 
+.easyDifficulty {
+    -fx-font-size: 36px;
+    -fx-text-fill: #81B214;
+}
+
+.hardDifficulty {
+    -fx-font-size: 36px;
+    -fx-text-fill: #C63D2F;
+}
+
+.mediumDifficulty {
+    -fx-font-size: 36px;
+    -fx-text-fill: #E25E3E;
+}
+
 .polgon {
     -fx-fill: #DDDDDD;
+}
+
+.difficulties {
+    -fx-text-fill: #DDDDDD;
+}
+
+.slider .track {
+    -fx-background-color: linear-gradient(to right, #81B214, #FF9B50, #C63D2F);
 }
 
 .titleLabel {
@@ -22,4 +45,19 @@ Button {
 .tutorialLabel {
     -fx-font-size: 30px;
     -fx-text-fill: #222831;
+}
+
+#easyLabel:hover {
+    -fx-font-size: 36px;
+    -fx-text-fill: #BFDCAE;
+}
+
+#hardLabel:hover {
+    -fx-font-size: 36px;
+    -fx-text-fill: #FF9B50;
+}
+
+#mediumLabel:hover {
+    -fx-font-size: 36px;
+    -fx-text-fill: #FFBB5C;
 }
