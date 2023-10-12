@@ -212,6 +212,7 @@ public class StartController {
     Media earthMedia =
         new Media(App.class.getResource("/videos/earthRotating.mp4").toURI().toString());
     earthPlayer = new MediaPlayer(earthMedia);
+    earthPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     earthMediaView.setMediaPlayer(earthPlayer);
     earthPlayer.play();
   }
