@@ -54,8 +54,8 @@ public class EndingLoseController {
   private void onRestartButtonClicked() throws IOException {
     System.out.println("Play again button clicked");
     // reset game state
-    SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
-    App.setUi(RoomType.MENU);
+    SceneManager.addUi(RoomType.START, App.loadFxml("start"));
+    App.setUi(RoomType.START);
     GameState.reset();
     SceneManager.reset();
     MusicManager.mute();
