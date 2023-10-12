@@ -147,7 +147,10 @@
                         <Image url="@../images/menuImages/cursorHand.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="300.0" fitWidth="150.0" layoutX="150.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitWidth="100.0" layoutX="170.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/menuImages/tutorialArrow.png" />
+                     </image></ImageView>
                </children>
             </Pane>
             <Polygon layoutX="170.0" layoutY="479.0" points="0.0, 50.0, 420.0, 50.0, 420.0, -99.0, 0.0, -99.0" strokeType="INSIDE" styleClass="polgon" />
