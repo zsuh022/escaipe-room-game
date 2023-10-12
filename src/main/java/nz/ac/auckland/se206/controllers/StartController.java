@@ -109,6 +109,7 @@ public class StartController {
   }
 
   private void initializeEarthMediaView() throws URISyntaxException {
+    // set up earth video
     Media earthMedia =
         new Media(App.class.getResource("/videos/earthRotating.mp4").toURI().toString());
     MediaPlayer earthPlayer = new MediaPlayer(earthMedia);
@@ -117,6 +118,7 @@ public class StartController {
   }
 
   private void initializeInfoLabels() {
+    // set information labels to invisible
     difficultyInfoLabel.setVisible(false);
     timeInfoLabel.setVisible(false);
   }
