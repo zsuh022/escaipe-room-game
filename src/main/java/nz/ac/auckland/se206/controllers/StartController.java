@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.net.URISyntaxException;
+import java.util.Random;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,6 +12,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.GameState;
 
 public class StartController {
 
@@ -96,6 +98,10 @@ public class StartController {
   private void onNewGameButtonClicked() {
     startPane.setVisible(false);
     tutorialPane.setVisible(true);
+
+    setGameDifficulty();
+    setGameTime();
+    setKey();
   }
 
   @FXML
@@ -148,5 +154,61 @@ public class StartController {
         clickedLabel.getStyleClass().add("hardDifficulty");
         break;
     }
+  }
+
+  private void setGameDifficulty() {
+    if (easyLabel.getStyleClass().contains("easyDifficulty")) {
+      GameState.gameDifficulty = 1;
+    } else if (mediumLabel.getStyleClass().contains("mediumDifficulty")) {
+      GameState.gameDifficulty = 2;
+    } else if (hardLabel.getStyleClass().contains("hardDifficulty")) {
+      GameState.gameDifficulty = 3;
+    }
+  }
+
+  private void setGameTime() {
+    // set game time
+    switch ((int) timeSlider.getValue()) {
+      case 0:
+        GameState.timeManager.setTime(120);
+        break;
+      case 1:
+        GameState.timeManager.setTime(240);
+        break;
+      case 2:
+        GameState.timeManager.setTime(360);
+        break;
+    }
+  }
+
+  private void setKey() {
+    // get a random integer to set the game key
+    Random random = new Random();
+    int number = random.nextInt(3) + 1;
+    switch (number) {
+      case 1:
+        // if the random number is 1, the key will be 12041961
+        GameState.key = 12041961;
+        GameState.room2Key = "12";
+        GameState.room1Key = "04";
+        GameState.room3Key = "1961";
+        break;
+      case 2:
+        // if the random number is 2, the key will be 19041971
+        GameState.key = 19041971;
+        GameState.room2Key = "19";
+        GameState.room1Key = "04";
+        GameState.room3Key = "1971";
+        break;
+      case 3:
+        // if the random number is 3, the key will be 16071969
+        GameState.key = 16071969;
+        GameState.room2Key = "16";
+        GameState.room1Key = "07";
+        GameState.room3Key = "1969";
+        break;
+    }
+
+    System.out.println("key = " + GameState.key);
   }
 }
