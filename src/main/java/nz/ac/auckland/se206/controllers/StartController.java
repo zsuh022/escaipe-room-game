@@ -45,70 +45,99 @@ public class StartController {
 
   private MediaPlayer earthPlayer;
 
+  /**
+   * Initializes the room view, it is called when the room loads.
+   *
+   * @throws URISyntaxException if the URI syntax is invalid
+   */
   @FXML
   private void initialize() throws URISyntaxException {
     initializeEarthMediaView();
     initializeInfoLabels();
   }
 
+  /**
+   * Handles the user click on the "Easy" difficulty option.
+   *
+   * @param event the MouseEvent triggered by the user's action.
+   */
   @FXML
   private void onClickEasy(MouseEvent event) {
     setDifficultyColour(easyLabel, "easy");
     GameState.gameDifficulty = 1;
   }
 
+  /**
+   * Handles the user click on the "Hard" difficulty option.
+   *
+   * @param event the MouseEvent triggered by the user's action.
+   */
   @FXML
   private void onClickHard(MouseEvent event) {
     setDifficultyColour(hardLabel, "hard");
     GameState.gameDifficulty = 3;
   }
 
+  /**
+   * Handles the user click on the "Medium" difficulty option.
+   *
+   * @param event the MouseEvent triggered by the user's action.
+   */
   @FXML
   private void onClickMedium(MouseEvent event) {
     setDifficultyColour(mediumLabel, "medium");
     GameState.gameDifficulty = 2;
   }
 
+  /** Handles the event when the user's mouse exits the difficulty pane. */
   @FXML
   private void onExitDifficultyPane() {
     difficultyInfoLabel.setVisible(false);
   }
 
+  /** Handles the event when the user's mouse exits the easy label. */
   @FXML
   private void onExitEasyDifficulty() {
     easyHintLabel.setVisible(false);
   }
 
+  /** Handles the event when the user's mouse exits the hard label. */
   @FXML
   private void onExitHardDifficulty() {
     hardHintLabel.setVisible(false);
   }
 
+  /** Handles the event when the user's mouse exits the medium label. */
   @FXML
   private void onExitMediumDifficulty() {
     mediumHintLabel.setVisible(false);
   }
 
+  /** Handles the event when the user's mouse exits the time pane. */
   @FXML
   private void onExitTimePane() {
     timeInfoLabel.setVisible(false);
   }
 
+  /** Handles the event when the user's mouse hovers over the "Easy" difficulty option. */
   @FXML
   private void onHoverEasy() {
     easyHintLabel.setVisible(true);
   }
 
+  /** Handles the event when the user's mouse hovers over the "Hard" difficulty option. */
   @FXML
   private void onHoverHard() {
     hardHintLabel.setVisible(true);
   }
 
+  /** Handles the event when the user's mouse hovers over the "Medium" difficulty option. */
   @FXML
   private void onHoverMedium() {
     mediumHintLabel.setVisible(true);
   }
 
+  /** Handles the user click on the "NewGame" button. */
   @FXML
   private void onNewGameButtonClicked() {
     if (GameState.gameDifficulty == 0) {
@@ -124,25 +153,35 @@ public class StartController {
     }
   }
 
+  /**
+   * Handles the event when the user selects the difficulty option. It displays the general
+   * information label about difficulty selection.
+   */
   @FXML
   private void onSelectDifficulty() {
     difficultyInfoLabel.setVisible(true);
   }
 
+  /**
+   * Handles the event when the user selects the time option. It displays the general information
+   * label about time selection.
+   */
   @FXML
   private void onSelectTime() {
     timeInfoLabel.setVisible(true);
   }
 
+  /** Handles the user click on the "Start" button. */
   @FXML
   private void onStartButtonClicked() {
     // set key
     setKey();
 
+    // fade transition
     fadeInNextImageView();
   }
 
-  /** this method will fade in the next image view. */
+  /** The method fades in the next image view */
   private void fadeInNextImageView() {
     // fade in next image view
     nextImageView.setVisible(true);
@@ -163,6 +202,11 @@ public class StartController {
     fade.play();
   }
 
+  /**
+   * Initializes the media view for the rotating earth video.
+   *
+   * @throws URISyntaxException if there's an error parsing the URI for the video.
+   */
   private void initializeEarthMediaView() throws URISyntaxException {
     // set up earth video
     Media earthMedia =
@@ -172,12 +216,14 @@ public class StartController {
     earthPlayer.play();
   }
 
+  /** This method initializes the visibility of the start pane information labels. */
   private void initializeInfoLabels() {
     // set information labels to invisible
     difficultyInfoLabel.setVisible(false);
     timeInfoLabel.setVisible(false);
   }
 
+  /** This method displays the "Please select a difficulty!" message for 1 second. */
   private void showSelectDifficultyMessage() {
     // show select difficulty message for 1 second
     selectDifficultyLabel.setVisible(true);
@@ -186,6 +232,14 @@ public class StartController {
     hideLabel.play();
   }
 
+  /**
+   * This method changes the colour of the difficulty labels when the user clicks on them. Only one
+   * label can be selected at a time.
+   *
+   * @param clickedLabel The label representing the difficulty that was clicked.
+   * @param difficulty The string representation of the difficulty level ("easy", "medium", or
+   *     "hard").
+   */
   private void setDifficultyColour(Label clickedLabel, String difficulty) {
     // reset all labels to original colour
     easyLabel.getStyleClass().removeAll("easyDifficulty");
@@ -213,6 +267,12 @@ public class StartController {
     }
   }
 
+  /**
+   * This method sets the game difficulty based on the style of the difficulty labels. If "Easy"
+   * label is selected, the game difficulty will be set to 1. If "Medium" label is selected, the
+   * game difficulty will be set to 2. If "Hard" label is selected, the game difficulty will be set
+   * to 3.
+   */
   private void setGameDifficulty() {
     if (easyLabel.getStyleClass().contains("easyDifficulty")) {
       GameState.gameDifficulty = 1;
@@ -223,6 +283,12 @@ public class StartController {
     }
   }
 
+  /**
+   * This method sets the game time based on the value of the time slider. If the value of the time
+   * slider is 0, the game time will be set to 360 seconds. If the value of the time slider is 1,
+   * the game time will be set to 240 seconds. If the value of the time slider is 2, the game time
+   * will be set to 120 seconds.
+   */
   private void setGameTime() {
     // set game time
     switch ((int) timeSlider.getValue()) {
@@ -238,6 +304,11 @@ public class StartController {
     }
   }
 
+  /**
+   * This method sets the game key based on a random number. If the random number is 1, the key will
+   * be 12041961. If the random number is 2, the key will be 19041971. If the random number is 3,
+   * the key will be 16071969.
+   */
   private void setKey() {
     // get a random integer to set the game key
     Random random = new Random();
@@ -270,8 +341,7 @@ public class StartController {
   }
 
   /**
-   * Sets all the UIs after the fade transition. Loads various game scenes from their respective
-   * FXML files and initializes the game state for the current room.
+   * Updates the UI and loads game scenes after the fade transition.
    *
    * @throws IOException if an FXML file is not found or cannot be loaded.
    * @throws URISyntaxException if there's an error parsing the URI for the FXML files.
