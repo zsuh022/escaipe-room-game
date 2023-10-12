@@ -67,7 +67,7 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Slider fx:id="timeSlider" blockIncrement="1.0" layoutX="83.5" layoutY="25.0" majorTickUnit="1.0" max="2.0" minorTickCount="0" prefHeight="25.0" prefWidth="333.0" showTickMarks="true" snapToTicks="true" value="1.0" />
+                  <Slider fx:id="timeSlider" blockIncrement="1.0" layoutX="83.5" layoutY="25.0" majorTickUnit="1.0" max="2.0" minorTickCount="0" prefHeight="25.0" prefWidth="333.0" showTickMarks="true" snapToTicks="true" />
                </children>
             </Pane>
             <Label fx:id="difficultyInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="284.0" pickOnBounds="false" prefWidth="230.0" text="Select a difficulty" textAlignment="CENTER">
