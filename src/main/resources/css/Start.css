@@ -1,0 +1,76 @@
+* {
+    -fx-font-family: "Times New Roman", serif;
+    -fx-text-fill: #DDDDDD;
+}
+
+Button {
+    -fx-background-color: #DDDDDD;
+    -fx-background-radius: 10;
+    -fx-font-size: 48px;
+    -fx-text-fill: #222831;
+}
+
+Button:hover {
+    -fx-background-color: #BBBBBB;
+}
+
+Button:pressed {
+    -fx-background-color: #81B214;
+}
+
+.easyDifficulty {
+    -fx-font-size: 36px;
+    -fx-text-fill: #81B214;
+}
+
+.hardDifficulty {
+    -fx-font-size: 36px;
+    -fx-text-fill: #C63D2F;
+}
+
+.mediumDifficulty {
+    -fx-font-size: 36px;
+    -fx-text-fill: #E25E3E;
+}
+
+.polgon {
+    -fx-fill: #DDDDDD;
+}
+
+.difficulties {
+    -fx-text-fill: #DDDDDD;
+}
+
+.slider .track {
+    -fx-background-color: linear-gradient(to right, #81B214, #FF9B50, #C63D2F);
+}
+
+.titleLabel {
+    -fx-font-size: 72px;
+    -fx-font-weight: bold;
+}
+
+.tutorialLabel {
+    -fx-font-size: 30px;
+    -fx-text-fill: #222831;
+}
+
+#easyLabel:hover {
+    -fx-font-size: 36px;
+    -fx-text-fill: #BFDCAE;
+}
+
+#hardLabel:hover {
+    -fx-font-size: 36px;
+    -fx-text-fill: #FF9B50;
+}
+
+#mediumLabel:hover {
+    -fx-font-size: 36px;
+    -fx-text-fill: #FFBB5C;
+}
+
+#selectDifficultyLabel {
+    -fx-font-size: 36px;
+    -fx-text-fill: #C63D2F;
+}

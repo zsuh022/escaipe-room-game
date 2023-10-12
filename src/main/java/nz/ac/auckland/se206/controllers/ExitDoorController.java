@@ -40,7 +40,7 @@ public class ExitDoorController {
   private void initialize() {
     initializeTimer();
     keyPad.setVisible(false);
-    if (GameState.difficulty == 3) {
+    if (GameState.gameDifficulty == 3) {
       btnHint.setVisible(false);
     } else {
       btnHint.setVisible(true);

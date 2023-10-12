@@ -88,8 +88,8 @@ public class EndingWinController {
   private void onRestartButtonClicked() throws IOException {
     // when the restart button is clicked, the game will restart
     System.out.println("Play again button clicked");
-    SceneManager.addUi(RoomType.MENU, App.loadFxml("menu"));
-    App.setUi(RoomType.MENU);
+    SceneManager.addUi(RoomType.START, App.loadFxml("start"));
+    App.setUi(RoomType.START);
     GameState.reset();
     SceneManager.reset();
     MusicManager.mute();
@@ -215,7 +215,7 @@ public class EndingWinController {
   /** this method sets up the media player. */
   private void setUpMedia() throws URISyntaxException {
     // this method sets up the media player
-    Media media = new Media(App.class.getResource("/sounds/depart.mp4").toURI().toString());
+    Media media = new Media(App.class.getResource("/videos/depart.mp4").toURI().toString());
     player = new MediaPlayer(media);
     depart.setMediaPlayer(player);
   }

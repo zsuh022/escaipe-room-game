@@ -66,7 +66,7 @@ public class App extends Application {
   @Override
   public void start(final Stage stage) throws IOException {
     // start with the menu scene
-    Parent root = loadFxml("menu");
+    Parent root = loadFxml("start");
     scene = new Scene(root, 1024, 768);
     stage.setScene(scene);
     stage.setResizable(false);

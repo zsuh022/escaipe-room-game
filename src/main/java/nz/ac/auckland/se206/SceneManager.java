@@ -16,15 +16,14 @@ public class SceneManager {
     ENDINGWIN,
     EXITDOOR,
     GAMEMASTER,
-    MENU,
     ROOM1,
     ROOM2,
     ROOM3,
-    ROOM4,
     ROOM2PUZZLE1,
     ROOM2PUZZLE2,
     ROOM3PUZZLE1,
-    ROOM3PUZZLE2
+    ROOM3PUZZLE2,
+    START,
   }
 
   // HashMap to store the different rooms and their scenes

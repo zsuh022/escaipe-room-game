@@ -72,14 +72,14 @@ public class GameMasterController {
     Thread thread =
         new Thread(
             () -> {
-              if (GameState.difficulty == 1) {
+              if (GameState.gameDifficulty == 1) {
                 try {
                   runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterEasy()));
                 } catch (ApiProxyException e) {
                   // TODO Auto-generated catch block
                   e.printStackTrace();
                 }
-              } else if (GameState.difficulty == 2) {
+              } else if (GameState.gameDifficulty == 2) {
                 try {
                   // for example, if the difficulty is 2, then the prompt will be the medium
                   runGpt(new ChatMessage("user", GptPromptEngineering.getGameMasterMid()));
@@ -135,7 +135,7 @@ public class GameMasterController {
 
   /** this will be called when the hint number needs to be set. */
   private void setHintNumber() {
-    if (GameState.difficulty == 2) {
+    if (GameState.gameDifficulty == 2) {
       hintRemainLabel.setVisible(true);
       hintNumberLabel.setVisible(true);
       // bind the hint number to the hint number remaining
@@ -373,7 +373,7 @@ public class GameMasterController {
         && GameState.isPuzzleRoom2Solved.getValue() == true
         && GameState.isRiddleResolved.getValue() == true
         && updateCount == 0
-        && GameState.difficulty != 3
+        && GameState.gameDifficulty != 3
         && GameState.hintNumberRemaining.get() > 0) {
       ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getHintTwo());
       runGpt(msg);
@@ -382,7 +382,7 @@ public class GameMasterController {
     }
 
     if (GameState.hintNumberRemaining.getValue() == 0
-        && GameState.difficulty == 2
+        && GameState.gameDifficulty == 2
         && updateCount1 == 0) {
       ChatMessage msg = new ChatMessage("user", GptPromptEngineering.getMessageNoHint());
       runGpt(msg);

@@ -38,7 +38,7 @@ public class Room1Controller {
     initializeTimer();
     keyShowingPane.setVisible(false);
     indicationPane.setOpacity(0);
-    if (GameState.difficulty == 3) {
+    if (GameState.gameDifficulty == 3) {
       btnHint.setVisible(false);
     } else {
       btnHint.setVisible(true);
@@ -94,7 +94,7 @@ public class Room1Controller {
 
     fadeIn.setOnFinished(
         e -> {
-          if (GameState.difficulty == 3) {
+          if (GameState.gameDifficulty == 3) {
             GameState.latestHint.setValue("Sorry, I cannot help you this time.");
           } else {
             GameState.latestHint.setValue(

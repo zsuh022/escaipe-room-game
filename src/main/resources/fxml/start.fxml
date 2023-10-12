@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Start.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.StartController">
+   <children>
+      <Button layoutY="-100.0" mnemonicParsing="false" />
+      <ImageView fitHeight="768.0" fitWidth="1024.0" visible="false">
+         <image>
+            <Image url="@../images/menuImages/menuBackground.png" />
+         </image>
+      </ImageView>
+      <MediaView fx:id="earthMediaView" fitHeight="768.0" x="-340.0" />
+      <Pane fx:id="startPane" prefHeight="768.0" prefWidth="1024.0">
+         <children>
+            <Button fx:id="btnNewGame" alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" onAction="#onNewGameButtonClicked" prefWidth="330.0" text="New Game">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER_RIGHT" layoutX="-10.0" layoutY="10.0" prefWidth="1024.0" styleClass="titleLabel" text="ESCAPE THE &#10;SPACE STATION " textAlignment="RIGHT">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Label>
+            <Pane fx:id="difficultyPane" layoutX="504.0" layoutY="284.0" onMouseEntered="#onSelectDifficulty" onMouseExited="#onExitDifficultyPane" prefHeight="80.0" prefWidth="500.0">
+               <children>
+                  <Label fx:id="easyLabel" alignment="CENTER" layoutX="27.5" layoutY="10.0" onMouseClicked="#onClickEasy" onMouseEntered="#onHoverEasy" onMouseExited="#onExitEasyDifficulty" prefHeight="60.0" prefWidth="130.0" text="Easy">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="mediumLabel" alignment="CENTER" layoutX="185.0" layoutY="10.0" onMouseClicked="#onClickMedium" onMouseEntered="#onHoverMedium" onMouseExited="#onExitMediumDifficulty" prefHeight="60.0" prefWidth="130.0" text="Medium">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="hardLabel" alignment="CENTER" layoutX="342.5" layoutY="10.0" onMouseClicked="#onClickHard" onMouseEntered="#onHoverHard" onMouseExited="#onExitHardDifficulty" prefHeight="60.0" prefWidth="130.0" text="Hard">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="timePane" layoutX="504.0" layoutY="404.0" onMouseEntered="#onSelectTime" onMouseExited="#onExitTimePane" prefHeight="140.0" prefWidth="500.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="27.5" layoutY="60.0" prefHeight="60.0" prefWidth="130.0" styleClass="easyDifficulty" text="6 mins">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="185.0" layoutY="60.0" prefHeight="60.0" prefWidth="130.0" styleClass="mediumDifficulty" text="4 mins">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="342.5" layoutY="60.0" prefHeight="60.0" prefWidth="130.0" styleClass="hardDifficulty" text="2 mins">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="timeSlider" blockIncrement="1.0" layoutX="83.5" layoutY="25.0" majorTickUnit="1.0" max="2.0" minorTickCount="0" prefHeight="25.0" prefWidth="333.0" showTickMarks="true" snapToTicks="true" />
+               </children>
+            </Pane>
+            <Label fx:id="difficultyInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="284.0" pickOnBounds="false" prefWidth="230.0" text="Select a difficulty" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="easyHintLabel" alignment="CENTER" layoutX="230.0" layoutY="324.0" pickOnBounds="false" prefWidth="230.0" text="Unlimited Hint" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="mediumHintLabel" alignment="CENTER" layoutX="230.0" layoutY="324.0" pickOnBounds="false" prefWidth="230.0" text="5 Hints" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="hardHintLabel" alignment="CENTER" layoutX="230.0" layoutY="324.0" pickOnBounds="false" prefWidth="230.0" text="No Hints" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="timeInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="439.0" pickOnBounds="false" prefWidth="230.0" text="Slide to select the time&#10;you'll have to escape!" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectDifficultyLabel" alignment="CENTER" layoutY="580.0" pickOnBounds="false" prefWidth="1024.0" text="Please select a difficulty!" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="tutorialPane" prefHeight="768.0" prefWidth="1024.0" visible="false">
+         <children>
+            <Button fx:id="btnStart" alignment="CENTER" layoutX="346.0" layoutY="640.0" mnemonicParsing="false" onAction="#onStartButtonClicked" prefWidth="330.0" text="Start">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER_RIGHT" layoutX="-10.0" layoutY="10.0" prefWidth="1024.0" styleClass="titleLabel" text="TUTORIAL " textAlignment="RIGHT">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="120.0" layoutX="70.0" layoutY="100.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/gameMaster.png" />
+               </image>
+            </ImageView>
+            <Polygon layoutX="411.0" layoutY="294.0" points="-130.0, -105.0, -130.0, -20.0, 491.0, -20.0, 491.0, -130.0, -157.0, -130.0" strokeType="INSIDE" styleClass="polgon" />
+            <Label alignment="CENTER" layoutX="281.0" layoutY="182.0" prefHeight="74.0" prefWidth="621.0" styleClass="tutorialLabel" text="For in-game hints, click on me!&#10;Find me at the top-left corner of the game!" textAlignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <ImageView fitWidth="150.0" layoutX="670.0" layoutY="310.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/tutorialCursorBefore.png" />
+               </image>
+            </ImageView>
+            <ImageView fitWidth="30.0" layoutX="740.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/cursorDefault.png" />
+               </image>
+            </ImageView>
+            <ImageView fitWidth="150.0" layoutX="670.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/tutorialCursorAfter.png" />
+               </image>
+            </ImageView>
+            <ImageView fitWidth="30.0" layoutX="740.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/cursorHand.png" />
+               </image>
+            </ImageView>
+            <ImageView fitWidth="100.0" layoutX="840.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/tutorialArrow.png" />
+               </image>
+            </ImageView>
+            <Polygon layoutX="170.0" layoutY="479.0" points="0.0, 50.0, 420.0, 50.0, 420.0, -99.0, 0.0, -99.0" strokeType="INSIDE" styleClass="polgon" />
+            <Label alignment="CENTER" layoutX="170.0" layoutY="399.0" prefWidth="420.0" styleClass="tutorialLabel" text="Interactions will glow yellow&#10;when you hover your mouse&#10;over" textAlignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fx:id="nextImageView" fitHeight="768.0" fitWidth="1024.0" visible="false">
+         <image>
+            <Image url="@../images/room1.jpeg" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
