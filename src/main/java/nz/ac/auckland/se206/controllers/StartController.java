@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import java.net.URISyntaxException;
 import java.util.Random;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,6 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
 
@@ -25,6 +27,7 @@ public class StartController {
   @FXML private Label hardHintLabel;
   @FXML private Label mediumLabel;
   @FXML private Label mediumHintLabel;
+  @FXML private Label selectDifficultyLabel;
   @FXML private Label timeInfoLabel;
   @FXML private MediaView earthMediaView;
   @FXML private Pane difficultyPane;
@@ -96,12 +99,17 @@ public class StartController {
 
   @FXML
   private void onNewGameButtonClicked() {
-    startPane.setVisible(false);
-    tutorialPane.setVisible(true);
+    if (GameState.gameDifficulty == 0) {
+      showSelectDifficultyMessage();
 
-    setGameDifficulty();
-    setGameTime();
-    setKey();
+    } else {
+      startPane.setVisible(false);
+      tutorialPane.setVisible(true);
+
+      setGameDifficulty();
+      setGameTime();
+      setKey();
+    }
   }
 
   @FXML
@@ -127,6 +135,14 @@ public class StartController {
     // set information labels to invisible
     difficultyInfoLabel.setVisible(false);
     timeInfoLabel.setVisible(false);
+  }
+
+  private void showSelectDifficultyMessage() {
+    // show select difficulty message for 1 second
+    selectDifficultyLabel.setVisible(true);
+    PauseTransition hideLabel = new PauseTransition(Duration.seconds(1));
+    hideLabel.setOnFinished(e -> selectDifficultyLabel.setVisible(false));
+    hideLabel.play();
   }
 
   private void setDifficultyColour(Label clickedLabel, String difficulty) {

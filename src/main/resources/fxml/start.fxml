@@ -95,6 +95,11 @@
                   <Font size="24.0" />
                </font>
             </Label>
+            <Label fx:id="selectDifficultyLabel" alignment="CENTER" layoutY="580.0" pickOnBounds="false" prefWidth="1024.0" text="Please select a difficulty!" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane fx:id="tutorialPane" prefHeight="768.0" prefWidth="1024.0" visible="false">

@@ -61,3 +61,8 @@ Button {
     -fx-font-size: 36px;
     -fx-text-fill: #FFBB5C;
 }
+
+#selectDifficultyLabel {
+    -fx-font-size: 36px;
+    -fx-text-fill: #C63D2F;
+}
