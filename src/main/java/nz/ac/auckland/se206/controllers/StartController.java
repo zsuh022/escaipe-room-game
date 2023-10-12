@@ -145,7 +145,6 @@ public class StartController {
   /** this method will fade in the next image view. */
   private void fadeInNextImageView() {
     // fade in next image view
-    btnStart.setVisible(false);
     nextImageView.setVisible(true);
     FadeTransition fade = new FadeTransition(Duration.millis(1000), nextImageView);
     fade.setFromValue(0.0);

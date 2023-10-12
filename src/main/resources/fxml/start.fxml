@@ -125,34 +125,31 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Pane layoutX="670.0" layoutY="310.0" prefHeight="300.0" prefWidth="300.0">
-               <children>
-                  <ImageView fitWidth="150.0" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/menuImages/tutorialCursorBefore.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitWidth="30.0" layoutX="70.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/menuImages/cursorDefault.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitWidth="150.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/menuImages/tutorialCursorAfter.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitWidth="30.0" layoutX="70.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/menuImages/cursorHand.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitWidth="100.0" layoutX="170.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/menuImages/tutorialArrow.png" />
-                     </image></ImageView>
-               </children>
-            </Pane>
+            <ImageView fitWidth="150.0" layoutX="670.0" layoutY="310.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/tutorialCursorBefore.png" />
+               </image>
+            </ImageView>
+            <ImageView fitWidth="30.0" layoutX="740.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/cursorDefault.png" />
+               </image>
+            </ImageView>
+            <ImageView fitWidth="150.0" layoutX="670.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/tutorialCursorAfter.png" />
+               </image>
+            </ImageView>
+            <ImageView fitWidth="30.0" layoutX="740.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/cursorHand.png" />
+               </image>
+            </ImageView>
+            <ImageView fitWidth="100.0" layoutX="840.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menuImages/tutorialArrow.png" />
+               </image>
+            </ImageView>
             <Polygon layoutX="170.0" layoutY="479.0" points="0.0, 50.0, 420.0, 50.0, 420.0, -99.0, 0.0, -99.0" strokeType="INSIDE" styleClass="polgon" />
             <Label alignment="CENTER" layoutX="170.0" layoutY="399.0" prefWidth="420.0" styleClass="tutorialLabel" text="Interactions will glow yellow&#10;when you hover your mouse&#10;over" textAlignment="CENTER">
                <font>
