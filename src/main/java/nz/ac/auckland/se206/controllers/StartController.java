@@ -228,13 +228,13 @@ public class StartController {
     // set game time
     switch ((int) timeSlider.getValue()) {
       case 0:
-        GameState.timeManager.setTime(120);
+        GameState.timeManager.setTime(360);
         break;
       case 1:
         GameState.timeManager.setTime(240);
         break;
       case 2:
-        GameState.timeManager.setTime(360);
+        GameState.timeManager.setTime(120);
         break;
     }
   }
