@@ -33,17 +33,17 @@
             </Label>
             <Pane fx:id="difficultyPane" layoutX="504.0" layoutY="284.0" onMouseEntered="#onSelectDifficulty" onMouseExited="#onExitDifficultyPane" prefHeight="80.0" prefWidth="500.0">
                <children>
-                  <Label fx:id="easyLabel" alignment="CENTER" layoutX="27.5" layoutY="10.0" onMouseClicked="#onEasyClicked" prefHeight="60.0" prefWidth="130.0" text="Easy">
+                  <Label fx:id="easyLabel" alignment="CENTER" layoutX="27.5" layoutY="10.0" onMouseClicked="#onClickEasy" onMouseEntered="#onHoverEasy" onMouseExited="#onExitEasyDifficulty" prefHeight="60.0" prefWidth="130.0" text="Easy">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="mediumLabel" alignment="CENTER" layoutX="185.0" layoutY="10.0" onMouseClicked="#onMediumClicked" prefHeight="60.0" prefWidth="130.0" text="Medium">
+                  <Label fx:id="mediumLabel" alignment="CENTER" layoutX="185.0" layoutY="10.0" onMouseClicked="#onClickMedium" onMouseEntered="#onHoverMedium" onMouseExited="#onExitMediumDifficulty" prefHeight="60.0" prefWidth="130.0" text="Medium">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="hardLabel" alignment="CENTER" layoutX="342.5" layoutY="10.0" onMouseClicked="#onHardClicked" prefHeight="60.0" prefWidth="130.0" text="Hard">
+                  <Label fx:id="hardLabel" alignment="CENTER" layoutX="342.5" layoutY="10.0" onMouseClicked="#onClickHard" onMouseEntered="#onHoverHard" onMouseExited="#onExitHardDifficulty" prefHeight="60.0" prefWidth="130.0" text="Hard">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -75,7 +75,17 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="hintInfoLabel" alignment="CENTER" layoutX="230.0" layoutY="324.0" pickOnBounds="false" prefWidth="230.0" text="Hint" textAlignment="CENTER">
+            <Label fx:id="easyHintLabel" alignment="CENTER" layoutX="230.0" layoutY="324.0" pickOnBounds="false" prefWidth="230.0" text="Unlimited Hint" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="mediumHintLabel" alignment="CENTER" layoutX="230.0" layoutY="324.0" pickOnBounds="false" prefWidth="230.0" text="5 Hints" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="hardHintLabel" alignment="CENTER" layoutX="230.0" layoutY="324.0" pickOnBounds="false" prefWidth="230.0" text="No Hints" textAlignment="CENTER" visible="false">
                <font>
                   <Font size="24.0" />
                </font>
@@ -115,7 +125,8 @@
                   <ImageView fitWidth="150.0" preserveRatio="true">
                      <image>
                         <Image url="@../images/menuImages/tutorialCursorBefore.png" />
-                     </image></ImageView>
+                     </image>
+                  </ImageView>
                   <ImageView fitWidth="30.0" layoutX="70.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/menuImages/cursorDefault.png" />

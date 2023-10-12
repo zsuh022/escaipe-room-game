@@ -17,10 +17,12 @@ public class StartController {
   @FXML private Button btnNewGame;
   @FXML private Button btnStart;
   @FXML private Label easyLabel;
+  @FXML private Label easyHintLabel;
   @FXML private Label difficultyInfoLabel;
   @FXML private Label hardLabel;
-  @FXML private Label hintInfoLabel;
+  @FXML private Label hardHintLabel;
   @FXML private Label mediumLabel;
+  @FXML private Label mediumHintLabel;
   @FXML private Label timeInfoLabel;
   @FXML private MediaView earthMediaView;
   @FXML private Pane difficultyPane;
@@ -31,14 +33,43 @@ public class StartController {
 
   @FXML
   private void initialize() throws URISyntaxException {
-    initializeInfoLabels();
     initializeEarthMediaView();
+    initializeInfoLabels();
+  }
+
+  @FXML
+  private void onClickEasy(MouseEvent event) {
+    setDifficultyColour(easyLabel, "easy");
+  }
+
+  @FXML
+  private void onClickHard(MouseEvent event) {
+    setDifficultyColour(hardLabel, "hard");
+  }
+
+  @FXML
+  private void onClickMedium(MouseEvent event) {
+    setDifficultyColour(mediumLabel, "medium");
   }
 
   @FXML
   private void onExitDifficultyPane() {
     difficultyInfoLabel.setVisible(false);
-    hintInfoLabel.setVisible(false);
+  }
+
+  @FXML
+  private void onExitEasyDifficulty() {
+    easyHintLabel.setVisible(false);
+  }
+
+  @FXML
+  private void onExitHardDifficulty() {
+    hardHintLabel.setVisible(false);
+  }
+
+  @FXML
+  private void onExitMediumDifficulty() {
+    mediumHintLabel.setVisible(false);
   }
 
   @FXML
@@ -48,17 +79,17 @@ public class StartController {
 
   @FXML
   private void onHoverEasy() {
-    hintInfoLabel.setText("Unlimited Hints");
+    easyHintLabel.setVisible(true);
   }
 
   @FXML
   private void onHoverHard() {
-    hintInfoLabel.setText("No Hints");
+    hardHintLabel.setVisible(true);
   }
 
   @FXML
   private void onHoverMedium() {
-    hintInfoLabel.setText("5 Hints");
+    mediumHintLabel.setVisible(true);
   }
 
   @FXML
@@ -70,7 +101,6 @@ public class StartController {
   @FXML
   private void onSelectDifficulty() {
     difficultyInfoLabel.setVisible(true);
-    hintInfoLabel.setVisible(true);
   }
 
   @FXML
@@ -88,23 +118,7 @@ public class StartController {
 
   private void initializeInfoLabels() {
     difficultyInfoLabel.setVisible(false);
-    hintInfoLabel.setVisible(false);
     timeInfoLabel.setVisible(false);
-  }
-
-  @FXML
-  private void onEasyClicked(MouseEvent event) {
-    setDifficultyColour(easyLabel, "easy");
-  }
-
-  @FXML
-  private void onMediumClicked(MouseEvent event) {
-    setDifficultyColour(mediumLabel, "medium");
-  }
-
-  @FXML
-  private void onHardClicked(MouseEvent event) {
-    setDifficultyColour(hardLabel, "hard");
   }
 
   private void setDifficultyColour(Label clickedLabel, String difficulty) {
