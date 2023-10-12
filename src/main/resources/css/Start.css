@@ -10,6 +10,14 @@ Button {
     -fx-text-fill: #222831;
 }
 
+Button:hover {
+    -fx-background-color: #BBBBBB;
+}
+
+Button:pressed {
+    -fx-background-color: #81B214;
+}
+
 .easyDifficulty {
     -fx-font-size: 36px;
     -fx-text-fill: #81B214;
