@@ -178,11 +178,6 @@ public class ExitDoorController {
    */
   @FXML
   private void updateKeyLabel(String key) throws IOException {
-    // only allow a maximum of 8 digits
-    if (btnKeyPadDisplay.getText().length() >= 8) {
-      return;
-    }
-
     // check if clear is pressed
     if (key.equals("Clear")) {
       btnKeyPadDisplay.setText("");
@@ -192,6 +187,11 @@ public class ExitDoorController {
     // check if enter is pressed
     if (key.equals("Enter")) {
       checkKey();
+      return;
+    }
+
+    // only allow a maximum of 8 digits
+    if (btnKeyPadDisplay.getText().length() >= 8) {
       return;
     }
 
@@ -217,6 +217,7 @@ public class ExitDoorController {
     // if the number is correct, go to ending win
     System.out.println("entered key: " + n);
     System.out.println("correct key: " + GameState.key);
+
     if (n == GameState.key) {
       System.out.println("Key is correct");
       GameState.timeManager.stopTimer();
