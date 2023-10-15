@@ -173,18 +173,17 @@ public class ExitDoorController {
    */
   @FXML
   private void updateKeyLabel(String key) throws IOException {
-    // update key label when the key pressed
+    // only allow a maximum of 8 digits
+    if (btnKeyPadDisplay.getText().length() >= 8) {
+      return;
+    }
+
+    // check if clear is pressed
     if (key.equals("Clear")) {
       btnKeyPadDisplay.setText("");
       return;
     }
 
-    if (btnKeyPadDisplay.getText().length() > 8) {
-      if (key.equals("Enter")) {
-        checkKey();
-      }
-      return;
-    }
     // check if enter is pressed
     if (key.equals("Enter")) {
       checkKey();
