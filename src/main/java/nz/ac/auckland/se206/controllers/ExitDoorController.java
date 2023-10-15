@@ -187,8 +187,6 @@ public class ExitDoorController {
     }
     // check if enter is pressed
     if (key.equals("Enter")) {
-      System.out.println("1");
-
       checkKey();
       return;
     }
@@ -203,14 +201,12 @@ public class ExitDoorController {
    * @throws IOException if the input or output is invalid
    */
   private void checkKey() throws IOException {
-    // check if key entered in correct
-    System.out.println("2");
-
     if (btnKeyPadDisplay.getText().equals("")) {
+      // if the keypad is empty, show error message
       showErrorMessage();
       return;
     }
-    System.out.println("parsed the int");
+
     // get the number entered
     int n = Integer.parseInt(btnKeyPadDisplay.getText());
 
