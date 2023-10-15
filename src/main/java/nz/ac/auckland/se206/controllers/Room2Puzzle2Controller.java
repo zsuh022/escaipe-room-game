@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -370,6 +372,109 @@ public class Room2Puzzle2Controller {
       clickedButton.setDisable(true);
       clickedButton.setOpacity(0.5);
       handleKeyPressed(clickedButton.getText().charAt(0));
+    }
+  }
+
+  @FXML
+  private void onKeyPressed(KeyEvent event) {
+    if (!isPuzzleSolved) {
+      KeyCode keyCode = event.getCode();
+
+      // get the upper case letter from the key presses
+      String letter = event.getText().toUpperCase();
+
+      // handle the key press for the corresponding letter button
+      switch (keyCode) {
+        case A:
+          handleLetterKeyPress(buttonA, letter);
+          break;
+        case B:
+          handleLetterKeyPress(buttonB, letter);
+          break;
+        case C:
+          handleLetterKeyPress(buttonC, letter);
+          break;
+        case D:
+          handleLetterKeyPress(buttonD, letter);
+          break;
+        case E:
+          handleLetterKeyPress(buttonE, letter);
+          break;
+        case F:
+          handleLetterKeyPress(buttonF, letter);
+          break;
+        case G:
+          handleLetterKeyPress(buttonG, letter);
+          break;
+        case H:
+          handleLetterKeyPress(buttonH, letter);
+          break;
+        case I:
+          handleLetterKeyPress(buttonI, letter);
+          break;
+        case J:
+          handleLetterKeyPress(buttonJ, letter);
+          break;
+        case K:
+          handleLetterKeyPress(buttonK, letter);
+          break;
+        case L:
+          handleLetterKeyPress(buttonL, letter);
+          break;
+        case M:
+          handleLetterKeyPress(buttonM, letter);
+          break;
+        case N:
+          handleLetterKeyPress(buttonN, letter);
+          break;
+        case O:
+          handleLetterKeyPress(buttonO, letter);
+          break;
+        case P:
+          handleLetterKeyPress(buttonP, letter);
+          break;
+        case Q:
+          handleLetterKeyPress(buttonQ, letter);
+          break;
+        case R:
+          handleLetterKeyPress(buttonR, letter);
+          break;
+        case S:
+          handleLetterKeyPress(buttonS, letter);
+          break;
+        case T:
+          handleLetterKeyPress(buttonT, letter);
+          break;
+        case U:
+          handleLetterKeyPress(buttonU, letter);
+          break;
+        case V:
+          handleLetterKeyPress(buttonV, letter);
+          break;
+        case W:
+          handleLetterKeyPress(buttonW, letter);
+          break;
+        case X:
+          handleLetterKeyPress(buttonX, letter);
+          break;
+        case Y:
+          handleLetterKeyPress(buttonY, letter);
+          break;
+        case Z:
+          handleLetterKeyPress(buttonZ, letter);
+          break;
+        default:
+          // do nothing
+          break;
+      }
+    }
+  }
+
+  private void handleLetterKeyPress(Button button, String letter) {
+    if (!button.isDisable()) {
+      button.setDisable(true);
+      button.setOpacity(0.5);
+      handleKeyPressed(letter.charAt(0));
     }
   }
 }
