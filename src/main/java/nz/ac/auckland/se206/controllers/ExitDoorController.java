@@ -25,17 +25,19 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 /** Controller class for the room view. */
 public class ExitDoorController {
 
+  @FXML private Button btnClear;
+  @FXML private Button btnEnter;
+  @FXML private Button btnHint;
   @FXML private Button btnKeyPadDisplay;
   @FXML private Circle smallKeyPadCircle;
+  @FXML private ImageView crossImage;
   @FXML private ImageView smallKeyPad;
+  @FXML private ImageView waveImage;
   @FXML private Label keyPadMessageLabel;
   @FXML private Label timeLabel;
-  @FXML private Pane keyPad;
-  @FXML private ImageView crossImage;
-  @FXML private ImageView waveImage;
   @FXML private Pane indicationPane;
+  @FXML private Pane keyPad;
   @FXML private TextArea aiMessageTextArea;
-  @FXML private Button btnHint;
 
   /** this will initialize the controller. */
   @FXML
@@ -153,6 +155,9 @@ public class ExitDoorController {
     keyPad.setVisible(true);
     smallKeyPad.setVisible(false);
     smallKeyPadCircle.setVisible(false);
+
+    // request focus on the keypad
+    btnClear.requestFocus();
   }
 
   /** this will be called when the room 1 button is clicked and will switch to room 1. */
