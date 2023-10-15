@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
@@ -23,17 +25,19 @@ import nz.ac.auckland.se206.SceneManager.RoomType;
 /** Controller class for the room view. */
 public class ExitDoorController {
 
+  @FXML private Button btnClear;
+  @FXML private Button btnEnter;
+  @FXML private Button btnHint;
   @FXML private Button btnKeyPadDisplay;
   @FXML private Circle smallKeyPadCircle;
+  @FXML private ImageView crossImage;
   @FXML private ImageView smallKeyPad;
+  @FXML private ImageView waveImage;
   @FXML private Label keyPadMessageLabel;
   @FXML private Label timeLabel;
-  @FXML private Pane keyPad;
-  @FXML private ImageView crossImage;
-  @FXML private ImageView waveImage;
   @FXML private Pane indicationPane;
+  @FXML private Pane keyPad;
   @FXML private TextArea aiMessageTextArea;
-  @FXML private Button btnHint;
 
   /** this will initialize the controller. */
   @FXML
@@ -114,6 +118,29 @@ public class ExitDoorController {
     updateKeyLabel(button.getText());
   }
 
+  /**
+   * Handles keyboard key presses for input into the keypad. Number keys will add the number to the
+   * input, the enter key will submit the key, and the backspace will clear the input.
+   *
+   * @param event The KeyEvent representing the key press.
+   * @throws IOException If an I/O exception occurs.
+   */
+  @FXML
+  private void onKeyPressed(KeyEvent event) throws IOException {
+    KeyCode keyCode = event.getCode();
+
+    if (keyCode.isDigitKey()) {
+      // if the key pressed is a digit, update the key label with the digit
+      updateKeyLabel(keyCode.getName());
+    } else if (keyCode == KeyCode.ENTER) {
+      // if the key pressed is enter, check the label
+      updateKeyLabel("Enter");
+    } else if (keyCode == KeyCode.BACK_SPACE) {
+      // if the key pressed is backspace, clear the key label
+      updateKeyLabel("Clear");
+    }
+  }
+
   /** this will be called when the mute bar is clicked. */
   @FXML
   private void onMuteBarClicked() {
@@ -128,6 +155,9 @@ public class ExitDoorController {
     keyPad.setVisible(true);
     smallKeyPad.setVisible(false);
     smallKeyPadCircle.setVisible(false);
+
+    // request focus on the keypad
+    btnClear.requestFocus();
   }
 
   /** this will be called when the room 1 button is clicked and will switch to room 1. */
@@ -148,23 +178,20 @@ public class ExitDoorController {
    */
   @FXML
   private void updateKeyLabel(String key) throws IOException {
-    // update key label when the key pressed
+    // check if clear is pressed
     if (key.equals("Clear")) {
       btnKeyPadDisplay.setText("");
       return;
     }
 
-    if (btnKeyPadDisplay.getText().length() > 8) {
-      if (key.equals("Enter")) {
-        checkKey();
-      }
-      return;
-    }
     // check if enter is pressed
     if (key.equals("Enter")) {
-      System.out.println("1");
-
       checkKey();
+      return;
+    }
+
+    // only allow a maximum of 8 digits
+    if (btnKeyPadDisplay.getText().length() >= 8) {
       return;
     }
 
@@ -178,20 +205,19 @@ public class ExitDoorController {
    * @throws IOException if the input or output is invalid
    */
   private void checkKey() throws IOException {
-    // check if key entered in correct
-    System.out.println("2");
-
     if (btnKeyPadDisplay.getText().equals("")) {
+      // if the keypad is empty, show error message
       showErrorMessage();
       return;
     }
-    System.out.println("parsed the int");
+
     // get the number entered
     int n = Integer.parseInt(btnKeyPadDisplay.getText());
 
     // if the number is correct, go to ending win
     System.out.println("entered key: " + n);
     System.out.println("correct key: " + GameState.key);
+
     if (n == GameState.key) {
       System.out.println("Key is correct");
       GameState.timeManager.stopTimer();

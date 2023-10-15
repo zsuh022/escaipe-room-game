@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -72,7 +74,7 @@ public class Room2Puzzle2Controller {
   private int chanceCount;
   // goes from 0 to 5
   private int correctCount;
-  private boolean gameState = false;
+  private boolean isPuzzleSolved = false;
 
   /** this will be called when the puzzle is solved. */
   private void puzzleSolved() {
@@ -116,7 +118,7 @@ public class Room2Puzzle2Controller {
   private void initialize() {
     word = new ArrayList<String>();
     initializeTimer();
-    gameState = false;
+    isPuzzleSolved = false;
     // intialize keyboard
     Button[] buttons = {
       buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ,
@@ -291,7 +293,7 @@ public class Room2Puzzle2Controller {
       if (correctCount == 5) {
         // if the word is correct, set the game state to true
         puzzleSolved();
-        gameState = true;
+        isPuzzleSolved = true;
         room2Puzzle2State.setText("PUZZLE CORRECT");
         rectangleGameState.setFill(Color.LIGHTGREEN);
         rectangleGameState.setOpacity(1);
@@ -339,7 +341,7 @@ public class Room2Puzzle2Controller {
       } else {
         // if the chance count is 6, set the last rectangle to red and set the game state to true
         chanceCount++;
-        gameState = true;
+        isPuzzleSolved = true;
         chance6.setFill(Color.RED);
         room2Puzzle2State.setText("PUZZLE FAILED");
         rectangleGameState.setFill(Color.LIGHTPINK);
@@ -365,11 +367,125 @@ public class Room2Puzzle2Controller {
   /** this will be keboard is pressed. */
   @FXML
   private void onLetterButtonClicked(ActionEvent event) {
-    if (!gameState) {
+    if (!isPuzzleSolved) {
       Button clickedButton = (Button) event.getSource();
       clickedButton.setDisable(true);
       clickedButton.setOpacity(0.5);
       handleKeyPressed(clickedButton.getText().charAt(0));
+    }
+  }
+
+  /**
+   * This method associates each key press event with a corresponding letter button and handles it.
+   *
+   * @param event The KeyEvent representing the key press event.
+   */
+  @FXML
+  private void onKeyPressed(KeyEvent event) {
+    if (!isPuzzleSolved) {
+      KeyCode keyCode = event.getCode();
+
+      // get the upper case letter from the key presses
+      String letter = event.getText().toUpperCase();
+
+      // handle the key press for the corresponding letter button
+      switch (keyCode) {
+        case A:
+          handleLetterKeyPress(buttonA, letter);
+          break;
+        case B:
+          handleLetterKeyPress(buttonB, letter);
+          break;
+        case C:
+          handleLetterKeyPress(buttonC, letter);
+          break;
+        case D:
+          handleLetterKeyPress(buttonD, letter);
+          break;
+        case E:
+          handleLetterKeyPress(buttonE, letter);
+          break;
+        case F:
+          handleLetterKeyPress(buttonF, letter);
+          break;
+        case G:
+          handleLetterKeyPress(buttonG, letter);
+          break;
+        case H:
+          handleLetterKeyPress(buttonH, letter);
+          break;
+        case I:
+          handleLetterKeyPress(buttonI, letter);
+          break;
+        case J:
+          handleLetterKeyPress(buttonJ, letter);
+          break;
+        case K:
+          handleLetterKeyPress(buttonK, letter);
+          break;
+        case L:
+          handleLetterKeyPress(buttonL, letter);
+          break;
+        case M:
+          handleLetterKeyPress(buttonM, letter);
+          break;
+        case N:
+          handleLetterKeyPress(buttonN, letter);
+          break;
+        case O:
+          handleLetterKeyPress(buttonO, letter);
+          break;
+        case P:
+          handleLetterKeyPress(buttonP, letter);
+          break;
+        case Q:
+          handleLetterKeyPress(buttonQ, letter);
+          break;
+        case R:
+          handleLetterKeyPress(buttonR, letter);
+          break;
+        case S:
+          handleLetterKeyPress(buttonS, letter);
+          break;
+        case T:
+          handleLetterKeyPress(buttonT, letter);
+          break;
+        case U:
+          handleLetterKeyPress(buttonU, letter);
+          break;
+        case V:
+          handleLetterKeyPress(buttonV, letter);
+          break;
+        case W:
+          handleLetterKeyPress(buttonW, letter);
+          break;
+        case X:
+          handleLetterKeyPress(buttonX, letter);
+          break;
+        case Y:
+          handleLetterKeyPress(buttonY, letter);
+          break;
+        case Z:
+          handleLetterKeyPress(buttonZ, letter);
+          break;
+        default:
+          // do nothing
+          break;
+      }
+    }
+  }
+
+  /**
+   * Helper method to handle the key press for a specific letter button.
+   *
+   * @param button The Button representing the letter button that was pressed.
+   * @param letter The uppercase letter associated with the button's key press.
+   */
+  private void handleLetterKeyPress(Button button, String letter) {
+    if (!button.isDisable()) {
+      button.setDisable(true);
+      button.setOpacity(0.5);
+      handleKeyPressed(letter.charAt(0));
     }
   }
 }
