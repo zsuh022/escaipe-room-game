@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
@@ -112,6 +114,18 @@ public class ExitDoorController {
     EventTarget target = event.getTarget();
     Button button = (Button) target;
     updateKeyLabel(button.getText());
+  }
+
+  @FXML
+  private void onKeyPressed(KeyEvent event) throws IOException {
+    KeyCode keyCode = event.getCode();
+    if (keyCode.isDigitKey()) {
+      updateKeyLabel(keyCode.getName());
+    } else if (keyCode == KeyCode.ENTER) {
+      updateKeyLabel("Enter");
+    } else if (keyCode == KeyCode.BACK_SPACE) {
+      updateKeyLabel("Clear");
+    }
   }
 
   /** this will be called when the mute bar is clicked. */
