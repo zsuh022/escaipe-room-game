@@ -375,6 +375,11 @@ public class Room2Puzzle2Controller {
     }
   }
 
+  /**
+   * This method associates each key press event with a corresponding letter button and handles it.
+   *
+   * @param event The KeyEvent representing the key press event.
+   */
   @FXML
   private void onKeyPressed(KeyEvent event) {
     if (!isPuzzleSolved) {
@@ -470,6 +475,12 @@ public class Room2Puzzle2Controller {
     }
   }
 
+  /**
+   * Helper method to handle the key press for a specific letter button.
+   *
+   * @param button The Button representing the letter button that was pressed.
+   * @param letter The uppercase letter associated with the button's key press.
+   */
   private void handleLetterKeyPress(Button button, String letter) {
     if (!button.isDisable()) {
       button.setDisable(true);
