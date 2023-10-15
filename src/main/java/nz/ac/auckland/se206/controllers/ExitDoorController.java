@@ -116,14 +116,25 @@ public class ExitDoorController {
     updateKeyLabel(button.getText());
   }
 
+  /**
+   * Handles keyboard key presses for input into the keypad. Number keys will add the number to the
+   * input, the enter key will submit the key, and the backspace will clear the input.
+   *
+   * @param event The KeyEvent representing the key press.
+   * @throws IOException If an I/O exception occurs.
+   */
   @FXML
   private void onKeyPressed(KeyEvent event) throws IOException {
     KeyCode keyCode = event.getCode();
+
     if (keyCode.isDigitKey()) {
+      // if the key pressed is a digit, update the key label with the digit
       updateKeyLabel(keyCode.getName());
     } else if (keyCode == KeyCode.ENTER) {
+      // if the key pressed is enter, check the label
       updateKeyLabel("Enter");
     } else if (keyCode == KeyCode.BACK_SPACE) {
+      // if the key pressed is backspace, clear the key label
       updateKeyLabel("Clear");
     }
   }
