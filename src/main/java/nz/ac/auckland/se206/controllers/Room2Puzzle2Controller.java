@@ -72,7 +72,7 @@ public class Room2Puzzle2Controller {
   private int chanceCount;
   // goes from 0 to 5
   private int correctCount;
-  private boolean gameState = false;
+  private boolean isPuzzleSolved = false;
 
   /** this will be called when the puzzle is solved. */
   private void puzzleSolved() {
@@ -116,7 +116,7 @@ public class Room2Puzzle2Controller {
   private void initialize() {
     word = new ArrayList<String>();
     initializeTimer();
-    gameState = false;
+    isPuzzleSolved = false;
     // intialize keyboard
     Button[] buttons = {
       buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ,
@@ -291,7 +291,7 @@ public class Room2Puzzle2Controller {
       if (correctCount == 5) {
         // if the word is correct, set the game state to true
         puzzleSolved();
-        gameState = true;
+        isPuzzleSolved = true;
         room2Puzzle2State.setText("PUZZLE CORRECT");
         rectangleGameState.setFill(Color.LIGHTGREEN);
         rectangleGameState.setOpacity(1);
@@ -339,7 +339,7 @@ public class Room2Puzzle2Controller {
       } else {
         // if the chance count is 6, set the last rectangle to red and set the game state to true
         chanceCount++;
-        gameState = true;
+        isPuzzleSolved = true;
         chance6.setFill(Color.RED);
         room2Puzzle2State.setText("PUZZLE FAILED");
         rectangleGameState.setFill(Color.LIGHTPINK);
@@ -365,7 +365,7 @@ public class Room2Puzzle2Controller {
   /** this will be keboard is pressed. */
   @FXML
   private void onLetterButtonClicked(ActionEvent event) {
-    if (!gameState) {
+    if (!isPuzzleSolved) {
       Button clickedButton = (Button) event.getSource();
       clickedButton.setDisable(true);
       clickedButton.setOpacity(0.5);
