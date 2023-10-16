@@ -12,9 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css"
-   xmlns="http://javafx.com/javafx/20.0.1"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
+<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0">
@@ -51,7 +49,7 @@
             </Label>
          </children>
       </Pane>
-      <Polygon fx:id="polygon2Room3Puzzle2" fill="DODGERBLUE" layoutX="10.0" layoutY="10.0" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="69.0, 457.0, 581.0, 470.0, 581.0, 187.0, 69.0, 179.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
+      <Polygon fx:id="polygon2Room3Puzzle2" fill="DODGERBLUE" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="587.0, 421.5, 587.0, 248.0, 508.5, 199.0, 163.0, 199.0, 103.0, 248.0, 103.0, 436.0, 190.0, 470.0, 523.0, 470.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -65,7 +63,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="78.5, 480.0, 589.5, 480.0, 589.5, 190.0, 78.5, 190.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" visible="false">
+      <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="587.0, 421.5, 587.0, 248.0, 508.5, 199.0, 163.0, 199.0, 103.0, 248.0, 103.0, 436.0, 190.0, 470.0, 523.0, 470.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
