@@ -120,23 +120,8 @@ public class Room2Puzzle2Controller {
       initializeButton(button);
     }
 
-    // intialize word and puzzle
-    letter1.setText("");
-    letter2.setText("");
-    letter3.setText("");
-    letter4.setText("");
-    letter5.setText("");
-    chance1.setFill(Color.WHITE);
-    chance2.setFill(Color.WHITE);
-    chance3.setFill(Color.WHITE);
-    chance4.setFill(Color.WHITE);
-    chance5.setFill(Color.WHITE);
-    chance6.setFill(Color.WHITE);
-    chanceCount = 0;
-    correctCount = 0;
-    room2Puzzle2State.setText("");
-    rectangleGameState.setOpacity(0);
-    setSpaces(Color.WHITE);
+    initializeWord();
+    initializePuzzle();
 
     // get new word
     newWord((int) (1 + (Math.random() * (8))));
@@ -414,6 +399,30 @@ public class Room2Puzzle2Controller {
       button.setOpacity(0.5);
       handleKeyPressed(letter.charAt(0));
     }
+  }
+
+  /** This method will initialize the word. */
+  private void initializeWord() {
+    letter1.setText("");
+    letter2.setText("");
+    letter3.setText("");
+    letter4.setText("");
+    letter5.setText("");
+  }
+
+  /** This method will initialize the puzzle. */
+  private void initializePuzzle() {
+    chance1.setFill(Color.WHITE);
+    chance2.setFill(Color.WHITE);
+    chance3.setFill(Color.WHITE);
+    chance4.setFill(Color.WHITE);
+    chance5.setFill(Color.WHITE);
+    chance6.setFill(Color.WHITE);
+    chanceCount = 0;
+    correctCount = 0;
+    room2Puzzle2State.setText("");
+    rectangleGameState.setOpacity(0);
+    setSpaces(Color.WHITE);
   }
 
   /**
