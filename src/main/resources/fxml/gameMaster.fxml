@@ -11,7 +11,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/GameMaster.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameMasterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/GameMaster.css"
+   xmlns="http://javafx.com/javafx/20.0.1"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameMasterController">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1024.0">
          <image>
@@ -28,6 +30,16 @@
             <Font size="18.0" />
          </font>
       </TextArea>
+      <Pane fx:id="indicationPane" layoutY="670.0" prefHeight="108.0" prefWidth="1024.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#515457" height="108.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
+            <Label layoutX="366.0" layoutY="29.0" prefHeight="50.0" prefWidth="368.0" text="Houston - Earth" textFill="#fffdfd">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Button fx:id="btnSend" layoutX="726.0" layoutY="600.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send">
          <font>
             <Font size="24.0" />
@@ -38,7 +50,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="160.0" layoutX="40.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameMaster.png" />
          </image>
@@ -53,16 +65,6 @@
             <Label fx:id="timeLabel" layoutX="120.0" layoutY="21.0">
                <font>
                   <Font size="36.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane fx:id="indicationPane" layoutY="670.0" prefHeight="108.0" prefWidth="1024.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#515457" height="108.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
-            <Label layoutX="366.0" layoutY="29.0" prefHeight="50.0" prefWidth="368.0" text="Houston - Earth" textFill="#fffdfd">
-               <font>
-                  <Font size="45.0" />
                </font>
             </Label>
          </children>

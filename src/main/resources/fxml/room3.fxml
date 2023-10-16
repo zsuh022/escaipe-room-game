@@ -12,7 +12,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
+<Pane fx:id="room" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Rooms.css"
+   xmlns="http://javafx.com/javafx/20.0.1"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room3Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0">
@@ -28,7 +30,8 @@
       <Polygon fx:id="polygonRoom3Puzzle1" fill="DODGERBLUE" layoutX="935.0" layoutY="389.0" onMouseClicked="#onRoom3Puzzle1Clicked" opacity="0.0" points="-85.0, 3.0, 89.0, 24.0, 89.0, -95.0, -85.0, -69.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Polygon>
+         </cursor>
+      </Polygon>
       <Polygon fx:id="blackBackGround" layoutX="54.0" layoutY="294.0" points="48.5, 142.0, 135.5, 175.0, 468.5, 175.0, 533.5, 127.0, 533.5, -45.0, 454.5, -95.0, 109.5, -95.0, 48.5, -45.0" stroke="BLACK" strokeType="INSIDE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -51,7 +54,8 @@
       <Polygon fx:id="polygon2Room3Puzzle2" fill="DODGERBLUE" layoutX="10.0" layoutY="10.0" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="69.0, 457.0, 581.0, 470.0, 581.0, 187.0, 69.0, 179.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Polygon>
+         </cursor>
+      </Polygon>
       <Pane fx:id="puzzle2Pane" layoutX="70.0" layoutY="177.0" prefHeight="297.0" prefWidth="522.0">
          <children>
             <ImageView fitHeight="171.0" fitWidth="464.0" layoutX="40.0" layoutY="75.0">
@@ -64,7 +68,8 @@
       <Polygon fx:id="polygonRoom3Puzzle2" fill="DODGERBLUE" onMouseClicked="#onRoom3Puzzle2Clicked" opacity="0.0" points="78.5, 480.0, 589.5, 480.0, 589.5, 190.0, 78.5, 190.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Polygon>
+         </cursor>
+      </Polygon>
       <Pane layoutX="700.0" layoutY="10.0" pickOnBounds="false" prefHeight="150.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
@@ -113,7 +118,7 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="170.0" fitWidth="189.0" layoutX="44.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="160.0" layoutX="40.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameMaster.png" />
          </image>
@@ -129,7 +134,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Polygon fill="DODGERBLUE" layoutX="-19.0" layoutY="256.0" onMouseClicked="#onGameMasterClicked" points="100.53632354736328, -89.0, 145.11734008789062, -64.88265991210938, 190.97207641601562, -89.0, 230.3126678466797, -151.0, 218.9944305419922, -236.00001525878906, 145.11734008789062, -216.45809936523438, 69.96649169921875, -236.00001525878906, 61.999996185302734, -151.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
+      <Polygon fill="DODGERBLUE" layoutX="-18.0" layoutY="256.0" onMouseClicked="#onGameMasterClicked" points="138.0, -76.0, 167.0, -84.25, 165.3333282470703, -95.33332824707031, 185.75, -112.5, 195.5, -128.5, 200.0, -142.66665649414062, 203.5, -138.25, 211.75, -142.66665649414062, 215.75, -159.75, 211.75, -171.5, 203.5, -175.75, 207.5, -220.5, 211.75, -222.75, 213.75, -228.25, 211.75, -233.0, 207.5, -235.25, 202.0, -233.0, 200.0, -228.25, 202.0, -222.75, 203.5, -220.5, 202.0, -175.75, 198.25, -175.75, 192.5, -189.75, 178.5, -205.75, 156.75, -217.5, 138.0, -220.5, 117.25, -217.5, 95.25, -205.75, 82.25, -189.75, 76.0, -175.75, 73.25, -175.75, 70.75, -222.75, 70.75, -222.75, 76.0, -224.75, 77.5, -228.25, 76.0, -233.0, 70.75, -235.25, 66.5, -233.0, 65.0, -228.25, 68.0, -222.75, 70.75, -175.75, 62.99999237060547, -171.5, 59.74999237060547, -159.75, 62.99999237060547, -142.66665649414062, 67.99999237060547, -138.25, 75.99999237060547, -142.66665649414062, 77.5, -128.5, 88.49998474121094, -110.75, 109.83334350585938, -95.33332824707031, 107.99999237060547, -84.25" stroke="BLACK" strokeType="INSIDE" styleClass="shape">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
