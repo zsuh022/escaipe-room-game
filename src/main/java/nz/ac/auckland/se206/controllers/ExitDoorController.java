@@ -27,6 +27,7 @@ public class ExitDoorController {
 
   @FXML private Button btnClear;
   @FXML private Button btnEnter;
+  @FXML private Button btnGoRoom1;
   @FXML private Button btnHint;
   @FXML private Button btnKeyPadDisplay;
   @FXML private Circle smallKeyPadCircle;
@@ -90,6 +91,9 @@ public class ExitDoorController {
     smallKeyPad.setVisible(true);
     smallKeyPadCircle.setVisible(true);
     btnKeyPadDisplay.setText("");
+
+    // enable go to room 1 button
+    btnGoRoom1.setDisable(false);
   }
 
   /** this will be called when the hint button is clicked. */
@@ -158,6 +162,9 @@ public class ExitDoorController {
 
     // request focus on the keypad
     btnClear.requestFocus();
+
+    // disable go to room 1 button
+    btnGoRoom1.setDisable(true);
   }
 
   /** this will be called when the room 1 button is clicked and will switch to room 1. */
