@@ -49,6 +49,10 @@ public class GameState {
 
   public static StringProperty sharedMessage = new SimpleStringProperty("");
 
+  public static int round = 1;
+
+  public static int[] puzzleRoom23 = new int[2];
+
   /** this will reset all the variables for a new game. */
   public static void reset() {
     // reset all the variables for a new game
@@ -71,5 +75,7 @@ public class GameState {
     latestHint = new SimpleStringProperty("");
     requestHint = new SimpleBooleanProperty(false);
     sharedMessage = new SimpleStringProperty("");
+    round++;
+    System.out.println("Round: " + round);
   }
 }

@@ -194,7 +194,15 @@ public class Room3Controller {
   /** this method will initialize the puzzle. */
   private void initializePuzzle() {
     // choosing random puzzle for implementation
-    int randomNumber = random.nextInt(2) + 1;
+    random = new Random();
+    int randomNumber = 1;
+    if (GameState.round != 2) {
+      randomNumber = random.nextInt(2) + 1;
+    } else if (GameState.puzzleRoom23[1] == 1) {
+      randomNumber = 2;
+    } else if (GameState.puzzleRoom23[1] == 2) {
+      randomNumber = 1;
+    }
     System.out.println("Room 3 puzzle number: " + randomNumber);
 
     // initalizing puzzle for use
@@ -204,6 +212,7 @@ public class Room3Controller {
       polygonRoom3Puzzle2.setVisible(false);
       polygon2Room3Puzzle2.setVisible(false);
       blackBackGround.setVisible(false);
+      GameState.puzzleRoom23[1] = 1;
     } else if (randomNumber == 2) {
       polygonRoom3Puzzle1.setVisible(false);
       puzzle2Pane.setVisible(true);
@@ -211,6 +220,7 @@ public class Room3Controller {
       polygonRoom3Puzzle2.setVisible(true);
       polygon2Room3Puzzle2.setVisible(true);
       blackBackGround.setVisible(true);
+      GameState.puzzleRoom23[1] = 2;
     }
   }
 

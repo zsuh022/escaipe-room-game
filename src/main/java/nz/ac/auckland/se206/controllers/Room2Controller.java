@@ -168,15 +168,24 @@ public class Room2Controller {
   /** This method will initialize the puzzle. */
   private void initializePuzzle() {
     random = new Random();
-    int randomNumber = random.nextInt(2) + 1;
+    int randomNumber = 1;
+    if (GameState.round != 2) {
+      randomNumber = random.nextInt(2) + 1;
+    } else if (GameState.puzzleRoom23[0] == 1) {
+      randomNumber = 2;
+    } else if (GameState.puzzleRoom23[0] == 2) {
+      randomNumber = 1;
+    }
 
     // set which puzzle to do
     if (randomNumber == 1) {
       polygonRoom2Puzzle1.setVisible(true);
       polygonRoom2Puzzle2.setVisible(false);
+      GameState.puzzleRoom23[0] = 1;
     } else {
       polygonRoom2Puzzle1.setVisible(false);
       polygonRoom2Puzzle2.setVisible(true);
+      GameState.puzzleRoom23[0] = 2;
     }
   }
 
