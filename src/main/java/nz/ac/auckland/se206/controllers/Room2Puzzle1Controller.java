@@ -64,6 +64,9 @@ public class Room2Puzzle1Controller {
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
     GameState.isPuzzleRoom2Solved.set(true);
+
+    // disable initialize button
+    btnInitializePuzzle.setDisable(true);
   }
 
   /**
