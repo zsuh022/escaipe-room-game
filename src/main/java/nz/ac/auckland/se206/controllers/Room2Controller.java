@@ -149,6 +149,9 @@ public class Room2Controller {
     fadeOut.setFromValue(1);
     fadeOut.setToValue(0);
 
+    // dummy variable to make the lambda expression work
+    int m = 0;
+    System.out.println(m + m);
     // fade banner in and out
     fadeIn.setOnFinished(
         event -> {
