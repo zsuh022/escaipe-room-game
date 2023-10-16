@@ -72,11 +72,11 @@ public class Room2Puzzle2Controller {
   @FXML private Pane keyboardPane;
 
   private ArrayList<String> word = new ArrayList<String>();
-  // goes from 0 to 6
-  private int chanceCount;
-  // goes from 0 to 5
-  private int correctCount;
   private boolean isPuzzleSolved = false;
+  // chanceCount goes from 0 to 6
+  private int chanceCount;
+  // correctCount goes from 0 to 5
+  private int correctCount;
 
   /**
    * This method will flash the colour.
@@ -107,8 +107,8 @@ public class Room2Puzzle2Controller {
   @FXML
   private void initialize() {
     word = new ArrayList<String>();
-    initializeTimer();
     isPuzzleSolved = false;
+
     // intialize keyboard
     Button[] buttons = {
       buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ,
@@ -120,21 +120,12 @@ public class Room2Puzzle2Controller {
       initializeButton(button);
     }
 
+    initializeTimer();
     initializeWord();
     initializePuzzle();
 
     // get new word
     newWord((int) (1 + (Math.random() * (8))));
-  }
-
-  /**
-   * This method will initialize the button.
-   *
-   * @param button the button to initialize
-   */
-  private void initializeButton(Button button) {
-    button.setDisable(false);
-    button.setOpacity(1);
   }
 
   /** This method will initialize the timer. */
@@ -401,13 +392,14 @@ public class Room2Puzzle2Controller {
     }
   }
 
-  /** This method will initialize the word. */
-  private void initializeWord() {
-    letter1.setText("");
-    letter2.setText("");
-    letter3.setText("");
-    letter4.setText("");
-    letter5.setText("");
+  /**
+   * This method will initialize the button.
+   *
+   * @param button the button to initialize
+   */
+  private void initializeButton(Button button) {
+    button.setDisable(false);
+    button.setOpacity(1);
   }
 
   /** This method will initialize the puzzle. */
@@ -423,6 +415,15 @@ public class Room2Puzzle2Controller {
     room2Puzzle2State.setText("");
     rectangleGameState.setOpacity(0);
     setSpaces(Color.WHITE);
+  }
+
+  /** This method will initialize the word. */
+  private void initializeWord() {
+    letter1.setText("");
+    letter2.setText("");
+    letter3.setText("");
+    letter4.setText("");
+    letter5.setText("");
   }
 
   /**
@@ -485,6 +486,9 @@ public class Room2Puzzle2Controller {
   private void puzzleSolved() {
     System.out.println("Puzzle solved");
     GameState.isPuzzleRoom2Solved.set(true);
+
+    // disable reset button
+    btnResetPuzzle.setDisable(true);
   }
 
   /**
