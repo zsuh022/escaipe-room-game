@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle1.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle1Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle1.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle1Controller">
    <children>
       <Button layoutY="-50.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
@@ -36,8 +36,8 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="306.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="518.0" />
-      <Label fx:id="puzzle2Label" layoutX="314.0" layoutY="183.0" text="L">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="60.0" layoutX="300.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="520.0" />
+      <Label fx:id="puzzle2Label" alignment="CENTER" layoutX="300.0" layoutY="175.0" prefHeight="60.0" prefWidth="520.0" text="Text">
          <font>
             <Font size="31.0" />
          </font>
