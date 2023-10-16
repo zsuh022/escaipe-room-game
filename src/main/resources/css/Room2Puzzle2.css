@@ -2,16 +2,6 @@
     -fx-font-family: "Times New Roman", serif;
 }
 
-Button {
-    -fx-background-color: #F1F6F9;
-    -fx-font-size: 26px;
-    -fx-text-fill: #212A3E;
-}
-
-Button:hover {
-    -fx-background-color: #9BA4B5;
-}
-
 #btnExitPuzzle,
 #btnResetPuzzle {
     -fx-background-color: #F1F6F9;
@@ -21,5 +11,15 @@ Button:hover {
 
 #btnExitPuzzle:hover,
 #btnResetPuzzle:hover {
+    -fx-background-color: #9BA4B5;
+}
+
+#keyboardPane Button {
+    -fx-background-color: #F1F6F9;
+    -fx-font-size: 24px;
+    -fx-text-fill: #212A3E;
+}
+
+#keyboardPane Button:hover {
     -fx-background-color: #9BA4B5;
 }

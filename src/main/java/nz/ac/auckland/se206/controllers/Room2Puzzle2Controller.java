@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -54,39 +55,28 @@ public class Room2Puzzle2Controller {
   @FXML private Label letter3;
   @FXML private Label letter4;
   @FXML private Label letter5;
+  @FXML private Label room2Puzzle2State;
+  @FXML private Label timeLabel;
   @FXML private Rectangle chance1;
   @FXML private Rectangle chance2;
   @FXML private Rectangle chance3;
   @FXML private Rectangle chance4;
   @FXML private Rectangle chance5;
   @FXML private Rectangle chance6;
-  @FXML private Label room2Puzzle2State;
   @FXML private Rectangle rectangleGameState;
   @FXML private Rectangle space1;
   @FXML private Rectangle space2;
   @FXML private Rectangle space3;
   @FXML private Rectangle space4;
   @FXML private Rectangle space5;
-  @FXML private Label timeLabel;
+  @FXML private Pane keyboardPane;
 
   private ArrayList<String> word = new ArrayList<String>();
-  // goes from 0 to 6
-  private int chanceCount;
-  // goes from 0 to 5
-  private int correctCount;
   private boolean isPuzzleSolved = false;
-
-  /** this will be called when the puzzle is solved. */
-  private void puzzleSolved() {
-    System.out.println("Puzzle solved");
-    GameState.isPuzzleRoom2Solved.set(true);
-  }
-
-  /** This method will initialize the timer. */
-  @FXML
-  private void initializeTimer() {
-    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
-  }
+  // chanceCount goes from 0 to 6
+  private int chanceCount;
+  // correctCount goes from 0 to 5
+  private int correctCount;
 
   /**
    * This method will flash the colour.
@@ -117,8 +107,8 @@ public class Room2Puzzle2Controller {
   @FXML
   private void initialize() {
     word = new ArrayList<String>();
-    initializeTimer();
     isPuzzleSolved = false;
+
     // intialize keyboard
     Button[] buttons = {
       buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ,
@@ -130,92 +120,143 @@ public class Room2Puzzle2Controller {
       initializeButton(button);
     }
 
-    // intialize word and puzzle
-    letter1.setText("");
-    letter2.setText("");
-    letter3.setText("");
-    letter4.setText("");
-    letter5.setText("");
-    chance1.setFill(Color.WHITE);
-    chance2.setFill(Color.WHITE);
-    chance3.setFill(Color.WHITE);
-    chance4.setFill(Color.WHITE);
-    chance5.setFill(Color.WHITE);
-    chance6.setFill(Color.WHITE);
-    chanceCount = 0;
-    correctCount = 0;
-    room2Puzzle2State.setText("");
-    rectangleGameState.setOpacity(0);
-    setSpaces(Color.WHITE);
+    initializeTimer();
+    initializeWord();
+    initializePuzzle();
 
     // get new word
     newWord((int) (1 + (Math.random() * (8))));
   }
 
-  /**
-   * This method will initialize the button.
-   *
-   * @param button the button to initialize
-   */
-  private void initializeButton(Button button) {
-    button.setDisable(false);
-    button.setOpacity(1);
+  /** This method will initialize the timer. */
+  @FXML
+  private void initializeTimer() {
+    timeLabel.textProperty().bind(GameState.timeManager.getSecond().asString());
+  }
+
+  /** This method will be called when the exit button is clicked. */
+  @FXML
+  private void onBackButtonClicked() {
+    App.setUi(RoomType.ROOM2);
   }
 
   /**
-   * This method will initialize the puzzle.
+   * This method associates each key press event with a corresponding letter button and handles it.
    *
-   * @param randomInt the random integer
+   * @param event The KeyEvent representing the key press event.
    */
-  private void newWord(Integer randomInt) {
-    // add the characters to the word arraylist
-    switch (randomInt) {
-      case 1:
-        // add COMET to the arraylist
-        addCharacters("COMET");
-        System.out.println("COMET");
-        break;
-      case 2:
-        // add SOLAR to the arraylist
-        addCharacters("SOLAR");
-        System.out.println("SOLAR");
-        break;
-      case 3:
-        // add STARS to the arraylist
-        addCharacters("STARS");
-        System.out.println("STARS");
-        break;
-      case 4:
-        // add EARTH to the arraylist
-        addCharacters("EARTH");
-        System.out.println("EARTH");
-        break;
-      case 5:
-        // add VENUS to the arraylist
-        addCharacters("VENUS");
-        System.out.println("VENUS");
-        break;
-      case 6:
-        // add PLUTO to the arraylist
-        addCharacters("PLUTO");
-        System.out.println("PLUTO");
-        break;
-      case 7:
-        // add ORION to the arraylist
-        addCharacters("ORION");
-        System.out.println("ORION");
-        break;
-      case 8:
-        // add MOONS to the arraylist
-        addCharacters("MOONS");
-        System.out.println("MOONS");
-        break;
-      default:
-        // add PLUTO to the arraylist
-        addCharacters("PLUTO");
-        System.out.println("PLUTO");
-        break;
+  @FXML
+  private void onKeyPressed(KeyEvent event) {
+    if (!isPuzzleSolved) {
+      KeyCode keyCode = event.getCode();
+
+      // get the upper case letter from the key presses
+      String letter = event.getText().toUpperCase();
+
+      // handle the key press for the corresponding letter button
+      switch (keyCode) {
+        case A:
+          handleLetterKeyPress(buttonA, letter);
+          break;
+        case B:
+          handleLetterKeyPress(buttonB, letter);
+          break;
+        case C:
+          handleLetterKeyPress(buttonC, letter);
+          break;
+        case D:
+          handleLetterKeyPress(buttonD, letter);
+          break;
+        case E:
+          handleLetterKeyPress(buttonE, letter);
+          break;
+        case F:
+          handleLetterKeyPress(buttonF, letter);
+          break;
+        case G:
+          handleLetterKeyPress(buttonG, letter);
+          break;
+        case H:
+          handleLetterKeyPress(buttonH, letter);
+          break;
+        case I:
+          handleLetterKeyPress(buttonI, letter);
+          break;
+        case J:
+          handleLetterKeyPress(buttonJ, letter);
+          break;
+        case K:
+          handleLetterKeyPress(buttonK, letter);
+          break;
+        case L:
+          handleLetterKeyPress(buttonL, letter);
+          break;
+        case M:
+          handleLetterKeyPress(buttonM, letter);
+          break;
+        case N:
+          handleLetterKeyPress(buttonN, letter);
+          break;
+        case O:
+          handleLetterKeyPress(buttonO, letter);
+          break;
+        case P:
+          handleLetterKeyPress(buttonP, letter);
+          break;
+        case Q:
+          handleLetterKeyPress(buttonQ, letter);
+          break;
+        case R:
+          handleLetterKeyPress(buttonR, letter);
+          break;
+        case S:
+          handleLetterKeyPress(buttonS, letter);
+          break;
+        case T:
+          handleLetterKeyPress(buttonT, letter);
+          break;
+        case U:
+          handleLetterKeyPress(buttonU, letter);
+          break;
+        case V:
+          handleLetterKeyPress(buttonV, letter);
+          break;
+        case W:
+          handleLetterKeyPress(buttonW, letter);
+          break;
+        case X:
+          handleLetterKeyPress(buttonX, letter);
+          break;
+        case Y:
+          handleLetterKeyPress(buttonY, letter);
+          break;
+        case Z:
+          handleLetterKeyPress(buttonZ, letter);
+          break;
+        default:
+          // do nothing
+          break;
+      }
     }
+  }
+
+  /** This method will be called when a letter button is clicked. */
+  @FXML
+  private void onLetterButtonClicked(ActionEvent event) {
+    if (!isPuzzleSolved) {
+      Button clickedButton = (Button) event.getSource();
+      clickedButton.setDisable(true);
+      clickedButton.setOpacity(0.5);
+      handleKeyPressed(clickedButton.getText().charAt(0));
+    }
+  }
+
+  /** This method will be called when the reset button is clicked. */
+  @FXML
+  private void onResetButtonClicked() {
+    // clear the current word from the arraylist
+    word.clear();
+    initialize();
   }
 
   /**
@@ -231,19 +272,6 @@ public class Room2Puzzle2Controller {
       word.add(string.substring(3, 4));
       word.add(string.substring(4, 5));
     }
-  }
-
-  /**
-   * This method will set the spaces to the colour.
-   *
-   * @param color the colour to set
-   */
-  private void setSpaces(Color color) {
-    space1.setFill(color);
-    space2.setFill(color);
-    space3.setFill(color);
-    space4.setFill(color);
-    space5.setFill(color);
   }
 
   /** This method will flash the spaces red. */
@@ -350,131 +378,6 @@ public class Room2Puzzle2Controller {
     }
   }
 
-  /** this will be called when reset. */
-  @FXML
-  private void onResetButtonClicked() {
-    // clear the current word from the arraylist
-    word.clear();
-    initialize();
-  }
-
-  /** this will be called when going back. */
-  @FXML
-  private void onBackButtonClicked() {
-    App.setUi(RoomType.ROOM2);
-  }
-
-  /** this will be keboard is pressed. */
-  @FXML
-  private void onLetterButtonClicked(ActionEvent event) {
-    if (!isPuzzleSolved) {
-      Button clickedButton = (Button) event.getSource();
-      clickedButton.setDisable(true);
-      clickedButton.setOpacity(0.5);
-      handleKeyPressed(clickedButton.getText().charAt(0));
-    }
-  }
-
-  /**
-   * This method associates each key press event with a corresponding letter button and handles it.
-   *
-   * @param event The KeyEvent representing the key press event.
-   */
-  @FXML
-  private void onKeyPressed(KeyEvent event) {
-    if (!isPuzzleSolved) {
-      KeyCode keyCode = event.getCode();
-
-      // get the upper case letter from the key presses
-      String letter = event.getText().toUpperCase();
-
-      // handle the key press for the corresponding letter button
-      switch (keyCode) {
-        case A:
-          handleLetterKeyPress(buttonA, letter);
-          break;
-        case B:
-          handleLetterKeyPress(buttonB, letter);
-          break;
-        case C:
-          handleLetterKeyPress(buttonC, letter);
-          break;
-        case D:
-          handleLetterKeyPress(buttonD, letter);
-          break;
-        case E:
-          handleLetterKeyPress(buttonE, letter);
-          break;
-        case F:
-          handleLetterKeyPress(buttonF, letter);
-          break;
-        case G:
-          handleLetterKeyPress(buttonG, letter);
-          break;
-        case H:
-          handleLetterKeyPress(buttonH, letter);
-          break;
-        case I:
-          handleLetterKeyPress(buttonI, letter);
-          break;
-        case J:
-          handleLetterKeyPress(buttonJ, letter);
-          break;
-        case K:
-          handleLetterKeyPress(buttonK, letter);
-          break;
-        case L:
-          handleLetterKeyPress(buttonL, letter);
-          break;
-        case M:
-          handleLetterKeyPress(buttonM, letter);
-          break;
-        case N:
-          handleLetterKeyPress(buttonN, letter);
-          break;
-        case O:
-          handleLetterKeyPress(buttonO, letter);
-          break;
-        case P:
-          handleLetterKeyPress(buttonP, letter);
-          break;
-        case Q:
-          handleLetterKeyPress(buttonQ, letter);
-          break;
-        case R:
-          handleLetterKeyPress(buttonR, letter);
-          break;
-        case S:
-          handleLetterKeyPress(buttonS, letter);
-          break;
-        case T:
-          handleLetterKeyPress(buttonT, letter);
-          break;
-        case U:
-          handleLetterKeyPress(buttonU, letter);
-          break;
-        case V:
-          handleLetterKeyPress(buttonV, letter);
-          break;
-        case W:
-          handleLetterKeyPress(buttonW, letter);
-          break;
-        case X:
-          handleLetterKeyPress(buttonX, letter);
-          break;
-        case Y:
-          handleLetterKeyPress(buttonY, letter);
-          break;
-        case Z:
-          handleLetterKeyPress(buttonZ, letter);
-          break;
-        default:
-          // do nothing
-          break;
-      }
-    }
-  }
-
   /**
    * Helper method to handle the key press for a specific letter button.
    *
@@ -487,5 +390,117 @@ public class Room2Puzzle2Controller {
       button.setOpacity(0.5);
       handleKeyPressed(letter.charAt(0));
     }
+  }
+
+  /**
+   * This method will initialize the button.
+   *
+   * @param button the button to initialize
+   */
+  private void initializeButton(Button button) {
+    button.setDisable(false);
+    button.setOpacity(1);
+  }
+
+  /** This method will initialize the puzzle. */
+  private void initializePuzzle() {
+    chance1.setFill(Color.WHITE);
+    chance2.setFill(Color.WHITE);
+    chance3.setFill(Color.WHITE);
+    chance4.setFill(Color.WHITE);
+    chance5.setFill(Color.WHITE);
+    chance6.setFill(Color.WHITE);
+    chanceCount = 0;
+    correctCount = 0;
+    room2Puzzle2State.setText("");
+    rectangleGameState.setOpacity(0);
+    setSpaces(Color.WHITE);
+  }
+
+  /** This method will initialize the word. */
+  private void initializeWord() {
+    letter1.setText("");
+    letter2.setText("");
+    letter3.setText("");
+    letter4.setText("");
+    letter5.setText("");
+  }
+
+  /**
+   * This method will initialize the puzzle.
+   *
+   * @param randomInt the random integer
+   */
+  private void newWord(Integer randomInt) {
+    // add the characters to the word arraylist
+    switch (randomInt) {
+      case 1:
+        // add COMET to the arraylist
+        addCharacters("COMET");
+        System.out.println("COMET");
+        break;
+      case 2:
+        // add SOLAR to the arraylist
+        addCharacters("SOLAR");
+        System.out.println("SOLAR");
+        break;
+      case 3:
+        // add STARS to the arraylist
+        addCharacters("STARS");
+        System.out.println("STARS");
+        break;
+      case 4:
+        // add EARTH to the arraylist
+        addCharacters("EARTH");
+        System.out.println("EARTH");
+        break;
+      case 5:
+        // add VENUS to the arraylist
+        addCharacters("VENUS");
+        System.out.println("VENUS");
+        break;
+      case 6:
+        // add PLUTO to the arraylist
+        addCharacters("PLUTO");
+        System.out.println("PLUTO");
+        break;
+      case 7:
+        // add ORION to the arraylist
+        addCharacters("ORION");
+        System.out.println("ORION");
+        break;
+      case 8:
+        // add MOONS to the arraylist
+        addCharacters("MOONS");
+        System.out.println("MOONS");
+        break;
+      default:
+        // add PLUTO to the arraylist
+        addCharacters("PLUTO");
+        System.out.println("PLUTO");
+        break;
+    }
+  }
+
+  /** This method will be called when the puzzle is solved. */
+  private void puzzleSolved() {
+    System.out.println("Puzzle solved");
+    GameState.isPuzzleRoom2Solved.set(true);
+
+    // disable reset button
+    btnResetPuzzle.setDisable(true);
+  }
+
+  /**
+   * This method will set the spaces to the colour.
+   *
+   * @param color the colour to set
+   */
+  private void setSpaces(Color color) {
+    space1.setFill(color);
+    space2.setFill(color);
+    space3.setFill(color);
+    space4.setFill(color);
+    space5.setFill(color);
   }
 }
