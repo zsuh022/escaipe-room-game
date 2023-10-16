@@ -8,11 +8,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle2.css"
-   xmlns="http://javafx.com/javafx/20.0.1"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle2Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/Room2Puzzle2.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.Room2Puzzle2Controller">
    <children>
-      <Button layoutY="-100.0" mnemonicParsing="false" />
       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/room2Puzzle2.jpg" />
@@ -229,4 +226,3 @@
       </Pane>
    </children>
 </Pane>
-
