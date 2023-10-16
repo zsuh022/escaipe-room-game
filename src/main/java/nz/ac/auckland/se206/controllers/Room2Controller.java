@@ -169,7 +169,6 @@ public class Room2Controller {
   private void initializePuzzle() {
     random = new Random();
     int randomNumber = random.nextInt(2) + 1;
-    randomNumber = 2;
 
     // set which puzzle to do
     if (randomNumber == 1) {

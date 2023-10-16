@@ -171,6 +171,7 @@ public class Room2Puzzle2Controller {
           handleLetterKeyPress(buttonE, letter);
           break;
         case F:
+          // example of button f being pressed
           handleLetterKeyPress(buttonF, letter);
           break;
         case G:
@@ -186,6 +187,7 @@ public class Room2Puzzle2Controller {
           handleLetterKeyPress(buttonJ, letter);
           break;
         case K:
+          // example of button k being pressed
           handleLetterKeyPress(buttonK, letter);
           break;
         case L:
@@ -204,6 +206,7 @@ public class Room2Puzzle2Controller {
           handleLetterKeyPress(buttonP, letter);
           break;
         case Q:
+          // example of button q being pressed
           handleLetterKeyPress(buttonQ, letter);
           break;
         case R:
@@ -222,6 +225,7 @@ public class Room2Puzzle2Controller {
           handleLetterKeyPress(buttonV, letter);
           break;
         case W:
+          // example of button w being pressed
           handleLetterKeyPress(buttonW, letter);
           break;
         case X:
@@ -234,7 +238,7 @@ public class Room2Puzzle2Controller {
           handleLetterKeyPress(buttonZ, letter);
           break;
         default:
-          // do nothing
+          // do nothing if the key pressed is not a letter
           break;
       }
     }
@@ -404,12 +408,14 @@ public class Room2Puzzle2Controller {
 
   /** This method will initialize the puzzle. */
   private void initializePuzzle() {
+    // initialize the puzzle to not solved
     chance1.setFill(Color.WHITE);
     chance2.setFill(Color.WHITE);
     chance3.setFill(Color.WHITE);
     chance4.setFill(Color.WHITE);
     chance5.setFill(Color.WHITE);
     chance6.setFill(Color.WHITE);
+    // reset the chance count and correct count
     chanceCount = 0;
     correctCount = 0;
     room2Puzzle2State.setText("");
