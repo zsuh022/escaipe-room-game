@@ -9,8 +9,13 @@ Button {
 }
 
 ScrollPane {
+    -fx-background-color: #000000;
     -fx-border-color: #7952B3;
     -fx-border-width: 3px;
+}
+
+ScrollPane .viewport {
+    -fx-background-color: #000000;
 }
 
 VBox {
