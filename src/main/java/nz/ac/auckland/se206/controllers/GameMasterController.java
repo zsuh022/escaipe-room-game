@@ -11,10 +11,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
@@ -30,20 +31,21 @@ import nz.ac.auckland.se206.gpt.openai.ChatCompletionResult.Choice;
 public class GameMasterController {
 
   @FXML private Button btnSend;
-  @FXML private TextArea chatTextArea;
-  @FXML private TextField inputTextArea;
-  @FXML private Label timeLabel;
-  @FXML private Pane waitingResponsePane;
-  @FXML private Label transLabel;
-  @FXML private Pane indicationPane;
-  @FXML private Label transLabel1;
-  @FXML private Label hintRemainLabel;
   @FXML private Label hintNumberLabel;
+  @FXML private Label hintRemainLabel;
+  @FXML private Label timeLabel;
+  @FXML private Label transLabel;
+  @FXML private Label transLabel1;
+  @FXML private Pane indicationPane;
+  @FXML private Pane waitingResponsePane;
+  @FXML private ScrollPane chatScrollPane;
+  @FXML private TextField inputTextArea;
+  @FXML private VBox chatVBox;
+
   private Timeline labelAnimationTimeline;
   private int updateCount = 0;
   private ChatCompletionRequest chatCompletionRequest;
   private int updateCount1 = 0;
-  private String role = "";
 
   /**
    * Initializes the chat view, loading the riddle.
@@ -56,7 +58,6 @@ public class GameMasterController {
     initializeTimer();
     updateCount = 0;
     updateCount1 = 0;
-    chatTextArea.setEditable(false);
     waitingResponsePane.setVisible(false);
     transLabel1.setVisible(false);
     GameState.currentRoom.addListener(
@@ -128,9 +129,44 @@ public class GameMasterController {
           }
         });
 
+    // scroll to the bottom when the chat message is added
+    chatVBox.heightProperty().addListener((obs, oldVal, newVal) -> chatScrollPane.setVvalue(1.0));
+
+    // make the scroll pane fit to width
+    chatScrollPane.setFitToWidth(true);
+
     // set the hint number
     setHintNumber();
     thread.start();
+  }
+
+  /**
+   * This method will append the chat message to the chat area.
+   *
+   * @param msg The chat message to be appended.
+   */
+  private void appendChatMessage(ChatMessage msg) {
+    String role;
+    if (msg.getRole().equals("assistant")) {
+      role = "Earth";
+    } else {
+      role = "You";
+    }
+
+    // create a label for the role
+    Label roleLabel = new Label(role + ":");
+    roleLabel.setId("chatLabel");
+
+    // create a button for the message
+    Button messageButton = new Button(msg.getContent());
+    messageButton.setId("chatButton");
+    messageButton.setWrapText(true);
+
+    Platform.runLater(
+        () -> {
+          // add the role and message to the chat area
+          chatVBox.getChildren().addAll(roleLabel, messageButton);
+        });
   }
 
   /** this will be called when the hint number needs to be set. */
@@ -189,21 +225,6 @@ public class GameMasterController {
           indicationPane.setVisible(false);
         });
     fadeIn.play();
-  }
-
-  /**
-   * Appends a chat message to the chat text area.
-   *
-   * @param msg the chat message to append
-   */
-  public void appendChatMessage(ChatMessage msg) {
-    if (msg.getRole().equals("assistant")) {
-      // if the message is from the assistant, then set the role to Earth
-      role = "Earth";
-    } else {
-      role = "You";
-    }
-    Platform.runLater(() -> chatTextArea.appendText(role + ": " + msg.getContent() + "\n\n"));
   }
 
   /**
