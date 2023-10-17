@@ -153,8 +153,9 @@ public class GameMasterController {
       role = "You";
     }
 
-    int k = 0;
-    System.out.println(k++);
+    int l = 0;
+    l = l + 1;
+    System.out.println(l);
 
     // create a label for the role
     Label roleLabel = new Label(role + ":");
