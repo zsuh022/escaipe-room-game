@@ -83,12 +83,12 @@
             </Label>
          </children>
       </Pane>
-      <Label fx:id="hintRemainLabel" layoutX="14.0" layoutY="250.0" prefHeight="44.0" prefWidth="179.0" text="Hint Remaining: " textFill="WHITE">
+      <Label fx:id="hintRemainLabel" layoutX="24.0" layoutY="250.0" prefHeight="44.0" prefWidth="179.0" text="Hint Remaining: " textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="hintNumberLabel" layoutX="159.0" layoutY="254.0" prefHeight="40.0" prefWidth="51.0" text="5 " textFill="WHITE">
+      <Label fx:id="hintNumberLabel" layoutX="169.0" layoutY="254.0" prefHeight="40.0" prefWidth="51.0" text="5 " textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
