@@ -152,8 +152,9 @@ public class RiddleChatController {
       role = "You";
     }
 
-    int k = 0;
-    System.out.println(k++);
+    int q = 0;
+    q = q + 1;
+    System.out.println(q);
 
     // create a label for the role
     Label roleLabel = new Label(role + ":");
