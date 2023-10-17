@@ -46,7 +46,6 @@ public class GameMasterController {
   private int updateCount = 0;
   private ChatCompletionRequest chatCompletionRequest;
   private int updateCount1 = 0;
-  private String role = "";
 
   /**
    * Initializes the chat view, loading the riddle.
