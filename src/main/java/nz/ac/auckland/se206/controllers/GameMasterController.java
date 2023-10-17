@@ -129,6 +129,8 @@ public class GameMasterController {
           }
         });
 
+    chatVBox.heightProperty().addListener((obs, oldVal, newVal) -> chatScrollPane.setVvalue(1.0));
+
     // set the hint number
     setHintNumber();
     thread.start();
@@ -152,9 +154,6 @@ public class GameMasterController {
     Platform.runLater(
         () -> {
           chatVBox.getChildren().addAll(roleLabel, messageButton);
-
-          // scroll to the bottom
-          chatScrollPane.setVvalue(1.0);
         });
   }
 
