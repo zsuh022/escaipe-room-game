@@ -151,11 +151,10 @@ public class GameMasterController {
 
     Platform.runLater(
         () -> {
-          chatVBox.getChildren().add(roleLabel);
-          chatVBox.getChildren().add(messageButton);
+          chatVBox.getChildren().addAll(roleLabel, messageButton);
 
-          // Ensure the scroll pane scrolls to show the most recent message
-          chatScrollPane.vvalueProperty().bind(chatVBox.heightProperty());
+          // scroll to the bottom
+          chatScrollPane.setVvalue(1.0);
         });
   }
 
