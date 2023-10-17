@@ -38,3 +38,9 @@ VBox {
     -fx-font-size: 18px;
     -fx-background-color: #000000;
 }
+
+#inputTextArea {
+    -fx-border-color: #7952B3;
+    -fx-border-width: 3px;
+    -fx-font-size: 24px;
+}
