@@ -37,12 +37,11 @@ public class RiddleChatController {
   @FXML private Pane waitingResponsePane;
   @FXML private ScrollPane chatScrollPane;
   @FXML private TextField inputTextArea;
-  @FXML private VBox chatVBox;
+  @FXML private VBox chatBox;
 
   private Timeline labelAnimationTimeline;
   private ChatCompletionRequest chatCompletionRequest;
   private int updateCount1 = 0;
-  private String role = "";
 
   /**
    * Initializes the chat view, loading the riddle.
@@ -134,7 +133,7 @@ public class RiddleChatController {
     thread.start();
 
     // scroll to the bottom when the chat message is added
-    chatVBox.heightProperty().addListener((obs, oldVal, newVal) -> chatScrollPane.setVvalue(1.0));
+    chatBox.heightProperty().addListener((obs, oldVal, newVal) -> chatScrollPane.setVvalue(1.0));
 
     // make the scroll pane fit to width
     chatScrollPane.setFitToWidth(true);
@@ -153,6 +152,9 @@ public class RiddleChatController {
       role = "You";
     }
 
+    int k = 0;
+    System.out.println(k++);
+
     // create a label for the role
     Label roleLabel = new Label(role + ":");
     roleLabel.setId("chatLabel");
@@ -165,7 +167,7 @@ public class RiddleChatController {
     Platform.runLater(
         () -> {
           // add the role and message to the chat area
-          chatVBox.getChildren().addAll(roleLabel, messageButton);
+          chatBox.getChildren().addAll(roleLabel, messageButton);
         });
   }
 
