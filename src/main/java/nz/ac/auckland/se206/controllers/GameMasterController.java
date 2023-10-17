@@ -132,6 +132,9 @@ public class GameMasterController {
     // scroll to the bottom when the chat message is added
     chatVBox.heightProperty().addListener((obs, oldVal, newVal) -> chatScrollPane.setVvalue(1.0));
 
+    // make the scroll pane fit to width
+    chatScrollPane.setFitToWidth(true);
+
     // set the hint number
     setHintNumber();
     thread.start();
