@@ -143,12 +143,12 @@ public class GameMasterController {
     }
 
     Label chatMessageLabel = new Label(role + ": " + msg.getContent());
-    chatMessageLabel.setWrapText(true); // to handle longer chat messages
+    chatMessageLabel.setId("chatLabel");
+    chatMessageLabel.setWrapText(true);
 
     Platform.runLater(
         () -> {
           chatVBox.getChildren().add(chatMessageLabel);
-          // Ensure the latest message is always visible
           chatScrollPane.vvalueProperty().bind(chatVBox.heightProperty());
         });
   }
@@ -210,21 +210,6 @@ public class GameMasterController {
         });
     fadeIn.play();
   }
-
-  // /**
-  //  * Appends a chat message to the chat text area.
-  //  *
-  //  * @param msg the chat message to append
-  //  */
-  // public void appendChatMessage(ChatMessage msg) {
-  //   if (msg.getRole().equals("assistant")) {
-  //     // if the message is from the assistant, then set the role to Earth
-  //     role = "Earth";
-  //   } else {
-  //     role = "You";
-  //   }
-  //   Platform.runLater(() -> chatTextArea.appendText(role + ": " + msg.getContent() + "\n\n"));
-  // }
 
   /**
    * Runs the GPT model with a given chat message.

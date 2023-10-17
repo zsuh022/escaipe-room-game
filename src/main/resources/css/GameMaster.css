@@ -2,36 +2,30 @@
     -fx-font-family: "Times New Roman", serif;
 }
 
-TextArea {
-    -fx-text-fill: #212A3E;
-    -fx-font-size: 20px;
-    -fx-text-fill: #ffffff;
-    -fx-control-inner-background: #000000;
-}
-
-#chatTextArea {
-    -fx-text-fill: #ffffff;
-    -fx-border-color: #7952B3;
-    -fx-border-width: 3px;
-    -fx-font-size: 20px;
-    -fx-control-inner-background: #000000;
-
-}
-
-#inputTextArea {
-    -fx-border-color: #7952B3;
-    -fx-border-width: 3px;
-    -fx-font-size: 24px;
-}
-
 Button {
     -fx-background-color: #F1F6F9;
     -fx-font-size: 24px;
     -fx-text-fill: #212A3E;
 }
 
+ScrollPane {
+    -fx-border-color: #7952B3;
+    -fx-border-width: 3px;
+}
+
+VBox {
+    -fx-background-color: #000000;
+    -fx-padding: 20px;
+}
+
 #btnSend:hover,
 #btnGoBack:hover {
     -fx-background-color: #9BA4B5;
     -fx-font-size: 24px;
+}
+
+#chatLabel {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-background-color: #000000;
 }

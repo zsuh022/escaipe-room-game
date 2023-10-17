@@ -24,7 +24,7 @@
             <Font size="24.0" />
          </font>
       </TextField>
-      <ScrollPane fx:id="chatScrollPane" layoutX="212.0" layoutY="104.0" prefHeight="450.0" prefWidth="600.0">
+      <ScrollPane fx:id="chatScrollPane" hbarPolicy="NEVER" layoutX="212.0" layoutY="104.0" prefHeight="450.0" prefWidth="600.0">
          <content>
             <VBox fx:id="chatVBox" prefHeight="450.0" prefWidth="600.0" spacing="20.0" />
          </content>
