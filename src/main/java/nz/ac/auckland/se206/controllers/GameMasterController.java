@@ -129,6 +129,7 @@ public class GameMasterController {
           }
         });
 
+    // scroll to the bottom when the chat message is added
     chatVBox.heightProperty().addListener((obs, oldVal, newVal) -> chatScrollPane.setVvalue(1.0));
 
     // set the hint number
@@ -136,6 +137,11 @@ public class GameMasterController {
     thread.start();
   }
 
+  /**
+   * This method will append the chat message to the chat area.
+   *
+   * @param msg The chat message to be appended.
+   */
   private void appendChatMessage(ChatMessage msg) {
     String role;
     if (msg.getRole().equals("assistant")) {
@@ -144,15 +150,18 @@ public class GameMasterController {
       role = "You";
     }
 
+    // create a label for the role
     Label roleLabel = new Label(role + ":");
     roleLabel.setId("chatLabel");
 
+    // create a button for the message
     Button messageButton = new Button(msg.getContent());
     messageButton.setId("chatButton");
     messageButton.setWrapText(true);
 
     Platform.runLater(
         () -> {
+          // add the role and message to the chat area
           chatVBox.getChildren().addAll(roleLabel, messageButton);
         });
   }
