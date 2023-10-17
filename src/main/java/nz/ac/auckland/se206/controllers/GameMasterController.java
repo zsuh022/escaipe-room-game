@@ -11,10 +11,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameState;
@@ -30,15 +32,18 @@ import nz.ac.auckland.se206.gpt.openai.ChatCompletionResult.Choice;
 public class GameMasterController {
 
   @FXML private Button btnSend;
+  @FXML private Label hintNumberLabel;
+  @FXML private Label hintRemainLabel;
+  @FXML private Label timeLabel;
+  @FXML private Label transLabel;
+  @FXML private Label transLabel1;
+  @FXML private Pane indicationPane;
+  @FXML private Pane waitingResponsePane;
+  @FXML private ScrollPane chatScrollPane;
   @FXML private TextArea chatTextArea;
   @FXML private TextField inputTextArea;
-  @FXML private Label timeLabel;
-  @FXML private Pane waitingResponsePane;
-  @FXML private Label transLabel;
-  @FXML private Pane indicationPane;
-  @FXML private Label transLabel1;
-  @FXML private Label hintRemainLabel;
-  @FXML private Label hintNumberLabel;
+  @FXML private VBox chatVBox;
+
   private Timeline labelAnimationTimeline;
   private int updateCount = 0;
   private ChatCompletionRequest chatCompletionRequest;
@@ -133,6 +138,25 @@ public class GameMasterController {
     thread.start();
   }
 
+  private void appendChatMessage(ChatMessage msg) {
+    String role;
+    if (msg.getRole().equals("assistant")) {
+      role = "Earth";
+    } else {
+      role = "You";
+    }
+
+    Label chatMessageLabel = new Label(role + ": " + msg.getContent());
+    chatMessageLabel.setWrapText(true); // to handle longer chat messages
+
+    Platform.runLater(
+        () -> {
+          chatVBox.getChildren().add(chatMessageLabel);
+          // Ensure the latest message is always visible
+          chatScrollPane.vvalueProperty().bind(chatVBox.heightProperty());
+        });
+  }
+
   /** this will be called when the hint number needs to be set. */
   private void setHintNumber() {
     if (GameState.gameDifficulty == 2) {
@@ -191,20 +215,20 @@ public class GameMasterController {
     fadeIn.play();
   }
 
-  /**
-   * Appends a chat message to the chat text area.
-   *
-   * @param msg the chat message to append
-   */
-  public void appendChatMessage(ChatMessage msg) {
-    if (msg.getRole().equals("assistant")) {
-      // if the message is from the assistant, then set the role to Earth
-      role = "Earth";
-    } else {
-      role = "You";
-    }
-    Platform.runLater(() -> chatTextArea.appendText(role + ": " + msg.getContent() + "\n\n"));
-  }
+  // /**
+  //  * Appends a chat message to the chat text area.
+  //  *
+  //  * @param msg the chat message to append
+  //  */
+  // public void appendChatMessage(ChatMessage msg) {
+  //   if (msg.getRole().equals("assistant")) {
+  //     // if the message is from the assistant, then set the role to Earth
+  //     role = "Earth";
+  //   } else {
+  //     role = "You";
+  //   }
+  //   Platform.runLater(() -> chatTextArea.appendText(role + ": " + msg.getContent() + "\n\n"));
+  // }
 
   /**
    * Runs the GPT model with a given chat message.
