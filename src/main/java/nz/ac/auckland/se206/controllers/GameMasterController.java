@@ -142,13 +142,19 @@ public class GameMasterController {
       role = "You";
     }
 
-    Label chatMessageLabel = new Label(role + ": " + msg.getContent());
-    chatMessageLabel.setId("chatLabel");
-    chatMessageLabel.setWrapText(true);
+    Label roleLabel = new Label(role + ":");
+    roleLabel.setId("chatLabel");
+
+    Button messageButton = new Button(msg.getContent());
+    messageButton.setId("chatButton");
+    messageButton.setWrapText(true);
 
     Platform.runLater(
         () -> {
-          chatVBox.getChildren().add(chatMessageLabel);
+          chatVBox.getChildren().add(roleLabel);
+          chatVBox.getChildren().add(messageButton);
+
+          // Ensure the scroll pane scrolls to show the most recent message
           chatScrollPane.vvalueProperty().bind(chatVBox.heightProperty());
         });
   }
